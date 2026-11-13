@@ -4,6 +4,11 @@ import {FONT_TITRE} from '../fonts';
 const COULEURS: Record<string, {bg: string; fg: string}> = {
   MAIS: {bg: '#E63946', fg: 'white'},
   ATTENTION: {bg: '#FFD60A', fg: '#111'},
+  'RÈGLE N°1': {bg: '#0077B6', fg: 'white'},
+  'EN CLAIR': {bg: '#06D6A0', fg: '#111'},
+  'PLAN B': {bg: '#FF70A6', fg: 'white'},
+  POURQUOI: {bg: '#F77F00', fg: 'white'},
+  SUITE: {bg: '#7B2CBF', fg: 'white'},
 };
 
 /** Étiquette de pivot qui "claque" en haut de l'écran. */

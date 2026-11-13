@@ -1,8 +1,8 @@
 [
   {
-    "texte": "Max est aujourd'hui {mot}",
+    "texte": "Max est aujourd'hui {mot}.",
     "decor": "studio",
-    "expression": "fier",
+    "expression": "content",
     "element_visuel": {
       "type": "mots_rotatifs",
       "mots": [
@@ -36,28 +36,206 @@
   },
   {
     "texte": "Mais un million de vues… ça paie combien, au juste ?",
-    "decor": "rue",
+    "decor": "bureau",
     "expression": "perplexe",
-    "element_visuel": {
-      "type": "icone",
-      "nom": "question"
-    },
+    "element_visuel": null,
     "mot_jaune": "combien",
     "etiquette": "MAIS",
     "duree": 4
   },
   {
-    "texte": "Attention : la réponse risque de lui piquer les yeux.",
+    "texte": "D'abord, TikTok.",
+    "decor": "studio",
+    "expression": "perplexe",
+    "element_visuel": {
+      "type": "ecran_telephone",
+      "plateforme": "tiktok"
+    },
+    "mot_jaune": "TikTok",
+    "etiquette": null,
+    "duree": 3
+  },
+  {
+    "texte": "Règle numéro un : la vidéo doit durer plus d'une minute.",
+    "decor": "bureau",
+    "expression": "neutre",
+    "element_visuel": {
+      "type": "chrono",
+      "valeur": "1:00"
+    },
+    "mot_jaune": "minute",
+    "etiquette": "RÈGLE N°1",
+    "duree": 5
+  },
+  {
+    "texte": "Pour un million de vues : 400 à 1 000 dollars.",
     "decor": "banque",
     "expression": "choque",
     "element_visuel": {
       "type": "carte_chiffre",
-      "valeur": "??? €",
-      "legende": "pour 1 million de vues",
-      "source": "Source : à compléter"
+      "valeur": "400 – 1 000 $",
+      "source": "Source : Estimations de créateurs 2026"
     },
-    "mot_jaune": "piquer",
+    "mot_jaune": "dollars",
+    "etiquette": null,
+    "duree": 5
+  },
+  {
+    "texte": "Attention : seulement la moitié des vues compte vraiment.",
+    "decor": "bureau",
+    "expression": "perplexe",
+    "element_visuel": {
+      "type": "jauge",
+      "valeur": 50
+    },
+    "mot_jaune": "moitié",
     "etiquette": "ATTENTION",
+    "duree": 5
+  },
+  {
+    "texte": "Sur YouTube Shorts, c'est une autre histoire.",
+    "decor": "chambre",
+    "expression": "choque",
+    "element_visuel": {
+      "type": "ecran_telephone",
+      "plateforme": "youtube"
+    },
+    "mot_jaune": "YouTube",
+    "etiquette": null,
+    "duree": 3
+  },
+  {
+    "texte": "Là, on parle de un à six centimes pour mille vues.",
+    "decor": "banque",
+    "expression": "choque",
+    "element_visuel": {
+      "type": "carte_chiffre",
+      "valeur": "1 à 6 centimes / 1 000 vues",
+      "source": "Source : Estimations de créateurs 2026"
+    },
+    "mot_jaune": "centimes",
+    "etiquette": null,
+    "duree": 5
+  },
+  {
+    "texte": "En clair : dix à soixante dollars pour un million de vues.",
+    "decor": "rue",
+    "expression": "neutre",
+    "element_visuel": {
+      "type": "carte_chiffre",
+      "valeur": "10 – 60 $"
+    },
+    "mot_jaune": "soixante",
+    "etiquette": "EN CLAIR",
+    "duree": 4
+  },
+  {
+    "texte": "Le rêve de Max commence à fondre.",
+    "decor": "salon",
+    "expression": "neutre",
+    "element_visuel": {
+      "type": "icone",
+      "nom": "billets_fondent"
+    },
+    "mot_jaune": "fondre",
+    "etiquette": null,
+    "duree": 3
+  },
+  {
+    "texte": "Et Instagram ? Aucun tarif fixe pour les créateurs.",
+    "decor": "rue",
+    "expression": "perplexe",
+    "element_visuel": {
+      "type": "carte_chiffre",
+      "valeur": "Pas de tarif fixe",
+      "source": "Source : Estimations de créateurs 2026"
+    },
+    "mot_jaune": "fixe",
+    "etiquette": null,
+    "duree": 4
+  },
+  {
+    "texte": "Plan B : le clipping.",
+    "decor": "studio",
+    "expression": "fier",
+    "element_visuel": null,
+    "mot_jaune": "clipping",
+    "etiquette": "PLAN B",
+    "duree": 4
+  },
+  {
+    "texte": "Une marque te paie pour chaque vue de tes clips.",
+    "decor": "bureau",
+    "expression": "content",
+    "element_visuel": null,
+    "mot_jaune": "vue",
+    "etiquette": null,
+    "duree": 5
+  },
+  {
+    "texte": "Sur Whop : 0,50 à 1,50 dollar pour mille vues.",
+    "decor": "salon",
+    "expression": "content",
+    "element_visuel": {
+      "type": "carte_chiffre",
+      "valeur": "0,50 – 1,50 $ / 1 000 vues",
+      "source": "Source : ClipAffiliates, mi-2026"
+    },
+    "mot_jaune": "Whop",
+    "etiquette": null,
+    "duree": 5
+  },
+  {
+    "texte": "Soit environ mille dollars pour un million de vues.",
+    "decor": "banque",
+    "expression": "choque",
+    "element_visuel": {
+      "type": "carte_chiffre",
+      "valeur": "≈ 1 000 $ / 1 M de vues",
+      "source": "Source : ClipAffiliates, mi-2026"
+    },
+    "mot_jaune": "mille",
+    "etiquette": null,
+    "duree": 4
+  },
+  {
+    "texte": "Pourquoi si peu ? La pub classique coûte 20 à 80 dollars les mille vues. Le clipping, environ un dollar.",
+    "decor": "bureau",
+    "expression": "perplexe",
+    "element_visuel": {
+      "type": "carte_chiffre",
+      "valeur": "1 $ vs 20 – 80 $",
+      "source": "Source : Picsart"
+    },
+    "mot_jaune": "dollar",
+    "etiquette": "POURQUOI",
+    "duree": 6
+  },
+  {
+    "texte": "Attention : le prix affiché n'est pas celui que tu reçois. La plateforme prend des frais.",
+    "decor": "rue",
+    "expression": "perplexe",
+    "element_visuel": null,
+    "mot_jaune": "frais",
+    "etiquette": "ATTENTION",
+    "duree": 6
+  },
+  {
+    "texte": "Alors, qui paie vraiment ? Tout dépend de la plateforme, et des règles du jeu.",
+    "decor": "salon",
+    "expression": "perplexe",
+    "element_visuel": null,
+    "mot_jaune": "règles",
+    "etiquette": null,
+    "duree": 5
+  },
+  {
+    "texte": "Prochain épisode : Max se lance dans le dropshipping.",
+    "decor": "studio",
+    "expression": "fier",
+    "element_visuel": null,
+    "mot_jaune": "dropshipping",
+    "etiquette": "SUITE",
     "duree": 4
   }
 ]

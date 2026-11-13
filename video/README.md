@@ -15,7 +15,7 @@ Un tableau de plans. Chaque plan correspond à une coupe (~4 s) :
 | champ | rôle |
 |---|---|
 | `texte` | sous-titre (apparaît mot à mot ; `{mot}` = mot rotatif) |
-| `decor` | `studio`, `chambre`, `rue`, `banque` (un autre nom donne un fond uni coloré) |
+| `decor` | `studio`, `chambre`, `rue`, `banque`, `bureau`, `salon` (un autre nom donne un fond uni coloré) |
 | `expression` | `neutre`, `content`, `fier`, `reveur`, `perplexe`, `choque` |
 | `element_visuel` | `null` ou un objet (voir ci-dessous) |
 | `mot_jaune` | mot(s) affichés en jaune, ou `"{mot}"` |
@@ -26,8 +26,13 @@ Un tableau de plans. Chaque plan correspond à une coupe (~4 s) :
 
 - `{"type": "mots_rotatifs", "mots": [...], "intervalle": 1, "accessoires": ["cravate", "gants", "telephone"]}`
 - `{"type": "compteur_vues", "valeur": 1000000, "legende": "vues"}`
-- `{"type": "carte_chiffre", "valeur": "1 234 €", "legende": "...", "source": "Source : ..."}`
-- `{"type": "icone", "nom": "question" | "billets"}`
+- `{"type": "carte_chiffre", "valeur": "1 234 €", "legende": "...", "source": "Source : ..."}` (`legende` et `source` optionnels ; `"0,50 $ / 1 000 vues"` → l'unité après ` / ` passe en dessous)
+- `{"type": "icone", "nom": "question" | "billets" | "billets_fondent"}`
+- `{"type": "ecran_telephone", "plateforme": "tiktok" | "youtube"}`
+- `{"type": "chrono", "valeur": "1:00"}`
+- `{"type": "jauge", "valeur": 50, "legende": "..."}`
+
+Étiquettes colorées : `MAIS`, `ATTENTION` (bandes noires), `RÈGLE N°1`, `EN CLAIR`, `PLAN B`, `POURQUOI`, `SUITE` (toute autre étiquette : violet).
 
 ## Structure
 

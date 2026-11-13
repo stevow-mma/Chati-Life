@@ -13,8 +13,14 @@ export type ElementVisuel =
       accessoires?: Accessoire[];
     }
   | {type: 'compteur_vues'; valeur: number; legende?: string}
-  | {type: 'carte_chiffre'; valeur: string; legende?: string; source: string}
-  | {type: 'icone'; nom: 'question' | 'billets' | 'telephone'};
+  | {type: 'carte_chiffre'; valeur: string; legende?: string; source?: string}
+  | {type: 'icone'; nom: 'question' | 'billets' | 'billets_fondent'}
+  /** Écran de téléphone vertical avec l'interface stylisée d'une plateforme. */
+  | {type: 'ecran_telephone'; plateforme?: 'tiktok' | 'youtube' | string}
+  /** Chronomètre qui défile jusqu'à `valeur` ("m:ss"). */
+  | {type: 'chrono'; valeur: string}
+  /** Jauge horizontale qui se remplit jusqu'à `valeur` %. */
+  | {type: 'jauge'; valeur: number; legende?: string};
 
 export type Plan = {
   texte: string;

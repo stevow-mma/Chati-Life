@@ -180,6 +180,96 @@ const Banque: React.FC<{frame: number}> = ({frame}) => (
   </svg>
 );
 
+const Bureau: React.FC<{frame: number}> = ({frame}) => (
+  <svg viewBox={`0 0 ${W} ${H}`} width={W} height={H}>
+    <rect width={W} height={H} fill="#F1FAEE" />
+    {/* bandes murales */}
+    {Array.from({length: 9}).map((_, i) => (
+      <rect key={i} x={i * 130} y={0} width={60} height={SOL} fill="#E3F2E9" />
+    ))}
+    {/* tableau avec courbe qui chute */}
+    <rect x={90} y={230} width={520} height={360} rx={16} fill="white" stroke={OUT} strokeWidth={12} />
+    <path d="M 130 300 V 550 H 580" fill="none" stroke={OUT} strokeWidth={8} />
+    <path
+      d={`M 140 330 L 250 ${380 + Math.sin(frame / 9) * 8} L 350 360 L 450 ${470 + Math.sin(frame / 7) * 8} L 560 520`}
+      fill="none" stroke="#E63946" strokeWidth={14} strokeLinejoin="round" strokeLinecap="round"
+    />
+    <path d="M 560 520 l -36 -6 l 22 -28 z" fill="#E63946" />
+    {/* horloge */}
+    <circle cx={860} cy={330} r={110} fill="white" stroke={OUT} strokeWidth={12} />
+    {Array.from({length: 12}).map((_, i) => (
+      <rect key={i} x={856} y={232} width={8} height={22} rx={3} fill={OUT} transform={`rotate(${i * 30} 860 330)`} />
+    ))}
+    <line x1={860} y1={330} x2={860} y2={260} stroke={OUT} strokeWidth={10} strokeLinecap="round" transform={`rotate(${frame * 6} 860 330)`} />
+    <line x1={860} y1={330} x2={910} y2={330} stroke={OUT} strokeWidth={12} strokeLinecap="round" />
+    <circle cx={860} cy={330} r={12} fill="#E63946" />
+    {/* plante */}
+    <rect x={880} y={1230} width={130} height={150} rx={14} fill="#E76F51" stroke={OUT} strokeWidth={10} />
+    {[-40, -10, 20, 50].map((a, i) => (
+      <ellipse key={i} cx={945} cy={1160} rx={26} ry={80} fill="#40916C" stroke={OUT} strokeWidth={8}
+        transform={`rotate(${a + Math.sin(frame / 12 + i) * 4} 945 1230)`} />
+    ))}
+    {/* sol moquette */}
+    <rect y={SOL - 60} width={W} height={H} fill="#8D99AE" />
+    <rect y={SOL - 72} width={W} height={20} fill="#EDF2F4" stroke={OUT} strokeWidth={6} />
+    {/* bureau avec écran derrière Max */}
+    <rect x={60} y={1210} width={960} height={50} rx={10} fill="#BC6C25" stroke={OUT} strokeWidth={10} />
+    <rect x={100} y={1260} width={40} height={180} fill="#9C5A1E" stroke={OUT} strokeWidth={8} />
+    <rect x={940} y={1260} width={40} height={180} fill="#9C5A1E" stroke={OUT} strokeWidth={8} />
+    <rect x={110} y={1030} width={220} height={150} rx={12} fill="#264653" stroke={OUT} strokeWidth={10} />
+    <rect x={130} y={1050} width={180} height={110} rx={6} fill="#8ECAE6" />
+    {[0, 1, 2].map((k) => (
+      <rect key={k} x={145} y={1066 + k * 30} width={60 + ((frame * 3 + k * 40) % 90)} height={14} rx={6} fill="white" />
+    ))}
+    <rect x={200} y={1180} width={40} height={30} fill="#264653" stroke={OUT} strokeWidth={8} />
+    {/* mug */}
+    <rect x={800} y={1140} width={60} height={70} rx={10} fill="#FFD60A" stroke={OUT} strokeWidth={8} />
+    <path d="M 860 1155 q 30 0 30 20 q 0 20 -30 20" fill="none" stroke={OUT} strokeWidth={8} />
+    {[0, 1].map((k) => (
+      <path key={k} d={`M ${818 + k * 22} 1125 q -10 -20 0 -40`} fill="none" stroke="#ADB5BD" strokeWidth={6} strokeLinecap="round"
+        opacity={0.5 + Math.sin(frame / 6 + k) * 0.4} />
+    ))}
+  </svg>
+);
+
+const Salon: React.FC<{frame: number}> = ({frame}) => (
+  <svg viewBox={`0 0 ${W} ${H}`} width={W} height={H}>
+    <rect width={W} height={H} fill="#FFCAD4" />
+    {/* papier peint à rayures */}
+    {Array.from({length: 12}).map((_, i) => (
+      <rect key={i} x={i * 96} y={0} width={40} height={SOL} fill="#FFB3C1" />
+    ))}
+    {/* cadres */}
+    <rect x={110} y={260} width={240} height={190} rx={10} fill="#A8DADC" stroke={OUT} strokeWidth={10} transform="rotate(-3 230 355)" />
+    <path d="M 140 420 l 60 -80 l 50 50 l 40 -40 l 50 70 z" fill="#2A9D8F" stroke={OUT} strokeWidth={6} transform="rotate(-3 230 355)" />
+    <rect x={720} y={240} width={220} height={260} rx={10} fill="#FFD60A" stroke={OUT} strokeWidth={10} transform="rotate(4 830 370)" />
+    <circle cx={830} cy={350} r={50} fill="#E63946" stroke={OUT} strokeWidth={6} transform="rotate(4 830 370)" />
+    {/* lampe sur pied */}
+    <rect x={952} y={820} width={14} height={620} fill={OUT} />
+    <path d="M 900 700 h 118 l 30 130 h -178 z" fill="#FFE8A3" stroke={OUT} strokeWidth={10} strokeLinejoin="round" />
+    <ellipse cx={960} cy={900} rx={150} ry={60} fill="#FFE8A3" opacity={0.25 + Math.sin(frame / 10) * 0.05} />
+    {/* sol */}
+    <rect y={SOL - 60} width={W} height={H} fill="#B08968" />
+    {Array.from({length: 8}).map((_, i) => (
+      <path key={i} d={`M 0 ${SOL - 60 + i * 60} H ${W}`} stroke="#9C6644" strokeWidth={6} />
+    ))}
+    <rect y={SOL - 72} width={W} height={20} fill="#FFFFFF" stroke={OUT} strokeWidth={6} />
+    {/* canapé derrière Max */}
+    <rect x={60} y={1040} width={960} height={220} rx={60} fill="#5E60CE" stroke={OUT} strokeWidth={12} />
+    <rect x={40} y={1180} width={1000} height={200} rx={40} fill="#6930C3" stroke={OUT} strokeWidth={12} />
+    <rect x={20} y={1120} width={120} height={280} rx={50} fill="#5E60CE" stroke={OUT} strokeWidth={12} />
+    <rect x={940} y={1120} width={120} height={280} rx={50} fill="#5E60CE" stroke={OUT} strokeWidth={12} />
+    <rect x={90} y={1380} width={30} height={60} fill={OUT} />
+    <rect x={960} y={1380} width={30} height={60} fill={OUT} />
+    {/* coussins */}
+    <rect x={170} y={1090} width={170} height={130} rx={30} fill="#FFD60A" stroke={OUT} strokeWidth={10} transform="rotate(-8 255 1155)" />
+    <rect x={740} y={1090} width={170} height={130} rx={30} fill="#06D6A0" stroke={OUT} strokeWidth={10} transform="rotate(8 825 1155)" />
+    {/* tapis */}
+    <ellipse cx={540} cy={SOL + 230} rx={460} ry={110} fill="#F4A261" stroke={OUT} strokeWidth={10} />
+    <ellipse cx={540} cy={SOL + 230} rx={360} ry={70} fill="none" stroke="#E76F51" strokeWidth={12} strokeDasharray="30 20" />
+  </svg>
+);
+
 const Uni: React.FC<{nom: string}> = ({nom}) => {
   let h = 0;
   for (const ch of nom) h = (h * 31 + ch.charCodeAt(0)) % 360;
@@ -205,6 +295,12 @@ export const Decor: React.FC<{nom: string; variante?: number}> = ({nom, variante
       break;
     case 'rue':
       content = <Rue frame={frame} />;
+      break;
+    case 'bureau':
+      content = <Bureau frame={frame} />;
+      break;
+    case 'salon':
+      content = <Salon frame={frame} />;
       break;
     case 'banque':
       content = <Banque frame={frame} />;
