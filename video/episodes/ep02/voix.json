@@ -1,0 +1,1400 @@
+{
+ "mode": "piste_unique",
+ "fichier": "ep02/voix.mp3",
+ "hash": "8ad161502bbb9ede1f90e8dc3c394cab3475c68c705cc7751eff6b1de0b98c88",
+ "duree_piste": 85.342041,
+ "derniere_parole": 85.292,
+ "fin": 88.292,
+ "scenes": [
+  {
+   "texte_lu": "Elle rêvait de 5 000 euros par mois. Elle a perdu 600 euros en une semaine.",
+   "debut": 0,
+   "mots": [
+    {
+     "texte": "Elle",
+     "debut": 0.4,
+     "fin": 0.597
+    },
+    {
+     "texte": "rêvait",
+     "debut": 0.644,
+     "fin": 0.864
+    },
+    {
+     "texte": "de",
+     "debut": 0.899,
+     "fin": 0.992
+    },
+    {
+     "texte": "5",
+     "debut": 1.143,
+     "fin": 1.317
+    },
+    {
+     "texte": "000",
+     "debut": 1.387,
+     "fin": 1.584
+    },
+    {
+     "texte": "euros",
+     "debut": 1.677,
+     "fin": 1.956
+    },
+    {
+     "texte": "par",
+     "debut": 1.979,
+     "fin": 2.141
+    },
+    {
+     "texte": "mois.",
+     "debut": 2.188,
+     "fin": 2.548
+    },
+    {
+     "texte": "Elle",
+     "debut": 2.931,
+     "fin": 3.094
+    },
+    {
+     "texte": "a",
+     "debut": 3.117,
+     "fin": 3.163
+    },
+    {
+     "texte": "perdu",
+     "debut": 3.21,
+     "fin": 3.43
+    },
+    {
+     "texte": "600",
+     "debut": 3.5,
+     "fin": 3.767
+    },
+    {
+     "texte": "euros",
+     "debut": 3.825,
+     "fin": 4.08
+    },
+    {
+     "texte": "en",
+     "debut": 4.115,
+     "fin": 4.208
+    },
+    {
+     "texte": "une",
+     "debut": 4.301,
+     "fin": 4.382
+    },
+    {
+     "texte": "semaine.",
+     "debut": 4.405,
+     "fin": 4.916
+    }
+   ]
+  },
+  {
+   "texte_lu": "Voici Inès, 24 ans, vendeuse. Elle rêve de tout quitter.",
+   "debut": 5.241,
+   "mots": [
+    {
+     "texte": "Voici",
+     "debut": 5.241,
+     "fin": 5.648
+    },
+    {
+     "texte": "Inès,",
+     "debut": 5.729,
+     "fin": 6.228
+    },
+    {
+     "texte": "24",
+     "debut": 6.263,
+     "fin": 6.646
+    },
+    {
+     "texte": "ans,",
+     "debut": 6.739,
+     "fin": 6.855
+    },
+    {
+     "texte": "vendeuse.",
+     "debut": 6.902,
+     "fin": 7.563
+    },
+    {
+     "texte": "Elle",
+     "debut": 7.888,
+     "fin": 8.051
+    },
+    {
+     "texte": "rêve",
+     "debut": 8.086,
+     "fin": 8.248
+    },
+    {
+     "texte": "de",
+     "debut": 8.272,
+     "fin": 8.33
+    },
+    {
+     "texte": "tout",
+     "debut": 8.376,
+     "fin": 8.481
+    },
+    {
+     "texte": "quitter.",
+     "debut": 8.504,
+     "fin": 9.015
+    }
+   ]
+  },
+  {
+   "texte_lu": "Un soir, une pub lui promet une boutique en ligne sans stock et sans risque.",
+   "debut": 9.061,
+   "mots": [
+    {
+     "texte": "Un",
+     "debut": 9.061,
+     "fin": 9.2
+    },
+    {
+     "texte": "soir,",
+     "debut": 9.27,
+     "fin": 9.711
+    },
+    {
+     "texte": "une",
+     "debut": 9.769,
+     "fin": 9.92
+    },
+    {
+     "texte": "pub",
+     "debut": 9.955,
+     "fin": 10.118
+    },
+    {
+     "texte": "lui",
+     "debut": 10.164,
+     "fin": 10.234
+    },
+    {
+     "texte": "promet",
+     "debut": 10.268,
+     "fin": 10.536
+    },
+    {
+     "texte": "une",
+     "debut": 10.57,
+     "fin": 10.652
+    },
+    {
+     "texte": "boutique",
+     "debut": 10.675,
+     "fin": 11.081
+    },
+    {
+     "texte": "en",
+     "debut": 11.116,
+     "fin": 11.22
+    },
+    {
+     "texte": "ligne",
+     "debut": 11.267,
+     "fin": 11.534
+    },
+    {
+     "texte": "sans",
+     "debut": 11.592,
+     "fin": 11.755
+    },
+    {
+     "texte": "stock",
+     "debut": 11.778,
+     "fin": 12.033
+    },
+    {
+     "texte": "et",
+     "debut": 12.091,
+     "fin": 12.138
+    },
+    {
+     "texte": "sans",
+     "debut": 12.173,
+     "fin": 12.312
+    },
+    {
+     "texte": "risque.",
+     "debut": 12.335,
+     "fin": 12.799
+    }
+   ]
+  },
+  {
+   "texte_lu": "Le principe : elle vend, le fournisseur envoie le colis. C'est le dropshipping.",
+   "debut": 13.241,
+   "mots": [
+    {
+     "texte": "Le",
+     "debut": 13.241,
+     "fin": 13.345
+    },
+    {
+     "texte": "principe",
+     "debut": 13.392,
+     "fin": 13.926
+    },
+    {
+     "texte": ":",
+     "debut": 13.949,
+     "fin": 14.065
+    },
+    {
+     "texte": "elle",
+     "debut": 14.111,
+     "fin": 14.309
+    },
+    {
+     "texte": "vend,",
+     "debut": 14.367,
+     "fin": 14.704
+    },
+    {
+     "texte": "le",
+     "debut": 14.82,
+     "fin": 14.901
+    },
+    {
+     "texte": "fournisseur",
+     "debut": 14.947,
+     "fin": 15.4
+    },
+    {
+     "texte": "envoie",
+     "debut": 15.447,
+     "fin": 15.865
+    },
+    {
+     "texte": "le",
+     "debut": 16.143,
+     "fin": 16.259
+    },
+    {
+     "texte": "colis.",
+     "debut": 16.317,
+     "fin": 16.793
+    },
+    {
+     "texte": "C'est",
+     "debut": 17.118,
+     "fin": 17.293
+    },
+    {
+     "texte": "le",
+     "debut": 17.316,
+     "fin": 17.42
+    },
+    {
+     "texte": "dropshipping.",
+     "debut": 17.455,
+     "fin": 18.326
+    }
+   ]
+  },
+  {
+   "texte_lu": "Pas de stock à acheter. Mais alors, où est le piège ?",
+   "debut": 18.419,
+   "mots": [
+    {
+     "texte": "Pas",
+     "debut": 18.419,
+     "fin": 18.593
+    },
+    {
+     "texte": "de",
+     "debut": 18.616,
+     "fin": 18.697
+    },
+    {
+     "texte": "stock",
+     "debut": 18.732,
+     "fin": 18.976
+    },
+    {
+     "texte": "à",
+     "debut": 19.092,
+     "fin": 19.115
+    },
+    {
+     "texte": "acheter.",
+     "debut": 19.197,
+     "fin": 19.661
+    },
+    {
+     "texte": "Mais",
+     "debut": 20.265,
+     "fin": 20.392
+    },
+    {
+     "texte": "alors,",
+     "debut": 20.416,
+     "fin": 20.81
+    },
+    {
+     "texte": "où",
+     "debut": 20.927,
+     "fin": 21.031
+    },
+    {
+     "texte": "est",
+     "debut": 21.066,
+     "fin": 21.263
+    },
+    {
+     "texte": "le",
+     "debut": 21.286,
+     "fin": 21.344
+    },
+    {
+     "texte": "piège",
+     "debut": 21.391,
+     "fin": 21.855
+    },
+    {
+     "texte": "?",
+     "debut": 21.913,
+     "fin": 21.983
+    }
+   ]
+  },
+  {
+   "texte_lu": "D'abord, la boutique : environ 30 à 40 euros par mois.",
+   "debut": 22.157,
+   "mots": [
+    {
+     "texte": "D'abord,",
+     "debut": 22.157,
+     "fin": 22.494
+    },
+    {
+     "texte": "la",
+     "debut": 22.517,
+     "fin": 22.575
+    },
+    {
+     "texte": "boutique",
+     "debut": 22.633,
+     "fin": 23.144
+    },
+    {
+     "texte": ":",
+     "debut": 23.167,
+     "fin": 23.214
+    },
+    {
+     "texte": "environ",
+     "debut": 23.237,
+     "fin": 23.701
+    },
+    {
+     "texte": "30",
+     "debut": 23.817,
+     "fin": 24.073
+    },
+    {
+     "texte": "à",
+     "debut": 24.189,
+     "fin": 24.235
+    },
+    {
+     "texte": "40",
+     "debut": 24.386,
+     "fin": 24.618
+    },
+    {
+     "texte": "euros",
+     "debut": 24.665,
+     "fin": 24.839
+    },
+    {
+     "texte": "par",
+     "debut": 24.862,
+     "fin": 24.99
+    },
+    {
+     "texte": "mois.",
+     "debut": 25.025,
+     "fin": 25.408
+    }
+   ]
+  },
+  {
+   "texte_lu": "Règle numéro un : pas de pub, pas de ventes.",
+   "debut": 26.012,
+   "mots": [
+    {
+     "texte": "Règle",
+     "debut": 26.012,
+     "fin": 26.267
+    },
+    {
+     "texte": "numéro",
+     "debut": 26.302,
+     "fin": 26.581
+    },
+    {
+     "texte": "un",
+     "debut": 26.697,
+     "fin": 26.778
+    },
+    {
+     "texte": ":",
+     "debut": 26.801,
+     "fin": 26.824
+    },
+    {
+     "texte": "pas",
+     "debut": 26.882,
+     "fin": 27.045
+    },
+    {
+     "texte": "de",
+     "debut": 27.068,
+     "fin": 27.138
+    },
+    {
+     "texte": "pub,",
+     "debut": 27.184,
+     "fin": 27.567
+    },
+    {
+     "texte": "pas",
+     "debut": 27.637,
+     "fin": 27.788
+    },
+    {
+     "texte": "de",
+     "debut": 27.811,
+     "fin": 27.869
+    },
+    {
+     "texte": "ventes.",
+     "debut": 27.916,
+     "fin": 28.345
+    }
+   ]
+  },
+  {
+   "texte_lu": "Et sur 100 visiteurs, seulement 1 à 3 achètent.",
+   "debut": 28.554,
+   "mots": [
+    {
+     "texte": "Et",
+     "debut": 28.554,
+     "fin": 28.717
+    },
+    {
+     "texte": "sur",
+     "debut": 28.798,
+     "fin": 28.961
+    },
+    {
+     "texte": "100",
+     "debut": 29.019,
+     "fin": 29.146
+    },
+    {
+     "texte": "visiteurs,",
+     "debut": 29.192,
+     "fin": 30.295
+    },
+    {
+     "texte": "seulement",
+     "debut": 30.679,
+     "fin": 31.027
+    },
+    {
+     "texte": "1",
+     "debut": 31.096,
+     "fin": 31.213
+    },
+    {
+     "texte": "à",
+     "debut": 31.247,
+     "fin": 31.271
+    },
+    {
+     "texte": "3",
+     "debut": 31.387,
+     "fin": 31.514
+    },
+    {
+     "texte": "achètent.",
+     "debut": 31.665,
+     "fin": 32.316
+    }
+   ]
+  },
+  {
+   "texte_lu": "Inès vend une lampe 30 euros. Le produit lui coûte 14 euros. Il lui reste 16 euros.",
+   "debut": 32.641,
+   "mots": [
+    {
+     "texte": "Inès",
+     "debut": 32.641,
+     "fin": 32.989
+    },
+    {
+     "texte": "vend",
+     "debut": 33.07,
+     "fin": 33.233
+    },
+    {
+     "texte": "une",
+     "debut": 33.326,
+     "fin": 33.407
+    },
+    {
+     "texte": "lampe",
+     "debut": 33.442,
+     "fin": 33.697
+    },
+    {
+     "texte": "30",
+     "debut": 33.767,
+     "fin": 33.976
+    },
+    {
+     "texte": "euros.",
+     "debut": 34.022,
+     "fin": 34.394
+    },
+    {
+     "texte": "Le",
+     "debut": 34.568,
+     "fin": 34.672
+    },
+    {
+     "texte": "produit",
+     "debut": 34.73,
+     "fin": 35.044
+    },
+    {
+     "texte": "lui",
+     "debut": 35.067,
+     "fin": 35.16
+    },
+    {
+     "texte": "coûte",
+     "debut": 35.206,
+     "fin": 35.427
+    },
+    {
+     "texte": "14",
+     "debut": 35.45,
+     "fin": 35.682
+    },
+    {
+     "texte": "euros.",
+     "debut": 35.857,
+     "fin": 36.228
+    },
+    {
+     "texte": "Il",
+     "debut": 36.507,
+     "fin": 36.646
+    },
+    {
+     "texte": "lui",
+     "debut": 36.669,
+     "fin": 36.762
+    },
+    {
+     "texte": "reste",
+     "debut": 36.809,
+     "fin": 37.076
+    },
+    {
+     "texte": "16",
+     "debut": 37.145,
+     "fin": 37.308
+    },
+    {
+     "texte": "euros.",
+     "debut": 37.401,
+     "fin": 37.737
+    }
+   ]
+  },
+  {
+   "texte_lu": "Mais la pub pour trouver cet acheteur : 13 euros. Les frais de paiement : un euro.",
+   "debut": 38.179,
+   "mots": [
+    {
+     "texte": "Mais",
+     "debut": 38.179,
+     "fin": 38.306
+    },
+    {
+     "texte": "la",
+     "debut": 38.329,
+     "fin": 38.388
+    },
+    {
+     "texte": "pub",
+     "debut": 38.469,
+     "fin": 38.724
+    },
+    {
+     "texte": "pour",
+     "debut": 38.747,
+     "fin": 38.887
+    },
+    {
+     "texte": "trouver",
+     "debut": 38.933,
+     "fin": 39.165
+    },
+    {
+     "texte": "cet",
+     "debut": 39.2,
+     "fin": 39.328
+    },
+    {
+     "texte": "acheteur",
+     "debut": 39.386,
+     "fin": 39.781
+    },
+    {
+     "texte": ":",
+     "debut": 39.827,
+     "fin": 39.885
+    },
+    {
+     "texte": "13",
+     "debut": 39.943,
+     "fin": 40.152
+    },
+    {
+     "texte": "euros.",
+     "debut": 40.268,
+     "fin": 40.663
+    },
+    {
+     "texte": "Les",
+     "debut": 41.104,
+     "fin": 41.22
+    },
+    {
+     "texte": "frais",
+     "debut": 41.255,
+     "fin": 41.429
+    },
+    {
+     "texte": "de",
+     "debut": 41.453,
+     "fin": 41.511
+    },
+    {
+     "texte": "paiement",
+     "debut": 41.557,
+     "fin": 41.94
+    },
+    {
+     "texte": ":",
+     "debut": 41.963,
+     "fin": 42.033
+    },
+    {
+     "texte": "un",
+     "debut": 42.103,
+     "fin": 42.242
+    },
+    {
+     "texte": "euro.",
+     "debut": 42.3,
+     "fin": 42.625
+    }
+   ]
+  },
+  {
+   "texte_lu": "Il lui reste 2 euros. Sur une vente à 30.",
+   "debut": 42.834,
+   "mots": [
+    {
+     "texte": "Il",
+     "debut": 42.834,
+     "fin": 42.962
+    },
+    {
+     "texte": "lui",
+     "debut": 42.985,
+     "fin": 43.09
+    },
+    {
+     "texte": "reste",
+     "debut": 43.136,
+     "fin": 43.415
+    },
+    {
+     "texte": "2",
+     "debut": 43.531,
+     "fin": 43.624
+    },
+    {
+     "texte": "euros.",
+     "debut": 43.67,
+     "fin": 44.1
+    },
+    {
+     "texte": "Sur",
+     "debut": 44.344,
+     "fin": 44.518
+    },
+    {
+     "texte": "une",
+     "debut": 44.564,
+     "fin": 44.646
+    },
+    {
+     "texte": "vente",
+     "debut": 44.669,
+     "fin": 44.855
+    },
+    {
+     "texte": "à",
+     "debut": 44.878,
+     "fin": 44.901
+    },
+    {
+     "texte": "30.",
+     "debut": 44.982,
+     "fin": 45.435
+    }
+   ]
+  },
+  {
+   "texte_lu": "Normal : un débutant garde souvent moins de 10 % de ses ventes.",
+   "debut": 45.876,
+   "mots": [
+    {
+     "texte": "Normal",
+     "debut": 45.876,
+     "fin": 46.341
+    },
+    {
+     "texte": ":",
+     "debut": 46.434,
+     "fin": 46.457
+    },
+    {
+     "texte": "un",
+     "debut": 46.515,
+     "fin": 46.608
+    },
+    {
+     "texte": "débutant",
+     "debut": 46.654,
+     "fin": 47.014
+    },
+    {
+     "texte": "garde",
+     "debut": 47.049,
+     "fin": 47.281
+    },
+    {
+     "texte": "souvent",
+     "debut": 47.316,
+     "fin": 47.676
+    },
+    {
+     "texte": "moins",
+     "debut": 47.711,
+     "fin": 47.862
+    },
+    {
+     "texte": "de",
+     "debut": 47.896,
+     "fin": 47.978
+    },
+    {
+     "texte": "10",
+     "debut": 48.047,
+     "fin": 48.163
+    },
+    {
+     "texte": "%",
+     "debut": 48.256,
+     "fin": 48.465
+    },
+    {
+     "texte": "de",
+     "debut": 48.523,
+     "fin": 48.581
+    },
+    {
+     "texte": "ses",
+     "debut": 48.628,
+     "fin": 48.744
+    },
+    {
+     "texte": "ventes.",
+     "debut": 48.779,
+     "fin": 49.22
+    }
+   ]
+  },
+  {
+   "texte_lu": "Pire : son fournisseur est en Chine. Le colis met des semaines à arriver.",
+   "debut": 49.464,
+   "mots": [
+    {
+     "texte": "Pire",
+     "debut": 49.464,
+     "fin": 49.708
+    },
+    {
+     "texte": ":",
+     "debut": 50.149,
+     "fin": 50.427
+    },
+    {
+     "texte": "son",
+     "debut": 50.869,
+     "fin": 50.996
+    },
+    {
+     "texte": "fournisseur",
+     "debut": 51.043,
+     "fin": 51.612
+    },
+    {
+     "texte": "est",
+     "debut": 51.693,
+     "fin": 51.821
+    },
+    {
+     "texte": "en",
+     "debut": 51.89,
+     "fin": 51.96
+    },
+    {
+     "texte": "Chine.",
+     "debut": 52.018,
+     "fin": 52.482
+    },
+    {
+     "texte": "Le",
+     "debut": 52.866,
+     "fin": 52.982
+    },
+    {
+     "texte": "colis",
+     "debut": 53.028,
+     "fin": 53.295
+    },
+    {
+     "texte": "met",
+     "debut": 53.33,
+     "fin": 53.434
+    },
+    {
+     "texte": "des",
+     "debut": 53.469,
+     "fin": 53.585
+    },
+    {
+     "texte": "semaines",
+     "debut": 53.632,
+     "fin": 54.015
+    },
+    {
+     "texte": "à",
+     "debut": 54.061,
+     "fin": 54.085
+    },
+    {
+     "texte": "arriver.",
+     "debut": 54.119,
+     "fin": 54.607
+    }
+   ]
+  },
+  {
+   "texte_lu": "Attention : sans date annoncée, la loi impose une livraison sous 30 jours.",
+   "debut": 54.886,
+   "mots": [
+    {
+     "texte": "Attention",
+     "debut": 54.886,
+     "fin": 55.408
+    },
+    {
+     "texte": ":",
+     "debut": 55.524,
+     "fin": 55.605
+    },
+    {
+     "texte": "sans",
+     "debut": 55.849,
+     "fin": 56.012
+    },
+    {
+     "texte": "date",
+     "debut": 56.035,
+     "fin": 56.209
+    },
+    {
+     "texte": "annoncée,",
+     "debut": 56.232,
+     "fin": 56.825
+    },
+    {
+     "texte": "la",
+     "debut": 56.952,
+     "fin": 57.045
+    },
+    {
+     "texte": "loi",
+     "debut": 57.103,
+     "fin": 57.312
+    },
+    {
+     "texte": "impose",
+     "debut": 57.359,
+     "fin": 57.788
+    },
+    {
+     "texte": "une",
+     "debut": 57.869,
+     "fin": 57.962
+    },
+    {
+     "texte": "livraison",
+     "debut": 57.986,
+     "fin": 58.415
+    },
+    {
+     "texte": "sous",
+     "debut": 58.462,
+     "fin": 58.624
+    },
+    {
+     "texte": "30",
+     "debut": 58.694,
+     "fin": 58.845
+    },
+    {
+     "texte": "jours.",
+     "debut": 58.891,
+     "fin": 59.344
+    }
+   ]
+  },
+  {
+   "texte_lu": "Les clients s'impatientent. Les remboursements s'enchaînent.",
+   "debut": 59.727,
+   "mots": [
+    {
+     "texte": "Les",
+     "debut": 59.727,
+     "fin": 59.843
+    },
+    {
+     "texte": "clients",
+     "debut": 59.867,
+     "fin": 60.157
+    },
+    {
+     "texte": "s'impatientent.",
+     "debut": 60.18,
+     "fin": 61.132
+    },
+    {
+     "texte": "Les",
+     "debut": 61.225,
+     "fin": 61.341
+    },
+    {
+     "texte": "remboursements",
+     "debut": 61.376,
+     "fin": 61.98
+    },
+    {
+     "texte": "s'enchaînent.",
+     "debut": 62.003,
+     "fin": 62.676
+    }
+   ]
+  },
+  {
+   "texte_lu": "Inès n'est pas seule : selon des estimations, 8 à 9 boutiques sur 10 ne passent pas l'année.",
+   "debut": 63.187,
+   "mots": [
+    {
+     "texte": "Inès",
+     "debut": 63.187,
+     "fin": 63.489
+    },
+    {
+     "texte": "n'est",
+     "debut": 63.57,
+     "fin": 63.721
+    },
+    {
+     "texte": "pas",
+     "debut": 63.756,
+     "fin": 63.895
+    },
+    {
+     "texte": "seule",
+     "debut": 63.918,
+     "fin": 64.267
+    },
+    {
+     "texte": ":",
+     "debut": 64.29,
+     "fin": 64.383
+    },
+    {
+     "texte": "selon",
+     "debut": 64.592,
+     "fin": 64.859
+    },
+    {
+     "texte": "des",
+     "debut": 64.905,
+     "fin": 65.01
+    },
+    {
+     "texte": "estimations,",
+     "debut": 65.079,
+     "fin": 65.776
+    },
+    {
+     "texte": "8",
+     "debut": 66.055,
+     "fin": 66.148
+    },
+    {
+     "texte": "à",
+     "debut": 66.182,
+     "fin": 66.217
+    },
+    {
+     "texte": "9",
+     "debut": 66.264,
+     "fin": 66.38
+    },
+    {
+     "texte": "boutiques",
+     "debut": 66.449,
+     "fin": 66.879
+    },
+    {
+     "texte": "sur",
+     "debut": 66.902,
+     "fin": 67.065
+    },
+    {
+     "texte": "10",
+     "debut": 67.123,
+     "fin": 67.285
+    },
+    {
+     "texte": "ne",
+     "debut": 67.401,
+     "fin": 67.494
+    },
+    {
+     "texte": "passent",
+     "debut": 67.541,
+     "fin": 67.866
+    },
+    {
+     "texte": "pas",
+     "debut": 67.889,
+     "fin": 68.005
+    },
+    {
+     "texte": "l'année.",
+     "debut": 68.028,
+     "fin": 68.481
+    }
+   ]
+  },
+  {
+   "texte_lu": "Alors, c'est une arnaque ? Non, mais pas comme dans les pubs.",
+   "debut": 68.864,
+   "mots": [
+    {
+     "texte": "Alors,",
+     "debut": 68.864,
+     "fin": 69.41
+    },
+    {
+     "texte": "c'est",
+     "debut": 69.503,
+     "fin": 69.677
+    },
+    {
+     "texte": "une",
+     "debut": 69.747,
+     "fin": 69.839
+    },
+    {
+     "texte": "arnaque",
+     "debut": 69.863,
+     "fin": 70.304
+    },
+    {
+     "texte": "?",
+     "debut": 70.374,
+     "fin": 70.443
+    },
+    {
+     "texte": "Non,",
+     "debut": 70.652,
+     "fin": 70.873
+    },
+    {
+     "texte": "mais",
+     "debut": 70.942,
+     "fin": 71.175
+    },
+    {
+     "texte": "pas",
+     "debut": 71.221,
+     "fin": 71.349
+    },
+    {
+     "texte": "comme",
+     "debut": 71.372,
+     "fin": 71.523
+    },
+    {
+     "texte": "dans",
+     "debut": 71.546,
+     "fin": 71.651
+    },
+    {
+     "texte": "les",
+     "debut": 71.674,
+     "fin": 71.755
+    },
+    {
+     "texte": "pubs.",
+     "debut": 71.778,
+     "fin": 72.231
+    }
+   ]
+  },
+  {
+   "texte_lu": "Plan B : tester avec un petit budget, calculer chaque euro, livrer vite.",
+   "debut": 72.672,
+   "mots": [
+    {
+     "texte": "Plan",
+     "debut": 72.672,
+     "fin": 72.893
+    },
+    {
+     "texte": "B",
+     "debut": 72.951,
+     "fin": 72.997
+    },
+    {
+     "texte": ":",
+     "debut": 73.148,
+     "fin": 73.183
+    },
+    {
+     "texte": "tester",
+     "debut": 73.299,
+     "fin": 73.636
+    },
+    {
+     "texte": "avec",
+     "debut": 73.659,
+     "fin": 73.845
+    },
+    {
+     "texte": "un",
+     "debut": 73.915,
+     "fin": 73.961
+    },
+    {
+     "texte": "petit",
+     "debut": 74.008,
+     "fin": 74.228
+    },
+    {
+     "texte": "budget,",
+     "debut": 74.251,
+     "fin": 74.727
+    },
+    {
+     "texte": "calculer",
+     "debut": 74.843,
+     "fin": 75.319
+    },
+    {
+     "texte": "chaque",
+     "debut": 75.343,
+     "fin": 75.598
+    },
+    {
+     "texte": "euro,",
+     "debut": 75.621,
+     "fin": 75.923
+    },
+    {
+     "texte": "livrer",
+     "debut": 75.993,
+     "fin": 76.306
+    },
+    {
+     "texte": "vite.",
+     "debut": 76.33,
+     "fin": 76.748
+    }
+   ]
+  },
+  {
+   "texte_lu": "Le chiffre qui compte, ce n'est pas ce qui rentre. C'est ce qui reste.",
+   "debut": 77.026,
+   "mots": [
+    {
+     "texte": "Le",
+     "debut": 77.026,
+     "fin": 77.154
+    },
+    {
+     "texte": "chiffre",
+     "debut": 77.189,
+     "fin": 77.479
+    },
+    {
+     "texte": "qui",
+     "debut": 77.525,
+     "fin": 77.63
+    },
+    {
+     "texte": "compte,",
+     "debut": 77.688,
+     "fin": 78.036
+    },
+    {
+     "texte": "ce",
+     "debut": 78.083,
+     "fin": 78.176
+    },
+    {
+     "texte": "n'est",
+     "debut": 78.234,
+     "fin": 78.385
+    },
+    {
+     "texte": "pas",
+     "debut": 78.419,
+     "fin": 78.547
+    },
+    {
+     "texte": "ce",
+     "debut": 78.57,
+     "fin": 78.652
+    },
+    {
+     "texte": "qui",
+     "debut": 78.71,
+     "fin": 78.814
+    },
+    {
+     "texte": "rentre.",
+     "debut": 78.872,
+     "fin": 79.302
+    },
+    {
+     "texte": "C'est",
+     "debut": 79.627,
+     "fin": 79.813
+    },
+    {
+     "texte": "ce",
+     "debut": 79.836,
+     "fin": 79.94
+    },
+    {
+     "texte": "qui",
+     "debut": 79.998,
+     "fin": 80.114
+    },
+    {
+     "texte": "reste.",
+     "debut": 80.172,
+     "fin": 80.66
+    }
+   ]
+  },
+  {
+   "texte_lu": "Prochain épisode : combien gagne vraiment un livreur à vélo ?",
+   "debut": 81.612,
+   "mots": [
+    {
+     "texte": "Prochain",
+     "debut": 81.612,
+     "fin": 81.949
+    },
+    {
+     "texte": "épisode",
+     "debut": 82.018,
+     "fin": 82.506
+    },
+    {
+     "texte": ":",
+     "debut": 82.599,
+     "fin": 82.692
+    },
+    {
+     "texte": "combien",
+     "debut": 82.901,
+     "fin": 83.226
+    },
+    {
+     "texte": "gagne",
+     "debut": 83.272,
+     "fin": 83.516
+    },
+    {
+     "texte": "vraiment",
+     "debut": 83.563,
+     "fin": 83.969
+    },
+    {
+     "texte": "un",
+     "debut": 84.027,
+     "fin": 84.131
+    },
+    {
+     "texte": "livreur",
+     "debut": 84.166,
+     "fin": 84.573
+    },
+    {
+     "texte": "à",
+     "debut": 84.631,
+     "fin": 84.654
+    },
+    {
+     "texte": "vélo",
+     "debut": 84.712,
+     "fin": 84.933
+    },
+    {
+     "texte": "?",
+     "debut": 85.083,
+     "fin": 85.292
+    }
+   ]
+  }
+ ]
+}

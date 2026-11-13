@@ -4,9 +4,35 @@ Format 1080x1920, 30 fps. Toute la vidéo est générée à partir de `script.js
 
 ```bash
 npm install
-npm run studio    # aperçu interactif
-npm run render    # rendu → out/prototype.mp4
+npm run studio            # aperçu interactif (une composition par épisode)
+npm run render            # épisode 1 → out/ep01.mp4
+npm run render -- ep02    # épisode 2 → out/ep02.mp4
 ```
+
+## Épisodes
+
+```
+episodes/epNN/
+  episode.json   titre, personnage, réglages de voix
+  script.json    les plans (schéma ci-dessous)
+  voix.json      généré par scripts/voix.mjs (timings des mots et des coupes)
+public/epNN/     mp3 de la voix off
+```
+
+Nouvel épisode : créer `episodes/epNN/{episode,script}.json`, ajouter le personnage dans
+`src/personnages.ts` (teint, cheveux, tenue, accessoire de tête, genre), lancer
+`node scripts/voix.mjs epNN`, puis ajouter les imports dans `src/episodes.ts`.
+
+### Voix off (ElevenLabs, REST, authentifiée par le proxy réseau)
+
+`episode.json` → `voix.mode` :
+
+- `par_scene` (ep01) : un mp3 par plan ; durée du plan = max(`duree`, audio + 0,3 s).
+- `piste_unique` (ep02) : un seul appel pour tout l'épisode, `voice_settings` de `episode.json`.
+  Silences de début/fin coupés, `silence_avant` s devant. Chaque plan va de son premier mot au premier
+  mot du suivant (le champ `duree` est ignoré) ; le dernier reste `fin_apres_derniere_parole` s.
+
+Cache : hash du texte et des réglages ; rien n'est régénéré s'ils n'ont pas changé.
 
 ## script.json
 
@@ -15,7 +41,7 @@ Un tableau de plans. Chaque plan correspond à une coupe (~4 s) :
 | champ | rôle |
 |---|---|
 | `texte` | sous-titre (apparaît mot à mot ; `{mot}` = mot rotatif) |
-| `decor` | `studio`, `chambre`, `rue`, `banque`, `bureau`, `salon` (un autre nom donne un fond uni coloré) |
+| `decor` | `studio`, `chambre`, `rue`, `banque`, `bureau`, `salon`, `magasin` (un autre nom donne un fond uni coloré) |
 | `expression` | `neutre`, `content`, `fier`, `reveur`, `perplexe`, `choque` |
 | `element_visuel` | `null` ou un objet (voir ci-dessous) |
 | `mot_jaune` | mot(s) affichés en jaune, ou `"{mot}"` |
@@ -31,12 +57,21 @@ Un tableau de plans. Chaque plan correspond à une coupe (~4 s) :
 - `{"type": "ecran_telephone", "plateforme": "tiktok" | "youtube"}`
 - `{"type": "chrono", "valeur": "1:00"}`
 - `{"type": "jauge", "valeur": 50, "legende": "..."}`
+- `{"type": "ecran_telephone", "plateforme": "pub", "texte": "Boutique sans stock"}` (pub générique)
+- `{"type": "solde_telephone", "depart": 0, "arrivee": -600, "devise": "€"}`
+- `{"type": "schema", "etapes": [{"icone": "vendeuse" | "fournisseur" | "client", "label": "..."}]}`
+- `{"type": "calcul", "expression": "30 € − 14 € = 16 €", "mention": "Exemple illustratif"}`
+- `{"type": "calendrier", "jours": 21}`
+- `{"type": "notifications", "items": [{"type": "avis" | "remboursement", "titre": "...", "texte": "...", "note": 1}]}`
+- `{"type": "liste", "items": ["...", "..."]}`
+- `{"type": "icone", "nom": "velo_livraison"}`
+- carte chiffre : `"A · B"` → une ligne par partie
 
 Étiquettes colorées : `MAIS`, `ATTENTION` (bandes noires), `RÈGLE N°1`, `EN CLAIR`, `PLAN B`, `POURQUOI`, `SUITE` (toute autre étiquette : violet).
 
 ## Structure
 
-- `src/components/Max.tsx` : le personnage (SVG, expressions, clignement, bouche qui parle)
+- `src/components/Personnage.tsx` : personnage paramétrable (SVG, 6 expressions, clignement, bouche synchronisée) ; presets dans `src/personnages.ts` (Max, Inès)
 - `src/components/Decor.tsx` : les décors
 - `src/components/Subtitle.tsx` : sous-titres blancs avec contour noir, mot-clé en jaune
 - `src/components/Etiquette.tsx` : étiquettes de pivot

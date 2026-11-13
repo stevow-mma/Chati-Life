@@ -1,0 +1,278 @@
+[
+  {
+    "texte": "Elle rêvait de 5 000 euros par mois. Elle a perdu 600 euros en une semaine.",
+    "decor": "chambre",
+    "expression": "choque",
+    "element_visuel": {
+      "type": "solde_telephone",
+      "depart": 0,
+      "arrivee": -600,
+      "devise": "€"
+    },
+    "mot_jaune": "perdu",
+    "etiquette": null,
+    "duree": 3
+  },
+  {
+    "texte": "Voici Inès, 24 ans, vendeuse. Elle rêve de tout quitter.",
+    "decor": "magasin",
+    "expression": "reveur",
+    "element_visuel": null,
+    "mot_jaune": "quitter",
+    "etiquette": null,
+    "duree": 3
+  },
+  {
+    "texte": "Un soir, une pub lui promet une boutique en ligne sans stock et sans risque.",
+    "decor": "chambre",
+    "expression": "content",
+    "element_visuel": {
+      "type": "ecran_telephone",
+      "plateforme": "pub",
+      "texte": "Boutique sans stock"
+    },
+    "mot_jaune": "risque",
+    "etiquette": null,
+    "duree": 3
+  },
+  {
+    "texte": "Le principe : elle vend, le fournisseur envoie le colis. C'est le dropshipping.",
+    "decor": "studio",
+    "expression": "perplexe",
+    "element_visuel": {
+      "type": "schema",
+      "etapes": [
+        {
+          "icone": "vendeuse",
+          "label": "Inès"
+        },
+        {
+          "icone": "fournisseur",
+          "label": "Fournisseur"
+        },
+        {
+          "icone": "client",
+          "label": "Client"
+        }
+      ]
+    },
+    "mot_jaune": "dropshipping",
+    "etiquette": null,
+    "duree": 3
+  },
+  {
+    "texte": "Pas de stock à acheter. Mais alors, où est le piège ?",
+    "decor": "salon",
+    "expression": "perplexe",
+    "element_visuel": null,
+    "mot_jaune": "piège",
+    "etiquette": "MAIS",
+    "duree": 3
+  },
+  {
+    "texte": "D'abord, la boutique : environ 30 à 40 euros par mois.",
+    "decor": "bureau",
+    "expression": "content",
+    "element_visuel": {
+      "type": "carte_chiffre",
+      "valeur": "≈ 30 – 40 € / mois",
+      "source": "Source : Shopify, tarifs 2026"
+    },
+    "mot_jaune": "boutique",
+    "etiquette": null,
+    "duree": 3
+  },
+  {
+    "texte": "Règle numéro un : pas de pub, pas de ventes.",
+    "decor": "rue",
+    "expression": "neutre",
+    "element_visuel": null,
+    "mot_jaune": "pub",
+    "etiquette": "RÈGLE N°1",
+    "duree": 3
+  },
+  {
+    "texte": "Et sur 100 visiteurs, seulement 1 à 3 achètent.",
+    "decor": "bureau",
+    "expression": "perplexe",
+    "element_visuel": {
+      "type": "carte_chiffre",
+      "valeur": "1 à 3 achats / 100 visiteurs",
+      "source": "Source : Littledata, Growth Suite 2026"
+    },
+    "mot_jaune": "achètent",
+    "etiquette": null,
+    "duree": 3
+  },
+  {
+    "texte": "Inès vend une lampe 30 euros. Le produit lui coûte 14 euros. Il lui reste 16 euros.",
+    "decor": "banque",
+    "expression": "content",
+    "element_visuel": {
+      "type": "calcul",
+      "expression": "30 € − 14 € = 16 €",
+      "mention": "Exemple illustratif"
+    },
+    "mot_jaune": "16",
+    "etiquette": null,
+    "duree": 3
+  },
+  {
+    "texte": "Mais la pub pour trouver cet acheteur : 13 euros. Les frais de paiement : un euro.",
+    "decor": "banque",
+    "expression": "choque",
+    "element_visuel": {
+      "type": "calcul",
+      "expression": "16 € − 13 € − 1 €",
+      "mention": "Exemple illustratif"
+    },
+    "mot_jaune": "13",
+    "etiquette": "MAIS",
+    "duree": 3
+  },
+  {
+    "texte": "Il lui reste 2 euros. Sur une vente à 30.",
+    "decor": "banque",
+    "expression": "neutre",
+    "element_visuel": {
+      "type": "carte_chiffre",
+      "valeur": "30 € vendus → 2 € de bénéfice",
+      "source": "Exemple illustratif, pas une moyenne"
+    },
+    "mot_jaune": "2",
+    "etiquette": "EN CLAIR",
+    "duree": 3
+  },
+  {
+    "texte": "Normal : un débutant garde souvent moins de 10 % de ses ventes.",
+    "decor": "salon",
+    "expression": "perplexe",
+    "element_visuel": {
+      "type": "carte_chiffre",
+      "valeur": "Débutants : moins de 10 % · Expérimentés : 15 – 20 %",
+      "source": "Source : TrueProfit, SaleHoo 2026"
+    },
+    "mot_jaune": "10",
+    "etiquette": null,
+    "duree": 3
+  },
+  {
+    "texte": "Pire : son fournisseur est en Chine. Le colis met des semaines à arriver.",
+    "decor": "chambre",
+    "expression": "choque",
+    "element_visuel": {
+      "type": "calendrier",
+      "jours": 21
+    },
+    "mot_jaune": "semaines",
+    "etiquette": null,
+    "duree": 3
+  },
+  {
+    "texte": "Attention : sans date annoncée, la loi impose une livraison sous 30 jours.",
+    "decor": "bureau",
+    "expression": "perplexe",
+    "element_visuel": {
+      "type": "carte_chiffre",
+      "valeur": "30 jours max.",
+      "source": "Source : europa.eu"
+    },
+    "mot_jaune": "30",
+    "etiquette": "ATTENTION",
+    "duree": 3
+  },
+  {
+    "texte": "Les clients s'impatientent. Les remboursements s'enchaînent.",
+    "decor": "salon",
+    "expression": "neutre",
+    "element_visuel": {
+      "type": "notifications",
+      "items": [
+        {
+          "type": "avis",
+          "note": 1,
+          "titre": "Nouvel avis client",
+          "texte": "« Toujours pas reçu… »"
+        },
+        {
+          "type": "remboursement",
+          "titre": "Remboursement demandé",
+          "texte": "Commande n° 1042"
+        },
+        {
+          "type": "avis",
+          "note": 1,
+          "titre": "Nouvel avis client",
+          "texte": "« Trop long, je veux être remboursé »"
+        },
+        {
+          "type": "remboursement",
+          "titre": "Remboursement demandé",
+          "texte": "Commande n° 1057"
+        }
+      ]
+    },
+    "mot_jaune": "remboursements",
+    "etiquette": null,
+    "duree": 3
+  },
+  {
+    "texte": "Inès n'est pas seule : selon des estimations, 8 à 9 boutiques sur 10 ne passent pas l'année.",
+    "decor": "rue",
+    "expression": "choque",
+    "element_visuel": {
+      "type": "carte_chiffre",
+      "valeur": "8 à 9 boutiques sur 10",
+      "source": "Source : estimations du secteur, débattues (Branvas, SaleHoo)"
+    },
+    "mot_jaune": "8",
+    "etiquette": null,
+    "duree": 3
+  },
+  {
+    "texte": "Alors, c'est une arnaque ? Non, mais pas comme dans les pubs.",
+    "decor": "studio",
+    "expression": "perplexe",
+    "element_visuel": null,
+    "mot_jaune": "pubs",
+    "etiquette": null,
+    "duree": 3
+  },
+  {
+    "texte": "Plan B : tester avec un petit budget, calculer chaque euro, livrer vite.",
+    "decor": "bureau",
+    "expression": "fier",
+    "element_visuel": {
+      "type": "liste",
+      "items": [
+        "Petit budget",
+        "Chaque euro compté",
+        "Livraison rapide"
+      ]
+    },
+    "mot_jaune": "calculer",
+    "etiquette": "PLAN B",
+    "duree": 3
+  },
+  {
+    "texte": "Le chiffre qui compte, ce n'est pas ce qui rentre. C'est ce qui reste.",
+    "decor": "salon",
+    "expression": "content",
+    "element_visuel": null,
+    "mot_jaune": "reste",
+    "etiquette": null,
+    "duree": 3
+  },
+  {
+    "texte": "Prochain épisode : combien gagne vraiment un livreur à vélo ?",
+    "decor": "studio",
+    "expression": "fier",
+    "element_visuel": {
+      "type": "icone",
+      "nom": "velo_livraison"
+    },
+    "mot_jaune": "livreur",
+    "etiquette": "SUITE",
+    "duree": 3
+  }
+]

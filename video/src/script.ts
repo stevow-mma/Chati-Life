@@ -1,8 +1,9 @@
-import raw from '../script.json';
-import voixIndex from './voix.json';
-import type {Plan, Voix} from './types';
+import type {Plan} from './types';
 
 export const FPS = 30;
+
+/** Marge après la fin de la voix avant la coupe (s) — mode par_scene (épisode 1). */
+export const MARGE_VOIX = 0.3;
 
 /** Texte lu par la voix : {mot} remplacé par les mots rotatifs (même règle que scripts/voix.mjs). */
 export const texteLu = (plan: Pick<Plan, 'texte' | 'element_visuel'>) => {
@@ -15,14 +16,14 @@ export const texteLu = (plan: Pick<Plan, 'texte' | 'element_visuel'>) => {
 
 const EXPRESSIONS = ['neutre', 'fier', 'reveur', 'perplexe', 'choque', 'content'];
 
-/** Charge et vérifie script.json ; lève une erreur claire si un plan est invalide. */
-export const loadScript = (): Plan[] => {
+/** Vérifie un script d'épisode ; lève une erreur claire si un plan est invalide. */
+export const loadScript = (raw: unknown, fichier: string): Plan[] => {
   if (!Array.isArray(raw)) {
-    throw new Error('script.json doit contenir un tableau de plans.');
+    throw new Error(`${fichier} doit contenir un tableau de plans.`);
   }
   return (raw as unknown[]).map((p, i) => {
     const plan = p as Partial<Plan>;
-    const where = `script.json, plan #${i + 1}`;
+    const where = `${fichier}, plan #${i + 1}`;
     if (typeof plan.texte !== 'string' || !plan.texte.trim()) {
       throw new Error(`${where} : "texte" manquant.`);
     }
@@ -30,17 +31,9 @@ export const loadScript = (): Plan[] => {
       throw new Error(`${where} : "duree" doit être un nombre de secondes > 0.`);
     }
     if (plan.expression && !EXPRESSIONS.includes(plan.expression)) {
-      throw new Error(
-        `${where} : expression "${plan.expression}" inconnue (${EXPRESSIONS.join(', ')}).`,
-      );
+      throw new Error(`${where} : expression "${plan.expression}" inconnue (${EXPRESSIONS.join(', ')}).`);
     }
-    const voixBrute = (voixIndex as (Voix | null)[])[i] ?? null;
-    const voix =
-      voixBrute && voixBrute.texte_lu === texteLu({texte: plan.texte, element_visuel: plan.element_visuel ?? null})
-        ? voixBrute
-        : null;
     return {
-      voix,
       texte: plan.texte,
       decor: plan.decor ?? 'uni',
       expression: plan.expression ?? 'neutre',
@@ -48,13 +41,11 @@ export const loadScript = (): Plan[] => {
       mot_jaune: plan.mot_jaune ?? null,
       etiquette: plan.etiquette ?? null,
       duree: plan.duree,
+      voix: null,
     };
   });
 };
 
-/** Marge après la fin de la voix avant la coupe (s). */
-export const MARGE_VOIX = 0.3;
-
-/** Durée du plan : max(durée du script, durée audio + 0,3 s). */
+/** Durée d'un plan en mode par_scene : max(durée du script, durée audio + 0,3 s). */
 export const planFrames = (plan: Plan) =>
   Math.ceil(Math.max(plan.duree, plan.voix ? plan.voix.duree_audio + MARGE_VOIX : 0) * FPS);

@@ -4,9 +4,10 @@
   "description": "Vidéos cartoon de storytelling (Remotion) pilotées par script.json",
   "scripts": {
     "studio": "remotion studio",
-    "render": "node scripts/voix.mjs && remotion render Prototype out/max-un-million-de-vues.mp4",
-    "still": "remotion still Prototype out/frame.png --frame=60",
-    "typecheck": "tsc --noEmit"
+    "render": "node scripts/render.mjs",
+    "still": "remotion still ep01 out/frame.png --frame=60",
+    "typecheck": "tsc --noEmit",
+    "voix": "node scripts/voix.mjs"
   },
   "dependencies": {
     "@fontsource/lilita-one": "^5.3.0",

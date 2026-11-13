@@ -270,6 +270,87 @@ const Salon: React.FC<{frame: number}> = ({frame}) => (
   </svg>
 );
 
+/** Boutique de vêtements : portants, étagère de pulls pliés, caisse. Aucune enseigne réelle. */
+const Magasin: React.FC<{frame: number}> = ({frame}) => {
+  const habits = ['#FF70A6', '#FFD60A', '#06D6A0', '#4361EE', '#F77F00', '#9D4EDD', '#E63946'];
+  const portant = (x0: number, n: number, decal: number) => (
+    <g>
+      <path d={`M ${x0} 1440 V 900 H ${x0 + n * 62 + 40} V 1440`} fill="none" stroke={OUT} strokeWidth={14} strokeLinejoin="round" />
+      <rect x={x0 - 40} y={1430} width={n * 62 + 120} height={20} rx={8} fill="#6C757D" stroke={OUT} strokeWidth={8} />
+      {Array.from({length: n}).map((_, i) => {
+        const x = x0 + 40 + i * 62;
+        const sw = Math.sin(frame / 10 + i + decal) * 3;
+        const c = habits[(i + decal) % habits.length];
+        return (
+          <g key={i} transform={`rotate(${sw} ${x} 900)`}>
+            <path d={`M ${x} 900 v 16 l -34 22 h 68 z`} fill="none" stroke={OUT} strokeWidth={6} strokeLinejoin="round" />
+            <path
+              d={`M ${x - 40} 936 L ${x - 58} 990 L ${x - 38} 998 L ${x - 34} 1150 H ${x + 34} L ${x + 38} 998 L ${x + 58} 990 L ${x + 40} 936 Z`}
+              fill={c}
+              stroke={OUT}
+              strokeWidth={7}
+              strokeLinejoin="round"
+            />
+          </g>
+        );
+      })}
+    </g>
+  );
+  return (
+    <svg viewBox={`0 0 ${W} ${H}`} width={W} height={H}>
+      <rect width={W} height={H} fill="#FFF1E6" />
+      {Array.from({length: 7}).map((_, i) => (
+        <rect key={i} x={i * 170} y={0} width={85} height={SOL} fill="#FDE2E4" />
+      ))}
+      {/* guirlande de fanions */}
+      <path d="M 0 140 Q 540 260 1080 140" fill="none" stroke={OUT} strokeWidth={6} />
+      {Array.from({length: 11}).map((_, i) => {
+        const x = 50 + i * 98;
+        const y = 140 + Math.sin((x / 1080) * Math.PI) * 118 * 0.9;
+        return <path key={i} d={`M ${x - 30} ${y} L ${x + 30} ${y} L ${x} ${y + 60} Z`} fill={habits[i % habits.length]} stroke={OUT} strokeWidth={5} strokeLinejoin="round" />;
+      })}
+      {/* étagère de pulls pliés */}
+      <rect x={640} y={330} width={380} height={420} rx={12} fill="#DDB892" stroke={OUT} strokeWidth={10} />
+      {[0, 1, 2].map((r) => (
+        <g key={r}>
+          <rect x={640} y={330 + (r + 1) * 140 - 12} width={380} height={14} fill="#B08968" stroke={OUT} strokeWidth={6} />
+          {[0, 1, 2].map((k) => (
+            <g key={k}>
+              {[0, 1, 2].map((p) => (
+                <rect key={p} x={665 + k * 118} y={330 + (r + 1) * 140 - 30 - p * 28} width={96} height={28} rx={8} fill={habits[(r * 3 + k + p) % habits.length]} stroke={OUT} strokeWidth={5} />
+              ))}
+            </g>
+          ))}
+        </g>
+      ))}
+      {/* affiche "SOLDES" générique */}
+      <g transform="rotate(-6 230 470)">
+        <rect x={80} y={360} width={300} height={200} rx={16} fill="#E63946" stroke={OUT} strokeWidth={10} />
+        <text x={230} y={455} textAnchor="middle" fontFamily="Luckiest Guy" fontSize={78} fill="white">SOLDES</text>
+        <text x={230} y={530} textAnchor="middle" fontFamily="Luckiest Guy" fontSize={60} fill="#FFD60A" opacity={0.6 + Math.sin(frame / 5) * 0.4}>-50 %</text>
+      </g>
+      {/* sol carrelé */}
+      <rect y={SOL - 60} width={W} height={H} fill="#E9ECEF" />
+      {Array.from({length: 18}).map((_, i) => (
+        <rect key={i} x={(i % 6) * 180 + (Math.floor(i / 6) % 2) * 90} y={SOL - 60 + Math.floor(i / 6) * 150} width={90} height={150} fill="#CED4DA" />
+      ))}
+      <rect y={SOL - 72} width={W} height={20} fill="#FFFFFF" stroke={OUT} strokeWidth={6} />
+      {/* portants (derrière le personnage) */}
+      {portant(-30, 4, 0)}
+      {/* caisse */}
+      <rect x={720} y={1150} width={360} height={300} rx={14} fill="#F4A261" stroke={OUT} strokeWidth={10} />
+      <rect x={700} y={1130} width={400} height={40} rx={10} fill="#E76F51" stroke={OUT} strokeWidth={10} />
+      <rect x={800} y={1040} width={170} height={90} rx={12} fill="#495057" stroke={OUT} strokeWidth={8} />
+      <rect x={815} y={1052} width={140} height={34} rx={6} fill="#06D6A0" />
+      <text x={885} y={1080} textAnchor="middle" fontFamily="Luckiest Guy" fontSize={28} fill={OUT}>{(29.9 + Math.floor(frame / 10) % 3 * 10).toFixed(2)}</text>
+      <rect x={830} y={1094} width={110} height={26} rx={5} fill="#ADB5BD" stroke={OUT} strokeWidth={5} />
+      {/* sac shopping */}
+      <path d="M 980 1050 h 80 l 8 80 h -96 z" fill="#FF70A6" stroke={OUT} strokeWidth={8} strokeLinejoin="round" />
+      <path d="M 1000 1050 q 0 -36 20 -36 q 20 0 20 36" fill="none" stroke={OUT} strokeWidth={7} />
+    </svg>
+  );
+};
+
 const Uni: React.FC<{nom: string}> = ({nom}) => {
   let h = 0;
   for (const ch of nom) h = (h * 31 + ch.charCodeAt(0)) % 360;
@@ -295,6 +376,9 @@ export const Decor: React.FC<{nom: string; variante?: number}> = ({nom, variante
       break;
     case 'rue':
       content = <Rue frame={frame} />;
+      break;
+    case 'magasin':
+      content = <Magasin frame={frame} />;
       break;
     case 'bureau':
       content = <Bureau frame={frame} />;

@@ -2,11 +2,16 @@ import {AbsoluteFill, Audio, interpolate, spring, staticFile, useCurrentFrame, u
 import {Decor} from './components/Decor';
 import {ElementVisuelView} from './components/ElementVisuel';
 import {Etiquette} from './components/Etiquette';
-import {Max} from './components/Max';
+import {Personnage, type Apparence} from './components/Personnage';
+import {PremiereImage} from './intro';
 import {Subtitle, revealFrames} from './components/Subtitle';
 import type {Accessoire, Plan} from './types';
 
-export const PlanScene: React.FC<{plan: Plan}> = ({plan}) => {
+export const PlanScene: React.FC<{plan: Plan; personnage: Apparence; premier?: boolean}> = ({
+  plan,
+  personnage,
+  premier = false,
+}) => {
   const frame = useCurrentFrame();
   const {fps, durationInFrames} = useVideoConfig();
 
@@ -58,8 +63,9 @@ export const PlanScene: React.FC<{plan: Plan}> = ({plan}) => {
   // (avant le premier mot rotatif, c'est la coupe elle-même qui "punche")
   const punchFrom = isRotating && motStarts && frame >= motStarts[0] ? motStart : 0;
   const punch = spring({frame: frame - punchFrom, fps, config: {damping: 14, stiffness: 220}});
-  const sceneScale = interpolate(punch, [0, 1], [1.1, 1]);
-  const flash = interpolate(frame - punchFrom, [0, 4], [0.55, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+  // Première image de l'épisode : pas de flash ni de zoom, l'action est déjà à l'écran.
+  const sceneScale = premier ? 1 : interpolate(punch, [0, 1], [1.1, 1]);
+  const flash = premier ? 0 : interpolate(frame - punchFrom, [0, 4], [0.55, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
 
   const reveal = isRotating ? 1 : revealFrames(texte, fps, durationInFrames);
   // Bouche : bouge pendant que la voix prononce un mot
@@ -70,12 +76,13 @@ export const PlanScene: React.FC<{plan: Plan}> = ({plan}) => {
       : frame < reveal + 4;
 
   return (
+    <PremiereImage.Provider value={premier}>
     <AbsoluteFill style={{overflow: 'hidden'}}>
-      {voix ? <Audio src={staticFile(voix.fichier)} /> : null}
+      {voix?.fichier ? <Audio src={staticFile(voix.fichier)} /> : null}
       <AbsoluteFill style={{transform: `scale(${sceneScale})`}}>
         <Decor nom={plan.decor} variante={motIndex} />
 
-        {/* Max : centre de l'écran */}
+        {/* Personnage : centre de l'écran */}
         <div
           style={{
             position: 'absolute',
@@ -85,7 +92,7 @@ export const PlanScene: React.FC<{plan: Plan}> = ({plan}) => {
             height: 840,
           }}
         >
-          <Max expression={plan.expression} talking={talking} accessoire={accessoire} />
+          <Personnage apparence={personnage} expression={plan.expression} talking={talking} accessoire={accessoire} entree={!premier} />
         </div>
 
         {/* Élément visuel : zone haute */}
@@ -108,5 +115,6 @@ export const PlanScene: React.FC<{plan: Plan}> = ({plan}) => {
 
       <AbsoluteFill style={{backgroundColor: 'white', opacity: flash, pointerEvents: 'none'}} />
     </AbsoluteFill>
+    </PremiereImage.Provider>
   );
 };
