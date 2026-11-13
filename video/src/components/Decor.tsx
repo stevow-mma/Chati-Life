@@ -442,6 +442,112 @@ const Uni: React.FC<{nom: string}> = ({nom}) => {
   );
 };
 
+/** Chantier : salon en rénovation, mur ouvert avec gaines, tableau électrique ouvert. Aucune marque. */
+const Chantier: React.FC<{frame: number}> = ({frame}) => {
+  const lampe = 0.22 + Math.sin(frame / 9) * 0.04;
+  return (
+    <svg viewBox={`0 0 ${W} ${H}`} width={W} height={H}>
+      {/* mur : ancien papier peint arraché, plâtre nu */}
+      <rect width={W} height={H} fill="#EDE0D4" />
+      {Array.from({length: 6}).map((_, i) => (
+        <rect key={i} x={380 + i * 96} y={0} width={40} height={520} fill="#E6CCB2" />
+      ))}
+      <path d="M 340 0 H 1080 V 560 Q 980 600 900 540 Q 820 610 720 560 Q 640 620 560 560 Q 470 610 380 540 Z" fill="#DDB892" opacity={0.55} />
+      <path d="M 300 640 q 60 -30 120 10 q 40 30 100 0" fill="none" stroke="#C9A27E" strokeWidth={6} />
+      {/* mur ouvert à gauche : saignées, gaines, boîtes d'encastrement */}
+      <path d="M 0 600 H 250 L 262 700 L 244 860 L 258 1040 L 240 1220 L 250 1320 H 0 Z" fill="#B08968" stroke={OUT} strokeWidth={10} strokeLinejoin="round" />
+      <path d="M 0 600 H 250 L 262 700 L 244 860 L 258 1040 L 240 1220 L 250 1320 H 0 Z" fill="none" stroke="#7F5539" strokeWidth={4} strokeDasharray="4 18" />
+      {[0, 1, 2, 3].map((k) => (
+        <rect key={k} x={0} y={640 + k * 170} width={250} height={14} fill="#9C6644" opacity={0.6} />
+      ))}
+      {/* gaines annelées (grises et orange) */}
+      {[
+        {d: 'M 70 600 V 900 Q 70 960 130 960 H 250', c: '#F77F00'},
+        {d: 'M 150 600 V 1320', c: '#8D99AE'},
+        {d: 'M 210 600 Q 210 760 120 800 Q 40 840 40 1000 V 1320', c: '#8D99AE'},
+      ].map((g, i) => (
+        <g key={i} fill="none" strokeLinecap="round">
+          <path d={g.d} stroke={OUT} strokeWidth={30} />
+          <path d={g.d} stroke={g.c} strokeWidth={20} />
+          <path d={g.d} stroke="rgba(0,0,0,0.25)" strokeWidth={20} strokeDasharray="4 8" />
+        </g>
+      ))}
+      {[[110, 1110], [190, 760]].map(([x, y], i) => (
+        <g key={i}>
+          <circle cx={x} cy={y} r={36} fill="#F1F3F5" stroke={OUT} strokeWidth={8} />
+          <circle cx={x} cy={y} r={20} fill="#495057" />
+          <path d={`M ${x - 6} ${y} q 10 -30 30 -24 M ${x + 4} ${y + 4} q 14 -10 34 6`} fill="none" stroke="#E63946" strokeWidth={5} strokeLinecap="round" />
+        </g>
+      ))}
+      {/* tableau électrique ouvert à droite : porte ouverte, rangées de disjoncteurs, fils */}
+      <g>
+        <rect x={830} y={620} width={220} height={420} rx={14} fill="#F8F9FA" stroke={OUT} strokeWidth={10} />
+        <path d="M 1050 630 L 1080 600 V 1060 L 1050 1030" fill="#DEE2E6" stroke={OUT} strokeWidth={8} strokeLinejoin="round" />
+        {[0, 1, 2, 3].map((r) => (
+          <g key={r}>
+            <rect x={846} y={650 + r * 92} width={188} height={14} rx={4} fill="#ADB5BD" />
+            {Array.from({length: 6}).map((_, k) => (
+              <g key={k}>
+                <rect x={850 + k * 30} y={668 + r * 92} width={26} height={54} rx={4} fill="white" stroke={OUT} strokeWidth={4} />
+                <rect
+                  x={858 + k * 30}
+                  y={(r * 6 + k) % 7 === 3 ? 696 + r * 92 : 678 + r * 92}
+                  width={10}
+                  height={18}
+                  rx={3}
+                  fill={(r * 6 + k) % 7 === 3 ? '#E63946' : k === 0 ? '#4361EE' : '#495057'}
+                />
+              </g>
+            ))}
+          </g>
+        ))}
+        {/* fils qui pendent du bas du tableau */}
+        {['#E63946', '#4361EE', '#06D6A0', '#FFD60A'].map((c, i) => (
+          <path
+            key={c}
+            d={`M ${870 + i * 40} 1040 q ${10 + Math.sin(frame / 14 + i) * 8} 70 ${-10 + i * 6} 130`}
+            fill="none"
+            stroke={c}
+            strokeWidth={9}
+            strokeLinecap="round"
+          />
+        ))}
+        {/* étiquette de danger générique */}
+        <path d="M 940 586 l 26 44 h -52 z" fill="#FFD60A" stroke={OUT} strokeWidth={6} strokeLinejoin="round" />
+        <path d="M 942 596 l -8 16 h 12 l -8 14" fill="none" stroke={OUT} strokeWidth={4} strokeLinejoin="round" />
+      </g>
+      {/* baladeuse de chantier suspendue */}
+      <path d="M 560 0 V 170" stroke={OUT} strokeWidth={6} />
+      <path d="M 530 170 h 60 l 14 60 h -88 z" fill="#FFD60A" stroke={OUT} strokeWidth={8} strokeLinejoin="round" />
+      <ellipse cx={560} cy={260} rx={260} ry={150} fill="#FFF3B0" opacity={lampe} />
+      {/* sol : chape brute + bâche de protection */}
+      <rect y={SOL - 60} width={W} height={H} fill="#ADB5BD" />
+      <rect y={SOL - 72} width={W} height={20} fill="#CED4DA" stroke={OUT} strokeWidth={6} />
+      <path d={`M 0 ${SOL + 40} L 1080 ${SOL - 10} L 1080 ${SOL + 300} L 0 ${SOL + 360} Z`} fill="#DDE9F0" opacity={0.85} stroke={OUT} strokeWidth={6} />
+      <path d={`M 120 ${SOL + 120} q 200 -40 400 10 M 500 ${SOL + 220} q 200 -30 420 -10`} fill="none" stroke="#B8C9D4" strokeWidth={8} />
+      {/* escabeau à droite, seau d'enduit à gauche */}
+      <g>
+        <path d="M 900 1480 L 960 1120 L 1020 1480" fill="none" stroke={OUT} strokeWidth={22} strokeLinejoin="round" />
+        <path d="M 900 1480 L 960 1120 L 1020 1480" fill="none" stroke="#E9C46A" strokeWidth={12} strokeLinejoin="round" />
+        {[1200, 1290, 1380].map((y) => (
+          <path key={y} d={`M ${960 - (y - 1120) / 6} ${y} H ${960 + (y - 1120) / 6}`} stroke={OUT} strokeWidth={10} strokeLinecap="round" />
+        ))}
+      </g>
+      <g>
+        <path d="M 60 1380 h 130 l -12 110 h -106 z" fill="white" stroke={OUT} strokeWidth={8} strokeLinejoin="round" />
+        <path d="M 66 1410 H 184" stroke="#4361EE" strokeWidth={10} />
+        <path d="M 66 1380 Q 125 1330 184 1380" fill="none" stroke={OUT} strokeWidth={5} />
+      </g>
+      {/* poussière qui flotte */}
+      {Array.from({length: 14}).map((_, i) => {
+        const x = (i * 173) % W;
+        const y = 300 + (((i * 211) + frame * (1 + (i % 3))) % 900);
+        return <circle key={i} cx={x} cy={y} r={3 + (i % 3)} fill="white" opacity={0.5} />;
+      })}
+    </svg>
+  );
+};
+
 export const Decor: React.FC<{nom: string; variante?: number}> = ({nom, variante = 0}) => {
   const frame = useCurrentFrame();
   const {durationInFrames} = useVideoConfig();
@@ -469,6 +575,9 @@ export const Decor: React.FC<{nom: string; variante?: number}> = ({nom, variante
       break;
     case 'restaurant':
       content = <Restaurant frame={frame} />;
+      break;
+    case 'chantier':
+      content = <Chantier frame={frame} />;
       break;
     case 'banque':
       content = <Banque frame={frame} />;

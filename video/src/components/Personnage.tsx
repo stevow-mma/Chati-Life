@@ -15,7 +15,7 @@ export type Apparence = {
   nom: string;
   genre: 'homme' | 'femme';
   teint: {peau: string; ombre: string; joues: string};
-  cheveux: {style: 'meches' | 'chignon_boucle' | 'court' | 'carre_frange'; couleur: string};
+  cheveux: {style: 'meches' | 'chignon_boucle' | 'court' | 'carre_frange' | 'court_dessus'; couleur: string};
   tenue: {
     haut: string;
     hautOmbre: string;
@@ -28,12 +28,18 @@ export type Apparence = {
     capuche?: boolean;
     /** Haut plus large (oversize). */
     oversize?: boolean;
+    /** T-shirt : col rond, manches courtes (avant-bras nus). */
+    tshirt?: boolean;
+    /** Pantalon de travail : couleur des poches cargo sur les cuisses. */
+    poches?: string;
   };
   /** Accessoire de tête : casquette (avec initiale) ou grosses lunettes rondes. */
   tete:
     | {type: 'casquette'; couleur: string; couleurOmbre: string; initiale?: string}
     | {type: 'lunettes_rondes'; couleur: string}
     | {type: 'casque_velo'; couleur: string; couleurOmbre: string}
+    /** Lunettes de protection relevées sur le front (couleur de la monture et de l'élastique). */
+    | {type: 'lunettes_protection'; couleur: string; elastique: string}
     | null;
   /** Barbe de trois jours (couleur). */
   barbe?: string | null;
@@ -45,6 +51,12 @@ export type Apparence = {
   boucles?: string | null;
   /** Smartphone toujours en main gauche (couleur de la coque, sans logo). */
   telephone?: string | null;
+  /** Taches de rousseur (couleur). */
+  rousseur?: string | null;
+  /** Ceinture porte-outils (cuir) avec pochette sur la hanche. */
+  ceintureOutils?: {couleur: string; ombre: string} | null;
+  /** Tournevis testeur dans la poche poitrine (couleur du manche). */
+  testeur?: string | null;
 };
 
 type Pt = [number, number];
@@ -196,7 +208,15 @@ const Mouth: React.FC<{expression: Expression; open: number}> = ({expression, op
   }
 };
 
-const Arm: React.FC<{shoulder: Pt; elbow: Pt; hand: Pt; gant: boolean; manche: string; peau: string; bande?: string; doigt?: boolean}> = ({
+/** Début (de 0 à t) d'une courbe quadratique S → (contrôle E) → H. */
+const demiCourbe = (S: Pt, E: Pt, H: Pt, t: number) => {
+  const c: Pt = [S[0] + (E[0] - S[0]) * t, S[1] + (E[1] - S[1]) * t];
+  const u = 1 - t;
+  const fin: Pt = [u * u * S[0] + 2 * u * t * E[0] + t * t * H[0], u * u * S[1] + 2 * u * t * E[1] + t * t * H[1]];
+  return `M ${S[0]} ${S[1]} Q ${c[0]} ${c[1]} ${fin[0]} ${fin[1]}`;
+};
+
+const Arm: React.FC<{shoulder: Pt; elbow: Pt; hand: Pt; gant: boolean; manche: string; peau: string; bande?: string; doigt?: boolean; mancheCourte?: boolean}> = ({
   shoulder,
   elbow,
   hand,
@@ -205,6 +225,7 @@ const Arm: React.FC<{shoulder: Pt; elbow: Pt; hand: Pt; gant: boolean; manche: s
   peau,
   bande,
   doigt = false,
+  mancheCourte = false,
 }) => (
   <g>
     <path
@@ -217,10 +238,17 @@ const Arm: React.FC<{shoulder: Pt; elbow: Pt; hand: Pt; gant: boolean; manche: s
     <path
       d={`M ${shoulder[0]} ${shoulder[1]} Q ${elbow[0]} ${elbow[1]} ${hand[0]} ${hand[1]}`}
       fill="none"
-      stroke={manche}
+      stroke={mancheCourte ? peau : manche}
       strokeWidth={46}
       strokeLinecap="round"
     />
+    {mancheCourte ? (
+      // manche courte de T-shirt : un peu plus large que le bras, s'arrête avant le coude
+      <g>
+        <path d={demiCourbe(shoulder, elbow, hand, 0.42)} fill="none" stroke={OUT} strokeWidth={74} strokeLinecap="round" />
+        <path d={demiCourbe(shoulder, elbow, hand, 0.42)} fill="none" stroke={manche} strokeWidth={58} strokeLinecap="round" />
+      </g>
+    ) : null}
     {bande ? (
       <path
         d={`M ${shoulder[0]} ${shoulder[1]} Q ${elbow[0]} ${elbow[1]} ${hand[0]} ${hand[1]}`}
@@ -314,6 +342,26 @@ const CheveuxAvant: React.FC<{a: Apparence}> = ({a}) => {
         <path d="M 156 226 Q 152 180 196 160 L 206 214 Q 186 236 182 290 Q 162 280 156 226 Z" />
         <path d="M 444 226 Q 448 180 404 160 L 394 214 Q 414 236 418 290 Q 438 280 444 226 Z" />
         <path d="M 190 214 Q 300 150 410 214 L 396 236 L 370 222 L 350 240 L 322 224 L 300 242 L 278 224 L 250 240 L 230 222 L 204 236 Z" />
+      </g>
+    );
+  }
+  if (a.cheveux.style === 'court_dessus') {
+    // cheveux courts visibles sur tout le dessus : calotte, petites mèches en épi, pattes courtes
+    return (
+      <g>
+        <path
+          d="M 152 262 Q 136 120 300 104 Q 464 120 448 262 Q 440 214 410 200 L 392 214 L 372 196 L 348 212 L 324 194 L 300 210 L 276 194 L 252 212 L 228 196 L 208 214 L 190 200 Q 160 214 152 262 Z"
+          fill={c}
+          stroke={OUT}
+          strokeWidth={SW}
+          strokeLinejoin="round"
+        />
+        {/* épis sur le dessus */}
+        <path d="M 250 116 L 262 84 L 280 110 L 300 76 L 318 108 L 338 86 L 350 118" fill={c} stroke={OUT} strokeWidth={7} strokeLinejoin="round" />
+        <path d="M 200 150 Q 250 120 320 118" fill="none" stroke="rgba(255,255,255,0.3)" strokeWidth={9} strokeLinecap="round" />
+        {/* pattes */}
+        <path d="M 156 238 Q 154 270 166 292 L 176 292 Q 170 262 176 236 Z" fill={c} stroke={OUT} strokeWidth={5} strokeLinejoin="round" />
+        <path d="M 444 238 Q 446 270 434 292 L 424 292 Q 430 262 424 236 Z" fill={c} stroke={OUT} strokeWidth={5} strokeLinejoin="round" />
       </g>
     );
   }
@@ -481,6 +529,79 @@ const Guidon: React.FC<{couleur: string}> = ({couleur}) => (
   </g>
 );
 
+/** Lunettes de protection relevées sur le front : élastique autour de la tête, deux verres teintés. */
+const LunettesProtection: React.FC<{couleur: string; elastique: string}> = ({couleur, elastique}) => (
+  <g>
+    <path d="M 144 196 Q 300 150 456 196" fill="none" stroke={OUT} strokeWidth={26} strokeLinecap="round" />
+    <path d="M 144 196 Q 300 150 456 196" fill="none" stroke={elastique} strokeWidth={14} strokeLinecap="round" />
+    <path d="M 196 136 Q 300 116 404 136 Q 420 168 404 200 Q 352 212 316 196 Q 300 186 284 196 Q 248 212 196 200 Q 180 168 196 136 Z" fill={couleur} stroke={OUT} strokeWidth={SW} strokeLinejoin="round" />
+    <path d="M 212 148 Q 250 138 284 146 Q 292 168 282 186 Q 246 198 214 188 Q 204 168 212 148 Z" fill="#9FD3E6" stroke={OUT} strokeWidth={5} />
+    <path d="M 388 148 Q 350 138 316 146 Q 308 168 318 186 Q 354 198 386 188 Q 396 168 388 148 Z" fill="#9FD3E6" stroke={OUT} strokeWidth={5} />
+    <path d="M 224 160 q 16 -8 34 -6 M 330 158 q 16 -8 34 -6" fill="none" stroke="white" strokeWidth={6} strokeLinecap="round" opacity={0.85} />
+  </g>
+);
+
+/** Taches de rousseur sur le nez et les pommettes. */
+const Rousseur: React.FC<{couleur: string}> = ({couleur}) => (
+  <g fill={couleur} opacity={0.75}>
+    {[
+      [196, 300], [214, 312], [232, 300], [188, 318], [222, 326], [206, 290],
+      [404, 300], [386, 312], [368, 300], [412, 318], [378, 326], [394, 290],
+      [284, 300], [316, 300], [276, 314], [324, 314],
+    ].map(([x, y], i) => (
+      <circle key={i} cx={x} cy={y} r={i % 3 === 0 ? 4.5 : 3.5} />
+    ))}
+  </g>
+);
+
+/** Ceinture porte-outils : ceinture de cuir, boucle, pochette sur la hanche avec pince et tournevis. */
+const CeintureOutils: React.FC<{couleur: string; ombre: string}> = ({couleur, ombre}) => (
+  <g>
+    <path d="M 186 650 Q 300 672 414 650 L 416 684 Q 300 706 184 684 Z" fill={couleur} stroke={OUT} strokeWidth={7} strokeLinejoin="round" />
+    <rect x={278} y={656} width={44} height={36} rx={6} fill="#ADB5BD" stroke={OUT} strokeWidth={6} />
+    <rect x={290} y={666} width={20} height={16} rx={3} fill={couleur} />
+    {/* outils qui dépassent de la pochette */}
+    <path d="M 392 690 L 380 640 M 408 690 L 414 636" stroke={OUT} strokeWidth={16} strokeLinecap="round" />
+    <path d="M 392 690 L 380 640" stroke="#E63946" strokeWidth={8} strokeLinecap="round" />
+    <path d="M 408 690 L 414 636" stroke="#F4A261" strokeWidth={8} strokeLinecap="round" />
+    <path d="M 432 690 L 440 646" stroke={OUT} strokeWidth={10} strokeLinecap="round" />
+    <path d="M 432 690 L 440 646" stroke="#CED4DA" strokeWidth={4} strokeLinecap="round" />
+    {/* pochette */}
+    <path d="M 370 680 H 454 L 448 772 Q 412 784 376 772 Z" fill={couleur} stroke={OUT} strokeWidth={7} strokeLinejoin="round" />
+    <path d="M 370 680 H 454 L 452 708 H 372 Z" fill={ombre} stroke={OUT} strokeWidth={5} strokeLinejoin="round" />
+    <path d="M 384 730 H 440" stroke={ombre} strokeWidth={4} strokeDasharray="6 6" />
+  </g>
+);
+
+/** Poche poitrine du T-shirt avec le tournevis testeur qui dépasse. */
+const PocheTesteur: React.FC<{couleur: string; tissu: string}> = ({couleur, tissu}) => (
+  <g>
+    {/* tournevis testeur : tige, manche translucide, clip */}
+    <path d="M 352 470 L 356 430" stroke={OUT} strokeWidth={18} strokeLinecap="round" />
+    <path d="M 352 470 L 356 430" stroke={couleur} strokeWidth={10} strokeLinecap="round" />
+    <circle cx={356} cy={440} r={4} fill="#FFD60A" />
+    <path d="M 362 446 L 364 474" stroke="#CED4DA" strokeWidth={4} strokeLinecap="round" />
+    <path d="M 326 462 H 390 L 388 518 Q 358 526 328 518 Z" fill={tissu} stroke={OUT} strokeWidth={6} strokeLinejoin="round" />
+    <path d="M 326 474 H 390" stroke={OUT} strokeWidth={3} opacity={0.4} />
+  </g>
+);
+
+/** Devis papier tenu en main (feuille avec lignes, total souligné). */
+const DevisMain: React.FC<{main: Pt; peau: string}> = ({main, peau}) => {
+  const [x, y] = main;
+  return (
+    <g transform={`rotate(8 ${x} ${y})`}>
+      <rect x={x - 70} y={y - 150} width={140} height={180} rx={6} fill="white" stroke={OUT} strokeWidth={7} />
+      <rect x={x - 54} y={y - 132} width={70} height={14} rx={4} fill="#2B2D42" />
+      {[0, 1, 2, 3].map((k) => (
+        <path key={k} d={`M ${x - 54} ${y - 100 + k * 22} H ${x + 50}`} stroke="#ADB5BD" strokeWidth={6} strokeLinecap="round" />
+      ))}
+      <rect x={x + 6} y={y - 18} width={48} height={18} rx={4} fill="#FFD60A" stroke={OUT} strokeWidth={3} />
+      <circle cx={x} cy={y} r={30} fill={peau} stroke={OUT} strokeWidth={SW} />
+    </g>
+  );
+};
+
 /** Tote bag en toile, rempli de jeans pliés, suspendu à la main (sans logo). */
 const ToteJeans: React.FC<{main: Pt}> = ({main}) => {
   const [x, y] = main;
@@ -512,7 +633,10 @@ export const Personnage: React.FC<{
   pose?: Posture;
   /** Objet porté à la main droite. */
   objetMain?: ObjetMain | null;
-}> = ({apparence: a, expression, talking, accessoire = null, entree = true, pose: posture = 'debout', objetMain = null}) => {
+  /** Personnage muet (à partir de l'épisode 5) : la bouche garde la pose fixe de l'expression,
+   *  jamais synchronisée sur la voix off. Défaut false : comportement des épisodes 1 à 4. */
+  muet?: boolean;
+}> = ({apparence: a, expression, talking, accessoire = null, entree = true, pose: posture = 'debout', objetMain = null, muet = false}) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
   const {peau, ombre: peauOmbre, joues} = a.teint;
@@ -534,7 +658,7 @@ export const Personnage: React.FC<{
   const blink = cyc > 74 ? Math.abs(cyc - 77) / 3 : 1;
 
   // Bouche qui parle
-  const open = talking ? Math.abs(Math.sin(frame * 0.9)) : 0;
+  const open = talking && !muet ? Math.abs(Math.sin(frame * 0.9)) : 0;
 
   const pose = POSES[expression];
   const velo = posture === 'velo';
@@ -553,6 +677,11 @@ export const Personnage: React.FC<{
     right = [[432, 540], [362, 596]];
   } else if (posture === 'pointe_bas') {
     right = [[520, 540], [530, 680]];
+  } else if (posture === 'tire_cable') {
+    // tire un câble sorti du mur, à sa gauche : deux mains sur le câble, à-coups réguliers
+    const tir = Math.max(0, Math.sin(frame / 6)) * 22;
+    left = [[150, 470], [70 + tir, 420]];
+    right = [[300, 560], [170 + tir, 470]];
   } else if (posture === 'photo') {
     // bras tendu vers la droite, téléphone levé pour photographier
     right = [[470, 470], [540, 380]];
@@ -566,6 +695,8 @@ export const Personnage: React.FC<{
   const casquette = a.tete?.type === 'casquette' ? a.tete : null;
   const lunettes = a.tete?.type === 'lunettes_rondes' ? a.tete : null;
   const casque = a.tete?.type === 'casque_velo' ? a.tete : null;
+  const protection = a.tete?.type === 'lunettes_protection' ? a.tete : null;
+  const tshirt = !!t.tshirt;
   // repère du "?" et de la goutte : plus haut avec un chignon
   const hautTete = a.cheveux.style === 'chignon_boucle' ? -10 : a.tete?.type === 'casque_velo' ? -20 : 0;
   const carre = a.cheveux.style === 'carre_frange';
@@ -613,6 +744,17 @@ export const Personnage: React.FC<{
             {/* Jambes */}
             <rect x={222} y={640} width={66} height={200} rx={26} fill={t.bas} stroke={OUT} strokeWidth={SW} />
             <rect x={312} y={640} width={66} height={200} rx={26} fill={t.bas} stroke={OUT} strokeWidth={SW} />
+            {t.poches ? (
+              // poches cargo sur les cuisses
+              <g>
+                {[226, 316].map((x) => (
+                  <g key={x}>
+                    <rect x={x} y={716} width={58} height={64} rx={8} fill={t.poches} stroke={OUT} strokeWidth={6} />
+                    <rect x={x} y={716} width={58} height={20} rx={6} fill={t.poches} stroke={OUT} strokeWidth={5} />
+                  </g>
+                ))}
+              </g>
+            ) : null}
             {/* Baskets */}
             <path d="M 196 836 q 0 -34 40 -34 h 46 q 14 0 14 20 v 26 h -100 z" fill={t.chaussures} stroke={OUT} strokeWidth={SW} strokeLinejoin="round" />
             <path d="M 404 836 q 0 -34 -40 -34 h -46 q -14 0 -14 20 v 26 h 100 z" fill={t.chaussures} stroke={OUT} strokeWidth={SW} strokeLinejoin="round" />
@@ -665,6 +807,14 @@ export const Personnage: React.FC<{
             {/* bord-côte en bas */}
             <path d="M 176 680 Q 300 702 424 680" fill="none" stroke={t.hautOmbre} strokeWidth={12} />
           </g>
+        ) : tshirt ? (
+          <g>
+            {/* T-shirt : col rond, pli léger, poche poitrine (tournevis testeur) */}
+            <path d="M 250 414 Q 300 452 350 414" fill="none" stroke={t.hautOmbre} strokeWidth={16} strokeLinecap="round" />
+            <path d="M 250 414 Q 300 452 350 414" fill="none" stroke={OUT} strokeWidth={5} strokeLinecap="round" />
+            <path d="M 236 560 Q 250 600 244 640" fill="none" stroke={t.hautOmbre} strokeWidth={8} strokeLinecap="round" />
+            {a.testeur ? <PocheTesteur couleur={a.testeur} tissu={t.hautOmbre} /> : null}
+          </g>
         ) : (
           <>
             <path d="M 236 600 Q 300 620 364 600 L 360 660 Q 300 672 240 660 Z" fill={t.hautOmbre} stroke={OUT} strokeWidth={6} />
@@ -692,9 +842,11 @@ export const Personnage: React.FC<{
           </g>
         ) : null}
 
+        {a.ceintureOutils && !assis && !velo ? <CeintureOutils couleur={a.ceintureOutils.couleur} ombre={a.ceintureOutils.ombre} /> : null}
+
         {/* Bras gauche */}
         {velo ? <Guidon couleur={a.velo ?? '#2D6A4F'} /> : null}
-        <Arm shoulder={SHOULDER_L} elbow={left[0]} hand={left[1]} gant={gant} manche={t.haut} peau={peau} bande={t.bandes} />
+        <Arm shoulder={SHOULDER_L} elbow={left[0]} hand={left[1]} gant={gant} manche={t.haut} peau={peau} bande={t.bandes} mancheCourte={tshirt} />
 
         {/* Tête */}
         <g transform={`rotate(${tilt} 300 400)`}>
@@ -732,6 +884,7 @@ export const Personnage: React.FC<{
           <ellipse cx={200} cy={325} rx={26} ry={15} fill={joues} opacity={expression === 'reveur' ? 0.9 : 0.5} />
           <ellipse cx={400} cy={325} rx={26} ry={15} fill={joues} opacity={expression === 'reveur' ? 0.9 : 0.5} />
 
+          {a.rousseur ? <Rousseur couleur={a.rousseur} /> : null}
           <Eyes expression={expression} blink={blink} frame={frame} cils={femme} />
           {lunettes ? <Lunettes couleur={lunettes.couleur} /> : null}
           <g transform={lunettes ? 'translate(0 -14)' : undefined}>
@@ -742,6 +895,7 @@ export const Personnage: React.FC<{
           {a.barbe ? <Barbe couleur={a.barbe} /> : null}
           <Mouth expression={expression} open={open} />
 
+          {protection ? <LunettesProtection couleur={protection.couleur} elastique={protection.elastique} /> : null}
           {casque ? <CasqueVelo couleur={casque.couleur} ombre={casque.couleurOmbre} /> : null}
           {casquette ? <Casquette couleur={casquette.couleur} ombre={casquette.couleurOmbre} initiale={casquette.initiale} /> : null}
 
@@ -766,7 +920,26 @@ export const Personnage: React.FC<{
           peau={peau}
           bande={t.bandes}
           doigt={posture === 'pointe_bas'}
+          mancheCourte={tshirt}
         />
+        {posture === 'tire_cable' ? (
+          // câble électrique sous gaine grise : sort du mur (à gauche), passe dans les deux mains, retombe en boucle au sol
+          <g fill="none" strokeLinecap="round">
+            {(() => {
+              const d = `M -260 300 Q ${left[1][0] - 120} ${left[1][1] - 40} ${left[1][0]} ${left[1][1]} Q ${(left[1][0] + rightG[1][0]) / 2} ${left[1][1] + 30} ${rightG[1][0]} ${rightG[1][1]} Q ${rightG[1][0] + 120} 640 300 860 Q 420 900 520 850`;
+              return (
+                <>
+                  <path d={d} stroke={OUT} strokeWidth={24} />
+                  <path d={d} stroke="#9AA5B1" strokeWidth={13} />
+                  <path d={d} stroke="#F1F3F5" strokeWidth={3} strokeDasharray="18 30" />
+                </>
+              );
+            })()}
+            {[left[1], rightG[1]].map(([x, y], i) => (
+              <circle key={i} cx={x} cy={y} r={30} fill={peau} stroke={OUT} strokeWidth={SW} />
+            ))}
+          </g>
+        ) : null}
         {a.telephone && !photo && accessoire !== 'telephone' && !velo ? (
           // smartphone tenu en main gauche (dos visible, sans logo)
           <g transform={`rotate(-10 ${left[1][0]} ${left[1][1]})`}>
@@ -795,6 +968,7 @@ export const Personnage: React.FC<{
           </g>
         ) : null}
         {objetMain === 'tote_jeans' ? <ToteJeans main={rightG[1]} /> : null}
+        {objetMain === 'devis' ? <DevisMain main={rightG[1]} peau={peau} /> : null}
         {accessoire === 'telephone' ? (
           <g transform="rotate(-12 420 300)">
             <rect x={388} y={250} width={66} height={116} rx={12} fill="#222" stroke={OUT} strokeWidth={SW} />

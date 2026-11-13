@@ -47,4 +47,24 @@ export const PERSONNAGES: Record<string, Apparence> = {
     boucles: '#C9CED6',
     telephone: '#E8E4F0',
   },
+  /** Julien — 29 ans, électricien indépendant (épisode 5). Aucun logo ni couleur de marque. */
+  julien: {
+    nom: 'Julien',
+    genre: 'homme',
+    teint: {peau: '#F8DCC4', ombre: '#E8BFA0', joues: '#F2A08B'},
+    cheveux: {style: 'court_dessus', couleur: '#C8501E'},
+    tenue: {
+      haut: '#3A3F47',
+      hautOmbre: '#2B2F35',
+      bas: '#7D858F',
+      chaussures: '#6B4A2B',
+      bandeChaussures: '#3E2A18',
+      tshirt: true,
+      poches: '#F77F00',
+    },
+    tete: {type: 'lunettes_protection', couleur: '#F1F3F5', elastique: '#495057'},
+    rousseur: '#B5562B',
+    ceintureOutils: {couleur: '#9C6B3C', ombre: '#7A5230'},
+    testeur: '#E63946',
+  },
 };

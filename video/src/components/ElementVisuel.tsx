@@ -1193,10 +1193,11 @@ const CompteurTampon: React.FC<{cible: number; seuil: number; tampon: string; un
 };
 
 /** Calcul posé ligne par ligne : chaque ligne glisse à son tour, la dernière est surlignée. */
-const CalculLignes: React.FC<{lignes: {label: string; valeur: string}[]; mention?: string; source?: string}> = ({lignes, mention, source}) => {
+const CalculLignes: React.FC<{lignes: {label: string; valeur: string}[]; mention?: string; source?: string; ecart?: number}> = ({lignes, mention, source, ecart: ecartS = 1.1}) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
-  const ecart = Math.round(fps * 1.1);
+  const ecart = Math.round(fps * ecartS);
+  const serre = lignes.length >= 5;
   return (
     <Card rotate={-1.5}>
       <div style={{display: 'flex', flexDirection: 'column', gap: 8, minWidth: 760, paddingTop: 10}}>
@@ -1217,11 +1218,11 @@ const CalculLignes: React.FC<{lignes: {label: string; valeur: string}[]; mention
                 paddingTop: dernier ? 8 : 0,
               }}
             >
-              <span style={{fontFamily: FONT_TITRE, fontSize: l.label.length > 16 ? 46 : 60, color: '#6C757D', paddingTop: 8, textAlign: 'left'}}>{l.label}</span>
+              <span style={{fontFamily: FONT_TITRE, fontSize: serre ? 44 : l.label.length > 16 ? 46 : 60, color: '#6C757D', paddingTop: 8, textAlign: 'left'}}>{l.label}</span>
               <span
                 style={{
                   fontFamily: FONT_TITRE,
-                  fontSize: dernier ? 84 : 72,
+                  fontSize: serre ? (dernier ? 70 : 56) : dernier ? 84 : 72,
                   color: dernier ? '#E63946' : OUT,
                   background: dernier ? '#FFD60A' : 'transparent',
                   border: dernier ? `5px solid ${OUT}` : 'none',
@@ -1242,7 +1243,332 @@ const CalculLignes: React.FC<{lignes: {label: string; valeur: string}[]; mention
   );
 };
 
-export const ElementVisuelView: React.FC<{element: ElementVisuel}> = ({element}) => {
+
+// ---------------------------------------------------------------------------
+// Épisode 5 (chantier) : carte qui se retourne, jauge d'heures, calculette, ponction, barre qui rétrécit, plafond.
+
+/** Instant de bascule (frame) : celui du mot prononcé si connu, sinon une fraction du plan. */
+const useBascule = (bascule: number | undefined, fraction = 0.45) => {
+  const {durationInFrames} = useVideoConfig();
+  return bascule ?? Math.round(durationInFrames * fraction);
+};
+
+const CarteTransformation: React.FC<{avant: string; avant_legende?: string; apres: string; apres_legende?: string; mention?: string; bascule?: number}> = ({
+  avant,
+  avant_legende,
+  apres,
+  apres_legende,
+  mention,
+  bascule,
+}) => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  const b = useBascule(bascule);
+  // retournement : la face avant s'écrase, la face arrière se déplie
+  const p = interpolate(frame, [b - 4, b + 6], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+  const face = p < 0.5;
+  const sy = face ? 1 - p * 2 : p * 2 - 1;
+  const bump = frame >= b + 6 ? spring({frame: frame - b - 6, fps, config: {damping: 8, stiffness: 260}}) : 0;
+  const wobble = Math.sin(frame / 5) * 2;
+  return (
+    <Card rotate={2}>
+      <div style={{transform: `scaleY(${Math.max(0.02, sy)})`, minWidth: 620}}>
+        <div style={{fontFamily: FONT_TITRE, fontSize: 170, lineHeight: 1.05, paddingTop: 20, color: face ? '#2D6A4F' : '#E63946', transform: `rotate(${wobble}deg) scale(${1 + (face ? 0 : (1 - bump) * 0.25)})`, whiteSpace: 'nowrap'}}>
+          {face ? avant : apres}
+        </div>
+        <div style={{fontFamily: FONT_TITRE, fontSize: 64, color: OUT, marginTop: 4}}>{face ? avant_legende : apres_legende}</div>
+      </div>
+      {mention ? <Mention>{mention}</Mention> : null}
+    </Card>
+  );
+};
+
+/** Petites icônes plates (devis papier, camionnette de trajet, chariot d'achats). */
+export const IconeChantier: React.FC<{nom: string; taille?: number}> = ({nom, taille = 96}) => (
+  <svg width={taille} height={taille} viewBox="0 0 100 100" style={{overflow: 'visible'}}>
+    {nom === 'devis' ? (
+      <g>
+        <rect x={18} y={6} width={64} height={86} rx={6} fill="white" stroke={OUT} strokeWidth={6} />
+        <rect x={28} y={16} width={30} height={8} rx={3} fill="#2B2D42" />
+        {[0, 1, 2, 3].map((k) => (
+          <path key={k} d={`M 28 ${36 + k * 11} H 72`} stroke="#ADB5BD" strokeWidth={5} strokeLinecap="round" />
+        ))}
+        <rect x={48} y={78} width={26} height={8} rx={2} fill="#FFD60A" stroke={OUT} strokeWidth={2} />
+      </g>
+    ) : nom === 'trajets' ? (
+      <g>
+        <path d="M 6 70 V 34 Q 6 28 12 28 H 62 Q 68 28 72 34 L 84 50 Q 94 52 94 60 V 70 Z" fill="#F8F9FA" stroke={OUT} strokeWidth={6} strokeLinejoin="round" />
+        <path d="M 66 34 L 76 50 H 66 Z" fill="#8ECAE6" stroke={OUT} strokeWidth={4} strokeLinejoin="round" />
+        <circle cx={26} cy={72} r={11} fill="#212529" stroke={OUT} strokeWidth={4} />
+        <circle cx={76} cy={72} r={11} fill="#212529" stroke={OUT} strokeWidth={4} />
+        <path d="M 4 90 H 30 M 42 90 H 60 M 72 90 H 96" stroke="#ADB5BD" strokeWidth={5} strokeLinecap="round" />
+      </g>
+    ) : nom === 'achats' ? (
+      <g>
+        <path d="M 6 18 H 20 L 32 66 H 80 L 90 32 H 24" fill="none" stroke={OUT} strokeWidth={7} strokeLinejoin="round" strokeLinecap="round" />
+        <rect x={34} y={22} width={22} height={30} rx={3} fill="#F77F00" stroke={OUT} strokeWidth={4} />
+        <circle cx={66} cy={36} r={12} fill="#8D99AE" stroke={OUT} strokeWidth={4} />
+        <circle cx={66} cy={36} r={5} fill="#F8F9FA" />
+        <circle cx={38} cy={82} r={8} fill={OUT} />
+        <circle cx={74} cy={82} r={8} fill={OUT} />
+      </g>
+    ) : nom === 'testeur' ? (
+      <g transform="rotate(-35 50 50)">
+        <rect x={42} y={4} width={16} height={56} rx={7} fill="#E63946" stroke={OUT} strokeWidth={5} />
+        <rect x={45} y={12} width={10} height={20} rx={4} fill="#FFD60A" opacity={0.85} />
+        <path d="M 50 60 V 92" stroke={OUT} strokeWidth={9} strokeLinecap="round" />
+        <path d="M 50 60 V 92" stroke="#CED4DA" strokeWidth={4} strokeLinecap="round" />
+      </g>
+    ) : null}
+  </svg>
+);
+
+const JaugeHeures: React.FC<{total: number; facturees: number; icones?: {nom: string; label: string}[]; mention?: string; source?: string}> = ({
+  total,
+  facturees,
+  icones = [],
+  mention,
+  source,
+}) => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  const t = interpolate(frame, [10, 10 + fps * 1.4], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+  const e = 1 - Math.pow(1 - t, 3);
+  const v = Math.round(total - (total - facturees) * e);
+  const W0 = 780;
+  const wFact = W0 * (v / total);
+  return (
+    <Card rotate={-1.5}>
+      <div style={{width: W0, paddingTop: 12}}>
+        <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'baseline'}}>
+          <span style={{fontFamily: FONT_TITRE, fontSize: 52, color: '#6C757D'}}>{formatFr(total)} h travaillées</span>
+          <span style={{fontFamily: FONT_TITRE, fontSize: 40, color: '#6C757D'}}>→</span>
+        </div>
+        <div style={{position: 'relative', height: 86, marginTop: 10, borderRadius: 22, border: `7px solid ${OUT}`, overflow: 'hidden', background: 'repeating-linear-gradient(-45deg, #DEE2E6 0 18px, #ADB5BD 18px 30px)'}}>
+          <div style={{position: 'absolute', left: 0, top: 0, bottom: 0, width: wFact, background: '#06D6A0', borderRight: `6px solid ${OUT}`}} />
+          <div style={{position: 'absolute', left: 20, top: 16, fontFamily: FONT_TITRE, fontSize: 56, color: OUT}}>{formatFr(v)} h facturées</div>
+        </div>
+        <div style={{display: 'flex', justifyContent: 'flex-end', gap: 22, marginTop: 14, minHeight: 130}}>
+          {icones.map((ic, i) => {
+            const pop = spring({frame: frame - 10 - fps * 1.0 - i * 8, fps, config: {damping: 10, stiffness: 240}});
+            return (
+              <div key={i} style={{display: 'flex', flexDirection: 'column', alignItems: 'center', transform: `scale(${pop})`}}>
+                <IconeChantier nom={ic.nom} taille={84} />
+                <span style={{fontFamily: FONT_TITRE, fontSize: 34, color: '#E63946', paddingTop: 4}}>{ic.label}</span>
+              </div>
+            );
+          })}
+          {icones.length ? (
+            <div style={{fontFamily: FONT_TITRE, fontSize: 36, color: '#6C757D', alignSelf: 'center', opacity: t >= 1 ? 1 : 0, maxWidth: 200, textAlign: 'left', lineHeight: 1.1}}>
+              {formatFr(total - facturees)} h non facturées
+            </div>
+          ) : null}
+        </div>
+      </div>
+      {mention ? <Mention>{mention}</Mention> : null}
+      {source ? <Mention>{source}</Mention> : null}
+    </Card>
+  );
+};
+
+const Calculette: React.FC<{operation: string; resultat: string; legende?: string; mention?: string}> = ({operation, resultat, legende, mention}) => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  const pop = usePop();
+  const nType = Math.floor(interpolate(frame, [8, 8 + fps * 1.4], [0, operation.length], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'}));
+  const fRes = 8 + fps * 1.6;
+  const res = frame >= fRes;
+  const bump = res ? spring({frame: frame - fRes, fps, config: {damping: 8, stiffness: 260}}) : 0;
+  const touche = res ? 19 : nType < operation.length ? (nType * 7) % 15 : -1;
+  return (
+    <div style={{display: 'flex', alignItems: 'center', gap: 26, transform: `scale(${pop}) rotate(-2deg)`}}>
+      <svg width={300} height={410} viewBox="0 0 300 410">
+        <rect x={8} y={8} width={284} height={394} rx={34} fill="#3A3F47" stroke={OUT} strokeWidth={10} />
+        <rect x={30} y={30} width={240} height={96} rx={12} fill="#B7E4C7" stroke={OUT} strokeWidth={6} />
+        <text x={258} y={70} textAnchor="end" fontFamily="Lilita One" fontSize={26} fill="#1B4332">{operation.slice(0, nType)}</text>
+        {res ? (
+          <text x={258} y={112} textAnchor="end" fontFamily="Luckiest Guy" fontSize={36} fill="#1B4332">{resultat}</text>
+        ) : null}
+        {Array.from({length: 20}).map((_, k) => {
+          const c = k % 4;
+          const r = Math.floor(k / 4);
+          const actif = k === touche;
+          return (
+            <rect
+              key={k}
+              x={34 + c * 60}
+              y={146 + r * 50 + (actif ? 4 : 0)}
+              width={50}
+              height={40}
+              rx={10}
+              fill={k === 19 ? '#F77F00' : c === 3 ? '#8D99AE' : '#F1F3F5'}
+              stroke={OUT}
+              strokeWidth={5}
+              opacity={actif ? 0.7 : 1}
+            />
+          );
+        })}
+      </svg>
+      <div style={{background: 'white', border: `10px solid ${OUT}`, borderRadius: 36, boxShadow: '0 18px 0 rgba(0,0,0,0.3)', padding: '26px 34px', textAlign: 'center', maxWidth: 560}}>
+        <div style={{fontFamily: FONT_TITRE, fontSize: 60, color: OUT, paddingTop: 10, whiteSpace: 'nowrap'}}>{operation.slice(0, nType) || ' '}</div>
+        <div
+          style={{
+            display: 'inline-block',
+            marginTop: 10,
+            fontFamily: FONT_TITRE,
+            fontSize: 92,
+            color: '#2D6A4F',
+            background: '#FFD60A',
+            border: `6px solid ${OUT}`,
+            borderRadius: 18,
+            padding: '10px 18px 0',
+            transform: `scale(${res ? 0.6 + bump * 0.4 : 0})`,
+            whiteSpace: 'nowrap',
+          }}
+        >
+          = {resultat}
+        </div>
+        {legende ? <div style={{fontFamily: FONT_TITRE, fontSize: 52, color: OUT, marginTop: 8, opacity: res ? 1 : 0}}>{legende}</div> : null}
+        {mention ? <Mention>{mention}</Mention> : null}
+      </div>
+    </div>
+  );
+};
+
+const BarrePonction: React.FC<{titre?: string; calcul: string; part: number; barre?: string; tranche?: string; source?: string; bascule?: number}> = ({
+  titre,
+  calcul,
+  part,
+  barre,
+  tranche,
+  source,
+  bascule,
+}) => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  const b = useBascule(bascule, 0.5);
+  const d = spring({frame: frame - b, fps, config: {damping: 11, stiffness: 160}});
+  const W0 = 780;
+  const wT = W0 * part;
+  return (
+    <Card rotate={-1.5}>
+      <div style={{width: W0, paddingTop: 10}}>
+        {titre ? <div style={{fontFamily: FONT_TITRE, fontSize: 40, color: '#6C757D'}}>{titre}</div> : null}
+        <div style={{fontFamily: FONT_TITRE, fontSize: 60, color: OUT, marginTop: 6, whiteSpace: 'nowrap'}}>{calcul}</div>
+        <div style={{position: 'relative', height: 90, marginTop: 22}}>
+          <div style={{position: 'absolute', left: 0, top: 0, height: 80, width: W0 - wT, background: '#06D6A0', border: `7px solid ${OUT}`, borderRadius: '22px 0 0 22px', boxSizing: 'border-box'}}>
+            <div style={{fontFamily: FONT_TITRE, fontSize: 46, color: OUT, padding: '16px 0 0 18px', whiteSpace: 'nowrap'}}>{barre}</div>
+          </div>
+          <div
+            style={{
+              position: 'absolute',
+              left: W0 - wT,
+              top: 0,
+              height: 80,
+              width: wT,
+              background: '#E63946',
+              border: `7px solid ${OUT}`,
+              borderRadius: '0 22px 22px 0',
+              boxSizing: 'border-box',
+              transform: `translate(${d * 12}px, ${d * 34}px) rotate(${d * 6}deg)`,
+              boxShadow: d > 0.1 ? '0 10px 0 rgba(0,0,0,0.25)' : 'none',
+            }}
+          />
+        </div>
+        <div style={{height: 90, display: 'flex', justifyContent: 'flex-end', paddingTop: 30}}>
+          <div style={{fontFamily: FONT_TITRE, fontSize: 56, color: '#E63946', opacity: d, whiteSpace: 'nowrap'}}>{tranche}</div>
+        </div>
+      </div>
+      {source ? <Mention>{source}</Mention> : null}
+    </Card>
+  );
+};
+
+const BarreRetrecit: React.FC<{depart: number; arrivee: number; unite: string; legende_depart?: string; legende_arrivee?: string; mention?: string; bascule?: number}> = ({
+  depart,
+  arrivee,
+  unite,
+  legende_depart,
+  legende_arrivee,
+  mention,
+  bascule,
+}) => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  const b = useBascule(bascule, 0.35);
+  const t = interpolate(frame, [b, b + fps * 0.9], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+  const e = 1 - Math.pow(1 - t, 3);
+  const v = depart + (arrivee - depart) * e;
+  const W0 = 780;
+  const w = W0 * (v / depart);
+  const couleur = t < 0.5 ? '#06D6A0' : '#E63946';
+  return (
+    <Card rotate={2}>
+      <div style={{width: W0, paddingTop: 10, textAlign: 'left'}}>
+        <div style={{fontFamily: FONT_TITRE, fontSize: 44, color: '#6C757D'}}>
+          {formatFr(depart)} {unite} {legende_depart}
+        </div>
+        <div style={{position: 'relative', height: 110, marginTop: 10}}>
+          <div style={{position: 'absolute', inset: 0, border: '6px dashed #ADB5BD', borderRadius: 24}} />
+          <div style={{position: 'absolute', left: 0, top: 0, bottom: 0, width: w, background: couleur, border: `7px solid ${OUT}`, borderRadius: 24, boxSizing: 'border-box'}} />
+          <div style={{position: 'absolute', left: 22, top: 22, fontFamily: FONT_TITRE, fontSize: 76, color: OUT, whiteSpace: 'nowrap'}}>
+            {formatFr(v)} {unite}
+          </div>
+        </div>
+        <div style={{fontFamily: FONT_TITRE, fontSize: 52, color: '#E63946', marginTop: 12, opacity: t >= 1 ? 1 : 0, whiteSpace: 'nowrap'}}>
+          {formatFr(arrivee)} {unite} {legende_arrivee}
+        </div>
+      </div>
+      {mention ? <Mention>{mention}</Mention> : null}
+    </Card>
+  );
+};
+
+const JaugePlafond: React.FC<{titre: string; plafond: number; valeur: number; label_valeur?: string; petit?: string; source?: string}> = ({
+  titre,
+  plafond,
+  valeur,
+  label_valeur,
+  petit,
+  source,
+}) => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  const t = interpolate(frame, [8, 8 + fps * 1.3], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+  const e = 1 - Math.pow(1 - t, 3);
+  const W0 = 800;
+  const xPlafond = W0 * 0.86;
+  const echelle = xPlafond / plafond;
+  const w = valeur * echelle * e;
+  const clignote = t >= 1 && Math.floor(frame / 8) % 2 === 0;
+  return (
+    <Card rotate={-1.5}>
+      <div style={{width: W0, paddingTop: 10}}>
+        <div style={{fontFamily: FONT_TITRE, fontSize: 54, color: OUT, lineHeight: 1.1}}>{titre}</div>
+        <div style={{position: 'relative', height: 200, marginTop: 10}}>
+          {/* étiquette Julien au-dessus du remplissage */}
+          <div style={{position: 'absolute', left: Math.max(0, w - 180), top: 0, width: 200, textAlign: 'center', fontFamily: FONT_TITRE, fontSize: 38, color: '#2D6A4F', whiteSpace: 'nowrap'}}>
+            {label_valeur ?? formatFr(valeur)}
+            <div style={{fontSize: 30, lineHeight: 0.6}}>▼</div>
+          </div>
+          <div style={{position: 'absolute', left: 0, right: 0, top: 70, height: 70, border: `7px solid ${OUT}`, borderRadius: 20, overflow: 'hidden', background: '#F1F3F5', boxSizing: 'border-box'}}>
+            <div style={{position: 'absolute', left: xPlafond, right: 0, top: 0, bottom: 0, background: 'repeating-linear-gradient(-45deg, #E63946 0 14px, #FFB3B8 14px 26px)'}} />
+            <div style={{position: 'absolute', left: 0, top: 0, bottom: 0, width: w, background: '#06D6A0'}} />
+          </div>
+          {/* repère du plafond */}
+          <div style={{position: 'absolute', left: xPlafond - 5, top: 54, width: 10, height: 104, background: clignote ? '#E63946' : OUT, borderRadius: 5}} />
+          <div style={{position: 'absolute', left: xPlafond - 110, top: 160, width: 220, textAlign: 'center', fontFamily: FONT_TITRE, fontSize: 40, color: '#E63946', whiteSpace: 'nowrap'}}>
+            {formatFr(plafond)} €
+          </div>
+        </div>
+        {petit ? <div style={{fontFamily: FONT_TEXTE, fontSize: 38, color: '#6C757D', fontStyle: 'italic', marginTop: 6}}>{petit}</div> : null}
+      </div>
+      {source ? <Mention>{source}</Mention> : null}
+    </Card>
+  );
+};
+
+export const ElementVisuelView: React.FC<{element: ElementVisuel; /** frame du mot `au_mot` dans le plan */ bascule?: number}> = ({element, bascule}) => {
   let inner: React.ReactNode = null;
   switch (element.type) {
     case 'compteur_vues':
@@ -1313,10 +1639,28 @@ export const ElementVisuelView: React.FC<{element: ElementVisuel}> = ({element})
       inner = <CompteurTampon cible={element.cible} seuil={element.seuil} tampon={element.tampon} unite={element.unite} legende={element.legende} mention={element.mention} />;
       break;
     case 'calcul_lignes':
-      inner = <CalculLignes lignes={element.lignes} mention={element.mention} source={element.source} />;
+      inner = <CalculLignes lignes={element.lignes} mention={element.mention} source={element.source} ecart={element.ecart} />;
       break;
     case 'jauge':
       inner = <Jauge valeur={element.valeur} legende={element.legende} />;
+      break;
+    case 'carte_transformation':
+      inner = <CarteTransformation avant={element.avant} avant_legende={element.avant_legende} apres={element.apres} apres_legende={element.apres_legende} mention={element.mention} bascule={bascule} />;
+      break;
+    case 'jauge_heures':
+      inner = <JaugeHeures total={element.total} facturees={element.facturees} icones={element.icones} mention={element.mention} source={element.source} />;
+      break;
+    case 'calculette':
+      inner = <Calculette operation={element.operation} resultat={element.resultat} legende={element.legende} mention={element.mention} />;
+      break;
+    case 'barre_ponction':
+      inner = <BarrePonction titre={element.titre} calcul={element.calcul} part={element.part} barre={element.barre} tranche={element.tranche} source={element.source} bascule={bascule} />;
+      break;
+    case 'barre_retrecit':
+      inner = <BarreRetrecit depart={element.depart} arrivee={element.arrivee} unite={element.unite} legende_depart={element.legende_depart} legende_arrivee={element.legende_arrivee} mention={element.mention} bascule={bascule} />;
+      break;
+    case 'jauge_plafond':
+      inner = <JaugePlafond titre={element.titre} plafond={element.plafond} valeur={element.valeur} label_valeur={element.label_valeur} petit={element.petit} source={element.source} />;
       break;
     default:
       inner = null;

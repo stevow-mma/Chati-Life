@@ -154,12 +154,73 @@ export const PortantJeans: React.FC = () => {
 };
 
 /** Position à l'écran de chaque objet (le vélo est derrière le personnage, le sablier devant à droite). */
+/** Camionnette utilitaire blanche vue de profil, SANS logo ni inscription. */
+export const Camionnette: React.FC = () => {
+  const frame = useCurrentFrame();
+  const roue = (cx: number) => (
+    <g key={cx}>
+      <circle cx={cx} cy={350} r={52} fill="#212529" stroke={OUT} strokeWidth={9} />
+      <circle cx={cx} cy={350} r={24} fill="#ADB5BD" stroke={OUT} strokeWidth={6} />
+      <path d={`M ${cx - 14} 350 H ${cx + 14} M ${cx} 336 V 364`} stroke={OUT} strokeWidth={4} transform={`rotate(${frame} ${cx} 350)`} />
+    </g>
+  );
+  return (
+    <svg viewBox="0 0 680 420" width="100%" height="100%" style={{overflow: 'visible'}}>
+      <ellipse cx={340} cy={404} rx={320} ry={14} fill="rgba(0,0,0,0.22)" />
+      {/* caisse + cabine */}
+      <path d="M 24 330 V 70 Q 24 50 44 50 H 470 Q 500 50 516 80 L 580 190 Q 650 200 656 250 V 330 Q 656 346 640 346 H 40 Q 24 346 24 330 Z" fill="#F8F9FA" stroke={OUT} strokeWidth={10} strokeLinejoin="round" />
+      {/* vitre cabine */}
+      <path d="M 488 82 L 548 186 H 488 Z" fill="#8ECAE6" stroke={OUT} strokeWidth={7} strokeLinejoin="round" />
+      <path d="M 498 100 L 520 140" stroke="white" strokeWidth={6} strokeLinecap="round" />
+      {/* portes, poignées, galerie */}
+      <path d="M 470 56 V 330 M 250 56 V 330" stroke="#CED4DA" strokeWidth={6} />
+      <rect x={430} y={210} width={26} height={10} rx={4} fill="#868E96" />
+      <rect x={210} y={210} width={26} height={10} rx={4} fill="#868E96" />
+      <path d="M 60 50 V 34 M 200 50 V 34 M 340 50 V 34 M 40 34 H 380" stroke={OUT} strokeWidth={8} strokeLinecap="round" />
+      {/* échelle sur la galerie */}
+      <rect x={70} y={14} width={280} height={18} rx={4} fill="#ADB5BD" stroke={OUT} strokeWidth={5} />
+      {/* bas de caisse, phares, pare-chocs */}
+      <path d="M 24 300 H 656" stroke="#DEE2E6" strokeWidth={12} />
+      <rect x={630} y={228} width={26} height={30} rx={6} fill="#FFF3B0" stroke={OUT} strokeWidth={5} />
+      <rect x={14} y={300} width={22} height={34} rx={4} fill="#E63946" stroke={OUT} strokeWidth={5} />
+      <rect x={600} y={318} width={66} height={24} rx={8} fill="#495057" stroke={OUT} strokeWidth={6} />
+      {roue(150)}
+      {roue(540)}
+    </svg>
+  );
+};
+
+/** Perceuse-visseuse sans fil (générique, sans marque) posée au sol. */
+export const Perceuse: React.FC = () => {
+  const frame = useCurrentFrame();
+  return (
+    <svg viewBox="0 0 240 190" width="100%" height="100%" style={{overflow: 'visible'}}>
+      <ellipse cx={120} cy={182} rx={100} ry={8} fill="rgba(0,0,0,0.22)" />
+      {/* foret qui tourne */}
+      <rect x={196} y={52} width={40} height={10} rx={3} fill="#ADB5BD" stroke={OUT} strokeWidth={4} />
+      <path d={`M ${200 + (frame % 8)} 52 l 6 10 M ${214 + (frame % 8)} 52 l 6 10`} stroke={OUT} strokeWidth={3} />
+      {/* corps */}
+      <path d="M 40 30 H 170 Q 200 30 200 57 Q 200 84 170 84 H 120 L 110 96 H 70 L 60 84 H 40 Q 24 84 24 57 Q 24 30 40 30 Z" fill="#F77F00" stroke={OUT} strokeWidth={7} strokeLinejoin="round" />
+      <rect x={178} y={40} width={22} height={34} rx={6} fill="#343A40" stroke={OUT} strokeWidth={5} />
+      {/* poignée */}
+      <path d="M 70 84 L 60 150 H 110 L 116 84 Z" fill="#343A40" stroke={OUT} strokeWidth={7} strokeLinejoin="round" />
+      <rect x={110} y={92} width={14} height={22} rx={4} fill="#E63946" stroke={OUT} strokeWidth={4} />
+      {/* batterie */}
+      <rect x={40} y={146} width={96} height={30} rx={8} fill="#495057" stroke={OUT} strokeWidth={7} />
+      <rect x={54} y={156} width={30} height={8} rx={3} fill="#06D6A0" />
+      <path d="M 44 46 H 150" stroke="rgba(255,255,255,0.4)" strokeWidth={6} strokeLinecap="round" />
+    </svg>
+  );
+};
+
 export const OBJETS_SOL: Record<AccessoireSol, {left: number; top: number; width: number; height: number; devant: boolean}> = {
   velo: {left: 0, top: 1160, width: 520, height: 340, devant: false},
   sablier: {left: 800, top: 1270, width: 180, height: 234, devant: true},
   pile_vetements: {left: 20, top: 1190, width: 280, height: 300, devant: false},
   veste_cintre: {left: 800, top: 880, width: 250, height: 390, devant: false},
   portant_jeans: {left: 10, top: 960, width: 560, height: 520, devant: false},
+  camionnette: {left: -120, top: 1040, width: 680, height: 420, devant: false},
+  perceuse: {left: 800, top: 1320, width: 220, height: 175, devant: true},
 };
 
 const OBJET_COMPOSANT: Partial<Record<AccessoireSol, React.FC>> = {
@@ -167,6 +228,8 @@ const OBJET_COMPOSANT: Partial<Record<AccessoireSol, React.FC>> = {
   pile_vetements: PileVetements,
   veste_cintre: VesteCintre,
   portant_jeans: PortantJeans,
+  camionnette: Camionnette,
+  perceuse: Perceuse,
 };
 
 export const ObjetSol: React.FC<{nom: AccessoireSol; couleurVelo?: string}> = ({nom, couleurVelo}) => {

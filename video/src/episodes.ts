@@ -15,6 +15,9 @@ import ep03Voix from '../episodes/ep03/voix.json';
 import ep04Episode from '../episodes/ep04/episode.json';
 import ep04Script from '../episodes/ep04/script.json';
 import ep04Voix from '../episodes/ep04/voix.json';
+import ep05Episode from '../episodes/ep05/episode.json';
+import ep05Script from '../episodes/ep05/script.json';
+import ep05Voix from '../episodes/ep05/voix.json';
 
 /**
  * Registre des épisodes. Nouvel épisode : créer episodes/epNN/{episode,script}.json,
@@ -25,6 +28,7 @@ const SOURCES = [
   {id: 'ep02', episode: ep02Episode, script: ep02Script, voix: ep02Voix},
   {id: 'ep03', episode: ep03Episode, script: ep03Script, voix: ep03Voix},
   {id: 'ep04', episode: ep04Episode, script: ep04Script, voix: ep04Voix},
+  {id: 'ep05', episode: ep05Episode, script: ep05Script, voix: ep05Voix},
 ];
 
 type VoixParScene = {mode: 'par_scene'; scenes: (Voix | null)[]};
@@ -45,11 +49,13 @@ export type EpisodeData = {
   /** Piste voix unique jouée en continu (sinon un mp3 par plan). */
   piste: string | null;
   durationInFrames: number;
+  /** Personnage muet (à partir de l'épisode 5) : voix off indépendante, aucune synchro de la bouche. */
+  muet: boolean;
 };
 
 const construire = (src: (typeof SOURCES)[number]): EpisodeData => {
   const plans = loadScript(src.script, `episodes/${src.id}/script.json`);
-  const ep = src.episode as {titre: string; personnage: string};
+  const ep = src.episode as {titre: string; personnage: string; muet?: boolean};
   const personnage = PERSONNAGES[ep.personnage];
   if (!personnage) throw new Error(`episodes/${src.id}/episode.json : personnage "${ep.personnage}" inconnu.`);
   const voix = src.voix as unknown as VoixParScene | VoixPisteUnique;
@@ -91,6 +97,7 @@ const construire = (src: (typeof SOURCES)[number]): EpisodeData => {
     frames,
     piste,
     durationInFrames: frames.reduce((a, b) => a + b, 0),
+    muet: ep.muet === true,
   };
 };
 

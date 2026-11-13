@@ -5,13 +5,15 @@ import {Etiquette} from './components/Etiquette';
 import {ObjetSol, OBJETS_SOL} from './components/Objets';
 import {Personnage, type Apparence} from './components/Personnage';
 import {PremiereImage} from './intro';
+import {FONT_TEXTE} from './fonts';
 import {Subtitle, revealFrames} from './components/Subtitle';
 import type {Accessoire, Plan} from './types';
 
-export const PlanScene: React.FC<{plan: Plan; personnage: Apparence; premier?: boolean}> = ({
+export const PlanScene: React.FC<{plan: Plan; personnage: Apparence; premier?: boolean; /** personnage muet (ep05+) : bouche jamais calée sur la voix */ muet?: boolean}> = ({
   plan,
   personnage,
   premier = false,
+  muet = false,
 }) => {
   const frame = useCurrentFrame();
   const {fps, durationInFrames} = useVideoConfig();
@@ -85,6 +87,14 @@ export const PlanScene: React.FC<{plan: Plan; personnage: Apparence; premier?: b
     if (frame >= bascule) expression = plan.puis.expression;
   }
 
+  // Bascule d'un élément visuel (« au_mot ») : frame où la voix prononce ce mot.
+  let basculeEv: number | undefined;
+  if (ev && 'au_mot' in ev && ev.au_mot && voix) {
+    const norm = (w: string) => w.toLowerCase().replace(/[^\p{L}\p{N}'-]/gu, '');
+    const k = motsTexte.findIndex((w) => norm(w) === norm(ev.au_mot!));
+    if (k >= 0 && motsVoix[k]) basculeEv = debutF(k);
+  }
+
   // Objets au sol (un seul ou une liste)
   const objets = plan.accessoire_sol ? (Array.isArray(plan.accessoire_sol) ? plan.accessoire_sol : [plan.accessoire_sol]) : [];
   const objetsDerriere = objets.filter((o) => !OBJETS_SOL[o].devant);
@@ -111,7 +121,7 @@ export const PlanScene: React.FC<{plan: Plan; personnage: Apparence; premier?: b
             height: 840,
           }}
         >
-          <Personnage apparence={personnage} expression={expression} talking={talking} accessoire={accessoire} entree={!premier} pose={plan.pose} objetMain={plan.objet_main ?? null} />
+          <Personnage apparence={personnage} expression={expression} talking={muet ? false : talking} muet={muet} accessoire={accessoire} entree={!premier} pose={plan.pose} objetMain={plan.objet_main ?? null} />
         </div>
 
         {objetsDevant.map((o) => (
@@ -121,10 +131,31 @@ export const PlanScene: React.FC<{plan: Plan; personnage: Apparence; premier?: b
         {/* Élément visuel : zone haute */}
         {ev && ev.type !== 'mots_rotatifs' ? (
           <div style={{position: 'absolute', left: 0, right: 0, top: 320, height: 440}}>
-            <ElementVisuelView element={ev} />
+            <ElementVisuelView element={ev} bascule={basculeEv} />
           </div>
         ) : null}
       </AbsoluteFill>
+
+      {plan.hypotheses ? (
+        // rappel discret des hypothèses de l'exemple chiffré
+        <div style={{position: 'absolute', top: 12, left: 30, right: 30, display: 'flex', justifyContent: 'center'}}>
+          <div
+            style={{
+              background: 'rgba(27,27,47,0.82)',
+              color: 'white',
+              fontFamily: FONT_TEXTE,
+              fontSize: 24,
+              lineHeight: 1.15,
+              padding: '6px 20px',
+              whiteSpace: 'pre-line',
+              borderRadius: 18,
+              textAlign: 'center',
+            }}
+          >
+            {plan.hypotheses}
+          </div>
+        </div>
+      ) : null}
 
       {plan.etiquette ? <Etiquette texte={plan.etiquette} /> : null}
 

@@ -48,6 +48,7 @@ export const loadScript = (raw: unknown, fichier: string): Plan[] => {
       accessoire_sol: plan.accessoire_sol ?? null,
       objet_main: plan.objet_main ?? null,
       puis: plan.puis ?? null,
+      hypotheses: plan.hypotheses ?? null,
       voix: null,
     };
   });

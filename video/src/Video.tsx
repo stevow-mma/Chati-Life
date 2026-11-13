@@ -8,7 +8,7 @@ export const Video: React.FC<{episode: EpisodeData}> = ({episode}) => (
     <Series>
       {episode.plans.map((plan, i) => (
         <Series.Sequence key={i} durationInFrames={episode.frames[i]} name={`Plan ${i + 1} · ${plan.decor}`}>
-          <PlanScene plan={plan} personnage={episode.personnage} premier={i === 0 && episode.piste !== null} />
+          <PlanScene plan={plan} personnage={episode.personnage} premier={i === 0 && episode.piste !== null} muet={episode.muet} />
         </Series.Sequence>
       ))}
     </Series>

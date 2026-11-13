@@ -1,11 +1,11 @@
 export type Expression = 'neutre' | 'fier' | 'reveur' | 'perplexe' | 'choque' | 'content';
 
-export type Pose = 'debout' | 'velo' | 'assis' | 'pointe_bas' | 'photo';
+export type Pose = 'debout' | 'velo' | 'assis' | 'pointe_bas' | 'photo' | 'tire_cable';
 
-export type AccessoireSol = 'velo' | 'sablier' | 'pile_vetements' | 'veste_cintre' | 'portant_jeans';
+export type AccessoireSol = 'velo' | 'sablier' | 'pile_vetements' | 'veste_cintre' | 'portant_jeans' | 'camionnette' | 'perceuse';
 
 /** Objet porté à la main (ep04). */
-export type ObjetMain = 'tote_jeans';
+export type ObjetMain = 'tote_jeans' | 'devis';
 
 export type Accessoire = 'cravate' | 'gants' | 'telephone' | null;
 
@@ -67,12 +67,24 @@ export type ElementVisuel =
     }
   /** Compteur qui monte jusqu'à `cible`, puis tampon (ex. « 30 dépassé ») quand il passe `seuil`. */
   | {type: 'compteur_tampon'; cible: number; seuil: number; tampon: string; unite?: string; legende?: string; mention?: string}
-  /** Calcul posé ligne par ligne (label · valeur), la dernière ligne surlignée. */
-  | {type: 'calcul_lignes'; lignes: {label: string; valeur: string}[]; mention?: string; source?: string}
+  /** Calcul posé ligne par ligne (label · valeur), la dernière ligne surlignée. `ecart` : s entre deux lignes (défaut 1,1). */
+  | {type: 'calcul_lignes'; lignes: {label: string; valeur: string}[]; mention?: string; source?: string; ecart?: number}
   /** Chronomètre qui défile jusqu'à `valeur` ("m:ss"). */
   | {type: 'chrono'; valeur: string}
   /** Jauge horizontale qui se remplit jusqu'à `valeur` %. */
-  | {type: 'jauge'; valeur: number; legende?: string};
+  | {type: 'jauge'; valeur: number; legende?: string}
+  /** Carte qui se retourne : `avant` (ex. « 75 €/h au devis ») devient `apres` quand la voix dit `au_mot`. */
+  | {type: 'carte_transformation'; avant: string; avant_legende?: string; apres: string; apres_legende?: string; au_mot?: string; mention?: string}
+  /** Jauge d'heures : `total` h travaillées, dont seulement `facturees` h facturées ; icônes du temps non facturé. */
+  | {type: 'jauge_heures'; total: number; facturees: number; icones?: {nom: 'devis' | 'trajets' | 'achats'; label: string}[]; mention?: string; source?: string}
+  /** Calculette animée : l'opération se tape sur l'écran, puis le résultat. */
+  | {type: 'calculette'; operation: string; resultat: string; legende?: string; mention?: string}
+  /** Barre de chiffre d'affaires dont une tranche rouge (`part`, 0..1) se détache quand la voix dit `au_mot`. */
+  | {type: 'barre_ponction'; titre?: string; calcul: string; part: number; barre?: string; tranche?: string; au_mot?: string; source?: string}
+  /** Barre qui rétrécit de `depart` à `arrivee` (même unité) quand la voix dit `au_mot`. */
+  | {type: 'barre_retrecit'; depart: number; arrivee: number; unite: string; legende_depart?: string; legende_arrivee?: string; au_mot?: string; mention?: string}
+  /** Jauge jusqu'à un plafond : remplissage jusqu'à `valeur`, repère au `plafond`, zone rouge au-delà. */
+  | {type: 'jauge_plafond'; titre: string; plafond: number; valeur: number; label_valeur?: string; petit?: string; source?: string};
 
 export type Plan = {
   texte: string;
@@ -93,6 +105,8 @@ export type Plan = {
   objet_main?: ObjetMain | null;
   /** Changement d'expression en cours de plan, quand la voix prononce `au_mot` (ex. « contente puis inquiète »). */
   puis?: {expression: Expression; au_mot: string} | null;
+  /** Bandeau discret en haut de l'écran rappelant les hypothèses d'un exemple chiffré. */
+  hypotheses?: string | null;
   /** Voix off (ajoutée depuis src/voix.json, pas dans script.json). */
   voix?: Voix | null;
 };

@@ -1,0 +1,306 @@
+[
+  {
+    "texte": "Soixante-quinze euros de l'heure sur le devis. Pourtant, Julien ne gagne que trente-quatre euros par heure travaillée.",
+    "decor": "chantier",
+    "expression": "perplexe",
+    "mot_jaune": "trente-quatre",
+    "etiquette": null,
+    "pose": "tire_cable",
+    "hypotheses": "Exemple illustratif — hypothèses :\n1 600 h travaillées · 1 100 h facturées · 9 000 €/an de frais",
+    "element_visuel": {
+      "type": "carte_transformation",
+      "avant": "75 €/h",
+      "avant_legende": "au devis",
+      "apres": "34 €/h",
+      "apres_legende": "réellement",
+      "au_mot": "trente-quatre",
+      "mention": "Exemple illustratif"
+    },
+    "duree": 3
+  },
+  {
+    "texte": "Julien, vingt-neuf ans, électricien indépendant, facture soixante-quinze euros de l'heure : la moyenne.",
+    "decor": "rue",
+    "expression": "fier",
+    "mot_jaune": "moyenne",
+    "etiquette": null,
+    "accessoire_sol": "camionnette",
+    "element_visuel": {
+      "type": "carte_chiffre",
+      "valeur": "75 € HT/h",
+      "legende": "tarif moyen d'un électricien",
+      "source": "Source : Obat, tarifs 2026"
+    },
+    "duree": 3
+  },
+  {
+    "texte": "Mais sur mille six cents heures travaillées, mille cent seulement sont facturées.",
+    "decor": "rue",
+    "expression": "perplexe",
+    "mot_jaune": "facturées",
+    "etiquette": "MAIS",
+    "accessoire_sol": "camionnette",
+    "hypotheses": "Exemple illustratif — hypothèses :\n1 600 h travaillées · 1 100 h facturées · 9 000 €/an de frais",
+    "element_visuel": {
+      "type": "jauge_heures",
+      "total": 1600,
+      "facturees": 1100,
+      "icones": [
+        {
+          "nom": "devis",
+          "label": "devis"
+        },
+        {
+          "nom": "trajets",
+          "label": "trajets"
+        },
+        {
+          "nom": "achats",
+          "label": "achats"
+        }
+      ],
+      "mention": "Exemple illustratif",
+      "source": "Source : Abby"
+    },
+    "duree": 3
+  },
+  {
+    "texte": "Mille cent heures à soixante-quinze euros : quatre-vingt-deux mille cinq cents euros de chiffre d'affaires.",
+    "decor": "bureau",
+    "expression": "neutre",
+    "mot_jaune": "chiffre",
+    "etiquette": "EN CLAIR",
+    "hypotheses": "Exemple illustratif — hypothèses :\n1 600 h travaillées · 1 100 h facturées · 9 000 €/an de frais",
+    "element_visuel": {
+      "type": "calculette",
+      "operation": "1 100 h × 75 €",
+      "resultat": "82 500 €",
+      "legende": "de CA",
+      "mention": "Exemple illustratif"
+    },
+    "duree": 3
+  },
+  {
+    "texte": "Piège numéro un : confondre chiffre d'affaires et salaire.",
+    "decor": "bureau",
+    "expression": "perplexe",
+    "mot_jaune": "salaire",
+    "etiquette": "PIÈGE N°1",
+    "objet_main": "devis",
+    "element_visuel": {
+      "type": "carte_texte",
+      "titre": "CHIFFRE D'AFFAIRES ≠ SALAIRE"
+    },
+    "duree": 3
+  },
+  {
+    "texte": "Première ponction : les cotisations. Vingt et un virgule deux pour cent, environ dix-sept mille cinq cents euros.",
+    "decor": "bureau",
+    "expression": "choque",
+    "mot_jaune": "cotisations",
+    "etiquette": null,
+    "element_visuel": {
+      "type": "barre_ponction",
+      "titre": "Micro-entreprise, prestations artisanales",
+      "calcul": "21,2 % × 82 500 € = 17 490 €",
+      "part": 0.212,
+      "barre": "CA 82 500 €",
+      "tranche": "− 17 490 €",
+      "au_mot": "Vingt",
+      "source": "Source : Service-Public.gouv.fr"
+    },
+    "duree": 3
+  },
+  {
+    "texte": "Deuxième ponction : la décennale, obligatoire. Environ neuf cent vingt euros par an.",
+    "decor": "bureau",
+    "expression": "neutre",
+    "mot_jaune": "décennale",
+    "etiquette": null,
+    "element_visuel": {
+      "type": "carte_chiffre",
+      "valeur": "≈ 920 €/an",
+      "legende": "Assurance décennale électricien",
+      "source": "Source : Obat"
+    },
+    "duree": 3
+  },
+  {
+    "texte": "Sans elle : soixante-quinze mille euros d'amende.",
+    "decor": "bureau",
+    "expression": "choque",
+    "mot_jaune": "amende",
+    "etiquette": "ATTENTION",
+    "element_visuel": {
+      "type": "carte_texte",
+      "surtitre": "Sans décennale :",
+      "titre": "jusqu'à 75 000 € d'amende",
+      "source": "Source : Code des assurances"
+    },
+    "duree": 3
+  },
+  {
+    "texte": "Troisième ponction : véhicule, outillage, téléphone. Ici, neuf mille euros.",
+    "decor": "rue",
+    "expression": "perplexe",
+    "mot_jaune": "neuf",
+    "etiquette": null,
+    "accessoire_sol": [
+      "camionnette",
+      "perceuse"
+    ],
+    "hypotheses": "Exemple illustratif — hypothèses :\n1 600 h travaillées · 1 100 h facturées · 9 000 €/an de frais",
+    "element_visuel": {
+      "type": "carte_texte",
+      "surtitre": "Exemple illustratif",
+      "titre": "véhicule + outillage + téléphone = 9 000 €/an",
+      "petit": "(hypothèse)"
+    },
+    "duree": 3
+  },
+  {
+    "texte": "Il reste environ cinquante-cinq mille euros, avant l'impôt sur le revenu.",
+    "decor": "bureau",
+    "expression": "neutre",
+    "mot_jaune": "reste",
+    "etiquette": "EN CLAIR",
+    "objet_main": "devis",
+    "hypotheses": "Exemple illustratif — hypothèses :\n1 600 h travaillées · 1 100 h facturées · 9 000 €/an de frais",
+    "element_visuel": {
+      "type": "calcul_lignes",
+      "ecart": 0.55,
+      "lignes": [
+        {
+          "label": "CA",
+          "valeur": "82 500 €"
+        },
+        {
+          "label": "cotisations",
+          "valeur": "− 17 490 €"
+        },
+        {
+          "label": "décennale",
+          "valeur": "− 920 €"
+        },
+        {
+          "label": "frais",
+          "valeur": "− 9 000 €"
+        },
+        {
+          "label": "reste",
+          "valeur": "= 55 090 €"
+        }
+      ],
+      "mention": "Exemple illustratif"
+    },
+    "duree": 3
+  },
+  {
+    "texte": "Divisé par mille six cents heures travaillées : trente-quatre euros de l'heure.",
+    "decor": "bureau",
+    "expression": "neutre",
+    "mot_jaune": "divisé",
+    "etiquette": null,
+    "hypotheses": "Exemple illustratif — hypothèses :\n1 600 h travaillées · 1 100 h facturées · 9 000 €/an de frais",
+    "element_visuel": {
+      "type": "calcul",
+      "expression": "55 090 € ÷ 1 600 h ≈ 34 €/h",
+      "mention": "Exemple illustratif · par heure travaillée"
+    },
+    "duree": 3
+  },
+  {
+    "texte": "Pas mal, mais loin des soixante-quinze euros du devis.",
+    "decor": "chantier",
+    "expression": "content",
+    "puis": {
+      "expression": "neutre",
+      "au_mot": "mais"
+    },
+    "mot_jaune": "loin",
+    "etiquette": "MAIS",
+    "hypotheses": "Exemple illustratif — hypothèses :\n1 600 h travaillées · 1 100 h facturées · 9 000 €/an de frais",
+    "element_visuel": {
+      "type": "barre_retrecit",
+      "depart": 75,
+      "arrivee": 34,
+      "unite": "€/h",
+      "legende_depart": "au devis",
+      "legende_arrivee": "réellement",
+      "au_mot": "loin",
+      "mention": "Exemple illustratif"
+    },
+    "duree": 3
+  },
+  {
+    "texte": "Piège numéro deux : oublier le plafond de quatre-vingt-trois mille six cents euros.",
+    "decor": "bureau",
+    "expression": "perplexe",
+    "mot_jaune": "plafond",
+    "etiquette": "PIÈGE N°2",
+    "element_visuel": {
+      "type": "jauge_plafond",
+      "titre": "PLAFOND MICRO (services) 2026 : 83 600 € de CA",
+      "plafond": 83600,
+      "valeur": 82500,
+      "label_valeur": "Julien : 82 500 €",
+      "petit": "juste en dessous : 1 100 € de marge",
+      "source": "Source : Service-Public.gouv.fr / Urssaf"
+    },
+    "duree": 3
+  },
+  {
+    "texte": "Dépassé deux années de suite, tu quittes le régime micro.",
+    "decor": "bureau",
+    "expression": "choque",
+    "mot_jaune": "quittes",
+    "etiquette": null,
+    "element_visuel": {
+      "type": "carte_texte",
+      "titre": "2 ans au-dessus du plafond = sortie du régime micro"
+    },
+    "duree": 3
+  },
+  {
+    "texte": "Mon conseil : pars de ton revenu visé, pas de la moyenne du marché.",
+    "decor": "salon",
+    "expression": "fier",
+    "mot_jaune": "revenu",
+    "etiquette": "CONSEIL",
+    "element_visuel": {
+      "type": "carte_texte",
+      "surtitre": "Tarif horaire =",
+      "titre": "(revenu net visé + charges) ÷ (1 − 21,2 %) ÷ heures facturables",
+      "source": "Source : Abby"
+    },
+    "duree": 3
+  },
+  {
+    "texte": "Et ne compte que tes heures facturables.",
+    "decor": "salon",
+    "expression": "content",
+    "mot_jaune": "facturables",
+    "etiquette": null,
+    "element_visuel": {
+      "type": "liste",
+      "items": [
+        "Revenu net visé",
+        "Charges",
+        "Heures facturables"
+      ]
+    },
+    "duree": 3
+  },
+  {
+    "texte": "Et toi, à combien facturerais-tu ton heure ? Dis-le en commentaire, et abonne-toi pour d'autres vrais chiffres.",
+    "decor": "studio",
+    "expression": "content",
+    "mot_jaune": "commentaire",
+    "etiquette": "TON AVIS",
+    "pose": "pointe_bas",
+    "element_visuel": {
+      "type": "icones_cta"
+    },
+    "duree": 3
+  }
+]

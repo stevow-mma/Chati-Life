@@ -9,6 +9,7 @@ npm run render            # épisode 1 → out/ep01.mp4
 npm run render -- ep02    # épisode 2 → out/ep02.mp4
 npm run render -- ep03    # épisode 3 → out/ep03.mp4
 npm run render -- ep04    # épisode 4 → out/ep04.mp4
+npm run render -- ep05    # épisode 5 → out/ep05.mp4 (personnage muet)
 ```
 
 ## Épisodes
@@ -43,7 +44,7 @@ Un tableau de plans. Chaque plan correspond à une coupe (~4 s) :
 | champ | rôle |
 |---|---|
 | `texte` | sous-titre (apparaît mot à mot ; `{mot}` = mot rotatif) |
-| `decor` | `studio`, `chambre`, `rue`, `banque`, `bureau`, `salon`, `magasin`, `restaurant` (un autre nom donne un fond uni coloré) |
+| `decor` | `studio`, `chambre`, `rue`, `banque`, `bureau`, `salon`, `magasin`, `restaurant`, `chantier` (un autre nom donne un fond uni coloré) |
 | `expression` | `neutre`, `content`, `fier`, `reveur`, `perplexe`, `choque` |
 | `element_visuel` | `null` ou un objet (voir ci-dessous) |
 | `mot_jaune` | mot(s) affichés en jaune, ou `"{mot}"` |
@@ -82,7 +83,7 @@ Un tableau de plans. Chaque plan correspond à une coupe (~4 s) :
 
 ## Structure
 
-- `src/components/Personnage.tsx` : personnage paramétrable (SVG, 6 expressions, clignement, bouche synchronisée) ; presets dans `src/personnages.ts` (Max, Inès, Karim, Manon)
+- `src/components/Personnage.tsx` : personnage paramétrable (SVG, 6 expressions, clignement, bouche synchronisée sauf option `muet`) ; presets dans `src/personnages.ts` (Max, Inès, Karim, Manon, Julien)
 - `src/components/Decor.tsx` : les décors
 - `src/components/Objets.tsx` : objets au sol (vélo garé, sablier)
 
