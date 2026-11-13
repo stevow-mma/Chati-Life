@@ -21,7 +21,9 @@ export const Subtitle: React.FC<{
   revealDuration: number;
   /** Si défini : le mot jaune fait un "punch" à partir de cette frame (hook). */
   punchFrom: number | null;
-}> = ({texte, motJaune, revealDuration, punchFrom}) => {
+  /** Frame d'apparition de chaque mot (calée sur la voix). Prioritaire sur revealDuration. */
+  starts?: number[] | null;
+}> = ({texte, motJaune, revealDuration, punchFrom, starts}) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
 
@@ -51,7 +53,7 @@ export const Subtitle: React.FC<{
       }}
     >
       {words.map((w, i) => {
-        const start = revealDuration <= 1 ? 0 : Math.round(i * perWord);
+        const start = starts?.[i] ?? (revealDuration <= 1 ? 0 : Math.round(i * perWord));
         const isYellow = yellow.has(normalize(w));
         const pop = spring({
           frame: frame - (isYellow && punchFrom !== null ? punchFrom : start),

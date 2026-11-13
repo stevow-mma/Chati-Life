@@ -1,7 +1,17 @@
 import raw from '../script.json';
-import type {Plan} from './types';
+import voixIndex from './voix.json';
+import type {Plan, Voix} from './types';
 
 export const FPS = 30;
+
+/** Texte lu par la voix : {mot} remplacé par les mots rotatifs (même règle que scripts/voix.mjs). */
+export const texteLu = (plan: Pick<Plan, 'texte' | 'element_visuel'>) => {
+  const ev = plan.element_visuel;
+  if (ev?.type === 'mots_rotatifs' && plan.texte.includes('{mot}')) {
+    return plan.texte.replace('{mot}', ev.mots.map((m) => m.toLowerCase()).join('... '));
+  }
+  return plan.texte;
+};
 
 const EXPRESSIONS = ['neutre', 'fier', 'reveur', 'perplexe', 'choque', 'content'];
 
@@ -24,7 +34,13 @@ export const loadScript = (): Plan[] => {
         `${where} : expression "${plan.expression}" inconnue (${EXPRESSIONS.join(', ')}).`,
       );
     }
+    const voixBrute = (voixIndex as (Voix | null)[])[i] ?? null;
+    const voix =
+      voixBrute && voixBrute.texte_lu === texteLu({texte: plan.texte, element_visuel: plan.element_visuel ?? null})
+        ? voixBrute
+        : null;
     return {
+      voix,
       texte: plan.texte,
       decor: plan.decor ?? 'uni',
       expression: plan.expression ?? 'neutre',
@@ -36,4 +52,9 @@ export const loadScript = (): Plan[] => {
   });
 };
 
-export const planFrames = (plan: Plan) => Math.round(plan.duree * FPS);
+/** Marge après la fin de la voix avant la coupe (s). */
+export const MARGE_VOIX = 0.3;
+
+/** Durée du plan : max(durée du script, durée audio + 0,3 s). */
+export const planFrames = (plan: Plan) =>
+  Math.ceil(Math.max(plan.duree, plan.voix ? plan.voix.duree_audio + MARGE_VOIX : 0) * FPS);

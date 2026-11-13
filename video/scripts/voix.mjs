@@ -88,3 +88,31 @@ for (const i of indices) {
   );
   console.log(`${nom(i)} : ${duree.toFixed(2)} s`);
 }
+
+// Index lu par Remotion : pour chaque scène, le mp3, sa durée et l'instant de chaque mot.
+const index = script.map((plan, i) => {
+  const meta = join(outDir, `${nom(i)}.json`);
+  if (!existsSync(meta)) return null;
+  const m = JSON.parse(readFileSync(meta, 'utf8'));
+  if (m.texte_lu !== texteLu(plan)) {
+    console.warn(`${nom(i)} : le texte a changé depuis la génération, relancer ce script`);
+    return null;
+  }
+  const {characters: c, character_start_times_seconds: s, character_end_times_seconds: e} = m.alignment;
+  const mots = [];
+  let cur = null;
+  c.forEach((ch, k) => {
+    if (/\s/.test(ch)) {
+      if (cur) mots.push(cur);
+      cur = null;
+    } else if (!cur) cur = {texte: ch, debut: s[k], fin: e[k]};
+    else {
+      cur.texte += ch;
+      cur.fin = e[k];
+    }
+  });
+  if (cur) mots.push(cur);
+  return {fichier: `voix/${nom(i)}.mp3`, texte_lu: m.texte_lu, duree_audio: m.duree_audio, mots};
+});
+writeFileSync(join(root, 'src', 'voix.json'), JSON.stringify(index, null, 1) + '\n');
+console.log('src/voix.json mis à jour');

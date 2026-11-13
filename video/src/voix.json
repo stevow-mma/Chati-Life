@@ -1,0 +1,1162 @@
+[
+ {
+  "fichier": "voix/scene01.mp3",
+  "texte_lu": "Max est aujourd'hui comptable... boxeur... clippeur.",
+  "duree_audio": 3.369796,
+  "mots": [
+   {
+    "texte": "Max",
+    "debut": 0,
+    "fin": 0.302
+   },
+   {
+    "texte": "est",
+    "debut": 0.348,
+    "fin": 0.43
+   },
+   {
+    "texte": "aujourd'hui",
+    "debut": 0.464,
+    "fin": 0.848
+   },
+   {
+    "texte": "comptable...",
+    "debut": 0.906,
+    "fin": 1.556
+   },
+   {
+    "texte": "boxeur...",
+    "debut": 1.881,
+    "fin": 2.461
+   },
+   {
+    "texte": "clippeur.",
+    "debut": 2.496,
+    "fin": 3.344
+   }
+  ]
+ },
+ {
+  "fichier": "voix/scene02.mp3",
+  "texte_lu": "Son clip vient de passer le million de vues. Il se voit déjà millionnaire.",
+  "duree_audio": 3.84,
+  "mots": [
+   {
+    "texte": "Son",
+    "debut": 0,
+    "fin": 0.197
+   },
+   {
+    "texte": "clip",
+    "debut": 0.244,
+    "fin": 0.406
+   },
+   {
+    "texte": "vient",
+    "debut": 0.441,
+    "fin": 0.604
+   },
+   {
+    "texte": "de",
+    "debut": 0.627,
+    "fin": 0.673
+   },
+   {
+    "texte": "passer",
+    "debut": 0.72,
+    "fin": 1.08
+   },
+   {
+    "texte": "le",
+    "debut": 1.196,
+    "fin": 1.324
+   },
+   {
+    "texte": "million",
+    "debut": 1.405,
+    "fin": 1.73
+   },
+   {
+    "texte": "de",
+    "debut": 1.765,
+    "fin": 1.834
+   },
+   {
+    "texte": "vues.",
+    "debut": 1.881,
+    "fin": 2.171
+   },
+   {
+    "texte": "Il",
+    "debut": 2.322,
+    "fin": 2.426
+   },
+   {
+    "texte": "se",
+    "debut": 2.496,
+    "fin": 2.566
+   },
+   {
+    "texte": "voit",
+    "debut": 2.601,
+    "fin": 2.717
+   },
+   {
+    "texte": "déjà",
+    "debut": 2.74,
+    "fin": 2.902
+   },
+   {
+    "texte": "millionnaire.",
+    "debut": 2.937,
+    "fin": 3.808
+   }
+  ]
+ },
+ {
+  "fichier": "voix/scene03.mp3",
+  "texte_lu": "Mais un million de vues… ça paie combien, au juste ?",
+  "duree_audio": 2.742857,
+  "mots": [
+   {
+    "texte": "Mais",
+    "debut": 0,
+    "fin": 0.209
+   },
+   {
+    "texte": "un",
+    "debut": 0.244,
+    "fin": 0.302
+   },
+   {
+    "texte": "million",
+    "debut": 0.337,
+    "fin": 0.569
+   },
+   {
+    "texte": "de",
+    "debut": 0.604,
+    "fin": 0.65
+   },
+   {
+    "texte": "vues…",
+    "debut": 0.697,
+    "fin": 1.045
+   },
+   {
+    "texte": "ça",
+    "debut": 1.324,
+    "fin": 1.416
+   },
+   {
+    "texte": "paie",
+    "debut": 1.463,
+    "fin": 1.556
+   },
+   {
+    "texte": "combien,",
+    "debut": 1.579,
+    "fin": 1.892
+   },
+   {
+    "texte": "au",
+    "debut": 1.916,
+    "fin": 1.962
+   },
+   {
+    "texte": "juste",
+    "debut": 1.997,
+    "fin": 2.299
+   },
+   {
+    "texte": "?",
+    "debut": 2.38,
+    "fin": 2.694
+   }
+  ]
+ },
+ {
+  "fichier": "voix/scene04.mp3",
+  "texte_lu": "D'abord, TikTok.",
+  "duree_audio": 1.28,
+  "mots": [
+   {
+    "texte": "D'abord,",
+    "debut": 0,
+    "fin": 0.372
+   },
+   {
+    "texte": "TikTok.",
+    "debut": 0.395,
+    "fin": 1.254
+   }
+  ]
+ },
+ {
+  "fichier": "voix/scene05.mp3",
+  "texte_lu": "Règle numéro un : la vidéo doit durer plus d'une minute.",
+  "duree_audio": 3.239184,
+  "mots": [
+   {
+    "texte": "Règle",
+    "debut": 0,
+    "fin": 0.313
+   },
+   {
+    "texte": "numéro",
+    "debut": 0.36,
+    "fin": 0.685
+   },
+   {
+    "texte": "un",
+    "debut": 0.72,
+    "fin": 0.789
+   },
+   {
+    "texte": ":",
+    "debut": 0.871,
+    "fin": 0.894
+   },
+   {
+    "texte": "la",
+    "debut": 1.277,
+    "fin": 1.347
+   },
+   {
+    "texte": "vidéo",
+    "debut": 1.393,
+    "fin": 1.672
+   },
+   {
+    "texte": "doit",
+    "debut": 1.695,
+    "fin": 1.846
+   },
+   {
+    "texte": "durer",
+    "debut": 1.869,
+    "fin": 2.113
+   },
+   {
+    "texte": "plus",
+    "debut": 2.148,
+    "fin": 2.287
+   },
+   {
+    "texte": "d'une",
+    "debut": 2.31,
+    "fin": 2.473
+   },
+   {
+    "texte": "minute.",
+    "debut": 2.496,
+    "fin": 3.204
+   }
+  ]
+ },
+ {
+  "fichier": "voix/scene06.mp3",
+  "texte_lu": "Pour un million de vues : 400 à 1 000 dollars.",
+  "duree_audio": 2.873469,
+  "mots": [
+   {
+    "texte": "Pour",
+    "debut": 0,
+    "fin": 0.197
+   },
+   {
+    "texte": "un",
+    "debut": 0.244,
+    "fin": 0.29
+   },
+   {
+    "texte": "million",
+    "debut": 0.313,
+    "fin": 0.557
+   },
+   {
+    "texte": "de",
+    "debut": 0.604,
+    "fin": 0.662
+   },
+   {
+    "texte": "vues",
+    "debut": 0.708,
+    "fin": 0.964
+   },
+   {
+    "texte": ":",
+    "debut": 0.987,
+    "fin": 1.115
+   },
+   {
+    "texte": "400",
+    "debut": 1.324,
+    "fin": 1.765
+   },
+   {
+    "texte": "à",
+    "debut": 1.811,
+    "fin": 1.858
+   },
+   {
+    "texte": "1",
+    "debut": 1.892,
+    "fin": 1.916
+   },
+   {
+    "texte": "000",
+    "debut": 1.939,
+    "fin": 2.078
+   },
+   {
+    "texte": "dollars.",
+    "debut": 2.125,
+    "fin": 2.833
+   }
+  ]
+ },
+ {
+  "fichier": "voix/scene07.mp3",
+  "texte_lu": "Attention : seulement la moitié des vues compte vraiment.",
+  "duree_audio": 3.291429,
+  "mots": [
+   {
+    "texte": "Attention",
+    "debut": 0,
+    "fin": 0.615
+   },
+   {
+    "texte": ":",
+    "debut": 0.673,
+    "fin": 0.708
+   },
+   {
+    "texte": "seulement",
+    "debut": 1.033,
+    "fin": 1.289
+   },
+   {
+    "texte": "la",
+    "debut": 1.312,
+    "fin": 1.358
+   },
+   {
+    "texte": "moitié",
+    "debut": 1.416,
+    "fin": 1.637
+   },
+   {
+    "texte": "des",
+    "debut": 1.683,
+    "fin": 1.788
+   },
+   {
+    "texte": "vues",
+    "debut": 1.823,
+    "fin": 2.299
+   },
+   {
+    "texte": "compte",
+    "debut": 2.334,
+    "fin": 2.531
+   },
+   {
+    "texte": "vraiment.",
+    "debut": 2.566,
+    "fin": 3.251
+   }
+  ]
+ },
+ {
+  "fichier": "voix/scene08.mp3",
+  "texte_lu": "Sur YouTube Shorts, c'est une autre histoire.",
+  "duree_audio": 2.272653,
+  "mots": [
+   {
+    "texte": "Sur",
+    "debut": 0,
+    "fin": 0.209
+   },
+   {
+    "texte": "YouTube",
+    "debut": 0.244,
+    "fin": 0.511
+   },
+   {
+    "texte": "Shorts,",
+    "debut": 0.534,
+    "fin": 0.824
+   },
+   {
+    "texte": "c'est",
+    "debut": 0.848,
+    "fin": 1.022
+   },
+   {
+    "texte": "une",
+    "debut": 1.091,
+    "fin": 1.184
+   },
+   {
+    "texte": "autre",
+    "debut": 1.207,
+    "fin": 1.382
+   },
+   {
+    "texte": "histoire.",
+    "debut": 1.405,
+    "fin": 2.229
+   }
+  ]
+ },
+ {
+  "fichier": "voix/scene09.mp3",
+  "texte_lu": "Là, on parle de un à six centimes pour mille vues.",
+  "duree_audio": 2.925714,
+  "mots": [
+   {
+    "texte": "Là,",
+    "debut": 0,
+    "fin": 0.221
+   },
+   {
+    "texte": "on",
+    "debut": 0.255,
+    "fin": 0.337
+   },
+   {
+    "texte": "parle",
+    "debut": 0.395,
+    "fin": 0.639
+   },
+   {
+    "texte": "de",
+    "debut": 0.685,
+    "fin": 0.848
+   },
+   {
+    "texte": "un",
+    "debut": 0.964,
+    "fin": 1.091
+   },
+   {
+    "texte": "à",
+    "debut": 1.161,
+    "fin": 1.196
+   },
+   {
+    "texte": "six",
+    "debut": 1.265,
+    "fin": 1.451
+   },
+   {
+    "texte": "centimes",
+    "debut": 1.474,
+    "fin": 1.95
+   },
+   {
+    "texte": "pour",
+    "debut": 1.974,
+    "fin": 2.113
+   },
+   {
+    "texte": "mille",
+    "debut": 2.159,
+    "fin": 2.322
+   },
+   {
+    "texte": "vues.",
+    "debut": 2.357,
+    "fin": 2.879
+   }
+  ]
+ },
+ {
+  "fichier": "voix/scene10.mp3",
+  "texte_lu": "En clair : dix à soixante dollars pour un million de vues.",
+  "duree_audio": 3.004082,
+  "mots": [
+   {
+    "texte": "En",
+    "debut": 0,
+    "fin": 0.139
+   },
+   {
+    "texte": "clair",
+    "debut": 0.174,
+    "fin": 0.476
+   },
+   {
+    "texte": ":",
+    "debut": 0.511,
+    "fin": 0.546
+   },
+   {
+    "texte": "dix",
+    "debut": 0.697,
+    "fin": 0.94
+   },
+   {
+    "texte": "à",
+    "debut": 0.987,
+    "fin": 1.01
+   },
+   {
+    "texte": "soixante",
+    "debut": 1.057,
+    "fin": 1.37
+   },
+   {
+    "texte": "dollars",
+    "debut": 1.393,
+    "fin": 1.73
+   },
+   {
+    "texte": "pour",
+    "debut": 1.765,
+    "fin": 1.904
+   },
+   {
+    "texte": "un",
+    "debut": 1.962,
+    "fin": 2.009
+   },
+   {
+    "texte": "million",
+    "debut": 2.043,
+    "fin": 2.31
+   },
+   {
+    "texte": "de",
+    "debut": 2.357,
+    "fin": 2.415
+   },
+   {
+    "texte": "vues.",
+    "debut": 2.461,
+    "fin": 2.972
+   }
+  ]
+ },
+ {
+  "fichier": "voix/scene11.mp3",
+  "texte_lu": "Le rêve de Max commence à fondre.",
+  "duree_audio": 1.985306,
+  "mots": [
+   {
+    "texte": "Le",
+    "debut": 0,
+    "fin": 0.151
+   },
+   {
+    "texte": "rêve",
+    "debut": 0.197,
+    "fin": 0.36
+   },
+   {
+    "texte": "de",
+    "debut": 0.383,
+    "fin": 0.453
+   },
+   {
+    "texte": "Max",
+    "debut": 0.511,
+    "fin": 0.755
+   },
+   {
+    "texte": "commence",
+    "debut": 0.813,
+    "fin": 1.115
+   },
+   {
+    "texte": "à",
+    "debut": 1.138,
+    "fin": 1.161
+   },
+   {
+    "texte": "fondre.",
+    "debut": 1.219,
+    "fin": 1.95
+   }
+  ]
+ },
+ {
+  "fichier": "voix/scene12.mp3",
+  "texte_lu": "Et Instagram ? Aucun tarif fixe pour les créateurs.",
+  "duree_audio": 3.056327,
+  "mots": [
+   {
+    "texte": "Et",
+    "debut": 0,
+    "fin": 0.139
+   },
+   {
+    "texte": "Instagram",
+    "debut": 0.163,
+    "fin": 0.639
+   },
+   {
+    "texte": "?",
+    "debut": 0.755,
+    "fin": 0.789
+   },
+   {
+    "texte": "Aucun",
+    "debut": 0.94,
+    "fin": 1.242
+   },
+   {
+    "texte": "tarif",
+    "debut": 1.289,
+    "fin": 1.521
+   },
+   {
+    "texte": "fixe",
+    "debut": 1.591,
+    "fin": 1.892
+   },
+   {
+    "texte": "pour",
+    "debut": 1.916,
+    "fin": 2.032
+   },
+   {
+    "texte": "les",
+    "debut": 2.055,
+    "fin": 2.136
+   },
+   {
+    "texte": "créateurs.",
+    "debut": 2.159,
+    "fin": 3.019
+   }
+  ]
+ },
+ {
+  "fichier": "voix/scene13.mp3",
+  "texte_lu": "Plan B : le clipping.",
+  "duree_audio": 1.671837,
+  "mots": [
+   {
+    "texte": "Plan",
+    "debut": 0,
+    "fin": 0.232
+   },
+   {
+    "texte": "B",
+    "debut": 0.279,
+    "fin": 0.313
+   },
+   {
+    "texte": ":",
+    "debut": 0.464,
+    "fin": 0.522
+   },
+   {
+    "texte": "le",
+    "debut": 0.731,
+    "fin": 0.813
+   },
+   {
+    "texte": "clipping.",
+    "debut": 0.859,
+    "fin": 1.625
+   }
+  ]
+ },
+ {
+  "fichier": "voix/scene14.mp3",
+  "texte_lu": "Une marque te paie pour chaque vue de tes clips.",
+  "duree_audio": 2.324898,
+  "mots": [
+   {
+    "texte": "Une",
+    "debut": 0,
+    "fin": 0.163
+   },
+   {
+    "texte": "marque",
+    "debut": 0.197,
+    "fin": 0.406
+   },
+   {
+    "texte": "te",
+    "debut": 0.43,
+    "fin": 0.511
+   },
+   {
+    "texte": "paie",
+    "debut": 0.58,
+    "fin": 0.72
+   },
+   {
+    "texte": "pour",
+    "debut": 0.755,
+    "fin": 0.894
+   },
+   {
+    "texte": "chaque",
+    "debut": 0.929,
+    "fin": 1.161
+   },
+   {
+    "texte": "vue",
+    "debut": 1.184,
+    "fin": 1.3
+   },
+   {
+    "texte": "de",
+    "debut": 1.335,
+    "fin": 1.405
+   },
+   {
+    "texte": "tes",
+    "debut": 1.44,
+    "fin": 1.544
+   },
+   {
+    "texte": "clips.",
+    "debut": 1.567,
+    "fin": 2.276
+   }
+  ]
+ },
+ {
+  "fichier": "voix/scene15.mp3",
+  "texte_lu": "Sur Whop : 0,50 à 1,50 dollar pour mille vues.",
+  "duree_audio": 3.056327,
+  "mots": [
+   {
+    "texte": "Sur",
+    "debut": 0,
+    "fin": 0.232
+   },
+   {
+    "texte": "Whop",
+    "debut": 0.29,
+    "fin": 0.488
+   },
+   {
+    "texte": ":",
+    "debut": 0.522,
+    "fin": 0.546
+   },
+   {
+    "texte": "0,50",
+    "debut": 0.604,
+    "fin": 1.277
+   },
+   {
+    "texte": "à",
+    "debut": 1.312,
+    "fin": 1.335
+   },
+   {
+    "texte": "1,50",
+    "debut": 1.382,
+    "fin": 1.765
+   },
+   {
+    "texte": "dollar",
+    "debut": 1.811,
+    "fin": 2.078
+   },
+   {
+    "texte": "pour",
+    "debut": 2.125,
+    "fin": 2.252
+   },
+   {
+    "texte": "mille",
+    "debut": 2.299,
+    "fin": 2.485
+   },
+   {
+    "texte": "vues.",
+    "debut": 2.519,
+    "fin": 3.019
+   }
+  ]
+ },
+ {
+  "fichier": "voix/scene16.mp3",
+  "texte_lu": "Soit environ mille dollars pour un million de vues.",
+  "duree_audio": 2.873469,
+  "mots": [
+   {
+    "texte": "Soit",
+    "debut": 0,
+    "fin": 0.29
+   },
+   {
+    "texte": "environ",
+    "debut": 0.313,
+    "fin": 0.673
+   },
+   {
+    "texte": "mille",
+    "debut": 0.72,
+    "fin": 0.906
+   },
+   {
+    "texte": "dollars",
+    "debut": 0.94,
+    "fin": 1.335
+   },
+   {
+    "texte": "pour",
+    "debut": 1.358,
+    "fin": 1.544
+   },
+   {
+    "texte": "un",
+    "debut": 1.66,
+    "fin": 1.753
+   },
+   {
+    "texte": "million",
+    "debut": 1.788,
+    "fin": 2.101
+   },
+   {
+    "texte": "de",
+    "debut": 2.136,
+    "fin": 2.194
+   },
+   {
+    "texte": "vues.",
+    "debut": 2.241,
+    "fin": 2.833
+   }
+  ]
+ },
+ {
+  "fichier": "voix/scene17.mp3",
+  "texte_lu": "Pourquoi si peu ? La pub classique coûte 20 à 80 dollars les mille vues. Le clipping, environ un dollar.",
+  "duree_audio": 7.053061,
+  "mots": [
+   {
+    "texte": "Pourquoi",
+    "debut": 0,
+    "fin": 0.337
+   },
+   {
+    "texte": "si",
+    "debut": 0.372,
+    "fin": 0.476
+   },
+   {
+    "texte": "peu",
+    "debut": 0.534,
+    "fin": 0.673
+   },
+   {
+    "texte": "?",
+    "debut": 0.789,
+    "fin": 0.824
+   },
+   {
+    "texte": "La",
+    "debut": 1.265,
+    "fin": 1.347
+   },
+   {
+    "texte": "pub",
+    "debut": 1.416,
+    "fin": 1.567
+   },
+   {
+    "texte": "classique",
+    "debut": 1.602,
+    "fin": 2.067
+   },
+   {
+    "texte": "coûte",
+    "debut": 2.09,
+    "fin": 2.485
+   },
+   {
+    "texte": "20",
+    "debut": 2.635,
+    "fin": 2.891
+   },
+   {
+    "texte": "à",
+    "debut": 2.949,
+    "fin": 3.019
+   },
+   {
+    "texte": "80",
+    "debut": 3.135,
+    "fin": 3.529
+   },
+   {
+    "texte": "dollars",
+    "debut": 3.576,
+    "fin": 3.913
+   },
+   {
+    "texte": "les",
+    "debut": 3.936,
+    "fin": 4.029
+   },
+   {
+    "texte": "mille",
+    "debut": 4.075,
+    "fin": 4.272
+   },
+   {
+    "texte": "vues.",
+    "debut": 4.307,
+    "fin": 4.621
+   },
+   {
+    "texte": "Le",
+    "debut": 5.004,
+    "fin": 5.097
+   },
+   {
+    "texte": "clipping,",
+    "debut": 5.132,
+    "fin": 5.596
+   },
+   {
+    "texte": "environ",
+    "debut": 5.619,
+    "fin": 5.979
+   },
+   {
+    "texte": "un",
+    "debut": 6.06,
+    "fin": 6.153
+   },
+   {
+    "texte": "dollar.",
+    "debut": 6.188,
+    "fin": 7.012
+   }
+  ]
+ },
+ {
+  "fichier": "voix/scene18.mp3",
+  "texte_lu": "Attention : le prix affiché n'est pas celui que tu reçois. La plateforme prend des frais.",
+  "duree_audio": 6.034286,
+  "mots": [
+   {
+    "texte": "Attention",
+    "debut": 0,
+    "fin": 0.511
+   },
+   {
+    "texte": ":",
+    "debut": 0.627,
+    "fin": 0.673
+   },
+   {
+    "texte": "le",
+    "debut": 1.277,
+    "fin": 1.358
+   },
+   {
+    "texte": "prix",
+    "debut": 1.405,
+    "fin": 1.602
+   },
+   {
+    "texte": "affiché",
+    "debut": 1.625,
+    "fin": 2.09
+   },
+   {
+    "texte": "n'est",
+    "debut": 2.171,
+    "fin": 2.31
+   },
+   {
+    "texte": "pas",
+    "debut": 2.357,
+    "fin": 2.612
+   },
+   {
+    "texte": "celui",
+    "debut": 2.67,
+    "fin": 2.995
+   },
+   {
+    "texte": "que",
+    "debut": 3.042,
+    "fin": 3.123
+   },
+   {
+    "texte": "tu",
+    "debut": 3.158,
+    "fin": 3.251
+   },
+   {
+    "texte": "reçois.",
+    "debut": 3.297,
+    "fin": 3.785
+   },
+   {
+    "texte": "La",
+    "debut": 4.296,
+    "fin": 4.4
+   },
+   {
+    "texte": "plateforme",
+    "debut": 4.447,
+    "fin": 4.992
+   },
+   {
+    "texte": "prend",
+    "debut": 5.039,
+    "fin": 5.248
+   },
+   {
+    "texte": "des",
+    "debut": 5.271,
+    "fin": 5.364
+   },
+   {
+    "texte": "frais.",
+    "debut": 5.399,
+    "fin": 5.991
+   }
+  ]
+ },
+ {
+  "fichier": "voix/scene19.mp3",
+  "texte_lu": "Alors, qui paie vraiment ? Tout dépend de la plateforme, et des règles du jeu.",
+  "duree_audio": 4.493061,
+  "mots": [
+   {
+    "texte": "Alors,",
+    "debut": 0,
+    "fin": 0.36
+   },
+   {
+    "texte": "qui",
+    "debut": 0.569,
+    "fin": 0.708
+   },
+   {
+    "texte": "paie",
+    "debut": 0.743,
+    "fin": 0.859
+   },
+   {
+    "texte": "vraiment",
+    "debut": 0.882,
+    "fin": 1.184
+   },
+   {
+    "texte": "?",
+    "debut": 1.254,
+    "fin": 1.289
+   },
+   {
+    "texte": "Tout",
+    "debut": 1.8,
+    "fin": 1.974
+   },
+   {
+    "texte": "dépend",
+    "debut": 1.997,
+    "fin": 2.299
+   },
+   {
+    "texte": "de",
+    "debut": 2.322,
+    "fin": 2.38
+   },
+   {
+    "texte": "la",
+    "debut": 2.415,
+    "fin": 2.473
+   },
+   {
+    "texte": "plateforme,",
+    "debut": 2.519,
+    "fin": 3.181
+   },
+   {
+    "texte": "et",
+    "debut": 3.251,
+    "fin": 3.367
+   },
+   {
+    "texte": "des",
+    "debut": 3.402,
+    "fin": 3.495
+   },
+   {
+    "texte": "règles",
+    "debut": 3.529,
+    "fin": 3.796
+   },
+   {
+    "texte": "du",
+    "debut": 3.82,
+    "fin": 3.901
+   },
+   {
+    "texte": "jeu.",
+    "debut": 3.947,
+    "fin": 4.458
+   }
+  ]
+ },
+ {
+  "fichier": "voix/scene20.mp3",
+  "texte_lu": "Prochain épisode : Max se lance dans le dropshipping.",
+  "duree_audio": 3.004082,
+  "mots": [
+   {
+    "texte": "Prochain",
+    "debut": 0,
+    "fin": 0.36
+   },
+   {
+    "texte": "épisode",
+    "debut": 0.43,
+    "fin": 0.929
+   },
+   {
+    "texte": ":",
+    "debut": 0.964,
+    "fin": 0.987
+   },
+   {
+    "texte": "Max",
+    "debut": 1.196,
+    "fin": 1.44
+   },
+   {
+    "texte": "se",
+    "debut": 1.463,
+    "fin": 1.556
+   },
+   {
+    "texte": "lance",
+    "debut": 1.602,
+    "fin": 1.753
+   },
+   {
+    "texte": "dans",
+    "debut": 1.776,
+    "fin": 1.869
+   },
+   {
+    "texte": "le",
+    "debut": 1.892,
+    "fin": 1.95
+   },
+   {
+    "texte": "dropshipping.",
+    "debut": 1.985,
+    "fin": 2.972
+   }
+  ]
+ }
+]

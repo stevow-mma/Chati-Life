@@ -4,7 +4,7 @@
   "description": "Vidéos cartoon de storytelling (Remotion) pilotées par script.json",
   "scripts": {
     "studio": "remotion studio",
-    "render": "remotion render Prototype out/prototype.mp4",
+    "render": "node scripts/voix.mjs && remotion render Prototype out/max-un-million-de-vues.mp4",
     "still": "remotion still Prototype out/frame.png --frame=60",
     "typecheck": "tsc --noEmit"
   },

@@ -33,4 +33,17 @@ export type Plan = {
   etiquette: string | null;
   /** Durée du plan en secondes. */
   duree: number;
+  /** Voix off (ajoutée depuis src/voix.json, pas dans script.json). */
+  voix?: Voix | null;
+};
+
+export type MotVoix = {texte: string; debut: number; fin: number};
+
+export type Voix = {
+  /** Chemin du mp3 dans public/. */
+  fichier: string;
+  texte_lu: string;
+  duree_audio: number;
+  /** Instants (s) de chaque mot prononcé, depuis l'alignement ElevenLabs. */
+  mots: MotVoix[];
 };
