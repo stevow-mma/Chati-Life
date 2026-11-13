@@ -1,0 +1,63 @@
+[
+  {
+    "texte": "Max est aujourd'hui {mot}",
+    "decor": "studio",
+    "expression": "fier",
+    "element_visuel": {
+      "type": "mots_rotatifs",
+      "mots": [
+        "Comptable",
+        "Boxeur",
+        "Clippeur"
+      ],
+      "intervalle": 1,
+      "accessoires": [
+        "cravate",
+        "gants",
+        "telephone"
+      ]
+    },
+    "mot_jaune": "{mot}",
+    "etiquette": null,
+    "duree": 3
+  },
+  {
+    "texte": "Son clip vient de passer le million de vues. Il se voit déjà millionnaire.",
+    "decor": "chambre",
+    "expression": "reveur",
+    "element_visuel": {
+      "type": "compteur_vues",
+      "valeur": 1000000,
+      "legende": "vues"
+    },
+    "mot_jaune": "millionnaire",
+    "etiquette": null,
+    "duree": 4
+  },
+  {
+    "texte": "Mais un million de vues… ça paie combien, au juste ?",
+    "decor": "rue",
+    "expression": "perplexe",
+    "element_visuel": {
+      "type": "icone",
+      "nom": "question"
+    },
+    "mot_jaune": "combien",
+    "etiquette": "MAIS",
+    "duree": 4
+  },
+  {
+    "texte": "Attention : la réponse risque de lui piquer les yeux.",
+    "decor": "banque",
+    "expression": "choque",
+    "element_visuel": {
+      "type": "carte_chiffre",
+      "valeur": "??? €",
+      "legende": "pour 1 million de vues",
+      "source": "Source : à compléter"
+    },
+    "mot_jaune": "piquer",
+    "etiquette": "ATTENTION",
+    "duree": 4
+  }
+]
