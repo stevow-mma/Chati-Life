@@ -10,6 +10,7 @@ npm run render -- ep02    # épisode 2 → out/ep02.mp4
 npm run render -- ep03    # épisode 3 → out/ep03.mp4
 npm run render -- ep04    # épisode 4 → out/ep04.mp4
 npm run render -- ep05    # épisode 5 → out/ep05.mp4 (personnage muet)
+npm run render -- ep06    # épisode 6 → out/ep06.mp4 (Awa, caissière, muette)
 ```
 
 ## Épisodes

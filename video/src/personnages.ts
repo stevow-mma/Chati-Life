@@ -67,4 +67,24 @@ export const PERSONNAGES: Record<string, Apparence> = {
     ceintureOutils: {couleur: '#9C6B3C', ombre: '#7A5230'},
     testeur: '#E63946',
   },
+  /** Awa — 31 ans, caissière (épisode 6). Aucun logo ni couleur de marque. */
+  awa: {
+    nom: 'Awa',
+    genre: 'femme',
+    teint: {peau: '#6B4226', ombre: '#4E2E19', joues: '#A0524A'},
+    cheveux: {style: 'afro_puff', couleur: '#1A1210'},
+    tenue: {
+      haut: '#7B1E3A',
+      hautOmbre: '#5C1429',
+      bas: '#1C1C22',
+      chaussures: '#2B2B33',
+      bandeChaussures: '#E9ECEF',
+      tunique: true,
+    },
+    tete: null,
+    bandeau: '#7B4FC9',
+    clous: '#F2C14E',
+    badge: {texte: 'AWA', couleur: '#7B1E3A'},
+    ceinturePochette: {couleur: '#2B2B33', ombre: '#16161B'},
+  },
 };

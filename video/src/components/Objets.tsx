@@ -1,5 +1,6 @@
 import {useCurrentFrame} from 'remotion';
 import type {AccessoireSol} from '../types';
+import {BIP_SCAN, CYCLE_SCAN} from './Personnage';
 
 /** Objets posés au sol à côté du personnage (vélo garé, sablier). Style plat, aucun logo. */
 
@@ -213,6 +214,115 @@ export const Perceuse: React.FC = () => {
   );
 };
 
+/** Caisse de supermarché vue de face (devant le personnage) : tapis roulant, vitre de scanner qui bipe,
+ *  écran de caisse, terminal de paiement. Générique, aucun logo. Cycle calé sur la pose « scanne ». */
+export const CaisseTapis: React.FC = () => {
+  const frame = useCurrentFrame();
+  const u = (frame % CYCLE_SCAN) / CYCLE_SCAN;
+  const bip = u >= BIP_SCAN[0] && u <= BIP_SCAN[1];
+  const nbScans = Math.floor(frame / CYCLE_SCAN) + (u > BIP_SCAN[0] ? 1 : 0);
+  const total = (12.4 + nbScans * 3.35).toFixed(2).replace('.', ',');
+  const avance = (frame * 3) % 60;
+  // articles qui avancent sur le tapis vers la caissière
+  const articles = [0, 1, 2, 3].map((k) => ({x: ((frame * 2.2 + k * 110) % 440) - 40, k}));
+  return (
+    <svg viewBox="0 0 1080 300" width="100%" height="100%" style={{overflow: 'visible'}}>
+      {/* écran client + terminal de paiement sur mât, à droite */}
+      <rect x={884} y={-150} width={18} height={180} fill="#495057" stroke={OUT} strokeWidth={6} />
+      <rect x={812} y={-250} width={172} height={110} rx={14} fill="#343A40" stroke={OUT} strokeWidth={8} />
+      <rect x={826} y={-236} width={144} height={82} rx={6} fill="#CFF5E7" />
+      <text x={898} y={-206} textAnchor="middle" fontFamily="Lilita One" fontSize={22} fill="#2D6A4F">TOTAL</text>
+      <text x={898} y={-170} textAnchor="middle" fontFamily="Luckiest Guy" fontSize={34} fill={OUT}>{total} €</text>
+      {/* comptoir : plateau */}
+      <rect x={-20} y={20} width={1120} height={44} rx={10} fill="#DEE2E6" stroke={OUT} strokeWidth={8} />
+      {/* tapis roulant à gauche */}
+      <rect x={-20} y={26} width={420} height={30} rx={8} fill="#2B2D42" />
+      <g opacity={0.5}>
+        {Array.from({length: 9}).map((_, i) => (
+          <rect key={i} x={-60 + i * 60 + avance} y={30} width={8} height={22} fill="#6C757D" />
+        ))}
+      </g>
+      <rect x={-20} y={26} width={420} height={30} rx={8} fill="none" stroke={OUT} strokeWidth={5} />
+      {/* articles sur le tapis */}
+      {articles.map(({x, k}) => (
+        <g key={k} opacity={x > 330 ? Math.max(0, 1 - (x - 330) / 50) : 1}>
+          {k % 3 === 0 ? (
+            <rect x={x} y={-30} width={64} height={56} rx={6} fill={k === 0 ? '#F4A261' : '#90BE6D'} stroke={OUT} strokeWidth={5} />
+          ) : k % 3 === 1 ? (
+            <g>
+              <rect x={x + 8} y={-50} width={34} height={76} rx={10} fill="#4CC9F0" stroke={OUT} strokeWidth={5} />
+              <rect x={x + 17} y={-64} width={16} height={18} rx={4} fill="#3A86FF" stroke={OUT} strokeWidth={4} />
+            </g>
+          ) : (
+            <g>
+              <circle cx={x + 20} cy={4} r={22} fill="#FFD166" stroke={OUT} strokeWidth={5} />
+              <circle cx={x + 50} cy={6} r={20} fill="#FFD166" stroke={OUT} strokeWidth={5} />
+            </g>
+          )}
+        </g>
+      ))}
+      {/* séparateur de commande */}
+      <rect x={350} y={6} width={60} height={20} rx={6} fill="#ADB5BD" stroke={OUT} strokeWidth={5} />
+      {/* vitre du scanner au centre */}
+      <rect x={462} y={28} width={156} height={28} rx={6} fill={bip ? '#FF8FA3' : '#9FD3E6'} stroke={OUT} strokeWidth={6} />
+      <path d="M 476 42 H 604 M 500 32 L 580 52 M 500 52 L 580 32" stroke="#E63946" strokeWidth={3} opacity={bip ? 1 : 0.45} />
+      {bip ? (
+        <g>
+          <ellipse cx={540} cy={30} rx={110} ry={26} fill="#E63946" opacity={0.25} />
+          <g transform="translate(700 -40) rotate(8)">
+            <rect x={-62} y={-30} width={124} height={56} rx={14} fill="#FFD60A" stroke={OUT} strokeWidth={6} />
+            <text x={0} y={18} textAnchor="middle" fontFamily="Luckiest Guy" fontSize={42} fill={OUT}>BIP</text>
+          </g>
+        </g>
+      ) : null}
+      {/* zone d'emballage à droite */}
+      <rect x={680} y={28} width={400} height={28} rx={6} fill="#CED4DA" />
+      {/* face avant du comptoir */}
+      <rect x={-20} y={64} width={1120} height={250} fill="#577590" stroke={OUT} strokeWidth={8} />
+      <rect x={-20} y={64} width={1120} height={26} fill="#4A6680" />
+      {[120, 380, 700, 960].map((x) => (
+        <rect key={x} x={x - 90} y={118} width={180} height={150} rx={14} fill="#6A89A7" stroke={OUT} strokeWidth={5} />
+      ))}
+      <rect x={494} y={110} width={92} height={150} rx={10} fill="#343A40" stroke={OUT} strokeWidth={6} />
+      <rect x={508} y={128} width={64} height={18} rx={4} fill="#ADB5BD" />
+    </svg>
+  );
+};
+
+/** Pile de billets et de pièces génériques (aucun motif officiel), une pièce qui brille. */
+export const BilletsPieces: React.FC = () => {
+  const frame = useCurrentFrame();
+  const flotte = Math.sin(frame / 8) * 4;
+  const eclat = (frame % 50) / 50;
+  return (
+    <svg viewBox="0 0 260 220" width="100%" height="100%" style={{overflow: 'visible'}}>
+      <ellipse cx={130} cy={208} rx={124} ry={12} fill="rgba(0,0,0,0.22)" />
+      {[0, 1, 2, 3].map((k) => (
+        <g key={k} transform={`translate(${k % 2 ? 6 : -4} ${-k * 18}) rotate(${k % 2 ? 3 : -2} 110 180)`}>
+          <rect x={20} y={150} width={180} height={50} rx={6} fill="#95D5B2" stroke={OUT} strokeWidth={6} />
+          <rect x={30} y={158} width={160} height={34} rx={4} fill="none" stroke="#52B788" strokeWidth={4} />
+          <circle cx={110} cy={175} r={13} fill="#D8F3DC" stroke="#52B788" strokeWidth={4} />
+          <text x={52} y={186} fontFamily="Luckiest Guy" fontSize={22} fill="#2D6A4F">€</text>
+        </g>
+      ))}
+      {/* billet qui flotte */}
+      <g transform={`translate(0 ${flotte}) rotate(${-12 + flotte} 120 70)`}>
+        <rect x={40} y={50} width={170} height={48} rx={6} fill="#B7E4C7" stroke={OUT} strokeWidth={6} />
+        <circle cx={125} cy={74} r={12} fill="#D8F3DC" stroke="#52B788" strokeWidth={4} />
+        <text x={58} y={84} fontFamily="Luckiest Guy" fontSize={22} fill="#2D6A4F">€</text>
+      </g>
+      {/* pièces */}
+      {[[200, 186], [228, 176], [214, 158]].map(([x, y], i) => (
+        <g key={i}>
+          <ellipse cx={x} cy={y} rx={24} ry={14} fill="#F2C14E" stroke={OUT} strokeWidth={5} />
+          <ellipse cx={x} cy={y - 3} rx={14} ry={7} fill="none" stroke="#C9A227" strokeWidth={3} />
+        </g>
+      ))}
+      <path d={`M 214 ${136 - eclat * 6} l 4 10 l 10 4 l -10 4 l -4 10 l -4 -10 l -10 -4 l 10 -4 z`} fill="white" opacity={1 - eclat} />
+    </svg>
+  );
+};
+
 export const OBJETS_SOL: Record<AccessoireSol, {left: number; top: number; width: number; height: number; devant: boolean}> = {
   velo: {left: 0, top: 1160, width: 520, height: 340, devant: false},
   sablier: {left: 800, top: 1270, width: 180, height: 234, devant: true},
@@ -221,6 +331,8 @@ export const OBJETS_SOL: Record<AccessoireSol, {left: number; top: number; width
   portant_jeans: {left: 10, top: 960, width: 560, height: 520, devant: false},
   camionnette: {left: -120, top: 1040, width: 680, height: 420, devant: false},
   perceuse: {left: 800, top: 1320, width: 220, height: 175, devant: true},
+  caisse_tapis: {left: 0, top: 1262, width: 1080, height: 300, devant: true},
+  billets_pieces: {left: 790, top: 1290, width: 260, height: 220, devant: true},
 };
 
 const OBJET_COMPOSANT: Partial<Record<AccessoireSol, React.FC>> = {
@@ -230,6 +342,8 @@ const OBJET_COMPOSANT: Partial<Record<AccessoireSol, React.FC>> = {
   portant_jeans: PortantJeans,
   camionnette: Camionnette,
   perceuse: Perceuse,
+  caisse_tapis: CaisseTapis,
+  billets_pieces: BilletsPieces,
 };
 
 export const ObjetSol: React.FC<{nom: AccessoireSol; couleurVelo?: string}> = ({nom, couleurVelo}) => {

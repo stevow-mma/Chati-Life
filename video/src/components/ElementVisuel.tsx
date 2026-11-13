@@ -79,7 +79,7 @@ const tailleChiffre = (valeur: string) => {
   return 80;
 };
 
-const CarteChiffre: React.FC<{valeur: string; legende?: string; source?: string}> = ({valeur, legende, source}) => {
+const CarteChiffre: React.FC<{valeur: string; legende?: string; source?: string; mention?: string}> = ({valeur, legende, source, mention}) => {
   const frame = useCurrentFrame();
   const wobble = Math.sin(frame / 5) * 2;
   // "0,50 – 1,50 $ / 1 000 vues" : le chiffre en gros, l'unité "/ …" en dessous
@@ -118,6 +118,7 @@ const CarteChiffre: React.FC<{valeur: string; legende?: string; source?: string}
             {source}
           </div>
         ) : null}
+        {mention ? <Mention>{mention}</Mention> : null}
       </div>
     </Card>
   );
@@ -1568,14 +1569,273 @@ const JaugePlafond: React.FC<{titre: string; plafond: number; valeur: number; la
   );
 };
 
-export const ElementVisuelView: React.FC<{element: ElementVisuel; /** frame du mot `au_mot` dans le plan */ bascule?: number}> = ({element, bascule}) => {
+// ---------------------------------------------------------------------------
+// Épisode 6 (fiche de paie) : face-à-face, hausse, fiche de paie, barre empilée.
+
+/** Deux montants face à face ; la colonne droite claque quand la voix dit `au_mot`. */
+const FaceAFace: React.FC<{
+  gauche: {label: string; valeur: string; petit?: string};
+  droite: {label: string; valeur: string; petit?: string};
+  mention?: string;
+  source?: string;
+  bascule?: number;
+}> = ({gauche, droite, mention, source, bascule}) => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  const b = useBascule(bascule, 0.6);
+  const pop = spring({frame: frame - b, fps, config: {damping: 9, stiffness: 240}});
+  const wobble = Math.sin(frame / 6) * 1.5;
+  const colonne = (c: {label: string; valeur: string; petit?: string}, fond: string, coul: string, scale: number, rot: number) => (
+    <div style={{width: 380, background: fond, border: `7px solid ${OUT}`, borderRadius: 26, padding: '16px 10px 12px', transform: `scale(${scale}) rotate(${rot}deg)`}}>
+      <div style={{fontFamily: FONT_TITRE, fontSize: 40, color: OUT, paddingTop: 6}}>{c.label}</div>
+      <div style={{fontFamily: FONT_TITRE, fontSize: 74, color: coul, lineHeight: 1.05, paddingTop: 10, whiteSpace: 'nowrap'}}>{c.valeur}</div>
+      {c.petit ? <div style={{fontFamily: FONT_TEXTE, fontSize: 28, color: '#495057', marginTop: 4}}>{c.petit}</div> : null}
+    </div>
+  );
+  return (
+    <Card rotate={-1.5}>
+      <div style={{display: 'flex', alignItems: 'center', gap: 14, paddingTop: 4}}>
+        {colonne(gauche, '#D8F3DC', '#2D6A4F', 1, wobble * 0.5)}
+        <div style={{fontFamily: FONT_TITRE, fontSize: 70, color: '#E63946', paddingTop: 14, opacity: Math.min(1, pop * 2)}}>≠</div>
+        {colonne(droite, '#FFE5E9', '#E63946', pop, -wobble * 0.5)}
+      </div>
+      {mention ? <Mention>{mention}</Mention> : null}
+      {source ? <Mention>{source}</Mention> : null}
+    </Card>
+  );
+};
+
+/** Un montant qui passe de `avant` à `apres`, pastille d'écart sur `au_mot`. */
+const CarteHausse: React.FC<{surtitre?: string; avant: string; avant_legende?: string; apres: string; apres_legende?: string; ecart: string; mention?: string; source?: string; bascule?: number}> = ({
+  surtitre,
+  avant,
+  avant_legende,
+  apres,
+  apres_legende,
+  ecart,
+  mention,
+  source,
+  bascule,
+}) => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  const b = useBascule(bascule, 0.7);
+  const fleche = interpolate(frame, [10, 22], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+  const apresPop = spring({frame: frame - 18, fps, config: {damping: 11, stiffness: 220}});
+  const badge = spring({frame: frame - b, fps, config: {damping: 7, stiffness: 260}});
+  return (
+    <Card rotate={1.5}>
+      <div style={{position: 'relative', paddingTop: 6}}>
+        {surtitre ? <div style={{fontFamily: FONT_TITRE, fontSize: 42, color: '#6C757D', paddingTop: 6}}>{surtitre}</div> : null}
+        <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 22, marginTop: 8}}>
+          <div>
+            <div style={{fontFamily: FONT_TITRE, fontSize: 74, color: '#495057', lineHeight: 1, paddingTop: 10, whiteSpace: 'nowrap'}}>{avant}</div>
+            {avant_legende ? <div style={{fontFamily: FONT_TEXTE, fontSize: 34, color: '#6C757D'}}>{avant_legende}</div> : null}
+          </div>
+          <svg width={90} height={60} viewBox="0 0 110 70" style={{opacity: fleche}}>
+            <path d="M 6 35 H 80 M 60 10 L 96 35 L 60 60" fill="none" stroke={OUT} strokeWidth={14} strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+          <div style={{transform: `scale(${apresPop})`}}>
+            <div style={{fontFamily: FONT_TITRE, fontSize: 92, color: '#2D6A4F', lineHeight: 1, paddingTop: 12, whiteSpace: 'nowrap'}}>{apres}</div>
+            {apres_legende ? <div style={{fontFamily: FONT_TEXTE, fontSize: 34, color: '#6C757D'}}>{apres_legende}</div> : null}
+          </div>
+        </div>
+        <div
+          style={{
+            position: 'absolute',
+            right: -40,
+            top: -46,
+            transform: `scale(${badge}) rotate(10deg)`,
+            background: '#FFD60A',
+            border: `7px solid ${OUT}`,
+            borderRadius: 999,
+            padding: '16px 26px 4px',
+            fontFamily: FONT_TITRE,
+            fontSize: 62,
+            color: OUT,
+            boxShadow: '0 8px 0 rgba(0,0,0,0.25)',
+            whiteSpace: 'nowrap',
+          }}
+        >
+          {ecart}
+        </div>
+      </div>
+      {mention ? <Mention>{mention}</Mention> : null}
+      {source ? <Mention>{source}</Mention> : null}
+    </Card>
+  );
+};
+
+/** Fiche de paie stylisée (générique, sans logo) : les lignes s'allument (surligneur jaune). */
+const FichePaie: React.FC<{
+  lignes: {cle: string; label: string; valeur: string}[];
+  allumer?: {cle: string; au_mot: string}[];
+  surligne?: string;
+  gros_plan?: boolean;
+  mention?: string;
+  source?: string;
+  motFrame?: (mot: string) => number | undefined;
+}> = ({lignes, allumer, surligne, gros_plan, mention, source, motFrame}) => {
+  const frame = useCurrentFrame();
+  const {fps, durationInFrames} = useVideoConfig();
+  const pop = usePop();
+  // instant d'allumage de chaque ligne
+  const debut: Record<string, number> = {};
+  if (surligne) debut[surligne] = 8;
+  (allumer ?? []).forEach((a, i) => {
+    debut[a.cle] = motFrame?.(a.au_mot) ?? Math.round(((i + 1) / ((allumer?.length ?? 0) + 1)) * durationInFrames * 0.8);
+  });
+  const clignote = Math.floor(frame / 9) % 2 === 0;
+
+  if (gros_plan && surligne) {
+    const l = lignes.find((x) => x.cle === surligne)!;
+    const zoom = interpolate(spring({frame, fps, config: {damping: 14, stiffness: 160}}), [0, 1], [0.7, 1]);
+    return (
+      <div style={{transform: `scale(${zoom * pop}) rotate(-2deg)`, background: 'white', border: `10px solid ${OUT}`, borderRadius: 20, boxShadow: '0 18px 0 rgba(0,0,0,0.3)', padding: '26px 40px 18px', width: 920}}>
+        <div style={{fontFamily: FONT_TEXTE, fontSize: 30, color: '#6C757D', textAlign: 'left'}}>BULLETIN DE PAIE · …</div>
+        <div style={{position: 'relative', marginTop: 14, padding: '18px 20px 6px', borderRadius: 12, background: '#FFE066', border: `6px solid ${OUT}`}}>
+          <div style={{fontFamily: FONT_TITRE, fontSize: 62, color: OUT, textAlign: 'left', lineHeight: 1.05}}>{l.label}</div>
+          <div style={{fontFamily: FONT_TITRE, fontSize: 116, lineHeight: 1.05, textAlign: 'right', color: clignote ? '#E63946' : OUT, transform: `scale(${clignote ? 1.06 : 1})`, transformOrigin: 'right center'}}>
+            {l.valeur}
+          </div>
+        </div>
+        {mention ? <Mention>{mention}</Mention> : null}
+        {source ? <Mention>{source}</Mention> : null}
+      </div>
+    );
+  }
+
+  return (
+    <div style={{transform: `scale(${pop}) rotate(-2deg)`, background: 'white', border: `10px solid ${OUT}`, borderRadius: 20, boxShadow: '0 18px 0 rgba(0,0,0,0.3)', padding: '22px 36px 16px', width: 900}}>
+      <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', borderBottom: `5px solid ${OUT}`, paddingBottom: 6}}>
+        <div style={{fontFamily: FONT_TITRE, fontSize: 46, color: OUT, paddingTop: 8}}>BULLETIN DE PAIE</div>
+        <div style={{fontFamily: FONT_TEXTE, fontSize: 28, color: '#6C757D'}}>Awa · caissière · 35 h</div>
+      </div>
+      {lignes.map((l) => {
+        const d = debut[l.cle];
+        const p = d === undefined ? 0 : interpolate(frame, [d, d + 7], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+        const actif = p > 0;
+        const cle = d !== undefined;
+        return (
+          <div key={l.cle} style={{position: 'relative', display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', padding: '10px 12px 2px', marginTop: 6, borderBottom: '3px dashed #CED4DA'}}>
+            <div style={{position: 'absolute', left: 0, top: 4, bottom: 2, width: `${p * 100}%`, background: '#FFE066', borderRadius: 10, border: actif ? `4px solid ${OUT}` : 'none', boxSizing: 'border-box'}} />
+            <span style={{position: 'relative', fontFamily: cle ? FONT_TITRE : FONT_TEXTE, fontSize: cle ? 40 : 34, color: actif ? OUT : '#495057', paddingTop: cle ? 6 : 0, textAlign: 'left'}}>{l.label}</span>
+            <span style={{position: 'relative', fontFamily: FONT_TITRE, fontSize: cle ? 48 : 38, color: actif ? '#E63946' : OUT, whiteSpace: 'nowrap', paddingTop: 6, transform: `scale(${1 + (actif ? (1 - p) * 0.3 : 0)})`}}>{l.valeur}</span>
+          </div>
+        );
+      })}
+      {mention ? <Mention>{mention}</Mention> : null}
+      {source ? <Mention>{source}</Mention> : null}
+    </div>
+  );
+};
+
+/** Barre empilée : découpe d'un montant, empilement des parts, ou part hachurée (allègement). */
+const BarreEmpilee: React.FC<{
+  animation: 'decoupe' | 'empile' | 'hachure';
+  segments: {label: string; montant: number; couleur: string; hachure?: boolean; texte?: string}[];
+  titre?: string;
+  valeur?: string;
+  petit?: string;
+  barre_entiere?: string;
+  mention?: string;
+  source?: string;
+  bascule?: number;
+}> = ({animation, segments, titre, valeur, petit, barre_entiere, mention, source, bascule}) => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  const b = useBascule(bascule, 0.45);
+  const W0 = 820;
+  const GAP = 12;
+  const total = segments.reduce((a, s) => a + s.montant, 0);
+  const split = animation === 'decoupe' ? spring({frame: frame - b, fps, config: {damping: 12, stiffness: 180}}) : 1;
+  const ecart = Math.round(fps * 0.35);
+  const apparition = (i: number) => (animation === 'empile' ? spring({frame: frame - 6 - i * ecart, fps, config: {damping: 13, stiffness: 200}}) : 1);
+  const hach = animation === 'hachure' ? interpolate(frame, [b, b + 10], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'}) : 1;
+  const valeurPop = animation === 'empile' ? spring({frame: frame - b, fps, config: {damping: 9, stiffness: 240}}) : 1;
+  const largeurUtile = W0 - GAP * (segments.length - 1) * split;
+  let x = 0;
+  const blocs = segments.map((s, i) => {
+    const w = (s.montant / total) * largeurUtile;
+    const bloc = {s, i, x, w};
+    x += w + GAP * split;
+    return bloc;
+  });
+  return (
+    <Card rotate={-1}>
+      <div style={{width: W0, paddingTop: 6}}>
+        {titre ? <div style={{fontFamily: FONT_TITRE, fontSize: titre.length > 40 ? 36 : 42, color: '#495057', lineHeight: 1.1, paddingTop: 6}}>{titre}</div> : null}
+        {valeur ? (
+          <div style={{fontFamily: FONT_TITRE, fontSize: 84, color: '#E63946', lineHeight: 1.05, paddingTop: 10, transform: `scale(${valeurPop})`, whiteSpace: 'nowrap'}}>{valeur}</div>
+        ) : null}
+        <div style={{position: 'relative', height: 86, marginTop: 14}}>
+          {animation === 'decoupe' && split < 0.5 ? (
+            <div style={{position: 'absolute', left: 0, top: 0, width: W0, height: 80, background: '#ADB5BD', border: `7px solid ${OUT}`, borderRadius: 22, boxSizing: 'border-box', opacity: 1 - split * 2}}>
+              <div style={{fontFamily: FONT_TITRE, fontSize: 44, color: OUT, paddingTop: 16}}>{barre_entiere}</div>
+            </div>
+          ) : null}
+          {blocs.map(({s, i, x: bx, w}) => {
+            const a = apparition(i);
+            const ghost = s.hachure ? hach : 0;
+            return (
+              <div
+                key={i}
+                style={{
+                  position: 'absolute',
+                  left: bx,
+                  top: 0,
+                  width: Math.max(w * a, 0),
+                  height: 80,
+                  background: ghost > 0
+                    ? `repeating-linear-gradient(-45deg, ${s.couleur} 0 12px, rgba(255,255,255,${0.9 * ghost}) 12px 24px)`
+                    : s.couleur,
+                  opacity: (animation === 'decoupe' ? Math.min(1, split * 2) : 1) * (1 - ghost * 0.35),
+                  border: `${ghost > 0 ? 6 : 7}px ${ghost > 0.5 ? 'dashed' : 'solid'} ${OUT}`,
+                  borderRadius: i === 0 ? '22px 6px 6px 22px' : i === segments.length - 1 ? '6px 22px 22px 6px' : 6,
+                  boxSizing: 'border-box',
+                  transform: animation === 'decoupe' ? `translateY(${(i % 2 ? 1 : -1) * split * 0}px)` : undefined,
+                }}
+              />
+            );
+          })}
+        </div>
+        {/* légende : une ligne par part */}
+        <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', columnGap: 22, rowGap: 6, marginTop: 10}}>
+          {segments.map((s, i) => {
+            const a = animation === 'decoupe' ? split : apparition(i);
+            return (
+              <div key={i} style={{display: 'flex', alignItems: 'center', gap: 10, opacity: Math.min(1, a * 1.5), transform: `translateY(${(1 - Math.min(1, a)) * 20}px)`}}>
+                <div style={{width: 30, height: 30, flex: 'none', borderRadius: 8, border: `5px solid ${OUT}`, background: s.hachure && hach > 0 ? `repeating-linear-gradient(-45deg, ${s.couleur} 0 5px, white 5px 10px)` : s.couleur}} />
+                <div style={{fontFamily: FONT_TEXTE, fontSize: 30, color: OUT, textAlign: 'left', lineHeight: 1.05}}>
+                  {s.label}{' '}
+                  <span style={{fontFamily: FONT_TITRE, fontSize: 32, color: s.hachure && hach > 0.5 ? '#6C757D' : OUT, textDecoration: s.hachure && hach > 0.5 ? 'line-through' : 'none'}}>{s.texte ?? ''}</span>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+        {petit ? <div style={{fontFamily: FONT_TEXTE, fontSize: 30, color: '#495057', marginTop: 10, lineHeight: 1.15}}>{petit}</div> : null}
+      </div>
+      {mention ? <Mention>{mention}</Mention> : null}
+      {source ? <Mention>{source}</Mention> : null}
+    </Card>
+  );
+};
+
+export const ElementVisuelView: React.FC<{
+  element: ElementVisuel;
+  /** frame du mot `au_mot` dans le plan */
+  bascule?: number;
+  /** frame où la voix prononce un mot donné du plan (ep06 : plusieurs bascules) */
+  motFrame?: (mot: string) => number | undefined;
+}> = ({element, bascule, motFrame}) => {
   let inner: React.ReactNode = null;
   switch (element.type) {
     case 'compteur_vues':
       inner = <CompteurVues valeur={element.valeur} legende={element.legende} />;
       break;
     case 'carte_chiffre':
-      inner = <CarteChiffre valeur={element.valeur} legende={element.legende} source={element.source} />;
+      inner = <CarteChiffre valeur={element.valeur} legende={element.legende} source={element.source} mention={element.mention} />;
       break;
     case 'icone':
       inner = <Icone nom={element.nom} />;
@@ -1661,6 +1921,42 @@ export const ElementVisuelView: React.FC<{element: ElementVisuel; /** frame du m
       break;
     case 'jauge_plafond':
       inner = <JaugePlafond titre={element.titre} plafond={element.plafond} valeur={element.valeur} label_valeur={element.label_valeur} petit={element.petit} source={element.source} />;
+      break;
+    case 'face_a_face':
+      inner = <FaceAFace gauche={element.gauche} droite={element.droite} mention={element.mention} source={element.source} bascule={bascule} />;
+      break;
+    case 'carte_hausse':
+      inner = (
+        <CarteHausse
+          surtitre={element.surtitre}
+          avant={element.avant}
+          avant_legende={element.avant_legende}
+          apres={element.apres}
+          apres_legende={element.apres_legende}
+          ecart={element.ecart}
+          mention={element.mention}
+          source={element.source}
+          bascule={bascule}
+        />
+      );
+      break;
+    case 'fiche_paie':
+      inner = <FichePaie lignes={element.lignes} allumer={element.allumer} surligne={element.surligne} gros_plan={element.gros_plan} mention={element.mention} source={element.source} motFrame={motFrame} />;
+      break;
+    case 'barre_empilee':
+      inner = (
+        <BarreEmpilee
+          animation={element.animation}
+          segments={element.segments}
+          titre={element.titre}
+          valeur={element.valeur}
+          petit={element.petit}
+          barre_entiere={element.barre_entiere}
+          mention={element.mention}
+          source={element.source}
+          bascule={bascule}
+        />
+      );
       break;
     default:
       inner = null;

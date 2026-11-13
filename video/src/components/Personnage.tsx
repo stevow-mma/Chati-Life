@@ -15,7 +15,7 @@ export type Apparence = {
   nom: string;
   genre: 'homme' | 'femme';
   teint: {peau: string; ombre: string; joues: string};
-  cheveux: {style: 'meches' | 'chignon_boucle' | 'court' | 'carre_frange' | 'court_dessus'; couleur: string};
+  cheveux: {style: 'meches' | 'chignon_boucle' | 'court' | 'carre_frange' | 'court_dessus' | 'afro_puff'; couleur: string};
   tenue: {
     haut: string;
     hautOmbre: string;
@@ -32,6 +32,8 @@ export type Apparence = {
     tshirt?: boolean;
     /** Pantalon de travail : couleur des poches cargo sur les cuisses. */
     poches?: string;
+    /** Tunique de travail (ep06) : col en V, boutons-pression, manches courtes, bas évasé sous la ceinture. */
+    tunique?: boolean;
   };
   /** Accessoire de tête : casquette (avec initiale) ou grosses lunettes rondes. */
   tete:
@@ -57,7 +59,20 @@ export type Apparence = {
   ceintureOutils?: {couleur: string; ombre: string} | null;
   /** Tournevis testeur dans la poche poitrine (couleur du manche). */
   testeur?: string | null;
+  /** Bandeau (couleur) qui maintient les cheveux, posé sur la ligne du front (ep06). */
+  bandeau?: string | null;
+  /** Petits clous d'oreilles (couleur) (ep06). */
+  clous?: string | null;
+  /** Badge prénom sur la poitrine, sans logo (ep06). */
+  badge?: {texte: string; couleur?: string} | null;
+  /** Ceinture avec petite pochette zippée devant (ep06). */
+  ceinturePochette?: {couleur: string; ombre: string} | null;
 };
+
+/** Durée (frames) d'un passage d'article au scanner (pose « scanne ») ; le bip du décor « caisse_tapis » suit le même cycle. */
+export const CYCLE_SCAN = 36;
+/** Fraction du cycle où l'article passe sur la vitre du scanner (bip). */
+export const BIP_SCAN: [number, number] = [0.3, 0.44];
 
 type Pt = [number, number];
 type Pose = {l: [Pt, Pt]; r: [Pt, Pt]}; // [coude, main] pour chaque bras
@@ -292,6 +307,29 @@ const CheveuxArriere: React.FC<{a: Apparence; frame: number}> = ({a, frame}) => 
       />
     );
   }
+  if (a.cheveux.style === 'afro_puff') {
+    // afro puff haut : grosse boule de cheveux crépus au sommet du crâne
+    const c = a.cheveux.couleur;
+    const sway = Math.sin(frame / 14) * 1.5;
+    const bosses = Array.from({length: 14}).map((_, i) => {
+      const ang = (i / 14) * Math.PI * 2;
+      return [300 + Math.cos(ang) * 104, 58 + Math.sin(ang) * 88] as Pt;
+    });
+    return (
+      <g transform={`rotate(${sway} 300 160)`}>
+        {bosses.map(([x, y], i) => (
+          <circle key={i} cx={x} cy={y} r={34} fill={c} stroke={OUT} strokeWidth={SW} />
+        ))}
+        <ellipse cx={300} cy={58} rx={110} ry={94} fill={c} />
+        {/* texture crépue : petites boucles plus claires */}
+        {[
+          [250, 30], [300, 12], [350, 32], [228, 76], [282, 60], [334, 74], [372, 96], [262, 108], [316, 114],
+        ].map(([x, y], i) => (
+          <path key={i} d={`M ${x - 9} ${y} q 9 -12 18 0`} fill="none" stroke="rgba(255,255,255,0.16)" strokeWidth={5} strokeLinecap="round" />
+        ))}
+      </g>
+    );
+  }
   if (a.cheveux.style !== 'chignon_boucle') return null;
   const c = a.cheveux.couleur;
   // boucles autour du crâne, des tempes jusqu'au dessus de la tête
@@ -362,6 +400,32 @@ const CheveuxAvant: React.FC<{a: Apparence}> = ({a}) => {
         {/* pattes */}
         <path d="M 156 238 Q 154 270 166 292 L 176 292 Q 170 262 176 236 Z" fill={c} stroke={OUT} strokeWidth={5} strokeLinejoin="round" />
         <path d="M 444 238 Q 446 270 434 292 L 424 292 Q 430 262 424 236 Z" fill={c} stroke={OUT} strokeWidth={5} strokeLinejoin="round" />
+      </g>
+    );
+  }
+  if (a.cheveux.style === 'afro_puff') {
+    // cheveux tirés vers le haut, ligne du front arrondie ; bandeau large sur la ligne du front
+    return (
+      <g>
+        <path
+          d="M 152 262 Q 140 138 300 130 Q 460 138 448 262 Q 438 218 404 204 Q 300 184 196 204 Q 162 218 152 262 Z"
+          fill={c}
+          stroke={OUT}
+          strokeWidth={SW}
+          strokeLinejoin="round"
+        />
+        {/* stries des cheveux tirés vers le puff */}
+        <path d="M 220 196 Q 236 160 268 140 M 300 188 L 300 136 M 380 196 Q 364 160 332 140" fill="none" stroke="rgba(255,255,255,0.14)" strokeWidth={5} strokeLinecap="round" />
+        {a.bandeau ? (
+          <g>
+            <path d="M 156 246 Q 162 168 300 160 Q 438 168 444 246" fill="none" stroke={OUT} strokeWidth={50} strokeLinecap="round" />
+            <path d="M 156 246 Q 162 168 300 160 Q 438 168 444 246" fill="none" stroke={a.bandeau} strokeWidth={34} strokeLinecap="round" />
+            <path d="M 196 190 Q 250 164 312 162" fill="none" stroke="rgba(255,255,255,0.3)" strokeWidth={7} strokeLinecap="round" />
+            {/* petit nœud sur le côté */}
+            <path d="M 392 176 q 28 -34 46 -10 q -12 22 -46 10 z M 392 176 q 34 -6 38 22 q -26 6 -38 -22 z" fill={a.bandeau} stroke={OUT} strokeWidth={6} strokeLinejoin="round" />
+            <circle cx={392} cy={176} r={9} fill={a.bandeau} stroke={OUT} strokeWidth={5} />
+          </g>
+        ) : null}
       </g>
     );
   }
@@ -586,6 +650,90 @@ const PocheTesteur: React.FC<{couleur: string; tissu: string}> = ({couleur, tiss
   </g>
 );
 
+/** Tunique de travail : col en V doublé, boutons-pression, badge prénom (sans logo). */
+const Tunique: React.FC<{ombre: string; badge?: {texte: string; couleur?: string} | null}> = ({ombre, badge}) => (
+  <g>
+    <path d="M 252 414 L 300 492 L 348 414 Z" fill="#F1E3E7" stroke={OUT} strokeWidth={6} strokeLinejoin="round" />
+    <path d="M 240 412 L 300 500 L 360 412" fill="none" stroke={ombre} strokeWidth={16} strokeLinejoin="round" strokeLinecap="round" />
+    <path d="M 240 412 L 300 500 L 360 412" fill="none" stroke={OUT} strokeWidth={5} strokeLinejoin="round" strokeLinecap="round" />
+    {[530, 580, 630].map((y) => (
+      <circle key={y} cx={300} cy={y} r={7} fill="#E9ECEF" stroke={OUT} strokeWidth={4} />
+    ))}
+    {/* poche basse */}
+    <path d="M 214 600 H 270 V 636 Q 242 644 214 636 Z" fill={ombre} stroke={OUT} strokeWidth={5} strokeLinejoin="round" />
+    {badge ? (
+      <g transform="rotate(-4 272 478)">
+        <rect x={222} y={456} width={100} height={46} rx={9} fill="white" stroke={OUT} strokeWidth={6} />
+        <rect x={222} y={456} width={100} height={12} rx={6} fill={badge.couleur ?? '#ADB5BD'} />
+        <text x={272} y={496} textAnchor="middle" fontFamily="Luckiest Guy" fontSize={28} fill={OUT}>
+          {badge.texte}
+        </text>
+      </g>
+    ) : null}
+  </g>
+);
+
+/** Ceinture fine avec pochette zippée devant (porte-monnaie de caisse). */
+const CeinturePochette: React.FC<{couleur: string; ombre: string}> = ({couleur, ombre}) => (
+  <g>
+    <path d="M 194 652 Q 300 672 406 652 L 408 674 Q 300 694 192 674 Z" fill={couleur} stroke={OUT} strokeWidth={6} strokeLinejoin="round" />
+    <rect x={226} y={654} width={30} height={26} rx={5} fill="#C9A227" stroke={OUT} strokeWidth={5} />
+    <path d="M 316 668 H 398 Q 408 668 406 680 L 400 728 Q 398 738 388 738 H 326 Q 316 738 314 728 L 308 680 Q 306 668 316 668 Z" fill={couleur} stroke={OUT} strokeWidth={7} strokeLinejoin="round" />
+    <path d="M 316 686 H 398" stroke={ombre} strokeWidth={7} />
+    <path d="M 316 686 H 398" stroke="#ADB5BD" strokeWidth={2} strokeDasharray="4 4" />
+    <path d="M 388 686 l 4 16" stroke="#C9A227" strokeWidth={6} strokeLinecap="round" />
+  </g>
+);
+
+/** Article générique scanné (boîte, bouteille, pomme), sans marque. */
+const ArticleScan: React.FC<{main: Pt; type: number}> = ({main, type}) => {
+  const [x, y] = main;
+  if (type === 1)
+    return (
+      <g>
+        <rect x={x - 22} y={y - 104} width={44} height={96} rx={14} fill="#52B788" stroke={OUT} strokeWidth={6} />
+        <rect x={x - 10} y={y - 124} width={20} height={24} rx={5} fill="#2D6A4F" stroke={OUT} strokeWidth={5} />
+        <rect x={x - 22} y={y - 72} width={44} height={26} fill="#F1FAEE" stroke={OUT} strokeWidth={4} />
+      </g>
+    );
+  if (type === 2)
+    return (
+      <g>
+        <circle cx={x} cy={y - 50} r={34} fill="#E63946" stroke={OUT} strokeWidth={6} />
+        <path d={`M ${x} ${y - 84} q 4 -14 12 -18`} fill="none" stroke={OUT} strokeWidth={6} strokeLinecap="round" />
+        <ellipse cx={x + 16} cy={y - 96} rx={12} ry={6} fill="#52B788" stroke={OUT} strokeWidth={4} />
+        <ellipse cx={x - 12} cy={y - 62} rx={8} ry={5} fill="white" opacity={0.5} />
+      </g>
+    );
+  return (
+    <g>
+      <rect x={x - 46} y={y - 96} width={92} height={78} rx={8} fill="#F4A261" stroke={OUT} strokeWidth={6} />
+      <rect x={x - 46} y={y - 96} width={92} height={20} rx={6} fill="#E76F51" stroke={OUT} strokeWidth={5} />
+      {/* code-barres générique */}
+      <rect x={x - 26} y={y - 64} width={52} height={30} fill="white" stroke={OUT} strokeWidth={3} />
+      {[0, 6, 10, 16, 22, 28, 32, 38, 44].map((dx) => (
+        <rect key={dx} x={x - 22 + dx} y={y - 60} width={dx % 3 ? 2 : 4} height={22} fill={OUT} />
+      ))}
+    </g>
+  );
+};
+
+/** Téléphone tenu devant le visage, écran d'appli bancaire générique (sans logo). */
+const TelephoneRegarde: React.FC<{main: Pt; peau: string; frame: number}> = ({main, peau, frame}) => {
+  const [x, y] = main;
+  return (
+    <g transform={`rotate(-12 ${x} ${y})`}>
+      <rect x={x - 36} y={y - 76} width={72} height={124} rx={12} fill="#2B2D42" stroke={OUT} strokeWidth={SW} />
+      <rect x={x - 26} y={y - 64} width={52} height={96} rx={6} fill="#F1FAEE" />
+      <rect x={x - 20} y={y - 56} width={40} height={14} rx={4} fill="#06D6A0" />
+      {[0, 1, 2].map((k) => (
+        <rect key={k} x={x - 20} y={y - 34 + k * 16} width={18 + ((k * 13 + Math.floor(frame / 8)) % 22)} height={8} rx={4} fill="#ADB5BD" />
+      ))}
+      <circle cx={x} cy={y + 30} r={30} fill={peau} stroke={OUT} strokeWidth={SW} />
+    </g>
+  );
+};
+
 /** Devis papier tenu en main (feuille avec lignes, total souligné). */
 const DevisMain: React.FC<{main: Pt; peau: string}> = ({main, peau}) => {
   const [x, y] = main;
@@ -685,6 +833,16 @@ export const Personnage: React.FC<{
   } else if (posture === 'photo') {
     // bras tendu vers la droite, téléphone levé pour photographier
     right = [[470, 470], [540, 380]];
+  } else if (posture === 'scanne') {
+    // caisse : la main droite fait glisser un article de gauche à droite au-dessus du scanner, la gauche reste au comptoir
+    const u = (frame % CYCLE_SCAN) / CYCLE_SCAN;
+    const aller = u < 0.7 ? u / 0.7 : 1 - (u - 0.7) / 0.3;
+    const lisse = (1 - Math.cos(aller * Math.PI)) / 2;
+    const hx = 150 + lisse * 300;
+    right = [[hx + 90, 560], [hx, 600 - Math.sin(lisse * Math.PI) * 14]];
+    left = [[150, 560], [196, 622]];
+  } else if (posture === 'regarde_telephone') {
+    right = [[480, 520], [410, 340]];
   }
   // Pédalage : manivelle qui tourne (2 tours / s environ)
   const ang = (frame / fps) * Math.PI * 3.4;
@@ -697,6 +855,7 @@ export const Personnage: React.FC<{
   const casque = a.tete?.type === 'casque_velo' ? a.tete : null;
   const protection = a.tete?.type === 'lunettes_protection' ? a.tete : null;
   const tshirt = !!t.tshirt;
+  const mancheCourte = tshirt || !!t.tunique;
   // repère du "?" et de la goutte : plus haut avec un chignon
   const hautTete = a.cheveux.style === 'chignon_boucle' ? -10 : a.tete?.type === 'casque_velo' ? -20 : 0;
   const carre = a.cheveux.style === 'carre_frange';
@@ -769,7 +928,9 @@ export const Personnage: React.FC<{
         {/* Torse (sweat) */}
         <path
           d={
-            t.oversize
+            t.tunique
+              ? 'M 202 470 Q 202 418 252 412 L 348 412 Q 398 418 398 470 L 414 712 Q 300 734 186 712 Z'
+              : t.oversize
               ? 'M 182 474 Q 182 414 246 408 L 354 408 Q 418 414 418 474 L 428 694 Q 300 716 172 694 Z'
               : femme
               ? 'M 202 470 Q 202 418 252 412 L 348 412 Q 398 418 398 470 L 404 680 Q 300 700 196 680 Z'
@@ -807,6 +968,8 @@ export const Personnage: React.FC<{
             {/* bord-côte en bas */}
             <path d="M 176 680 Q 300 702 424 680" fill="none" stroke={t.hautOmbre} strokeWidth={12} />
           </g>
+        ) : t.tunique ? (
+          <Tunique ombre={t.hautOmbre} badge={a.badge} />
         ) : tshirt ? (
           <g>
             {/* T-shirt : col rond, pli léger, poche poitrine (tournevis testeur) */}
@@ -843,10 +1006,11 @@ export const Personnage: React.FC<{
         ) : null}
 
         {a.ceintureOutils && !assis && !velo ? <CeintureOutils couleur={a.ceintureOutils.couleur} ombre={a.ceintureOutils.ombre} /> : null}
+        {a.ceinturePochette && !assis && !velo ? <CeinturePochette couleur={a.ceinturePochette.couleur} ombre={a.ceinturePochette.ombre} /> : null}
 
         {/* Bras gauche */}
         {velo ? <Guidon couleur={a.velo ?? '#2D6A4F'} /> : null}
-        <Arm shoulder={SHOULDER_L} elbow={left[0]} hand={left[1]} gant={gant} manche={t.haut} peau={peau} bande={t.bandes} mancheCourte={tshirt} />
+        <Arm shoulder={SHOULDER_L} elbow={left[0]} hand={left[1]} gant={gant} manche={t.haut} peau={peau} bande={t.bandes} mancheCourte={mancheCourte} />
 
         {/* Tête */}
         <g transform={`rotate(${tilt} 300 400)`}>
@@ -859,6 +1023,16 @@ export const Personnage: React.FC<{
               <circle cx={448} cy={288} r={30} fill={peau} stroke={OUT} strokeWidth={SW} />
             </>
           )}
+          {a.clous && !carre ? (
+            <>
+              {[150, 450].map((x) => (
+                <g key={x}>
+                  <circle cx={x} cy={312} r={9} fill={a.clous!} stroke={OUT} strokeWidth={4} />
+                  <circle cx={x - 3} cy={309} r={3} fill="white" opacity={0.8} />
+                </g>
+              ))}
+            </>
+          ) : null}
           {a.boucles && !carre ? (
             <>
               <circle cx={150} cy={336} r={18} fill="none" stroke={OUT} strokeWidth={12} />
@@ -920,7 +1094,7 @@ export const Personnage: React.FC<{
           peau={peau}
           bande={t.bandes}
           doigt={posture === 'pointe_bas'}
-          mancheCourte={tshirt}
+          mancheCourte={mancheCourte}
         />
         {posture === 'tire_cable' ? (
           // câble électrique sous gaine grise : sort du mur (à gauche), passe dans les deux mains, retombe en boucle au sol
@@ -967,6 +1141,13 @@ export const Personnage: React.FC<{
             ) : null}
           </g>
         ) : null}
+        {posture === 'scanne' && (frame % CYCLE_SCAN) / CYCLE_SCAN < 0.7 ? (
+          <g>
+            <ArticleScan main={[rightG[1][0], rightG[1][1] + 40]} type={Math.floor(frame / CYCLE_SCAN) % 3} />
+            <circle cx={rightG[1][0]} cy={rightG[1][1]} r={30} fill={peau} stroke={OUT} strokeWidth={SW} />
+          </g>
+        ) : null}
+        {posture === 'regarde_telephone' ? <TelephoneRegarde main={rightG[1]} peau={peau} frame={frame} /> : null}
         {objetMain === 'tote_jeans' ? <ToteJeans main={rightG[1]} /> : null}
         {objetMain === 'devis' ? <DevisMain main={rightG[1]} peau={peau} /> : null}
         {accessoire === 'telephone' ? (

@@ -1,0 +1,17 @@
+{
+  "titre": "SMIC à 1 500 € net : combien coûte vraiment Awa à son patron ?",
+  "personnage": "awa",
+  "muet": true,
+  "voix": {
+    "mode": "piste_unique",
+    "voice_settings": {
+      "stability": 0.35,
+      "similarity_boost": 0.8,
+      "style": 0.45,
+      "use_speaker_boost": true,
+      "speed": 1.0
+    },
+    "silence_avant": 0.4,
+    "fin_apres_derniere_parole": 3
+  }
+}

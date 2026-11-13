@@ -1,8 +1,8 @@
 export type Expression = 'neutre' | 'fier' | 'reveur' | 'perplexe' | 'choque' | 'content';
 
-export type Pose = 'debout' | 'velo' | 'assis' | 'pointe_bas' | 'photo' | 'tire_cable';
+export type Pose = 'debout' | 'velo' | 'assis' | 'pointe_bas' | 'photo' | 'tire_cable' | 'scanne' | 'regarde_telephone';
 
-export type AccessoireSol = 'velo' | 'sablier' | 'pile_vetements' | 'veste_cintre' | 'portant_jeans' | 'camionnette' | 'perceuse';
+export type AccessoireSol = 'velo' | 'sablier' | 'pile_vetements' | 'veste_cintre' | 'portant_jeans' | 'camionnette' | 'perceuse' | 'caisse_tapis' | 'billets_pieces';
 
 /** Objet porté à la main (ep04). */
 export type ObjetMain = 'tote_jeans' | 'devis';
@@ -20,7 +20,7 @@ export type ElementVisuel =
       accessoires?: Accessoire[];
     }
   | {type: 'compteur_vues'; valeur: number; legende?: string}
-  | {type: 'carte_chiffre'; valeur: string; legende?: string; source?: string}
+  | {type: 'carte_chiffre'; valeur: string; legende?: string; source?: string; /** ep06 : mention discrète (ex. « Exemple illustratif : estimations »). */ mention?: string}
   | {type: 'icone'; nom: 'question' | 'billets' | 'billets_fondent' | 'velo_livraison'}
   /** Carte « avant → après » : l'ancien chiffre barré, le nouveau en gros. */
   | {type: 'carte_evolution'; avant: string; apres: string; legende?: string; mention?: string; source?: string}
@@ -84,7 +84,47 @@ export type ElementVisuel =
   /** Barre qui rétrécit de `depart` à `arrivee` (même unité) quand la voix dit `au_mot`. */
   | {type: 'barre_retrecit'; depart: number; arrivee: number; unite: string; legende_depart?: string; legende_arrivee?: string; au_mot?: string; mention?: string}
   /** Jauge jusqu'à un plafond : remplissage jusqu'à `valeur`, repère au `plafond`, zone rouge au-delà. */
-  | {type: 'jauge_plafond'; titre: string; plafond: number; valeur: number; label_valeur?: string; petit?: string; source?: string};
+  | {type: 'jauge_plafond'; titre: string; plafond: number; valeur: number; label_valeur?: string; petit?: string; source?: string}
+  // --- Épisode 6 ---
+  /** Deux montants face à face ; le droit apparaît quand la voix dit `au_mot`. */
+  | {
+      type: 'face_a_face';
+      gauche: {label: string; valeur: string; petit?: string};
+      droite: {label: string; valeur: string; petit?: string};
+      au_mot?: string;
+      mention?: string;
+      source?: string;
+    }
+  /** Montant qui passe de `avant` à `apres`, avec une pastille d'écart qui claque sur `au_mot`. */
+  | {type: 'carte_hausse'; surtitre?: string; avant: string; avant_legende?: string; apres: string; apres_legende?: string; ecart: string; au_mot?: string; mention?: string; source?: string}
+  /** Fiche de paie stylisée (sans logo) : lignes surlignables. */
+  | {
+      type: 'fiche_paie';
+      lignes: {cle: string; label: string; valeur: string}[];
+      /** Lignes qui s'allument une à une, chacune quand la voix dit son mot. */
+      allumer?: {cle: string; au_mot: string}[];
+      /** Ligne surlignée dès le début du plan. */
+      surligne?: string;
+      /** Gros plan sur la ligne surlignée, montant qui clignote. */
+      gros_plan?: boolean;
+      mention?: string;
+      source?: string;
+    }
+  /** Barre empilée (net / cotisations / …) : `decoupe` (une barre se scinde sur `au_mot`), `empile` (segments
+   *  ajoutés un à un), `hachure` (le segment `hachure: true` se hachure sur `au_mot`). */
+  | {
+      type: 'barre_empilee';
+      animation: 'decoupe' | 'empile' | 'hachure';
+      segments: {label: string; montant: number; couleur: string; hachure?: boolean; texte?: string}[];
+      titre?: string;
+      valeur?: string;
+      petit?: string;
+      /** Libellé de la barre entière avant découpe (animation `decoupe`). */
+      barre_entiere?: string;
+      au_mot?: string;
+      mention?: string;
+      source?: string;
+    };
 
 export type Plan = {
   texte: string;

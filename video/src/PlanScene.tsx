@@ -94,6 +94,13 @@ export const PlanScene: React.FC<{plan: Plan; personnage: Apparence; premier?: b
     const k = motsTexte.findIndex((w) => norm(w) === norm(ev.au_mot!));
     if (k >= 0 && motsVoix[k]) basculeEv = debutF(k);
   }
+  // Instant (frame) où la voix prononce un mot donné du plan (éléments à plusieurs bascules, ep06).
+  const motFrame = (m: string) => {
+    if (!voix) return undefined;
+    const norm = (w: string) => w.toLowerCase().replace(/[^\p{L}\p{N}'-]/gu, '');
+    const k = motsTexte.findIndex((w) => norm(w) === norm(m));
+    return k >= 0 && motsVoix[k] ? debutF(k) : undefined;
+  };
 
   // Objets au sol (un seul ou une liste)
   const objets = plan.accessoire_sol ? (Array.isArray(plan.accessoire_sol) ? plan.accessoire_sol : [plan.accessoire_sol]) : [];
@@ -131,7 +138,7 @@ export const PlanScene: React.FC<{plan: Plan; personnage: Apparence; premier?: b
         {/* Élément visuel : zone haute */}
         {ev && ev.type !== 'mots_rotatifs' ? (
           <div style={{position: 'absolute', left: 0, right: 0, top: 320, height: 440}}>
-            <ElementVisuelView element={ev} bascule={basculeEv} />
+            <ElementVisuelView element={ev} bascule={basculeEv} motFrame={motFrame} />
           </div>
         ) : null}
       </AbsoluteFill>

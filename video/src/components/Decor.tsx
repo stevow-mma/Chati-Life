@@ -271,7 +271,7 @@ const Salon: React.FC<{frame: number}> = ({frame}) => (
 );
 
 /** Boutique de vêtements : portants, étagère de pulls pliés, caisse. Aucune enseigne réelle. */
-const Magasin: React.FC<{frame: number}> = ({frame}) => {
+const Magasin: React.FC<{frame: number; /** ep06 : file de caisse (la caisse elle-même est l'objet « caisse_tapis », devant le personnage) */ caisse?: boolean}> = ({frame, caisse = false}) => {
   const habits = ['#FF70A6', '#FFD60A', '#06D6A0', '#4361EE', '#F77F00', '#9D4EDD', '#E63946'];
   const portant = (x0: number, n: number, decal: number) => (
     <g>
@@ -323,12 +323,23 @@ const Magasin: React.FC<{frame: number}> = ({frame}) => {
           ))}
         </g>
       ))}
-      {/* affiche "SOLDES" générique */}
+      {caisse ? (
+        // panneau de file de caisse suspendu (générique)
+        <g transform={`rotate(${Math.sin(frame / 20) * 1.5} 230 330)`}>
+          <path d="M 180 330 V 380 M 280 330 V 380" stroke={OUT} strokeWidth={6} />
+          <rect x={90} y={380} width={280} height={170} rx={18} fill="#577590" stroke={OUT} strokeWidth={10} />
+          <text x={230} y={455} textAnchor="middle" fontFamily="Luckiest Guy" fontSize={62} fill="white">CAISSE</text>
+          <circle cx={230} cy={505} r={30} fill="#06D6A0" stroke={OUT} strokeWidth={6} />
+          <text x={230} y={520} textAnchor="middle" fontFamily="Luckiest Guy" fontSize={40} fill={OUT}>3</text>
+        </g>
+      ) : (
+      // affiche "SOLDES" générique
       <g transform="rotate(-6 230 470)">
         <rect x={80} y={360} width={300} height={200} rx={16} fill="#E63946" stroke={OUT} strokeWidth={10} />
         <text x={230} y={455} textAnchor="middle" fontFamily="Luckiest Guy" fontSize={78} fill="white">SOLDES</text>
         <text x={230} y={530} textAnchor="middle" fontFamily="Luckiest Guy" fontSize={60} fill="#FFD60A" opacity={0.6 + Math.sin(frame / 5) * 0.4}>-50 %</text>
       </g>
+      )}
       {/* sol carrelé */}
       <rect y={SOL - 60} width={W} height={H} fill="#E9ECEF" />
       {Array.from({length: 18}).map((_, i) => (
@@ -338,6 +349,8 @@ const Magasin: React.FC<{frame: number}> = ({frame}) => {
       {/* portants (derrière le personnage) */}
       {portant(-30, 4, 0)}
       {/* caisse */}
+      {caisse ? null : (
+        <>
       <rect x={720} y={1150} width={360} height={300} rx={14} fill="#F4A261" stroke={OUT} strokeWidth={10} />
       <rect x={700} y={1130} width={400} height={40} rx={10} fill="#E76F51" stroke={OUT} strokeWidth={10} />
       <rect x={800} y={1040} width={170} height={90} rx={12} fill="#495057" stroke={OUT} strokeWidth={8} />
@@ -347,6 +360,8 @@ const Magasin: React.FC<{frame: number}> = ({frame}) => {
       {/* sac shopping */}
       <path d="M 980 1050 h 80 l 8 80 h -96 z" fill="#FF70A6" stroke={OUT} strokeWidth={8} strokeLinejoin="round" />
       <path d="M 1000 1050 q 0 -36 20 -36 q 20 0 20 36" fill="none" stroke={OUT} strokeWidth={7} />
+        </>
+      )}
     </svg>
   );
 };
@@ -566,6 +581,9 @@ export const Decor: React.FC<{nom: string; variante?: number}> = ({nom, variante
       break;
     case 'magasin':
       content = <Magasin frame={frame} />;
+      break;
+    case 'magasin_caisse':
+      content = <Magasin frame={frame} caisse />;
       break;
     case 'bureau':
       content = <Bureau frame={frame} />;

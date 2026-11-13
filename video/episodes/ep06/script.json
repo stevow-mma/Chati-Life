@@ -1,0 +1,419 @@
+[
+  {
+    "texte": "Le SMIC va passer à mille cinq cents euros net. Pourtant, Awa coûte environ deux mille euros à son patron.",
+    "decor": "magasin_caisse",
+    "expression": "choque",
+    "mot_jaune": "coûte",
+    "etiquette": null,
+    "pose": "scanne",
+    "accessoire_sol": "caisse_tapis",
+    "element_visuel": {
+      "type": "face_a_face",
+      "gauche": {
+        "label": "SMIC net",
+        "valeur": "≈ 1 500 €",
+        "petit": "(annoncé le 9 nov. 2026)"
+      },
+      "droite": {
+        "label": "Coût employeur",
+        "valeur": "≈ 2 000 €",
+        "petit": "(estimation)"
+      },
+      "au_mot": "coûte",
+      "mention": "Exemple illustratif : estimations"
+    },
+    "duree": 3
+  },
+  {
+    "texte": "Awa, trente et un ans, caissière à temps plein, payée au SMIC.",
+    "decor": "magasin_caisse",
+    "expression": "fier",
+    "mot_jaune": "SMIC",
+    "etiquette": null,
+    "pose": "scanne",
+    "accessoire_sol": "caisse_tapis",
+    "element_visuel": {
+      "type": "carte_texte",
+      "titre": "Awa, 31 ans, caissière",
+      "indices": [
+        "35 h/semaine",
+        "temps plein",
+        "SMIC"
+      ]
+    },
+    "duree": 3
+  },
+  {
+    "texte": "Depuis juin, son net est de mille quatre cent soixante-dix-huit euros. En décembre : vingt-quatre euros de plus.",
+    "decor": "salon",
+    "expression": "content",
+    "mot_jaune": "vingt-quatre",
+    "etiquette": null,
+    "pose": "regarde_telephone",
+    "element_visuel": {
+      "type": "carte_hausse",
+      "surtitre": "Net depuis le 1er juin 2026 :",
+      "avant": "1 477,93 €",
+      "avant_legende": "net mensuel",
+      "apres": "≈ 1 502 €",
+      "apres_legende": "au 1er déc.",
+      "ecart": "+ 24 €",
+      "au_mot": "vingt-quatre",
+      "source": "Sources : info.gouv.fr ; annonce du gouvernement du 9 nov. 2026"
+    },
+    "duree": 3
+  },
+  {
+    "texte": "Sa fiche de paie affiche trois montants : brut, net, et total versé par l'employeur.",
+    "decor": "salon",
+    "expression": "perplexe",
+    "mot_jaune": "trois",
+    "etiquette": "EN CLAIR",
+    "element_visuel": {
+      "type": "fiche_paie",
+      "lignes": [
+        {
+          "cle": "brut",
+          "label": "Salaire brut",
+          "valeur": "≈ 1 897 €"
+        },
+        {
+          "cle": "cotis",
+          "label": "Cotisations salariales",
+          "valeur": "≈ − 395 €"
+        },
+        {
+          "cle": "net",
+          "label": "Net à payer avant impôt",
+          "valeur": "≈ 1 502 €"
+        },
+        {
+          "cle": "total",
+          "label": "Total versé par l'employeur",
+          "valeur": "≈ 2 000 €"
+        }
+      ],
+      "allumer": [
+        {
+          "cle": "brut",
+          "au_mot": "brut"
+        },
+        {
+          "cle": "net",
+          "au_mot": "net"
+        },
+        {
+          "cle": "total",
+          "au_mot": "total"
+        }
+      ],
+      "mention": "Exemple illustratif : estimations"
+    },
+    "duree": 3
+  },
+  {
+    "texte": "Le brut : environ mille neuf cents euros, le salaire du contrat.",
+    "decor": "salon",
+    "expression": "neutre",
+    "mot_jaune": "brut",
+    "etiquette": null,
+    "hypotheses": "Exemple illustratif — hypothèses :\nSMIC temps plein (35 h) au 1er déc. 2026 · estimations",
+    "element_visuel": {
+      "type": "carte_chiffre",
+      "valeur": "Brut ≈ 1 897 €",
+      "legende": "SMIC brut mensuel au 1er déc. 2026 (estimation)",
+      "mention": "Exemple illustratif : estimations"
+    },
+    "duree": 3
+  },
+  {
+    "texte": "Le net : environ mille cinq cents euros, avant impôt, sur son compte.",
+    "decor": "salon",
+    "expression": "content",
+    "mot_jaune": "net",
+    "etiquette": null,
+    "hypotheses": "Exemple illustratif — hypothèses :\nSMIC temps plein (35 h) au 1er déc. 2026 · estimations",
+    "accessoire_sol": "billets_pieces",
+    "element_visuel": {
+      "type": "carte_chiffre",
+      "valeur": "≈ 1 502 €",
+      "legende": "Net à payer avant impôt",
+      "mention": "Exemple illustratif : estimations"
+    },
+    "duree": 3
+  },
+  {
+    "texte": "Entre les deux : environ quatre cents euros de cotisations salariales.",
+    "decor": "salon",
+    "expression": "perplexe",
+    "mot_jaune": "cotisations",
+    "etiquette": "POURQUOI",
+    "hypotheses": "Exemple illustratif — hypothèses :\nSMIC temps plein (35 h) au 1er déc. 2026 · estimations",
+    "element_visuel": {
+      "type": "barre_empilee",
+      "animation": "decoupe",
+      "segments": [
+        {
+          "label": "Net",
+          "montant": 1502,
+          "couleur": "#06D6A0",
+          "texte": "≈ 1 502 €"
+        },
+        {
+          "label": "Cotis. salariales",
+          "montant": 395,
+          "couleur": "#F77F00",
+          "texte": "≈ 395 €"
+        }
+      ],
+      "titre": "Cotisations salariales",
+      "valeur": "≈ 395 €",
+      "petit": "≈ 21 % du brut (brut − net)",
+      "barre_entiere": "Brut ≈ 1 897 €",
+      "au_mot": "cotisations",
+      "mention": "Exemple illustratif : estimations"
+    },
+    "duree": 3
+  },
+  {
+    "texte": "Environ cent quatre-vingts euros de CSG-CRDS, et le reste pour la retraite.",
+    "decor": "salon",
+    "expression": "neutre",
+    "mot_jaune": "retraite",
+    "etiquette": null,
+    "hypotheses": "Exemple illustratif — hypothèses :\nSMIC temps plein (35 h) au 1er déc. 2026 · estimations",
+    "element_visuel": {
+      "type": "barre_empilee",
+      "animation": "decoupe",
+      "segments": [
+        {
+          "label": "CSG + CRDS",
+          "montant": 181,
+          "couleur": "#FFB703",
+          "texte": "≈ 181 €"
+        },
+        {
+          "label": "Retraite",
+          "montant": 214,
+          "couleur": "#8338EC",
+          "texte": "≈ 214 €"
+        }
+      ],
+      "titre": "CSG + CRDS : 9,7 % × 98,25 % du brut ≈ 181 €",
+      "petit": "reste ≈ 214 € : retraite",
+      "barre_entiere": "Cotisations salariales ≈ 395 €",
+      "au_mot": "CSG-CRDS",
+      "mention": "Exemple illustratif : estimations",
+      "source": "Calcul d'après les taux 2026"
+    },
+    "duree": 3
+  },
+  {
+    "texte": "Troisième montant : le total versé par l'employeur. Environ deux mille euros.",
+    "decor": "bureau",
+    "expression": "choque",
+    "mot_jaune": "l'employeur",
+    "etiquette": "ATTENTION",
+    "hypotheses": "Exemple illustratif — hypothèses :\nSMIC temps plein (35 h) au 1er déc. 2026 · estimations",
+    "accessoire_sol": "billets_pieces",
+    "element_visuel": {
+      "type": "barre_empilee",
+      "animation": "empile",
+      "segments": [
+        {
+          "label": "Net",
+          "montant": 1502,
+          "couleur": "#06D6A0",
+          "texte": "≈ 1 502 €"
+        },
+        {
+          "label": "Cotis. salariales",
+          "montant": 395,
+          "couleur": "#F77F00",
+          "texte": "≈ 395 €"
+        },
+        {
+          "label": "Cotis. patronales",
+          "montant": 103,
+          "couleur": "#4361EE",
+          "texte": "≈ 103 €"
+        }
+      ],
+      "titre": "Total versé par l'employeur (estimation)",
+      "valeur": "≈ 2 000 €",
+      "au_mot": "deux",
+      "mention": "Exemple illustratif : estimations"
+    },
+    "duree": 3
+  },
+  {
+    "texte": "Les cotisations patronales, très réduites au SMIC : l'État en efface presque toutes.",
+    "decor": "bureau",
+    "expression": "neutre",
+    "mot_jaune": "presque",
+    "etiquette": "EN CLAIR",
+    "hypotheses": "Exemple illustratif — hypothèses :\nSMIC temps plein (35 h) au 1er déc. 2026 · estimations",
+    "element_visuel": {
+      "type": "barre_empilee",
+      "animation": "hachure",
+      "segments": [
+        {
+          "label": "Net",
+          "montant": 1502,
+          "couleur": "#06D6A0",
+          "texte": "≈ 1 502 €"
+        },
+        {
+          "label": "Cotis. salariales",
+          "montant": 395,
+          "couleur": "#F77F00",
+          "texte": "≈ 395 €"
+        },
+        {
+          "label": "Cotis. patronales",
+          "montant": 103,
+          "couleur": "#4361EE",
+          "texte": "≈ 103 €"
+        },
+        {
+          "label": "Allègement",
+          "montant": 600,
+          "couleur": "#4361EE",
+          "hachure": true,
+          "texte": "effacé"
+        }
+      ],
+      "titre": "Réduction générale dégressive unique (RGDU), depuis 2026 : maximale au SMIC",
+      "au_mot": "efface",
+      "mention": "Exemple illustratif : estimations",
+      "source": "Source : Urssaf"
+    },
+    "duree": 3
+  },
+  {
+    "texte": "Sans cet allègement, Awa coûterait plusieurs centaines d'euros de plus.",
+    "decor": "bureau",
+    "expression": "choque",
+    "mot_jaune": "centaines",
+    "etiquette": "MAIS",
+    "hypotheses": "Exemple illustratif — hypothèses :\nSMIC temps plein (35 h) au 1er déc. 2026 · estimations",
+    "element_visuel": {
+      "type": "carte_texte",
+      "surtitre": "Sans l'allègement :",
+      "titre": "de l'ordre de + 500 à 700 €/mois pour l'employeur",
+      "petit": "(estimation selon simulateurs 2026)",
+      "mention": "Exemple illustratif : estimations"
+    },
+    "duree": 3
+  },
+  {
+    "texte": "Piège numéro un : comparer un salaire brut à un salaire net dans une annonce.",
+    "decor": "salon",
+    "expression": "perplexe",
+    "mot_jaune": "brut",
+    "etiquette": "PIÈGE N°1",
+    "element_visuel": {
+      "type": "carte_texte",
+      "titre": "1 897 € brut = 1 502 € net : − 21 %"
+    },
+    "duree": 3
+  },
+  {
+    "texte": "Piège numéro deux : le net est avant impôt. Le prélèvement à la source vient ensuite.",
+    "decor": "salon",
+    "expression": "perplexe",
+    "mot_jaune": "impôt",
+    "etiquette": "PIÈGE N°2",
+    "element_visuel": {
+      "type": "carte_texte",
+      "titre": "NET À PAYER AVANT IMPÔT",
+      "petit": "→ prélèvement à la source ensuite",
+      "source": "Source : impots.gouv.fr"
+    },
+    "duree": 3
+  },
+  {
+    "texte": "Mon conseil : sur ta fiche de paie, repère la ligne total versé par l'employeur.",
+    "decor": "salon",
+    "expression": "fier",
+    "mot_jaune": "l'employeur",
+    "etiquette": "CONSEIL",
+    "element_visuel": {
+      "type": "fiche_paie",
+      "lignes": [
+        {
+          "cle": "brut",
+          "label": "Salaire brut",
+          "valeur": "≈ 1 897 €"
+        },
+        {
+          "cle": "cotis",
+          "label": "Cotisations salariales",
+          "valeur": "≈ − 395 €"
+        },
+        {
+          "cle": "net",
+          "label": "Net à payer avant impôt",
+          "valeur": "≈ 1 502 €"
+        },
+        {
+          "cle": "total",
+          "label": "Total versé par l'employeur",
+          "valeur": "≈ 2 000 €"
+        }
+      ],
+      "surligne": "total",
+      "mention": "Montants : exemple illustratif (estimations)",
+      "source": "Source : Code du travail, art. R3243-1"
+    },
+    "duree": 3
+  },
+  {
+    "texte": "C'est ce que tu coûtes vraiment.",
+    "decor": "salon",
+    "expression": "fier",
+    "mot_jaune": "coûtes",
+    "etiquette": null,
+    "element_visuel": {
+      "type": "fiche_paie",
+      "lignes": [
+        {
+          "cle": "brut",
+          "label": "Salaire brut",
+          "valeur": "≈ 1 897 €"
+        },
+        {
+          "cle": "cotis",
+          "label": "Cotisations salariales",
+          "valeur": "≈ − 395 €"
+        },
+        {
+          "cle": "net",
+          "label": "Net à payer avant impôt",
+          "valeur": "≈ 1 502 €"
+        },
+        {
+          "cle": "total",
+          "label": "Total versé par l'employeur",
+          "valeur": "≈ 2 000 €"
+        }
+      ],
+      "surligne": "total",
+      "gros_plan": true,
+      "mention": "Montant : exemple illustratif (estimation)"
+    },
+    "duree": 3
+  },
+  {
+    "texte": "Et toi, tu savais combien tu coûtes à ton patron ? Dis-le en commentaire, et abonne-toi pour d'autres vrais chiffres.",
+    "decor": "studio",
+    "expression": "content",
+    "mot_jaune": "commentaire",
+    "etiquette": "TON AVIS",
+    "pose": "pointe_bas",
+    "element_visuel": {
+      "type": "icones_cta"
+    },
+    "duree": 3
+  }
+]
