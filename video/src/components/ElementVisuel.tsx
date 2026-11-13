@@ -462,14 +462,14 @@ const Calcul: React.FC<{expression: string; mention?: string}> = ({expression, m
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
   // termes : nombres avec unité, et opérateurs (−, +, =, ×)
-  const tokens = expression.split(/\s+(?=[−+=×-]\s)|(?<=\s[−+=×-])\s+/);
-  const egal = tokens.indexOf('=');
+  const tokens = expression.split(/\s+(?=[−+=×÷≈-]\s)|(?<=\s[−+=×÷≈-])\s+/);
+  const egal = tokens.findIndex((t) => t === '=' || t === '≈');
   return (
     <Card rotate={-2}>
       <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'baseline', columnGap: 18, maxWidth: 900, paddingTop: 16}}>
         {tokens.map((tok, i) => {
           const pop = spring({frame: frame - 6 - i * 7, fps, config: {damping: 11, stiffness: 240}});
-          const op = /^[−+=×-]$/.test(tok);
+          const op = /^[−+=×÷≈-]$/.test(tok);
           const resultat = egal >= 0 && i > egal;
           return (
             <span
@@ -719,6 +719,307 @@ const Icone: React.FC<{nom: string}> = ({nom}) => {
   );
 };
 
+/** Mention / source en bas de carte (petit texte gris, séparateur pointillé). */
+const Mention: React.FC<{children: React.ReactNode}> = ({children}) => (
+  <div style={{fontFamily: FONT_TEXTE, fontSize: 34, color: '#6C757D', marginTop: 18, borderTop: '4px dashed #CED4DA', paddingTop: 12}}>
+    {children}
+  </div>
+);
+
+/** Carte « avant → après » : l'ancien chiffre barré, une flèche, le nouveau qui claque. */
+const CarteEvolution: React.FC<{avant: string; apres: string; legende?: string; mention?: string; source?: string}> = ({
+  avant,
+  apres,
+  legende,
+  mention,
+  source,
+}) => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  const premier = usePremiereImage();
+  const d = premier ? 0 : 8;
+  const barre = interpolate(frame, [d + 4, d + 14], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+  const pop = premier ? 1 : spring({frame: frame - d - 10, fps, config: {damping: 9, stiffness: 240}});
+  const wobble = Math.sin(frame / 5) * 2;
+  return (
+    <Card rotate={2}>
+      <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 30, paddingTop: 16}}>
+        <div style={{position: 'relative', fontFamily: FONT_TITRE, fontSize: avant.length > 7 ? 96 : 116, color: '#6C757D', lineHeight: 1, whiteSpace: 'nowrap'}}>
+          {avant}
+          <div style={{position: 'absolute', left: -8, top: '42%', height: 14, width: `${barre * 105}%`, background: '#E63946', borderRadius: 7, transform: 'rotate(-8deg)'}} />
+        </div>
+        <svg width={110} height={70} viewBox="0 0 110 70">
+          <path d="M 6 35 H 80 M 60 10 L 96 35 L 60 60" fill="none" stroke={OUT} strokeWidth={14} strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+        <div style={{fontFamily: FONT_TITRE, fontSize: 150, color: '#2D6A4F', lineHeight: 1, whiteSpace: 'nowrap', transform: `scale(${pop}) rotate(${wobble}deg)`}}>
+          {apres}
+        </div>
+      </div>
+      {legende ? <div style={{fontFamily: FONT_TEXTE, fontSize: 56, color: OUT, marginTop: 8}}>{legende}</div> : null}
+      {mention ? <Mention>{mention}</Mention> : null}
+      {source ? <Mention>{source}</Mention> : null}
+    </Card>
+  );
+};
+
+/** Téléphone qui vibre, notification générique qui descend. Aucun logo. */
+const NotificationTelephone: React.FC<{titre: string; texte?: string}> = ({titre, texte}) => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  const pop = usePop();
+  const notif = spring({frame: frame - 12, fps, config: {damping: 12, stiffness: 200}});
+  const vibre = frame > 12 && frame < 40 ? Math.sin(frame * 2.4) * 5 : 0;
+  return (
+    <div style={{transform: `scale(${pop}) rotate(${vibre}deg)`, position: 'relative'}}>
+      <Telephone w={300} h={420}>
+        <div style={{position: 'absolute', inset: 0, background: 'linear-gradient(#8ECAE6, #219EBC)'}}>
+          <div style={{fontFamily: FONT_TITRE, fontSize: 70, color: 'white', textAlign: 'center', marginTop: 64, opacity: 0.9}}>12:04</div>
+        </div>
+      </Telephone>
+      <div
+        style={{
+          position: 'absolute',
+          left: -150,
+          right: -150,
+          top: 120,
+          transform: `translateY(${(1 - notif) * -140}px)`,
+          opacity: Math.min(1, notif * 1.5),
+          display: 'flex',
+          alignItems: 'center',
+          gap: 20,
+          background: 'white',
+          border: `8px solid ${OUT}`,
+          borderRadius: 28,
+          padding: '16px 24px',
+          boxShadow: '0 12px 0 rgba(0,0,0,0.3)',
+        }}
+      >
+        <div style={{width: 76, height: 76, flexShrink: 0, borderRadius: 20, border: `6px solid ${OUT}`, background: '#06D6A0', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+          <svg width={46} height={46} viewBox="0 0 46 46">
+            <path d="M 23 4 Q 36 4 36 20 V 30 L 41 36 H 5 L 10 30 V 20 Q 10 4 23 4 Z" fill="white" stroke={OUT} strokeWidth={4} strokeLinejoin="round" />
+            <circle cx={23} cy={40} r={5} fill={OUT} />
+          </svg>
+        </div>
+        <div style={{flex: 1}}>
+          <div style={{fontFamily: FONT_TITRE, fontSize: 52, color: OUT, paddingTop: 8, lineHeight: 1}}>{titre}</div>
+          {texte ? <div style={{fontFamily: FONT_TEXTE, fontSize: 36, color: '#495057'}}>{texte}</div> : null}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+/** Barre d'une heure découpée en segments (ex. 40 min payées / 20 min d'attente). */
+const BarreTemps: React.FC<{titre?: string; segments: {minutes: number; label: string; couleur?: string}[]; mention?: string}> = ({
+  titre,
+  segments,
+  mention,
+}) => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  const total = segments.reduce((a, b) => a + b.minutes, 0) || 60;
+  const L = 820;
+  let x0 = 0;
+  return (
+    <Card rotate={-2}>
+      {titre ? <div style={{fontFamily: FONT_TITRE, fontSize: 58, color: OUT, paddingTop: 10}}>{titre}</div> : null}
+      <div style={{position: 'relative', width: L, height: 110, margin: '18px auto 0', border: `8px solid ${OUT}`, borderRadius: 26, overflow: 'hidden', background: '#F1F3F5'}}>
+        {segments.map((sg, i) => {
+          const w = (sg.minutes / total) * L;
+          const grow = interpolate(frame, [6 + i * 16, 22 + i * 16], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+          const left = x0;
+          x0 += w;
+          return (
+            <div
+              key={i}
+              style={{
+                position: 'absolute',
+                left,
+                top: 0,
+                bottom: 0,
+                width: w * grow,
+                background: sg.couleur ?? '#06D6A0',
+                borderRight: i < segments.length - 1 ? `6px solid ${OUT}` : 'none',
+                backgroundImage: i > 0 ? 'repeating-linear-gradient(-45deg, rgba(255,255,255,0.18) 0 16px, transparent 16px 32px)' : undefined,
+              }}
+            />
+          );
+        })}
+      </div>
+      <div style={{display: 'flex', width: L, margin: '10px auto 0'}}>
+        {segments.map((sg, i) => {
+          const pop = spring({frame: frame - 14 - i * 16, fps, config: {damping: 11, stiffness: 240}});
+          return (
+            <div key={i} style={{width: (sg.minutes / total) * L, textAlign: 'center', transform: `scale(${pop})`}}>
+              <div style={{fontFamily: FONT_TITRE, fontSize: 60, color: sg.couleur ?? OUT, WebkitTextStroke: `2px ${OUT}`, lineHeight: 1.1, paddingTop: 6}}>{sg.minutes} min</div>
+              <div style={{fontFamily: FONT_TEXTE, fontSize: 40, color: OUT}}>{sg.label}</div>
+            </div>
+          );
+        })}
+      </div>
+      {mention ? <Mention>{mention}</Mention> : null}
+    </Card>
+  );
+};
+
+/** Calcul en chaîne : chaque étape apparaît après une flèche, la dernière en jaune. */
+const Chaine: React.FC<{etapes: string[]; mention?: string}> = ({etapes, mention}) => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  const ecart = Math.round(fps * 0.45);
+  return (
+    <Card rotate={-2}>
+      <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', flexWrap: 'nowrap', gap: 10, paddingTop: 14}}>
+        {etapes.map((e, i) => {
+          const pop = spring({frame: frame - 6 - i * ecart, fps, config: {damping: 11, stiffness: 240}});
+          const dernier = i === etapes.length - 1;
+          return (
+            <div key={i} style={{display: 'flex', alignItems: 'center', gap: 10}}>
+              {i > 0 ? (
+                <svg width={46} height={40} viewBox="0 0 46 40" style={{transform: `scale(${pop})`}}>
+                  <path d="M 4 20 H 32 M 22 6 L 40 20 L 22 34" fill="none" stroke="#6C757D" strokeWidth={8} strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              ) : null}
+              <span
+                style={{
+                  display: 'inline-block',
+                  transform: `scale(${pop})`,
+                  fontFamily: FONT_TITRE,
+                  fontSize: dernier ? 104 : 66,
+                  lineHeight: 1.1,
+                  whiteSpace: 'nowrap',
+                  color: dernier ? '#2D6A4F' : i === 0 ? '#E63946' : OUT,
+                  background: dernier ? '#FFD60A' : 'transparent',
+                  border: dernier ? `6px solid ${OUT}` : 'none',
+                  borderRadius: 18,
+                  padding: dernier ? '8px 16px 0' : 0,
+                  textDecoration: i === 0 ? 'line-through' : 'none',
+                }}
+              >
+                {e}
+              </span>
+            </div>
+          );
+        })}
+      </div>
+      {mention ? <Mention>{mention}</Mention> : null}
+    </Card>
+  );
+};
+
+/** Calendrier d'un mois : une semaine se fait barrer d'une croix rouge. */
+const CalendrierMois: React.FC<{semaine_barree: number; legende?: string}> = ({semaine_barree, legende}) => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  const pop = usePop();
+  const jours = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
+  const C = 92;
+  const s = Math.max(0, Math.min(3, semaine_barree - 1));
+  const trait = interpolate(frame, [14, 26], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+  const tampon = spring({frame: frame - 28, fps, config: {damping: 9, stiffness: 260}});
+  return (
+    <div style={{transform: `scale(${pop}) rotate(-2deg)`, position: 'relative'}}>
+      <div style={{background: 'white', border: `10px solid ${OUT}`, borderRadius: 30, boxShadow: '0 18px 0 rgba(0,0,0,0.3)', overflow: 'hidden', width: C * 7 + 40}}>
+        <div style={{height: 70, background: '#E63946', borderBottom: `8px solid ${OUT}`, display: 'flex', justifyContent: 'space-around', alignItems: 'center', padding: '0 20px'}}>
+          {jours.map((j, i) => (
+            <span key={i} style={{fontFamily: FONT_TITRE, fontSize: 40, color: 'white', paddingTop: 8, width: C, textAlign: 'center'}}>{j}</span>
+          ))}
+        </div>
+        <div style={{padding: '10px 20px 14px', position: 'relative'}}>
+          {[0, 1, 2, 3].map((r) => (
+            <div key={r} style={{display: 'flex'}}>
+              {jours.map((_, k) => (
+                <div key={k} style={{width: C, height: 64, fontFamily: FONT_TEXTE, fontSize: 36, color: r === s ? '#E63946' : '#495057', textAlign: 'center', lineHeight: '64px', background: r === s ? '#FFE3E3' : 'transparent'}}>
+                  {r * 7 + k + 1}
+                </div>
+              ))}
+            </div>
+          ))}
+          {/* croix sur la semaine */}
+          <svg width={C * 7} height={64} viewBox={`0 0 ${C * 7} 64`} style={{position: 'absolute', left: 20, top: 10 + s * 64}}>
+            <path d={`M 10 32 H ${10 + (C * 7 - 20) * trait}`} stroke="#E63946" strokeWidth={14} strokeLinecap="round" />
+          </svg>
+        </div>
+      </div>
+      {legende ? (
+        <div
+          style={{
+            position: 'absolute',
+            right: -40,
+            top: -30,
+            transform: `scale(${tampon}) rotate(10deg)`,
+            background: '#FFD60A',
+            border: `8px solid ${OUT}`,
+            borderRadius: 22,
+            padding: '16px 24px 4px',
+            fontFamily: FONT_TITRE,
+            fontSize: 60,
+            color: '#E63946',
+            boxShadow: '0 10px 0 rgba(0,0,0,0.3)',
+            whiteSpace: 'nowrap',
+          }}
+        >
+          {legende}
+        </div>
+      ) : null}
+    </div>
+  );
+};
+
+/** Appel à l'action : cœur, bulle de commentaire, bouton « + », animés l'un après l'autre (génériques, sans logo). */
+const IconesCta: React.FC = () => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  const ecart = Math.round(fps * 0.7);
+  const icones = [
+    {fond: '#FF4D6D', svg: <path d="M 60 100 C 20 72 10 50 22 34 C 34 18 54 22 60 38 C 66 22 86 18 98 34 C 110 50 100 72 60 100 Z" fill="white" stroke={OUT} strokeWidth={7} strokeLinejoin="round" />},
+    {
+      fond: '#4361EE',
+      svg: (
+        <g>
+          <path d="M 20 30 Q 20 18 32 18 H 88 Q 100 18 100 30 V 70 Q 100 82 88 82 H 52 L 32 100 V 82 Q 20 82 20 70 Z" fill="white" stroke={OUT} strokeWidth={7} strokeLinejoin="round" />
+          {[42, 60, 78].map((x) => (
+            <circle key={x} cx={x} cy={50} r={7} fill={OUT} />
+          ))}
+        </g>
+      ),
+    },
+    {fond: '#06D6A0', svg: <path d="M 60 24 V 96 M 24 60 H 96" stroke="white" strokeWidth={22} strokeLinecap="round" />},
+  ];
+  return (
+    <div style={{display: 'flex', gap: 60, alignItems: 'center'}}>
+      {icones.map((ic, i) => {
+        const debut = 6 + i * ecart;
+        const pop = spring({frame: frame - debut, fps, config: {damping: 8, stiffness: 220}});
+        const actif = frame >= debut && frame < debut + ecart;
+        const pulse = actif ? 1 + Math.sin(((frame - debut) / ecart) * Math.PI) * 0.18 : 1;
+        const bounce = frame >= debut ? Math.abs(Math.sin((frame - debut) / 9)) * -10 : 0;
+        return (
+          <div
+            key={i}
+            style={{
+              width: 220,
+              height: 220,
+              borderRadius: i === 2 ? 110 : 56,
+              background: ic.fond,
+              border: `10px solid ${OUT}`,
+              boxShadow: '0 16px 0 rgba(0,0,0,0.3)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              transform: `translateY(${bounce}px) scale(${pop * pulse})`,
+            }}
+          >
+            <svg width={150} height={150} viewBox="0 0 120 120">
+              {ic.svg}
+            </svg>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
 export const ElementVisuelView: React.FC<{element: ElementVisuel}> = ({element}) => {
   let inner: React.ReactNode = null;
   switch (element.type) {
@@ -754,6 +1055,24 @@ export const ElementVisuelView: React.FC<{element: ElementVisuel}> = ({element})
       break;
     case 'chrono':
       inner = <Chrono valeur={element.valeur} />;
+      break;
+    case 'carte_evolution':
+      inner = <CarteEvolution avant={element.avant} apres={element.apres} legende={element.legende} mention={element.mention} source={element.source} />;
+      break;
+    case 'notification_telephone':
+      inner = <NotificationTelephone titre={element.titre} texte={element.texte} />;
+      break;
+    case 'barre_temps':
+      inner = <BarreTemps titre={element.titre} segments={element.segments} mention={element.mention} />;
+      break;
+    case 'chaine':
+      inner = <Chaine etapes={element.etapes} mention={element.mention} />;
+      break;
+    case 'calendrier_mois':
+      inner = <CalendrierMois semaine_barree={element.semaine_barree} legende={element.legende} />;
+      break;
+    case 'icones_cta':
+      inner = <IconesCta />;
       break;
     case 'jauge':
       inner = <Jauge valeur={element.valeur} legende={element.legende} />;

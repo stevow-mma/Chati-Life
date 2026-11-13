@@ -351,6 +351,87 @@ const Magasin: React.FC<{frame: number}> = ({frame}) => {
   );
 };
 
+/** Devanture de restaurant vue du trottoir : store rayé, enseigne générique, vitrine avec comptoir, trottoir. */
+const Restaurant: React.FC<{frame: number}> = ({frame}) => (
+  <svg viewBox={`0 0 ${W} ${H}`} width={W} height={H}>
+    <rect width={W} height={H} fill="#FFB4A2" />
+    {/* façade */}
+    <rect x={0} y={0} width={W} height={SOL} fill="#E9C46A" />
+    {Array.from({length: 14}).map((_, r) => (
+      <g key={r}>
+        {Array.from({length: 8}).map((_, k) => (
+          <rect key={k} x={k * 150 - (r % 2) * 75} y={r * 60} width={146} height={56} fill="#E2B85A" />
+        ))}
+      </g>
+    ))}
+    {/* enseigne générique */}
+    <rect x={190} y={220} width={700} height={120} rx={20} fill="#264653" stroke={OUT} strokeWidth={10} />
+    <text x={540} y={312} textAnchor="middle" fontFamily="Luckiest Guy" fontSize={84} fill="#FFE8A3" letterSpacing={6}>
+      RESTAURANT
+    </text>
+    {/* store rayé */}
+    <path d="M 40 400 H 1040 L 1080 560 H 0 Z" fill="#F1FAEE" stroke={OUT} strokeWidth={10} strokeLinejoin="round" />
+    {Array.from({length: 10}).map((_, i) => (
+      <path key={i} d={`M ${40 + i * 100} 400 h 50 L ${i * 108 + 54} 560 h -54 Z`} fill="#2A9D8F" />
+    ))}
+    <path d="M 0 560 H 1080 L 1080 560" stroke={OUT} strokeWidth={10} />
+    {Array.from({length: 12}).map((_, i) => (
+      <path key={i} d={`M ${i * 90} 560 q 45 ${50 + Math.sin(frame / 10 + i) * 4} 90 0`} fill={i % 2 ? '#2A9D8F' : '#F1FAEE'} stroke={OUT} strokeWidth={8} />
+    ))}
+    {/* vitrine */}
+    <rect x={40} y={660} width={760} height={780} rx={12} fill="#3D405B" stroke={OUT} strokeWidth={12} />
+    <rect x={60} y={680} width={720} height={740} fill="#FFE8A3" />
+    {/* intérieur : lampes, étagère, comptoir, sacs de commandes */}
+    {[200, 420, 640].map((x, i) => (
+      <g key={x}>
+        <path d={`M ${x} 680 V 740`} stroke={OUT} strokeWidth={6} />
+        <path d={`M ${x - 40} 780 Q ${x} 720 ${x + 40} 780 Z`} fill="#F4A261" stroke={OUT} strokeWidth={7} />
+        <ellipse cx={x} cy={800} rx={60} ry={20} fill="white" opacity={0.35 + Math.sin(frame / 8 + i) * 0.1} />
+      </g>
+    ))}
+    <rect x={90} y={860} width={660} height={16} fill="#BC6C25" stroke={OUT} strokeWidth={6} />
+    {[130, 230, 330, 560, 660].map((x, i) => (
+      <rect key={x} x={x} y={800} width={60} height={60} rx={8} fill={['#E76F51', '#06D6A0', '#FFD60A', '#4361EE', '#FF70A6'][i]} stroke={OUT} strokeWidth={6} />
+    ))}
+    <rect x={60} y={1150} width={720} height={270} fill="#BC6C25" stroke={OUT} strokeWidth={10} />
+    <rect x={60} y={1130} width={720} height={36} fill="#DDA15E" stroke={OUT} strokeWidth={10} />
+    {[0, 1, 2].map((k) => (
+      <path key={k} d={`M ${60 + k * 240} 1166 V 1420`} stroke="#9C5A1E" strokeWidth={8} />
+    ))}
+    {/* sacs kraft en attente sur le comptoir */}
+    {[110, 200].map((x, i) => (
+      <g key={x}>
+        <path d={`M ${x} 1130 l 6 -96 h 68 l 6 96 z`} fill="#D4A373" stroke={OUT} strokeWidth={7} strokeLinejoin="round" />
+        <path d={`M ${x + 16} 1034 l 8 -16 h 32 l 8 16`} fill="none" stroke={OUT} strokeWidth={6} />
+        <rect x={x + 20} y={1066} width={40} height={30} rx={4} fill="white" stroke={OUT} strokeWidth={4} transform={`rotate(${i ? 4 : -4} ${x + 40} 1080)`} />
+      </g>
+    ))}
+    {/* sonnette de comptoir */}
+    <path d="M 620 1128 q 0 -50 44 -50 q 44 0 44 50 z" fill="#ADB5BD" stroke={OUT} strokeWidth={7} />
+    <rect x={608} y={1122} width={112} height={12} rx={5} fill="#6C757D" stroke={OUT} strokeWidth={5} />
+    <circle cx={664} cy={1072} r={8} fill="#6C757D" stroke={OUT} strokeWidth={4} />
+    {/* reflets sur la vitre */}
+    <path d="M 120 700 L 60 820 M 190 700 L 80 920" stroke="white" strokeWidth={16} opacity={0.35} />
+    <path d="M 60 680 H 780" stroke="#3D405B" strokeWidth={6} />
+    {/* porte */}
+    <rect x={840} y={660} width={200} height={780} rx={10} fill="#264653" stroke={OUT} strokeWidth={12} />
+    <rect x={866} y={690} width={148} height={420} rx={8} fill="#FFE8A3" stroke={OUT} strokeWidth={8} />
+    <rect x={880} y={760} width={120} height={60} rx={8} fill="white" stroke={OUT} strokeWidth={5} />
+    <text x={940} y={802} textAnchor="middle" fontFamily="Luckiest Guy" fontSize={34} fill="#2A9D8F">OUVERT</text>
+    <circle cx={866} cy={1200} r={14} fill="#FFD60A" stroke={OUT} strokeWidth={6} />
+    {/* trottoir et bordure */}
+    <rect y={SOL - 40} width={W} height={160} fill="#CED4DA" stroke={OUT} strokeWidth={10} />
+    {Array.from({length: 6}).map((_, i) => (
+      <path key={i} d={`M ${i * 200 + 100} ${SOL - 40} V ${SOL + 120}`} stroke="#ADB5BD" strokeWidth={6} />
+    ))}
+    <rect y={SOL + 120} width={W} height={36} fill="#ADB5BD" stroke={OUT} strokeWidth={8} />
+    <rect y={SOL + 156} width={W} height={H} fill="#495057" />
+    {[0, 1, 2, 3].map((i) => (
+      <rect key={i} x={i * 300 + 40} y={SOL + 300} width={160} height={26} rx={8} fill="#FFD60A" />
+    ))}
+  </svg>
+);
+
 const Uni: React.FC<{nom: string}> = ({nom}) => {
   let h = 0;
   for (const ch of nom) h = (h * 31 + ch.charCodeAt(0)) % 360;
@@ -385,6 +466,9 @@ export const Decor: React.FC<{nom: string; variante?: number}> = ({nom, variante
       break;
     case 'salon':
       content = <Salon frame={frame} />;
+      break;
+    case 'restaurant':
+      content = <Restaurant frame={frame} />;
       break;
     case 'banque':
       content = <Banque frame={frame} />;

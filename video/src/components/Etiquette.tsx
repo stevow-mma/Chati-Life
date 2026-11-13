@@ -9,19 +9,23 @@ const COULEURS: Record<string, {bg: string; fg: string}> = {
   'PLAN B': {bg: '#FF70A6', fg: 'white'},
   POURQUOI: {bg: '#F77F00', fg: 'white'},
   SUITE: {bg: '#7B2CBF', fg: 'white'},
+  'TON AVIS': {bg: '#4361EE', fg: 'white'},
 };
+
+/** Étiquettes jaunes à bandes noires (même style que ATTENTION). */
+const RAYEES = new Set(['ATTENTION', 'PIÈGE N°1', 'PIÈGE N°2', 'PIÈGE N°3', 'CONSEIL']);
 
 /** Étiquette de pivot qui "claque" en haut de l'écran. */
 export const Etiquette: React.FC<{texte: string}> = ({texte}) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
   const label = texte.toUpperCase();
-  const c = COULEURS[label] ?? {bg: '#7B2CBF', fg: 'white'};
+  const stripes = RAYEES.has(label);
+  const c = COULEURS[label] ?? (stripes ? COULEURS.ATTENTION : {bg: '#7B2CBF', fg: 'white'});
 
   const slam = spring({frame: frame - 3, fps, config: {damping: 9, stiffness: 300}});
   const scale = interpolate(slam, [0, 1], [3, 1]);
   const shake = frame > 3 && frame < 14 ? Math.sin(frame * 2.2) * 8 : 0;
-  const stripes = label === 'ATTENTION';
 
   return (
     <div

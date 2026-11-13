@@ -24,4 +24,16 @@ export const PERSONNAGES: Record<string, Apparence> = {
     tete: {type: 'lunettes_rondes', couleur: '#D4A017'},
     boucles: '#F2C14E',
   },
+  /** Karim — 27 ans, livreur à vélo (épisode 3). Aucun logo ni couleur de marque. */
+  karim: {
+    nom: 'Karim',
+    genre: 'homme',
+    teint: {peau: '#D2A06E', ombre: '#B07F50', joues: '#D9826A'},
+    cheveux: {style: 'court', couleur: '#17171C'},
+    tenue: {haut: '#1F2A4D', hautOmbre: '#141C36', bas: '#1E1E24', chaussures: 'white', bandeChaussures: '#DEE2E6', bandes: '#B8BEC6'},
+    tete: {type: 'casque_velo', couleur: '#FFFFFF', couleurOmbre: '#DDE1E6'},
+    barbe: '#17171C',
+    sac: {couleur: '#B5452F', ombre: '#8E3322'},
+    velo: '#2D6A4F',
+  },
 };

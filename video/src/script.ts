@@ -41,6 +41,8 @@ export const loadScript = (raw: unknown, fichier: string): Plan[] => {
       mot_jaune: plan.mot_jaune ?? null,
       etiquette: plan.etiquette ?? null,
       duree: plan.duree,
+      pose: plan.pose ?? 'debout',
+      accessoire_sol: plan.accessoire_sol ?? null,
       voix: null,
     };
   });

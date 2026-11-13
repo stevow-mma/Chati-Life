@@ -7,6 +7,7 @@ npm install
 npm run studio            # aperçu interactif (une composition par épisode)
 npm run render            # épisode 1 → out/ep01.mp4
 npm run render -- ep02    # épisode 2 → out/ep02.mp4
+npm run render -- ep03    # épisode 3 → out/ep03.mp4
 ```
 
 ## Épisodes
@@ -41,12 +42,14 @@ Un tableau de plans. Chaque plan correspond à une coupe (~4 s) :
 | champ | rôle |
 |---|---|
 | `texte` | sous-titre (apparaît mot à mot ; `{mot}` = mot rotatif) |
-| `decor` | `studio`, `chambre`, `rue`, `banque`, `bureau`, `salon`, `magasin` (un autre nom donne un fond uni coloré) |
+| `decor` | `studio`, `chambre`, `rue`, `banque`, `bureau`, `salon`, `magasin`, `restaurant` (un autre nom donne un fond uni coloré) |
 | `expression` | `neutre`, `content`, `fier`, `reveur`, `perplexe`, `choque` |
 | `element_visuel` | `null` ou un objet (voir ci-dessous) |
 | `mot_jaune` | mot(s) affichés en jaune, ou `"{mot}"` |
 | `etiquette` | étiquette de pivot (`"MAIS"`, `"ATTENTION"`, …) ou `null` |
 | `duree` | durée en secondes |
+| `pose` | optionnel : `debout` (défaut), `velo` (pédale, vu de face), `assis`, `pointe_bas` |
+| `accessoire_sol` | optionnel : `velo` (vélo garé derrière), `sablier` |
 
 Éléments visuels :
 
@@ -66,13 +69,23 @@ Un tableau de plans. Chaque plan correspond à une coupe (~4 s) :
 - `{"type": "liste", "items": ["...", "..."]}`
 - `{"type": "icone", "nom": "velo_livraison"}`
 - carte chiffre : `"A · B"` → une ligne par partie
+- `{"type": "carte_evolution", "avant": "11,75 €", "apres": "19 €", "mention": "...", "source": "..."}`
+- `{"type": "notification_telephone", "titre": "Nouvelle commande"}`
+- `{"type": "barre_temps", "titre": "1 heure connectée", "segments": [{"minutes": 40, "label": "payées", "couleur": "#06D6A0"}], "mention": "..."}`
+- `{"type": "chaine", "etapes": ["19 €", "12,70 €", "9 €"], "mention": "..."}` (calcul en chaîne)
+- `{"type": "calendrier_mois", "semaine_barree": 2, "legende": "0 € payé"}`
+- `{"type": "icones_cta"}` (cœur, commentaire, « + », sans logo)
+- calcul : opérateurs `−`, `+`, `×`, `÷`, `=`, `≈` (le résultat après `=` ou `≈` passe en jaune)
 
-Étiquettes colorées : `MAIS`, `ATTENTION` (bandes noires), `RÈGLE N°1`, `EN CLAIR`, `PLAN B`, `POURQUOI`, `SUITE` (toute autre étiquette : violet).
+Étiquettes colorées : `MAIS`, `ATTENTION`, `PIÈGE N°1/2/3`, `CONSEIL` (jaunes, bandes noires), `TON AVIS`, `RÈGLE N°1`, `EN CLAIR`, `PLAN B`, `POURQUOI`, `SUITE` (toute autre étiquette : violet).
 
 ## Structure
 
-- `src/components/Personnage.tsx` : personnage paramétrable (SVG, 6 expressions, clignement, bouche synchronisée) ; presets dans `src/personnages.ts` (Max, Inès)
+- `src/components/Personnage.tsx` : personnage paramétrable (SVG, 6 expressions, clignement, bouche synchronisée) ; presets dans `src/personnages.ts` (Max, Inès, Karim)
 - `src/components/Decor.tsx` : les décors
+- `src/components/Objets.tsx` : objets au sol (vélo garé, sablier)
+
+Règles de la série : voir `CLAUDE.md`.
 - `src/components/Subtitle.tsx` : sous-titres blancs avec contour noir, mot-clé en jaune
 - `src/components/Etiquette.tsx` : étiquettes de pivot
 - `src/components/ElementVisuel.tsx` : compteur, cartes de chiffres, icônes

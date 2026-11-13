@@ -1,0 +1,1217 @@
+{
+ "mode": "piste_unique",
+ "fichier": "ep03/voix.mp3",
+ "hash": "4d349056362f9db1fd1dec5ad28d914c7b1952e944e86f0dc33403c9f2383778",
+ "duree_piste": 78.262857,
+ "derniere_parole": 78.232,
+ "fin": 81.232,
+ "scenes": [
+  {
+   "texte_lu": "Dix-neuf euros de l'heure : le nouveau minimum des livreurs. Karim, lui, en garde neuf.",
+   "debut": 0,
+   "mots": [
+    {
+     "texte": "Dix-neuf",
+     "debut": 0.4,
+     "fin": 0.841
+    },
+    {
+     "texte": "euros",
+     "debut": 0.899,
+     "fin": 1.108
+    },
+    {
+     "texte": "de",
+     "debut": 1.131,
+     "fin": 1.201
+    },
+    {
+     "texte": "l'heure",
+     "debut": 1.259,
+     "fin": 1.619
+    },
+    {
+     "texte": ":",
+     "debut": 1.689,
+     "fin": 1.782
+    },
+    {
+     "texte": "le",
+     "debut": 1.909,
+     "fin": 1.991
+    },
+    {
+     "texte": "nouveau",
+     "debut": 2.037,
+     "fin": 2.246
+    },
+    {
+     "texte": "minimum",
+     "debut": 2.281,
+     "fin": 2.687
+    },
+    {
+     "texte": "des",
+     "debut": 2.757,
+     "fin": 2.85
+    },
+    {
+     "texte": "livreurs.",
+     "debut": 2.873,
+     "fin": 3.546
+    },
+    {
+     "texte": "Karim,",
+     "debut": 3.79,
+     "fin": 4.243
+    },
+    {
+     "texte": "lui,",
+     "debut": 4.278,
+     "fin": 4.603
+    },
+    {
+     "texte": "en",
+     "debut": 4.626,
+     "fin": 4.731
+    },
+    {
+     "texte": "garde",
+     "debut": 4.789,
+     "fin": 5.067
+    },
+    {
+     "texte": "neuf.",
+     "debut": 5.125,
+     "fin": 5.601
+    }
+   ]
+  },
+  {
+   "texte_lu": "Voici Karim, vingt-sept ans, livreur à vélo. Une appli lui envoie des commandes.",
+   "debut": 5.729,
+   "mots": [
+    {
+     "texte": "Voici",
+     "debut": 5.729,
+     "fin": 6.1
+    },
+    {
+     "texte": "Karim,",
+     "debut": 6.17,
+     "fin": 6.785
+    },
+    {
+     "texte": "vingt-sept",
+     "debut": 6.913,
+     "fin": 7.366
+    },
+    {
+     "texte": "ans,",
+     "debut": 7.424,
+     "fin": 7.645
+    },
+    {
+     "texte": "livreur",
+     "debut": 7.772,
+     "fin": 8.097
+    },
+    {
+     "texte": "à",
+     "debut": 8.155,
+     "fin": 8.179
+    },
+    {
+     "texte": "vélo.",
+     "debut": 8.225,
+     "fin": 8.643
+    },
+    {
+     "texte": "Une",
+     "debut": 9.247,
+     "fin": 9.398
+    },
+    {
+     "texte": "appli",
+     "debut": 9.421,
+     "fin": 9.746
+    },
+    {
+     "texte": "lui",
+     "debut": 9.792,
+     "fin": 9.897
+    },
+    {
+     "texte": "envoie",
+     "debut": 9.932,
+     "fin": 10.141
+    },
+    {
+     "texte": "des",
+     "debut": 10.164,
+     "fin": 10.257
+    },
+    {
+     "texte": "commandes.",
+     "debut": 10.28,
+     "fin": 10.872
+    }
+   ]
+  },
+  {
+   "texte_lu": "Depuis septembre, un accord rendu obligatoire garantit au moins dix-neuf euros par heure d'activité.",
+   "debut": 11.081,
+   "mots": [
+    {
+     "texte": "Depuis",
+     "debut": 11.081,
+     "fin": 11.453
+    },
+    {
+     "texte": "septembre,",
+     "debut": 11.488,
+     "fin": 12.161
+    },
+    {
+     "texte": "un",
+     "debut": 12.219,
+     "fin": 12.323
+    },
+    {
+     "texte": "accord",
+     "debut": 12.405,
+     "fin": 12.741
+    },
+    {
+     "texte": "rendu",
+     "debut": 12.765,
+     "fin": 13.032
+    },
+    {
+     "texte": "obligatoire",
+     "debut": 13.055,
+     "fin": 13.902
+    },
+    {
+     "texte": "garantit",
+     "debut": 14.146,
+     "fin": 14.622
+    },
+    {
+     "texte": "au",
+     "debut": 14.692,
+     "fin": 14.773
+    },
+    {
+     "texte": "moins",
+     "debut": 14.82,
+     "fin": 15.017
+    },
+    {
+     "texte": "dix-neuf",
+     "debut": 15.063,
+     "fin": 15.458
+    },
+    {
+     "texte": "euros",
+     "debut": 15.528,
+     "fin": 15.795
+    },
+    {
+     "texte": "par",
+     "debut": 15.83,
+     "fin": 15.969
+    },
+    {
+     "texte": "heure",
+     "debut": 15.992,
+     "fin": 16.132
+    },
+    {
+     "texte": "d'activité.",
+     "debut": 16.155,
+     "fin": 16.909
+    }
+   ]
+  },
+  {
+   "texte_lu": "Avant, ce minimum était de onze euros soixante-quinze.",
+   "debut": 16.956,
+   "mots": [
+    {
+     "texte": "Avant,",
+     "debut": 16.956,
+     "fin": 17.502
+    },
+    {
+     "texte": "ce",
+     "debut": 17.745,
+     "fin": 17.85
+    },
+    {
+     "texte": "minimum",
+     "debut": 17.908,
+     "fin": 18.442
+    },
+    {
+     "texte": "était",
+     "debut": 18.616,
+     "fin": 18.93
+    },
+    {
+     "texte": "de",
+     "debut": 18.976,
+     "fin": 19.092
+    },
+    {
+     "texte": "onze",
+     "debut": 19.173,
+     "fin": 19.568
+    },
+    {
+     "texte": "euros",
+     "debut": 19.626,
+     "fin": 20.091
+    },
+    {
+     "texte": "soixante-quinze.",
+     "debut": 20.125,
+     "fin": 21.077
+    }
+   ]
+  },
+  {
+   "texte_lu": "Mais attention : dix-neuf euros bruts, ce n'est pas dix-neuf euros dans sa poche.",
+   "debut": 21.403,
+   "mots": [
+    {
+     "texte": "Mais",
+     "debut": 21.403,
+     "fin": 21.542
+    },
+    {
+     "texte": "attention",
+     "debut": 21.565,
+     "fin": 21.948
+    },
+    {
+     "texte": ":",
+     "debut": 22.064,
+     "fin": 22.192
+    },
+    {
+     "texte": "dix-neuf",
+     "debut": 22.436,
+     "fin": 22.772
+    },
+    {
+     "texte": "euros",
+     "debut": 22.831,
+     "fin": 23.028
+    },
+    {
+     "texte": "bruts,",
+     "debut": 23.051,
+     "fin": 23.492
+    },
+    {
+     "texte": "ce",
+     "debut": 23.643,
+     "fin": 23.713
+    },
+    {
+     "texte": "n'est",
+     "debut": 23.748,
+     "fin": 23.899
+    },
+    {
+     "texte": "pas",
+     "debut": 24.05,
+     "fin": 24.351
+    },
+    {
+     "texte": "dix-neuf",
+     "debut": 24.421,
+     "fin": 24.804
+    },
+    {
+     "texte": "euros",
+     "debut": 24.874,
+     "fin": 25.164
+    },
+    {
+     "texte": "dans",
+     "debut": 25.234,
+     "fin": 25.431
+    },
+    {
+     "texte": "sa",
+     "debut": 25.454,
+     "fin": 25.547
+    },
+    {
+     "texte": "poche.",
+     "debut": 25.605,
+     "fin": 26.093
+    }
+   ]
+  },
+  {
+   "texte_lu": "Premier piège : l'attente entre deux commandes. Les revenus horaires annoncés ne la comptent pas.",
+   "debut": 26.697,
+   "mots": [
+    {
+     "texte": "Premier",
+     "debut": 26.697,
+     "fin": 26.999
+    },
+    {
+     "texte": "piège",
+     "debut": 27.022,
+     "fin": 27.416
+    },
+    {
+     "texte": ":",
+     "debut": 27.451,
+     "fin": 27.533
+    },
+    {
+     "texte": "l'attente",
+     "debut": 27.707,
+     "fin": 28.055
+    },
+    {
+     "texte": "entre",
+     "debut": 28.078,
+     "fin": 28.299
+    },
+    {
+     "texte": "deux",
+     "debut": 28.334,
+     "fin": 28.45
+    },
+    {
+     "texte": "commandes.",
+     "debut": 28.485,
+     "fin": 29.053
+    },
+    {
+     "texte": "Les",
+     "debut": 29.297,
+     "fin": 29.425
+    },
+    {
+     "texte": "revenus",
+     "debut": 29.599,
+     "fin": 30.005
+    },
+    {
+     "texte": "horaires",
+     "debut": 30.028,
+     "fin": 30.504
+    },
+    {
+     "texte": "annoncés",
+     "debut": 30.527,
+     "fin": 31.015
+    },
+    {
+     "texte": "ne",
+     "debut": 31.038,
+     "fin": 31.096
+    },
+    {
+     "texte": "la",
+     "debut": 31.143,
+     "fin": 31.201
+    },
+    {
+     "texte": "comptent",
+     "debut": 31.259,
+     "fin": 31.514
+    },
+    {
+     "texte": "pas.",
+     "debut": 31.665,
+     "fin": 32.037
+    }
+   ]
+  },
+  {
+   "texte_lu": "Dans l'exemple de Karim, il attend vingt minutes par heure connectée.",
+   "debut": 32.42,
+   "mots": [
+    {
+     "texte": "Dans",
+     "debut": 32.42,
+     "fin": 32.559
+    },
+    {
+     "texte": "l'exemple",
+     "debut": 32.582,
+     "fin": 33.07
+    },
+    {
+     "texte": "de",
+     "debut": 33.116,
+     "fin": 33.186
+    },
+    {
+     "texte": "Karim,",
+     "debut": 33.244,
+     "fin": 33.627
+    },
+    {
+     "texte": "il",
+     "debut": 33.651,
+     "fin": 33.709
+    },
+    {
+     "texte": "attend",
+     "debut": 33.778,
+     "fin": 34.138
+    },
+    {
+     "texte": "vingt",
+     "debut": 34.266,
+     "fin": 34.533
+    },
+    {
+     "texte": "minutes",
+     "debut": 34.579,
+     "fin": 34.858
+    },
+    {
+     "texte": "par",
+     "debut": 34.881,
+     "fin": 35.021
+    },
+    {
+     "texte": "heure",
+     "debut": 35.055,
+     "fin": 35.241
+    },
+    {
+     "texte": "connectée.",
+     "debut": 35.264,
+     "fin": 35.891
+    }
+   ]
+  },
+  {
+   "texte_lu": "Résultat : douze euros soixante-dix par heure connectée, pas dix-neuf.",
+   "debut": 36.588,
+   "mots": [
+    {
+     "texte": "Résultat",
+     "debut": 36.588,
+     "fin": 37.168
+    },
+    {
+     "texte": ":",
+     "debut": 37.226,
+     "fin": 37.296
+    },
+    {
+     "texte": "douze",
+     "debut": 37.575,
+     "fin": 37.795
+    },
+    {
+     "texte": "euros",
+     "debut": 37.853,
+     "fin": 38.19
+    },
+    {
+     "texte": "soixante-dix",
+     "debut": 38.213,
+     "fin": 38.771
+    },
+    {
+     "texte": "par",
+     "debut": 38.805,
+     "fin": 38.968
+    },
+    {
+     "texte": "heure",
+     "debut": 39.038,
+     "fin": 39.235
+    },
+    {
+     "texte": "connectée,",
+     "debut": 39.258,
+     "fin": 39.92
+    },
+    {
+     "texte": "pas",
+     "debut": 40.129,
+     "fin": 40.28
+    },
+    {
+     "texte": "dix-neuf.",
+     "debut": 40.303,
+     "fin": 40.918
+    }
+   ]
+  },
+  {
+   "texte_lu": "Piège numéro deux : les cotisations. Vingt et un virgule deux pour cent de ce qu'il encaisse.",
+   "debut": 41.162,
+   "mots": [
+    {
+     "texte": "Piège",
+     "debut": 41.162,
+     "fin": 41.441
+    },
+    {
+     "texte": "numéro",
+     "debut": 41.464,
+     "fin": 41.731
+    },
+    {
+     "texte": "deux",
+     "debut": 41.789,
+     "fin": 41.975
+    },
+    {
+     "texte": ":",
+     "debut": 42.01,
+     "fin": 42.068
+    },
+    {
+     "texte": "les",
+     "debut": 42.161,
+     "fin": 42.265
+    },
+    {
+     "texte": "cotisations.",
+     "debut": 42.288,
+     "fin": 42.973
+    },
+    {
+     "texte": "Vingt",
+     "debut": 43.147,
+     "fin": 43.368
+    },
+    {
+     "texte": "et",
+     "debut": 43.414,
+     "fin": 43.461
+    },
+    {
+     "texte": "un",
+     "debut": 43.495,
+     "fin": 43.542
+    },
+    {
+     "texte": "virgule",
+     "debut": 43.577,
+     "fin": 44.018
+    },
+    {
+     "texte": "deux",
+     "debut": 44.053,
+     "fin": 44.169
+    },
+    {
+     "texte": "pour",
+     "debut": 44.192,
+     "fin": 44.343
+    },
+    {
+     "texte": "cent",
+     "debut": 44.401,
+     "fin": 44.575
+    },
+    {
+     "texte": "de",
+     "debut": 44.598,
+     "fin": 44.668
+    },
+    {
+     "texte": "ce",
+     "debut": 44.703,
+     "fin": 44.796
+    },
+    {
+     "texte": "qu'il",
+     "debut": 44.842,
+     "fin": 44.958
+    },
+    {
+     "texte": "encaisse.",
+     "debut": 45.016,
+     "fin": 45.574
+    }
+   ]
+  },
+  {
+   "texte_lu": "Sur douze euros soixante-dix, il en reste dix.",
+   "debut": 45.852,
+   "mots": [
+    {
+     "texte": "Sur",
+     "debut": 45.852,
+     "fin": 46.026
+    },
+    {
+     "texte": "douze",
+     "debut": 46.085,
+     "fin": 46.305
+    },
+    {
+     "texte": "euros",
+     "debut": 46.363,
+     "fin": 46.665
+    },
+    {
+     "texte": "soixante-dix,",
+     "debut": 46.688,
+     "fin": 47.524
+    },
+    {
+     "texte": "il",
+     "debut": 47.582,
+     "fin": 47.687
+    },
+    {
+     "texte": "en",
+     "debut": 47.745,
+     "fin": 47.803
+    },
+    {
+     "texte": "reste",
+     "debut": 47.861,
+     "fin": 48.186
+    },
+    {
+     "texte": "dix.",
+     "debut": 48.244,
+     "fin": 48.766
+    }
+   ]
+  },
+  {
+   "texte_lu": "Piège numéro trois : le vélo, l'entretien, l'assurance, le téléphone. Tout est à sa charge.",
+   "debut": 49.092,
+   "mots": [
+    {
+     "texte": "Piège",
+     "debut": 49.092,
+     "fin": 49.324
+    },
+    {
+     "texte": "numéro",
+     "debut": 49.359,
+     "fin": 49.579
+    },
+    {
+     "texte": "trois",
+     "debut": 49.626,
+     "fin": 49.881
+    },
+    {
+     "texte": ":",
+     "debut": 50.032,
+     "fin": 50.148
+    },
+    {
+     "texte": "le",
+     "debut": 50.218,
+     "fin": 50.299
+    },
+    {
+     "texte": "vélo,",
+     "debut": 50.334,
+     "fin": 50.543
+    },
+    {
+     "texte": "l'entretien,",
+     "debut": 50.566,
+     "fin": 51.17
+    },
+    {
+     "texte": "l'assurance,",
+     "debut": 51.205,
+     "fin": 51.82
+    },
+    {
+     "texte": "le",
+     "debut": 51.913,
+     "fin": 52.006
+    },
+    {
+     "texte": "téléphone.",
+     "debut": 52.052,
+     "fin": 52.691
+    },
+    {
+     "texte": "Tout",
+     "debut": 52.807,
+     "fin": 53.004
+    },
+    {
+     "texte": "est",
+     "debut": 53.051,
+     "fin": 53.12
+    },
+    {
+     "texte": "à",
+     "debut": 53.19,
+     "fin": 53.213
+    },
+    {
+     "texte": "sa",
+     "debut": 53.271,
+     "fin": 53.364
+    },
+    {
+     "texte": "charge.",
+     "debut": 53.41,
+     "fin": 53.968
+    }
+   ]
+  },
+  {
+   "texte_lu": "Dans l'exemple de Karim, ça coûte un euro par heure connectée.",
+   "debut": 54.177,
+   "mots": [
+    {
+     "texte": "Dans",
+     "debut": 54.177,
+     "fin": 54.328
+    },
+    {
+     "texte": "l'exemple",
+     "debut": 54.351,
+     "fin": 54.757
+    },
+    {
+     "texte": "de",
+     "debut": 54.804,
+     "fin": 54.873
+    },
+    {
+     "texte": "Karim,",
+     "debut": 54.92,
+     "fin": 55.245
+    },
+    {
+     "texte": "ça",
+     "debut": 55.268,
+     "fin": 55.349
+    },
+    {
+     "texte": "coûte",
+     "debut": 55.407,
+     "fin": 55.582
+    },
+    {
+     "texte": "un",
+     "debut": 55.605,
+     "fin": 55.663
+    },
+    {
+     "texte": "euro",
+     "debut": 55.709,
+     "fin": 55.849
+    },
+    {
+     "texte": "par",
+     "debut": 55.895,
+     "fin": 56.011
+    },
+    {
+     "texte": "heure",
+     "debut": 56.046,
+     "fin": 56.185
+    },
+    {
+     "texte": "connectée.",
+     "debut": 56.209,
+     "fin": 56.824
+    }
+   ]
+  },
+  {
+   "texte_lu": "Au final : neuf euros net par heure connectée. Pour dix-neuf annoncés.",
+   "debut": 57.033,
+   "mots": [
+    {
+     "texte": "Au",
+     "debut": 57.033,
+     "fin": 57.184
+    },
+    {
+     "texte": "final",
+     "debut": 57.219,
+     "fin": 57.486
+    },
+    {
+     "texte": ":",
+     "debut": 57.544,
+     "fin": 57.567
+    },
+    {
+     "texte": "neuf",
+     "debut": 57.602,
+     "fin": 57.741
+    },
+    {
+     "texte": "euros",
+     "debut": 57.811,
+     "fin": 57.997
+    },
+    {
+     "texte": "net",
+     "debut": 58.031,
+     "fin": 58.217
+    },
+    {
+     "texte": "par",
+     "debut": 58.264,
+     "fin": 58.391
+    },
+    {
+     "texte": "heure",
+     "debut": 58.426,
+     "fin": 58.623
+    },
+    {
+     "texte": "connectée.",
+     "debut": 58.647,
+     "fin": 59.239
+    },
+    {
+     "texte": "Pour",
+     "debut": 59.366,
+     "fin": 59.541
+    },
+    {
+     "texte": "dix-neuf",
+     "debut": 59.587,
+     "fin": 59.877
+    },
+    {
+     "texte": "annoncés.",
+     "debut": 59.935,
+     "fin": 60.446
+    }
+   ]
+  },
+  {
+   "texte_lu": "Et s'il prend une semaine de vacances, personne ne le paie.",
+   "debut": 60.62,
+   "mots": [
+    {
+     "texte": "Et",
+     "debut": 60.62,
+     "fin": 60.795
+    },
+    {
+     "texte": "s'il",
+     "debut": 60.864,
+     "fin": 61.027
+    },
+    {
+     "texte": "prend",
+     "debut": 61.085,
+     "fin": 61.247
+    },
+    {
+     "texte": "une",
+     "debut": 61.34,
+     "fin": 61.456
+    },
+    {
+     "texte": "semaine",
+     "debut": 61.48,
+     "fin": 61.735
+    },
+    {
+     "texte": "de",
+     "debut": 61.758,
+     "fin": 61.816
+    },
+    {
+     "texte": "vacances,",
+     "debut": 61.851,
+     "fin": 62.373
+    },
+    {
+     "texte": "personne",
+     "debut": 62.455,
+     "fin": 62.849
+    },
+    {
+     "texte": "ne",
+     "debut": 62.873,
+     "fin": 62.931
+    },
+    {
+     "texte": "le",
+     "debut": 62.966,
+     "fin": 63.035
+    },
+    {
+     "texte": "paie.",
+     "debut": 63.082,
+     "fin": 63.395
+    }
+   ]
+  },
+  {
+   "texte_lu": "Alors, livreur, c'est une arnaque ? Non, mais le chiffre affiché ne dit pas tout.",
+   "debut": 63.778,
+   "mots": [
+    {
+     "texte": "Alors,",
+     "debut": 63.778,
+     "fin": 64.138
+    },
+    {
+     "texte": "livreur,",
+     "debut": 64.196,
+     "fin": 64.568
+    },
+    {
+     "texte": "c'est",
+     "debut": 64.591,
+     "fin": 64.719
+    },
+    {
+     "texte": "une",
+     "debut": 64.788,
+     "fin": 64.893
+    },
+    {
+     "texte": "arnaque",
+     "debut": 64.916,
+     "fin": 65.288
+    },
+    {
+     "texte": "?",
+     "debut": 65.334,
+     "fin": 65.38
+    },
+    {
+     "texte": "Non,",
+     "debut": 65.764,
+     "fin": 66.1
+    },
+    {
+     "texte": "mais",
+     "debut": 66.216,
+     "fin": 66.414
+    },
+    {
+     "texte": "le",
+     "debut": 66.449,
+     "fin": 66.518
+    },
+    {
+     "texte": "chiffre",
+     "debut": 66.553,
+     "fin": 66.808
+    },
+    {
+     "texte": "affiché",
+     "debut": 66.831,
+     "fin": 67.191
+    },
+    {
+     "texte": "ne",
+     "debut": 67.249,
+     "fin": 67.319
+    },
+    {
+     "texte": "dit",
+     "debut": 67.354,
+     "fin": 67.447
+    },
+    {
+     "texte": "pas",
+     "debut": 67.47,
+     "fin": 67.574
+    },
+    {
+     "texte": "tout.",
+     "debut": 67.609,
+     "fin": 67.923
+    }
+   ]
+  },
+  {
+   "texte_lu": "Avant de te lancer, calcule ton net par heure connectée, pas par heure d'activité.",
+   "debut": 68.004,
+   "mots": [
+    {
+     "texte": "Avant",
+     "debut": 68.004,
+     "fin": 68.282
+    },
+    {
+     "texte": "de",
+     "debut": 68.317,
+     "fin": 68.387
+    },
+    {
+     "texte": "te",
+     "debut": 68.433,
+     "fin": 68.515
+    },
+    {
+     "texte": "lancer,",
+     "debut": 68.561,
+     "fin": 69.002
+    },
+    {
+     "texte": "calcule",
+     "debut": 69.095,
+     "fin": 69.467
+    },
+    {
+     "texte": "ton",
+     "debut": 69.49,
+     "fin": 69.606
+    },
+    {
+     "texte": "net",
+     "debut": 69.652,
+     "fin": 69.815
+    },
+    {
+     "texte": "par",
+     "debut": 69.885,
+     "fin": 70.012
+    },
+    {
+     "texte": "heure",
+     "debut": 70.07,
+     "fin": 70.245
+    },
+    {
+     "texte": "connectée,",
+     "debut": 70.268,
+     "fin": 70.837
+    },
+    {
+     "texte": "pas",
+     "debut": 70.93,
+     "fin": 71.092
+    },
+    {
+     "texte": "par",
+     "debut": 71.115,
+     "fin": 71.243
+    },
+    {
+     "texte": "heure",
+     "debut": 71.278,
+     "fin": 71.417
+    },
+    {
+     "texte": "d'activité.",
+     "debut": 71.44,
+     "fin": 72.137
+    }
+   ]
+  },
+  {
+   "texte_lu": "Et toi, tu en penses quoi ? Écris-moi ton avis en commentaire, et abonne-toi pour d'autres vrais chiffres.",
+   "debut": 72.52,
+   "mots": [
+    {
+     "texte": "Et",
+     "debut": 72.52,
+     "fin": 72.636
+    },
+    {
+     "texte": "toi,",
+     "debut": 72.659,
+     "fin": 72.926
+    },
+    {
+     "texte": "tu",
+     "debut": 72.95,
+     "fin": 73.031
+    },
+    {
+     "texte": "en",
+     "debut": 73.066,
+     "fin": 73.112
+    },
+    {
+     "texte": "penses",
+     "debut": 73.147,
+     "fin": 73.368
+    },
+    {
+     "texte": "quoi",
+     "debut": 73.391,
+     "fin": 73.542
+    },
+    {
+     "texte": "?",
+     "debut": 73.658,
+     "fin": 73.774
+    },
+    {
+     "texte": "Écris-moi",
+     "debut": 74.215,
+     "fin": 74.575
+    },
+    {
+     "texte": "ton",
+     "debut": 74.61,
+     "fin": 74.714
+    },
+    {
+     "texte": "avis",
+     "debut": 74.784,
+     "fin": 74.947
+    },
+    {
+     "texte": "en",
+     "debut": 74.97,
+     "fin": 75.016
+    },
+    {
+     "texte": "commentaire,",
+     "debut": 75.063,
+     "fin": 75.748
+    },
+    {
+     "texte": "et",
+     "debut": 75.957,
+     "fin": 76.108
+    },
+    {
+     "texte": "abonne-toi",
+     "debut": 76.166,
+     "fin": 76.723
+    },
+    {
+     "texte": "pour",
+     "debut": 76.781,
+     "fin": 76.955
+    },
+    {
+     "texte": "d'autres",
+     "debut": 77.013,
+     "fin": 77.303
+    },
+    {
+     "texte": "vrais",
+     "debut": 77.327,
+     "fin": 77.501
+    },
+    {
+     "texte": "chiffres.",
+     "debut": 77.524,
+     "fin": 78.232
+    }
+   ]
+  }
+ ]
+}

@@ -2,6 +2,7 @@ import {AbsoluteFill, Audio, interpolate, spring, staticFile, useCurrentFrame, u
 import {Decor} from './components/Decor';
 import {ElementVisuelView} from './components/ElementVisuel';
 import {Etiquette} from './components/Etiquette';
+import {ObjetSol, OBJETS_SOL} from './components/Objets';
 import {Personnage, type Apparence} from './components/Personnage';
 import {PremiereImage} from './intro';
 import {Subtitle, revealFrames} from './components/Subtitle';
@@ -82,6 +83,10 @@ export const PlanScene: React.FC<{plan: Plan; personnage: Apparence; premier?: b
       <AbsoluteFill style={{transform: `scale(${sceneScale})`}}>
         <Decor nom={plan.decor} variante={motIndex} />
 
+        {plan.accessoire_sol && !OBJETS_SOL[plan.accessoire_sol].devant ? (
+          <ObjetSol nom={plan.accessoire_sol} couleurVelo={personnage.velo ?? undefined} />
+        ) : null}
+
         {/* Personnage : centre de l'écran */}
         <div
           style={{
@@ -92,8 +97,12 @@ export const PlanScene: React.FC<{plan: Plan; personnage: Apparence; premier?: b
             height: 840,
           }}
         >
-          <Personnage apparence={personnage} expression={plan.expression} talking={talking} accessoire={accessoire} entree={!premier} />
+          <Personnage apparence={personnage} expression={plan.expression} talking={talking} accessoire={accessoire} entree={!premier} pose={plan.pose} />
         </div>
+
+        {plan.accessoire_sol && OBJETS_SOL[plan.accessoire_sol].devant ? (
+          <ObjetSol nom={plan.accessoire_sol} couleurVelo={personnage.velo ?? undefined} />
+        ) : null}
 
         {/* Élément visuel : zone haute */}
         {ev && ev.type !== 'mots_rotatifs' ? (

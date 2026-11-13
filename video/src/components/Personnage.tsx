@@ -1,5 +1,5 @@
 import {useCurrentFrame, useVideoConfig, interpolate, spring} from 'remotion';
-import type {Accessoire, Expression} from '../types';
+import type {Accessoire, Expression, Pose as Posture} from '../types';
 
 /**
  * Personnage plat 2D en SVG, paramétrable (teint, cheveux, tenue, accessoire de tête, genre).
@@ -15,13 +15,28 @@ export type Apparence = {
   nom: string;
   genre: 'homme' | 'femme';
   teint: {peau: string; ombre: string; joues: string};
-  cheveux: {style: 'meches' | 'chignon_boucle'; couleur: string};
-  tenue: {haut: string; hautOmbre: string; bas: string; chaussures: string; bandeChaussures: string};
+  cheveux: {style: 'meches' | 'chignon_boucle' | 'court'; couleur: string};
+  tenue: {
+    haut: string;
+    hautOmbre: string;
+    bas: string;
+    chaussures: string;
+    bandeChaussures: string;
+    /** Veste zippée à bandes réfléchissantes (couleur des bandes). */
+    bandes?: string;
+  };
   /** Accessoire de tête : casquette (avec initiale) ou grosses lunettes rondes. */
   tete:
     | {type: 'casquette'; couleur: string; couleurOmbre: string; initiale?: string}
     | {type: 'lunettes_rondes'; couleur: string}
+    | {type: 'casque_velo'; couleur: string; couleurOmbre: string}
     | null;
+  /** Barbe de trois jours (couleur). */
+  barbe?: string | null;
+  /** Sac de livraison carré porté sur le dos (couleur, sans logo). */
+  sac?: {couleur: string; ombre: string} | null;
+  /** Vélo de ville (couleur du cadre), utilisé par la pose « velo ». */
+  velo?: string | null;
   /** Boucles d'oreilles (créoles). */
   boucles?: string | null;
 };
@@ -175,13 +190,15 @@ const Mouth: React.FC<{expression: Expression; open: number}> = ({expression, op
   }
 };
 
-const Arm: React.FC<{shoulder: Pt; elbow: Pt; hand: Pt; gant: boolean; manche: string; peau: string}> = ({
+const Arm: React.FC<{shoulder: Pt; elbow: Pt; hand: Pt; gant: boolean; manche: string; peau: string; bande?: string; doigt?: boolean}> = ({
   shoulder,
   elbow,
   hand,
   gant,
   manche,
   peau,
+  bande,
+  doigt = false,
 }) => (
   <g>
     <path
@@ -198,6 +215,23 @@ const Arm: React.FC<{shoulder: Pt; elbow: Pt; hand: Pt; gant: boolean; manche: s
       strokeWidth={46}
       strokeLinecap="round"
     />
+    {bande ? (
+      <path
+        d={`M ${shoulder[0]} ${shoulder[1]} Q ${elbow[0]} ${elbow[1]} ${hand[0]} ${hand[1]}`}
+        pathLength={100}
+        fill="none"
+        stroke={bande}
+        strokeWidth={46}
+        strokeDasharray="10 200"
+        strokeDashoffset={-62}
+      />
+    ) : null}
+    {doigt ? (
+      // index tendu vers le bas
+      <g>
+        <rect x={hand[0] - 16} y={hand[1] + 6} width={32} height={96} rx={16} fill={peau} stroke={OUT} strokeWidth={SW - 2} />
+      </g>
+    ) : null}
     {gant ? (
       <g>
         <circle cx={hand[0]} cy={hand[1]} r={44} fill="#D62828" stroke={OUT} strokeWidth={SW} />
@@ -254,6 +288,16 @@ const CheveuxArriere: React.FC<{a: Apparence; frame: number}> = ({a, frame}) => 
 /** Cheveux devant (sur le front). */
 const CheveuxAvant: React.FC<{a: Apparence}> = ({a}) => {
   const c = a.cheveux.couleur;
+  if (a.cheveux.style === 'court') {
+    // cheveux courts : pattes sur les tempes et petite frange (le dessus est sous le casque)
+    return (
+      <g fill={c} stroke={OUT} strokeWidth={6} strokeLinejoin="round">
+        <path d="M 156 226 Q 152 180 196 160 L 206 214 Q 186 236 182 290 Q 162 280 156 226 Z" />
+        <path d="M 444 226 Q 448 180 404 160 L 394 214 Q 414 236 418 290 Q 438 280 444 226 Z" />
+        <path d="M 190 214 Q 300 150 410 214 L 396 236 L 370 222 L 350 240 L 322 224 L 300 242 L 278 224 L 250 240 L 230 222 L 204 236 Z" />
+      </g>
+    );
+  }
   if (a.cheveux.style === 'meches') {
     return (
       <>
@@ -314,6 +358,91 @@ const Casquette: React.FC<{couleur: string; ombre: string; initiale?: string}> =
   </>
 );
 
+/** Casque de vélo : coque arrondie, aérations, visière courte, jugulaire. */
+const CasqueVelo: React.FC<{couleur: string; ombre: string}> = ({couleur, ombre}) => (
+  <g>
+    <path d="M 168 244 Q 190 384 300 418 Q 410 384 432 244" fill="none" stroke="#495057" strokeWidth={7} strokeLinecap="round" />
+    <path d="M 140 232 Q 136 84 300 78 Q 464 84 460 232 Q 300 196 140 232 Z" fill={couleur} stroke={OUT} strokeWidth={SW} strokeLinejoin="round" />
+    <path d="M 140 232 Q 300 196 460 232 L 456 214 Q 300 178 144 214 Z" fill={ombre} stroke={OUT} strokeWidth={6} strokeLinejoin="round" />
+    {[
+      'M 236 108 Q 220 150 222 190',
+      'M 300 92 L 300 182',
+      'M 364 108 Q 380 150 378 190',
+    ].map((d, i) => (
+      <path key={i} d={d} fill="none" stroke={OUT} strokeWidth={22} strokeLinecap="round" />
+    ))}
+    {[
+      'M 236 108 Q 220 150 222 190',
+      'M 300 92 L 300 182',
+      'M 364 108 Q 380 150 378 190',
+    ].map((d, i) => (
+      <path key={i} d={d} fill="none" stroke="#6C757D" strokeWidth={10} strokeLinecap="round" />
+    ))}
+    <path d="M 190 120 Q 230 96 270 92" fill="none" stroke="white" strokeWidth={8} strokeLinecap="round" opacity={0.9} />
+  </g>
+);
+
+/** Barbe de trois jours : ombre pointillée sur la mâchoire et la moustache. */
+const Barbe: React.FC<{couleur: string}> = ({couleur}) => {
+  const points: Pt[] = [];
+  for (let k = 0; k < 220; k++) {
+    const x = 170 + ((k * 53) % 260);
+    const y = 330 + ((k * 37) % 86);
+    const dx = (x - 300) / 150;
+    const dy = (y - 282) / 135;
+    if (dx * dx + dy * dy < 0.9 && !(Math.abs(x - 300) < 52 && y > 336 && y < 404)) points.push([x, y]);
+  }
+  return (
+    <g>
+      <clipPath id="barbe-visage">
+        <ellipse cx={300} cy={282} rx={146} ry={131} />
+      </clipPath>
+      <g clipPath="url(#barbe-visage)">
+        <path
+          d="M 150 292 Q 168 330 214 336 Q 250 322 300 326 Q 350 322 386 336 Q 432 330 450 292 L 460 440 L 140 440 Z"
+          fill={couleur}
+          opacity={0.2}
+        />
+        <path d="M 252 334 Q 300 318 348 334 L 344 346 Q 300 334 256 346 Z" fill={couleur} opacity={0.32} />
+        {points.map(([x, y], i) => (
+          <circle key={i} cx={x} cy={y} r={1.8} fill={couleur} opacity={0.35} />
+        ))}
+      </g>
+    </g>
+  );
+};
+
+/** Sac de livraison carré porté sur le dos (sans logo). */
+const SacDos: React.FC<{couleur: string; ombre: string}> = ({couleur, ombre}) => (
+  <g>
+    <rect x={116} y={372} width={368} height={300} rx={22} fill={couleur} stroke={OUT} strokeWidth={SW} />
+    <path d="M 116 430 H 484" stroke={ombre} strokeWidth={10} />
+    <rect x={116} y={372} width={368} height={58} rx={22} fill={ombre} stroke={OUT} strokeWidth={6} />
+    <path d="M 140 392 H 200" stroke="rgba(255,255,255,0.35)" strokeWidth={8} strokeLinecap="round" />
+  </g>
+);
+
+/** Avant d'un vélo de ville vu de face : roue, garde-boue, fourche, phare, guidon. */
+const VeloFace: React.FC<{couleur: string; frame: number}> = ({couleur, frame}) => (
+  <g>
+    <ellipse cx={300} cy={808} rx={30} ry={112} fill="#212529" stroke={OUT} strokeWidth={SW} />
+    <ellipse cx={300} cy={808} rx={12} ry={96} fill="#495057" />
+    <path d="M 270 700 Q 300 676 330 700" fill="none" stroke={couleur} strokeWidth={20} strokeLinecap="round" />
+    <path d="M 282 600 L 282 800 M 318 600 L 318 800" stroke={OUT} strokeWidth={22} strokeLinecap="round" />
+    <path d="M 282 600 L 282 800 M 318 600 L 318 800" stroke={couleur} strokeWidth={10} strokeLinecap="round" />
+    <circle cx={300} cy={640} r={30} fill="#FFF3B0" stroke={OUT} strokeWidth={SW - 2} />
+    <circle cx={300} cy={640} r={50 + Math.sin(frame / 3) * 4} fill="#FFF3B0" opacity={0.25} />
+  </g>
+);
+
+const Guidon: React.FC<{couleur: string}> = ({couleur}) => (
+  <g>
+    <path d="M 150 592 Q 220 560 300 572 Q 380 560 450 592" fill="none" stroke={OUT} strokeWidth={24} strokeLinecap="round" />
+    <path d="M 150 592 Q 220 560 300 572 Q 380 560 450 592" fill="none" stroke="#ADB5BD" strokeWidth={10} strokeLinecap="round" />
+    <rect x={280} y={560} width={40} height={40} rx={8} fill={couleur} stroke={OUT} strokeWidth={6} />
+  </g>
+);
+
 export const Personnage: React.FC<{
   apparence: Apparence;
   expression: Expression;
@@ -321,7 +450,8 @@ export const Personnage: React.FC<{
   accessoire?: Accessoire;
   /** false : pas de saut d'entrée (première image d'un épisode). */
   entree?: boolean;
-}> = ({apparence: a, expression, talking, accessoire = null, entree = true}) => {
+  pose?: Posture;
+}> = ({apparence: a, expression, talking, accessoire = null, entree = true, pose: posture = 'debout'}) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
   const {peau, ombre: peauOmbre, joues} = a.teint;
@@ -333,7 +463,7 @@ export const Personnage: React.FC<{
   const enterY = interpolate(enter, [0, 1], [120, 0]);
 
   // Respiration / rebond
-  const bob = Math.sin(frame / 7) * (expression === 'choque' ? 3 : 8);
+  const bob = posture === 'velo' ? 0 : Math.sin(frame / 7) * (expression === 'choque' ? 3 : posture === 'assis' ? 4 : 8);
   const squash = 1 + Math.sin(frame / 7) * 0.012;
   const tremble = expression === 'choque' ? Math.sin(frame * 3.1) * 3 : 0;
   const tilt = expression === 'perplexe' ? -7 : expression === 'reveur' ? Math.sin(frame / 15) * 4 : 0;
@@ -346,15 +476,34 @@ export const Personnage: React.FC<{
   const open = talking ? Math.abs(Math.sin(frame * 0.9)) : 0;
 
   const pose = POSES[expression];
+  const velo = posture === 'velo';
+  const assis = posture === 'assis';
   const gant = accessoire === 'gants';
   // Pour le téléphone, la main droite tient le téléphone près du visage
-  const right: [Pt, Pt] = accessoire === 'telephone' ? [[480, 520], [420, 330]] : pose.r;
-  const left: [Pt, Pt] = gant ? [[140, 520], [230, 470]] : pose.l;
+  let right: [Pt, Pt] = accessoire === 'telephone' ? [[480, 520], [420, 330]] : pose.r;
+  let left: [Pt, Pt] = gant ? [[140, 520], [230, 470]] : pose.l;
+  if (velo) {
+    // mains sur le guidon
+    left = [[150, 520], [168, 586]];
+    right = [[450, 520], [432, 586]];
+  } else if (assis) {
+    // coudes posés, mains sur les genoux (repère du haut du corps, décalé de HAUT_ASSIS)
+    left = [[168, 540], [238, 596]];
+    right = [[432, 540], [362, 596]];
+  } else if (posture === 'pointe_bas') {
+    right = [[520, 540], [530, 680]];
+  }
+  // Pédalage : manivelle qui tourne (2 tours / s environ)
+  const ang = (frame / fps) * Math.PI * 3.4;
+  const pedalBob = velo ? Math.abs(Math.sin(ang)) * 6 : 0;
+  const HAUT_ASSIS = 150;
+  const decalHaut = assis ? HAUT_ASSIS : 0;
   const rightG: [Pt, Pt] = gant ? [[460, 520], [370, 470]] : right;
   const casquette = a.tete?.type === 'casquette' ? a.tete : null;
   const lunettes = a.tete?.type === 'lunettes_rondes' ? a.tete : null;
+  const casque = a.tete?.type === 'casque_velo' ? a.tete : null;
   // repère du "?" et de la goutte : plus haut avec un chignon
-  const hautTete = a.cheveux.style === 'chignon_boucle' ? -10 : 0;
+  const hautTete = a.cheveux.style === 'chignon_boucle' ? -10 : a.tete?.type === 'casque_velo' ? -20 : 0;
 
   return (
     <svg viewBox="0 0 600 900" style={{width: '100%', height: '100%', overflow: 'visible'}}>
@@ -362,14 +511,52 @@ export const Personnage: React.FC<{
       <ellipse cx={300} cy={872} rx={200 - bob * 2} ry={22} fill="rgba(0,0,0,0.25)" />
 
       <g transform={`translate(${tremble} ${enterY + bob}) scale(1 ${squash})`} style={{transformOrigin: '300px 870px'}}>
-        {/* Jambes */}
-        <rect x={222} y={640} width={66} height={200} rx={26} fill={t.bas} stroke={OUT} strokeWidth={SW} />
-        <rect x={312} y={640} width={66} height={200} rx={26} fill={t.bas} stroke={OUT} strokeWidth={SW} />
-        {/* Baskets */}
-        <path d="M 196 836 q 0 -34 40 -34 h 46 q 14 0 14 20 v 26 h -100 z" fill={t.chaussures} stroke={OUT} strokeWidth={SW} strokeLinejoin="round" />
-        <path d="M 404 836 q 0 -34 -40 -34 h -46 q -14 0 -14 20 v 26 h 100 z" fill={t.chaussures} stroke={OUT} strokeWidth={SW} strokeLinejoin="round" />
-        <rect x={196} y={828} width={100} height={14} rx={6} fill={t.bandeChaussures} stroke={OUT} strokeWidth={6} />
-        <rect x={304} y={828} width={100} height={14} rx={6} fill={t.bandeChaussures} stroke={OUT} strokeWidth={6} />
+        {velo ? (
+          <>
+            {/* traits de vitesse */}
+            {Array.from({length: 6}).map((_, k) => {
+              const side = k % 2 ? 1 : -1;
+              const p = ((frame * 0.08 + k * 0.37) % 1);
+              const x0 = 300 + side * (230 + p * 160);
+              const y0 = 560 + k * 50 + p * 120;
+              return (
+                <path key={k} d={`M ${x0} ${y0} l ${side * 70} ${30}`} stroke="white" strokeWidth={10} strokeLinecap="round" opacity={0.8 * (1 - p)} />
+              );
+            })}
+            {/* Jambes qui pédalent */}
+            {[-1, 1].map((side) => {
+              const lift = Math.sin(ang + (side > 0 ? Math.PI : 0)); // -1 haut … 1 bas
+              const hip: Pt = [300 + side * 48, 650];
+              const foot: Pt = [300 + side * 92, 812 + lift * 38];
+              const knee: Pt = [300 + side * 96, 736 + lift * 26];
+              const d = `M ${hip[0]} ${hip[1]} L ${knee[0]} ${knee[1]} L ${foot[0]} ${foot[1]}`;
+              return (
+                <g key={side}>
+                  <path d={d} fill="none" stroke={OUT} strokeWidth={80} strokeLinecap="round" strokeLinejoin="round" />
+                  <path d={d} fill="none" stroke={t.bas} strokeWidth={62} strokeLinecap="round" strokeLinejoin="round" />
+                  <rect x={foot[0] - 40} y={foot[1] + 14} width={80} height={14} rx={5} fill="#495057" stroke={OUT} strokeWidth={5} />
+                  <ellipse cx={foot[0]} cy={foot[1] + 10} rx={44} ry={26} fill={t.chaussures} stroke={OUT} strokeWidth={SW - 1} />
+                  <rect x={foot[0] - 40} y={foot[1] + 16} width={80} height={10} rx={5} fill={t.bandeChaussures} />
+                </g>
+              );
+            })}
+            <VeloFace couleur={a.velo ?? '#2D6A4F'} frame={frame} />
+          </>
+        ) : assis ? null : (
+          <>
+            {/* Jambes */}
+            <rect x={222} y={640} width={66} height={200} rx={26} fill={t.bas} stroke={OUT} strokeWidth={SW} />
+            <rect x={312} y={640} width={66} height={200} rx={26} fill={t.bas} stroke={OUT} strokeWidth={SW} />
+            {/* Baskets */}
+            <path d="M 196 836 q 0 -34 40 -34 h 46 q 14 0 14 20 v 26 h -100 z" fill={t.chaussures} stroke={OUT} strokeWidth={SW} strokeLinejoin="round" />
+            <path d="M 404 836 q 0 -34 -40 -34 h -46 q -14 0 -14 20 v 26 h 100 z" fill={t.chaussures} stroke={OUT} strokeWidth={SW} strokeLinejoin="round" />
+            <rect x={196} y={828} width={100} height={14} rx={6} fill={t.bandeChaussures} stroke={OUT} strokeWidth={6} />
+            <rect x={304} y={828} width={100} height={14} rx={6} fill={t.bandeChaussures} stroke={OUT} strokeWidth={6} />
+          </>
+        )}
+
+        <g transform={`translate(0 ${decalHaut - pedalBob})`}>
+        {a.sac ? <SacDos couleur={a.sac.couleur} ombre={a.sac.ombre} /> : null}
 
         {/* Torse (sweat) */}
         <path
@@ -383,8 +570,38 @@ export const Personnage: React.FC<{
           strokeWidth={SW}
           strokeLinejoin="round"
         />
-        <path d="M 236 600 Q 300 620 364 600 L 360 660 Q 300 672 240 660 Z" fill={t.hautOmbre} stroke={OUT} strokeWidth={6} />
-        <path d="M 270 414 L 284 490 M 330 414 L 316 490" stroke="white" strokeWidth={7} strokeLinecap="round" />
+        {t.bandes ? (
+          <g>
+            {/* veste zippée : col, fermeture éclair, bandes réfléchissantes */}
+            <path d="M 300 414 V 688" stroke={t.hautOmbre} strokeWidth={10} />
+            <path d="M 300 414 V 688" stroke="#ADB5BD" strokeWidth={3} strokeDasharray="6 6" />
+            <path d="M 192 548 L 408 548 L 409 578 L 191 578 Z" fill={t.bandes} stroke={OUT} strokeWidth={6} />
+            <path d="M 192 563 H 408" stroke="white" strokeWidth={4} opacity={0.8} />
+            <path d="M 244 414 Q 300 446 356 414 L 350 400 Q 300 424 250 400 Z" fill={t.hautOmbre} stroke={OUT} strokeWidth={6} strokeLinejoin="round" />
+            {a.sac ? (
+              // bretelles du sac
+              <path d="M 226 420 Q 232 520 236 640 M 374 420 Q 368 520 364 640" fill="none" stroke="#343A40" strokeWidth={20} strokeLinecap="round" />
+            ) : null}
+          </g>
+        ) : (
+          <>
+            <path d="M 236 600 Q 300 620 364 600 L 360 660 Q 300 672 240 660 Z" fill={t.hautOmbre} stroke={OUT} strokeWidth={6} />
+            <path d="M 270 414 L 284 490 M 330 414 L 316 490" stroke="white" strokeWidth={7} strokeLinecap="round" />
+          </>
+        )}
+        {assis ? (
+          <g transform={`translate(0 ${-HAUT_ASSIS})`}>
+            {/* Assis sur le trottoir : genoux relevés, tibias et baskets devant */}
+            <rect x={218} y={760} width={70} height={80} rx={26} fill={t.bas} stroke={OUT} strokeWidth={SW} />
+            <rect x={312} y={760} width={70} height={80} rx={26} fill={t.bas} stroke={OUT} strokeWidth={SW} />
+            <circle cx={250} cy={752} r={50} fill={t.bas} stroke={OUT} strokeWidth={SW} />
+            <circle cx={350} cy={752} r={50} fill={t.bas} stroke={OUT} strokeWidth={SW} />
+            <path d="M 196 836 q 0 -34 40 -34 h 46 q 14 0 14 20 v 26 h -100 z" fill={t.chaussures} stroke={OUT} strokeWidth={SW} strokeLinejoin="round" />
+            <path d="M 404 836 q 0 -34 -40 -34 h -46 q -14 0 -14 20 v 26 h 100 z" fill={t.chaussures} stroke={OUT} strokeWidth={SW} strokeLinejoin="round" />
+            <rect x={196} y={828} width={100} height={14} rx={6} fill={t.bandeChaussures} stroke={OUT} strokeWidth={6} />
+            <rect x={304} y={828} width={100} height={14} rx={6} fill={t.bandeChaussures} stroke={OUT} strokeWidth={6} />
+          </g>
+        ) : null}
 
         {accessoire === 'cravate' ? (
           <g>
@@ -394,7 +611,8 @@ export const Personnage: React.FC<{
         ) : null}
 
         {/* Bras gauche */}
-        <Arm shoulder={SHOULDER_L} elbow={left[0]} hand={left[1]} gant={gant} manche={t.haut} peau={peau} />
+        {velo ? <Guidon couleur={a.velo ?? '#2D6A4F'} /> : null}
+        <Arm shoulder={SHOULDER_L} elbow={left[0]} hand={left[1]} gant={gant} manche={t.haut} peau={peau} bande={t.bandes} />
 
         {/* Tête */}
         <g transform={`rotate(${tilt} 300 400)`}>
@@ -424,8 +642,10 @@ export const Personnage: React.FC<{
           </g>
           {/* Nez */}
           <path d="M 300 296 q 14 16 -2 26" fill="none" stroke={peauOmbre} strokeWidth={8} strokeLinecap="round" />
+          {a.barbe ? <Barbe couleur={a.barbe} /> : null}
           <Mouth expression={expression} open={open} />
 
+          {casque ? <CasqueVelo couleur={casque.couleur} ombre={casque.couleurOmbre} /> : null}
           {casquette ? <Casquette couleur={casquette.couleur} ombre={casquette.couleurOmbre} initiale={casquette.initiale} /> : null}
 
           {/* Goutte de sueur quand il/elle est choqué(e) */}
@@ -440,7 +660,16 @@ export const Personnage: React.FC<{
         </g>
 
         {/* Bras droit (devant la tête si levé) */}
-        <Arm shoulder={SHOULDER_R} elbow={rightG[0]} hand={rightG[1]} gant={gant} manche={t.haut} peau={peau} />
+        <Arm
+          shoulder={SHOULDER_R}
+          elbow={rightG[0]}
+          hand={rightG[1]}
+          gant={gant}
+          manche={t.haut}
+          peau={peau}
+          bande={t.bandes}
+          doigt={posture === 'pointe_bas'}
+        />
         {accessoire === 'telephone' ? (
           <g transform="rotate(-12 420 300)">
             <rect x={388} y={250} width={66} height={116} rx={12} fill="#222" stroke={OUT} strokeWidth={SW} />
@@ -449,6 +678,7 @@ export const Personnage: React.FC<{
             <circle cx={421} cy={330} r={32} fill={peau} stroke={OUT} strokeWidth={SW} />
           </g>
         ) : null}
+        </g>
       </g>
     </svg>
   );

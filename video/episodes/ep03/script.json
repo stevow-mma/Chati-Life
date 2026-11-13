@@ -1,0 +1,245 @@
+[
+  {
+    "texte": "Dix-neuf euros de l'heure : le nouveau minimum des livreurs. Karim, lui, en garde neuf.",
+    "decor": "rue",
+    "expression": "neutre",
+    "element_visuel": {
+      "type": "carte_evolution",
+      "avant": "19 € / h",
+      "apres": "9 €",
+      "mention": "Exemple illustratif"
+    },
+    "mot_jaune": "neuf",
+    "etiquette": null,
+    "duree": 3,
+    "pose": "velo"
+  },
+  {
+    "texte": "Voici Karim, vingt-sept ans, livreur à vélo. Une appli lui envoie des commandes.",
+    "decor": "rue",
+    "expression": "fier",
+    "element_visuel": {
+      "type": "notification_telephone",
+      "titre": "Nouvelle commande"
+    },
+    "mot_jaune": "Karim",
+    "etiquette": null,
+    "duree": 3,
+    "accessoire_sol": "velo"
+  },
+  {
+    "texte": "Depuis septembre, un accord rendu obligatoire garantit au moins dix-neuf euros par heure d'activité.",
+    "decor": "salon",
+    "expression": "content",
+    "element_visuel": {
+      "type": "carte_chiffre",
+      "valeur": "19 € brut / heure d'activité",
+      "source": "Source : Service-Public.fr, 2026"
+    },
+    "mot_jaune": "dix-neuf",
+    "etiquette": null,
+    "duree": 3
+  },
+  {
+    "texte": "Avant, ce minimum était de onze euros soixante-quinze.",
+    "decor": "bureau",
+    "expression": "content",
+    "element_visuel": {
+      "type": "carte_evolution",
+      "avant": "11,75 €",
+      "apres": "19 €",
+      "source": "Source : Service-Public.fr, 2026"
+    },
+    "mot_jaune": "onze",
+    "etiquette": null,
+    "duree": 3
+  },
+  {
+    "texte": "Mais attention : dix-neuf euros bruts, ce n'est pas dix-neuf euros dans sa poche.",
+    "decor": "rue",
+    "expression": "perplexe",
+    "element_visuel": null,
+    "mot_jaune": "bruts",
+    "etiquette": "MAIS",
+    "duree": 3,
+    "accessoire_sol": "velo"
+  },
+  {
+    "texte": "Premier piège : l'attente entre deux commandes. Les revenus horaires annoncés ne la comptent pas.",
+    "decor": "restaurant",
+    "expression": "neutre",
+    "element_visuel": {
+      "type": "carte_chiffre",
+      "valeur": "Attente non comptée",
+      "legende": "dans le revenu horaire annoncé",
+      "source": "Source : ARPE, rapport 2025"
+    },
+    "mot_jaune": "attente",
+    "etiquette": "PIÈGE N°1",
+    "duree": 3,
+    "pose": "assis",
+    "accessoire_sol": "sablier"
+  },
+  {
+    "texte": "Dans l'exemple de Karim, il attend vingt minutes par heure connectée.",
+    "decor": "restaurant",
+    "expression": "neutre",
+    "element_visuel": {
+      "type": "barre_temps",
+      "titre": "1 heure connectée",
+      "segments": [
+        {
+          "minutes": 40,
+          "label": "payées",
+          "couleur": "#06D6A0"
+        },
+        {
+          "minutes": 20,
+          "label": "d'attente",
+          "couleur": "#E63946"
+        }
+      ],
+      "mention": "Exemple illustratif, estimation : 15 à 25 min"
+    },
+    "mot_jaune": "vingt",
+    "etiquette": null,
+    "duree": 3,
+    "pose": "assis"
+  },
+  {
+    "texte": "Résultat : douze euros soixante-dix par heure connectée, pas dix-neuf.",
+    "decor": "banque",
+    "expression": "choque",
+    "element_visuel": {
+      "type": "calcul",
+      "expression": "19 € × 40/60 ≈ 12,70 €",
+      "mention": "Exemple illustratif"
+    },
+    "mot_jaune": "douze",
+    "etiquette": null,
+    "duree": 3
+  },
+  {
+    "texte": "Piège numéro deux : les cotisations. Vingt et un virgule deux pour cent de ce qu'il encaisse.",
+    "decor": "bureau",
+    "expression": "choque",
+    "element_visuel": {
+      "type": "carte_chiffre",
+      "valeur": "21,2 %",
+      "legende": "de cotisations",
+      "source": "Source : Urssaf, taux 2026"
+    },
+    "mot_jaune": "cotisations",
+    "etiquette": "PIÈGE N°2",
+    "duree": 3
+  },
+  {
+    "texte": "Sur douze euros soixante-dix, il en reste dix.",
+    "decor": "bureau",
+    "expression": "perplexe",
+    "element_visuel": {
+      "type": "calcul",
+      "expression": "12,70 € − 21,2 % ≈ 10 €",
+      "mention": "Exemple illustratif"
+    },
+    "mot_jaune": "dix",
+    "etiquette": null,
+    "duree": 3
+  },
+  {
+    "texte": "Piège numéro trois : le vélo, l'entretien, l'assurance, le téléphone. Tout est à sa charge.",
+    "decor": "rue",
+    "expression": "choque",
+    "element_visuel": {
+      "type": "carte_chiffre",
+      "valeur": "≈ 100 – 200 € / mois",
+      "legende": "Estimation",
+      "source": "Source : Salerya, 2026"
+    },
+    "mot_jaune": "charge",
+    "etiquette": "PIÈGE N°3",
+    "duree": 3,
+    "accessoire_sol": "velo"
+  },
+  {
+    "texte": "Dans l'exemple de Karim, ça coûte un euro par heure connectée.",
+    "decor": "banque",
+    "expression": "neutre",
+    "element_visuel": {
+      "type": "calcul",
+      "expression": "150 € / mois ÷ 150 h ≈ 1 € / h",
+      "mention": "Exemple illustratif"
+    },
+    "mot_jaune": "euro",
+    "etiquette": null,
+    "duree": 3
+  },
+  {
+    "texte": "Au final : neuf euros net par heure connectée. Pour dix-neuf annoncés.",
+    "decor": "banque",
+    "expression": "choque",
+    "element_visuel": {
+      "type": "chaine",
+      "etapes": [
+        "19 €",
+        "12,70 €",
+        "10 €",
+        "9 €"
+      ],
+      "mention": "Exemple illustratif, avant impôt, pas une moyenne"
+    },
+    "mot_jaune": "neuf",
+    "etiquette": "EN CLAIR",
+    "duree": 3
+  },
+  {
+    "texte": "Et s'il prend une semaine de vacances, personne ne le paie.",
+    "decor": "salon",
+    "expression": "perplexe",
+    "element_visuel": {
+      "type": "calendrier_mois",
+      "semaine_barree": 2,
+      "legende": "0 € payé"
+    },
+    "mot_jaune": "vacances",
+    "etiquette": null,
+    "duree": 3
+  },
+  {
+    "texte": "Alors, livreur, c'est une arnaque ? Non, mais le chiffre affiché ne dit pas tout.",
+    "decor": "studio",
+    "expression": "perplexe",
+    "element_visuel": null,
+    "mot_jaune": "affiché",
+    "etiquette": null,
+    "duree": 3
+  },
+  {
+    "texte": "Avant de te lancer, calcule ton net par heure connectée, pas par heure d'activité.",
+    "decor": "salon",
+    "expression": "fier",
+    "element_visuel": {
+      "type": "liste",
+      "items": [
+        "Heures connectées",
+        "Cotisations",
+        "Frais"
+      ]
+    },
+    "mot_jaune": "net",
+    "etiquette": "CONSEIL",
+    "duree": 3
+  },
+  {
+    "texte": "Et toi, tu en penses quoi ? Écris-moi ton avis en commentaire, et abonne-toi pour d'autres vrais chiffres.",
+    "decor": "studio",
+    "expression": "content",
+    "element_visuel": {
+      "type": "icones_cta"
+    },
+    "mot_jaune": "commentaire",
+    "etiquette": "TON AVIS",
+    "duree": 3,
+    "pose": "pointe_bas"
+  }
+]
