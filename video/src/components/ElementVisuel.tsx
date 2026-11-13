@@ -626,23 +626,26 @@ const Notifications: React.FC<{items: {type: string; titre: string; texte: strin
 };
 
 /** Liste à puces cochées une à une. */
-const Liste: React.FC<{items: string[]}> = ({items}) => {
+const Liste: React.FC<{items: string[]; deja?: number; titre?: string}> = ({items, deja = 0, titre}) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
   const ecart = Math.round(fps * 0.6);
   return (
     <Card rotate={-2}>
+      {titre ? <div style={{fontFamily: FONT_TITRE, fontSize: 48, color: '#6C757D', paddingTop: 10, textAlign: 'left'}}>{titre}</div> : null}
       <div style={{display: 'flex', flexDirection: 'column', gap: 18, alignItems: 'flex-start', padding: '10px 0'}}>
         {items.map((it, i) => {
-          const p = spring({frame: frame - 6 - i * ecart, fps, config: {damping: 12, stiffness: 220}});
-          const coche = spring({frame: frame - 14 - i * ecart, fps, config: {damping: 10, stiffness: 260}});
+          // les `deja` premiers items sont déjà affichés et cochés (suite d'une checklist)
+          const k = i - deja;
+          const p = i < deja ? 1 : spring({frame: frame - 6 - k * ecart, fps, config: {damping: 12, stiffness: 220}});
+          const coche = i < deja ? 1 : spring({frame: frame - 14 - k * ecart, fps, config: {damping: 10, stiffness: 260}});
           return (
             <div key={i} style={{display: 'flex', alignItems: 'center', gap: 26, transform: `translateX(${(1 - p) * -80}px)`, opacity: Math.min(1, p * 1.4)}}>
               <svg width={78} height={78} viewBox="0 0 78 78">
                 <rect x={5} y={5} width={68} height={68} rx={16} fill={coche > 0.5 ? '#06D6A0' : 'white'} stroke={OUT} strokeWidth={8} />
                 <path d="M 20 40 L 34 54 L 60 24" fill="none" stroke={OUT} strokeWidth={10} strokeLinecap="round" strokeLinejoin="round" strokeDasharray={70} strokeDashoffset={70 * (1 - Math.min(1, coche))} />
               </svg>
-              <span style={{fontFamily: FONT_TITRE, fontSize: 70, color: OUT, paddingTop: 12}}>{it}</span>
+              <span style={{fontFamily: FONT_TITRE, fontSize: it.length > 24 ? 52 : 70, color: OUT, paddingTop: 12, maxWidth: it.length > 24 ? 700 : undefined, lineHeight: it.length > 24 ? 1.1 : undefined, textAlign: 'left'}}>{it}</span>
             </div>
           );
         })}
@@ -863,7 +866,7 @@ const BarreTemps: React.FC<{titre?: string; segments: {minutes: number; label: s
 };
 
 /** Calcul en chaîne : chaque étape apparaît après une flèche, la dernière en jaune. */
-const Chaine: React.FC<{etapes: string[]; mention?: string}> = ({etapes, mention}) => {
+const Chaine: React.FC<{etapes: string[]; mention?: string; source?: string; barrer?: boolean}> = ({etapes, mention, source, barrer = true}) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
   const ecart = Math.round(fps * 0.45);
@@ -893,7 +896,7 @@ const Chaine: React.FC<{etapes: string[]; mention?: string}> = ({etapes, mention
                   border: dernier ? `6px solid ${OUT}` : 'none',
                   borderRadius: 18,
                   padding: dernier ? '8px 16px 0' : 0,
-                  textDecoration: i === 0 ? 'line-through' : 'none',
+                  textDecoration: i === 0 && barrer ? 'line-through' : 'none',
                 }}
               >
                 {e}
@@ -903,6 +906,7 @@ const Chaine: React.FC<{etapes: string[]; mention?: string}> = ({etapes, mention
         })}
       </div>
       {mention ? <Mention>{mention}</Mention> : null}
+      {source ? <Mention>{source}</Mention> : null}
     </Card>
   );
 };
@@ -1020,6 +1024,224 @@ const IconesCta: React.FC = () => {
   );
 };
 
+/** Icône d'appli générique : cintre blanc sur fond neutre (aucune marque). */
+const AppliCintre: React.FC<{taille?: number}> = ({taille = 120}) => (
+  <svg width={taille} height={taille} viewBox="0 0 120 120">
+    <rect x={6} y={6} width={108} height={108} rx={28} fill="#5E6B7A" stroke={OUT} strokeWidth={7} />
+    <path d="M 60 34 q 0 -12 10 -12 q 8 0 8 8 q 0 7 -8 10 L 60 44 L 24 76 Q 20 84 28 84 H 92 Q 100 84 96 76 L 60 44" fill="none" stroke="white" strokeWidth={8} strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
+/** Enveloppe qui s'envole vers un bâtiment d'administration générique (colonnes, fronton, sans drapeau ni logo). */
+const EnveloppeBatiment: React.FC = () => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  const p = interpolate(frame, [10, 10 + fps * 1.4], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+  const e = 1 - Math.pow(1 - p, 2);
+  const x = 40 + e * 420;
+  const y = 70 - Math.sin(e * Math.PI) * 50 + e * 10;
+  const arrive = p >= 1;
+  const tremble = arrive ? Math.sin(frame * 1.4) * Math.max(0, 1 - (frame - 10 - fps * 1.4) / 10) * 3 : 0;
+  return (
+    <svg width={760} height={170} viewBox="0 0 760 170" style={{overflow: 'visible'}}>
+      {/* trajectoire */}
+      <path d="M 80 110 Q 300 20 560 110" fill="none" stroke="#CED4DA" strokeWidth={5} strokeDasharray="12 12" />
+      {/* bâtiment */}
+      <g transform={`translate(${560 + tremble} 10)`}>
+        <path d="M 0 52 L 90 8 L 180 52 Z" fill="#E9ECEF" stroke={OUT} strokeWidth={6} strokeLinejoin="round" />
+        <rect x={6} y={52} width={168} height={14} fill="#DEE2E6" stroke={OUT} strokeWidth={5} />
+        {[22, 62, 102, 142].map((cx) => (
+          <rect key={cx} x={cx} y={66} width={16} height={70} fill="white" stroke={OUT} strokeWidth={4} />
+        ))}
+        <rect x={0} y={136} width={180} height={18} fill="#DEE2E6" stroke={OUT} strokeWidth={5} />
+        <circle cx={90} cy={34} r={8} fill="#ADB5BD" stroke={OUT} strokeWidth={3} />
+      </g>
+      {/* enveloppe */}
+      {!arrive ? (
+        <g transform={`translate(${x} ${y}) rotate(${-10 + e * 20}) scale(${1 - e * 0.35})`}>
+          <rect x={-50} y={-32} width={100} height={64} rx={6} fill="white" stroke={OUT} strokeWidth={6} />
+          <path d="M -50 -30 L 0 8 L 50 -30" fill="none" stroke={OUT} strokeWidth={6} strokeLinejoin="round" />
+          <rect x={20} y={6} width={20} height={16} fill="#F4A261" stroke={OUT} strokeWidth={3} />
+        </g>
+      ) : null}
+      {arrive ? (
+        <text x={650} y={4} textAnchor="middle" fontFamily={FONT_TITRE} fontSize={36} fill="#2D6A4F">reçu</text>
+      ) : null}
+    </svg>
+  );
+};
+
+/** Carte de texte : surtitre, titre, pastilles qui apparaissent une à une, petite précision, illustration. */
+const CarteTexte: React.FC<{
+  titre: string;
+  surtitre?: string;
+  indices?: string[];
+  petit?: string;
+  illustration?: 'enveloppe_batiment' | 'appli_cintre';
+  mention?: string;
+  source?: string;
+}> = ({titre, surtitre, indices, petit, illustration, mention, source}) => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  const premier = usePremiereImage();
+  const ecart = Math.round(fps * 0.5);
+  const n = titre.length;
+  const taille = n <= 22 ? 84 : n <= 34 ? 72 : n <= 48 ? 64 : 58;
+  return (
+    <Card rotate={-1.5}>
+      <div style={{maxWidth: 900, display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+        {illustration === 'appli_cintre' ? (
+          <div style={{display: 'flex', alignItems: 'center', gap: 18, paddingTop: 4}}>
+            <AppliCintre taille={84} />
+            {surtitre ? <div style={{fontFamily: FONT_TITRE, fontSize: 52, color: '#6C757D', paddingTop: 10}}>{surtitre}</div> : null}
+          </div>
+        ) : surtitre ? (
+          <div style={{fontFamily: FONT_TITRE, fontSize: 44, color: '#6C757D', paddingTop: 10}}>{surtitre}</div>
+        ) : null}
+        <div style={{fontFamily: FONT_TITRE, fontSize: taille, color: OUT, lineHeight: 1.12, paddingTop: 14}}>{titre}</div>
+        {indices?.length ? (
+          <div style={{display: 'flex', gap: 16, marginTop: 18, flexWrap: 'wrap', justifyContent: 'center'}}>
+            {indices.map((it, i) => {
+              const pop = premier ? 1 : spring({frame: frame - 10 - i * ecart, fps, config: {damping: 10, stiffness: 240}});
+              return (
+                <div
+                  key={i}
+                  style={{
+                    transform: `scale(${pop})`,
+                    fontFamily: FONT_TITRE,
+                    fontSize: 44,
+                    color: OUT,
+                    background: '#FFD60A',
+                    border: `5px solid ${OUT}`,
+                    borderRadius: 20,
+                    padding: '10px 18px 2px',
+                    whiteSpace: 'nowrap',
+                  }}
+                >
+                  {i + 1}. {it}
+                </div>
+              );
+            })}
+          </div>
+        ) : null}
+        {petit ? <div style={{fontFamily: FONT_TEXTE, fontSize: 38, color: '#6C757D', marginTop: 10, fontStyle: 'italic'}}>{petit}</div> : null}
+        {illustration === 'enveloppe_batiment' ? (
+          <div style={{marginTop: 18}}>
+            <EnveloppeBatiment />
+          </div>
+        ) : null}
+        {mention ? <Mention>{mention}</Mention> : null}
+        {source ? <Mention>{source}</Mention> : null}
+      </div>
+    </Card>
+  );
+};
+
+/** Compteur qui monte jusqu'à `cible` ; un tampon claque quand il dépasse `seuil`. */
+const CompteurTampon: React.FC<{cible: number; seuil: number; tampon: string; unite?: string; legende?: string; mention?: string}> = ({
+  cible,
+  seuil,
+  tampon,
+  unite,
+  legende,
+  mention,
+}) => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  const d0 = 6;
+  const d1 = d0 + fps * 2.2;
+  const t = interpolate(frame, [d0, d1], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+  const v = Math.round(cible * (1 - Math.pow(1 - t, 2)));
+  // instant où le compteur passe le seuil
+  const tSeuil = 1 - Math.sqrt(1 - seuil / cible);
+  const fSeuil = d0 + tSeuil * (d1 - d0);
+  const stamp = spring({frame: frame - fSeuil, fps, config: {damping: 9, stiffness: 260}});
+  const depasse = frame >= fSeuil;
+  return (
+    <Card rotate={2}>
+      <div style={{position: 'relative', paddingTop: 10}}>
+        <div style={{display: 'flex', alignItems: 'baseline', justifyContent: 'center', gap: 20}}>
+          <div style={{fontFamily: FONT_TITRE, fontSize: 170, lineHeight: 1, color: depasse ? '#E63946' : '#2D6A4F'}}>{v}</div>
+          {unite ? <div style={{fontFamily: FONT_TITRE, fontSize: 64, color: OUT}}>{unite}</div> : null}
+        </div>
+        {legende ? <div style={{fontFamily: FONT_TITRE, fontSize: 60, color: OUT, marginTop: 4}}>{legende}</div> : null}
+        {depasse ? (
+          <div
+            style={{
+              position: 'absolute',
+              right: -60,
+              top: -70,
+              transform: `rotate(-14deg) scale(${interpolate(stamp, [0, 1], [2.4, 1])})`,
+              opacity: Math.min(1, stamp * 2),
+              fontFamily: FONT_TITRE,
+              fontSize: 58,
+              color: '#E63946',
+              border: '8px solid #E63946',
+              borderRadius: 16,
+              padding: '10px 18px 0',
+              background: 'rgba(255,255,255,0.85)',
+              whiteSpace: 'nowrap',
+            }}
+          >
+            {tampon}
+          </div>
+        ) : null}
+        {mention ? <Mention>{mention}</Mention> : null}
+      </div>
+    </Card>
+  );
+};
+
+/** Calcul posé ligne par ligne : chaque ligne glisse à son tour, la dernière est surlignée. */
+const CalculLignes: React.FC<{lignes: {label: string; valeur: string}[]; mention?: string; source?: string}> = ({lignes, mention, source}) => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  const ecart = Math.round(fps * 1.1);
+  return (
+    <Card rotate={-1.5}>
+      <div style={{display: 'flex', flexDirection: 'column', gap: 8, minWidth: 760, paddingTop: 10}}>
+        {lignes.map((l, i) => {
+          const p = spring({frame: frame - 6 - i * ecart, fps, config: {damping: 12, stiffness: 220}});
+          const dernier = i === lignes.length - 1;
+          return (
+            <div
+              key={i}
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'baseline',
+                gap: 30,
+                transform: `translateX(${(1 - p) * 120}px)`,
+                opacity: Math.min(1, p * 1.5),
+                borderTop: dernier ? `6px solid ${OUT}` : 'none',
+                paddingTop: dernier ? 8 : 0,
+              }}
+            >
+              <span style={{fontFamily: FONT_TITRE, fontSize: l.label.length > 16 ? 46 : 60, color: '#6C757D', paddingTop: 8, textAlign: 'left'}}>{l.label}</span>
+              <span
+                style={{
+                  fontFamily: FONT_TITRE,
+                  fontSize: dernier ? 84 : 72,
+                  color: dernier ? '#E63946' : OUT,
+                  background: dernier ? '#FFD60A' : 'transparent',
+                  border: dernier ? `5px solid ${OUT}` : 'none',
+                  borderRadius: 14,
+                  padding: dernier ? '6px 14px 0' : 0,
+                  whiteSpace: 'nowrap',
+                }}
+              >
+                {l.valeur}
+              </span>
+            </div>
+          );
+        })}
+      </div>
+      {mention ? <Mention>{mention}</Mention> : null}
+      {source ? <Mention>{source}</Mention> : null}
+    </Card>
+  );
+};
+
 export const ElementVisuelView: React.FC<{element: ElementVisuel}> = ({element}) => {
   let inner: React.ReactNode = null;
   switch (element.type) {
@@ -1051,7 +1273,7 @@ export const ElementVisuelView: React.FC<{element: ElementVisuel}> = ({element})
       inner = <Notifications items={element.items} />;
       break;
     case 'liste':
-      inner = <Liste items={element.items} />;
+      inner = <Liste items={element.items} deja={element.deja} titre={element.titre} />;
       break;
     case 'chrono':
       inner = <Chrono valeur={element.valeur} />;
@@ -1066,13 +1288,32 @@ export const ElementVisuelView: React.FC<{element: ElementVisuel}> = ({element})
       inner = <BarreTemps titre={element.titre} segments={element.segments} mention={element.mention} />;
       break;
     case 'chaine':
-      inner = <Chaine etapes={element.etapes} mention={element.mention} />;
+      inner = <Chaine etapes={element.etapes} mention={element.mention} source={element.source} barrer={element.barrer} />;
       break;
     case 'calendrier_mois':
       inner = <CalendrierMois semaine_barree={element.semaine_barree} legende={element.legende} />;
       break;
     case 'icones_cta':
       inner = <IconesCta />;
+      break;
+    case 'carte_texte':
+      inner = (
+        <CarteTexte
+          titre={element.titre}
+          surtitre={element.surtitre}
+          indices={element.indices}
+          petit={element.petit}
+          illustration={element.illustration}
+          mention={element.mention}
+          source={element.source}
+        />
+      );
+      break;
+    case 'compteur_tampon':
+      inner = <CompteurTampon cible={element.cible} seuil={element.seuil} tampon={element.tampon} unite={element.unite} legende={element.legende} mention={element.mention} />;
+      break;
+    case 'calcul_lignes':
+      inner = <CalculLignes lignes={element.lignes} mention={element.mention} source={element.source} />;
       break;
     case 'jauge':
       inner = <Jauge valeur={element.valeur} legende={element.legende} />;

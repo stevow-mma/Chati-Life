@@ -1,0 +1,1162 @@
+{
+ "mode": "piste_unique",
+ "fichier": "ep04/voix.mp3",
+ "hash": "a53bf9d4e906eaeed64d3744c31549d476327fc787b29c4064d1f1140a26d86b",
+ "duree_piste": 75.337143,
+ "derniere_parole": 75.307,
+ "fin": 78.307,
+ "scenes": [
+  {
+   "texte_lu": "Trente ventes sur Vinted, et le fisc reçoit ton nom. Pourtant, Manon ne paiera pas un euro d'impôt.",
+   "debut": 0,
+   "mots": [
+    {
+     "texte": "Trente",
+     "debut": 0.4,
+     "fin": 0.737
+    },
+    {
+     "texte": "ventes",
+     "debut": 0.772,
+     "fin": 0.969
+    },
+    {
+     "texte": "sur",
+     "debut": 0.992,
+     "fin": 1.236
+    },
+    {
+     "texte": "Vinted,",
+     "debut": 1.306,
+     "fin": 1.898
+    },
+    {
+     "texte": "et",
+     "debut": 1.933,
+     "fin": 2.06
+    },
+    {
+     "texte": "le",
+     "debut": 2.13,
+     "fin": 2.2
+    },
+    {
+     "texte": "fisc",
+     "debut": 2.269,
+     "fin": 2.641
+    },
+    {
+     "texte": "reçoit",
+     "debut": 2.792,
+     "fin": 3.128
+    },
+    {
+     "texte": "ton",
+     "debut": 3.152,
+     "fin": 3.279
+    },
+    {
+     "texte": "nom.",
+     "debut": 3.314,
+     "fin": 3.604
+    },
+    {
+     "texte": "Pourtant,",
+     "debut": 3.929,
+     "fin": 4.533
+    },
+    {
+     "texte": "Manon",
+     "debut": 4.812,
+     "fin": 5.102
+    },
+    {
+     "texte": "ne",
+     "debut": 5.125,
+     "fin": 5.195
+    },
+    {
+     "texte": "paiera",
+     "debut": 5.241,
+     "fin": 5.462
+    },
+    {
+     "texte": "pas",
+     "debut": 5.52,
+     "fin": 5.636
+    },
+    {
+     "texte": "un",
+     "debut": 5.659,
+     "fin": 5.729
+    },
+    {
+     "texte": "euro",
+     "debut": 5.787,
+     "fin": 5.938
+    },
+    {
+     "texte": "d'impôt.",
+     "debut": 5.984,
+     "fin": 6.46
+    }
+   ]
+  },
+  {
+   "texte_lu": "Manon, vingt-trois ans, a vendu trente-huit vêtements de son dressing : mille cent quarante euros. Seuil dépassé.",
+   "debut": 7.157,
+   "mots": [
+    {
+     "texte": "Manon,",
+     "debut": 7.157,
+     "fin": 7.47
+    },
+    {
+     "texte": "vingt-trois",
+     "debut": 7.494,
+     "fin": 7.912
+    },
+    {
+     "texte": "ans,",
+     "debut": 7.97,
+     "fin": 8.179
+    },
+    {
+     "texte": "a",
+     "debut": 8.248,
+     "fin": 8.306
+    },
+    {
+     "texte": "vendu",
+     "debut": 8.388,
+     "fin": 8.713
+    },
+    {
+     "texte": "trente-huit",
+     "debut": 8.782,
+     "fin": 9.177
+    },
+    {
+     "texte": "vêtements",
+     "debut": 9.2,
+     "fin": 9.607
+    },
+    {
+     "texte": "de",
+     "debut": 9.63,
+     "fin": 9.688
+    },
+    {
+     "texte": "son",
+     "debut": 9.723,
+     "fin": 9.839
+    },
+    {
+     "texte": "dressing",
+     "debut": 9.862,
+     "fin": 10.303
+    },
+    {
+     "texte": ":",
+     "debut": 10.419,
+     "fin": 10.454
+    },
+    {
+     "texte": "mille",
+     "debut": 10.779,
+     "fin": 11.012
+    },
+    {
+     "texte": "cent",
+     "debut": 11.035,
+     "fin": 11.186
+    },
+    {
+     "texte": "quarante",
+     "debut": 11.209,
+     "fin": 11.511
+    },
+    {
+     "texte": "euros.",
+     "debut": 11.534,
+     "fin": 11.894
+    },
+    {
+     "texte": "Seuil",
+     "debut": 12.335,
+     "fin": 12.567
+    },
+    {
+     "texte": "dépassé.",
+     "debut": 12.602,
+     "fin": 13.136
+    }
+   ]
+  },
+  {
+   "texte_lu": "Mais trente ventes, c'est un seuil de transmission, pas un seuil d'impôt.",
+   "debut": 13.647,
+   "mots": [
+    {
+     "texte": "Mais",
+     "debut": 13.647,
+     "fin": 13.937
+    },
+    {
+     "texte": "trente",
+     "debut": 13.984,
+     "fin": 14.216
+    },
+    {
+     "texte": "ventes,",
+     "debut": 14.251,
+     "fin": 14.739
+    },
+    {
+     "texte": "c'est",
+     "debut": 15.017,
+     "fin": 15.18
+    },
+    {
+     "texte": "un",
+     "debut": 15.25,
+     "fin": 15.296
+    },
+    {
+     "texte": "seuil",
+     "debut": 15.354,
+     "fin": 15.528
+    },
+    {
+     "texte": "de",
+     "debut": 15.563,
+     "fin": 15.633
+    },
+    {
+     "texte": "transmission,",
+     "debut": 15.679,
+     "fin": 16.225
+    },
+    {
+     "texte": "pas",
+     "debut": 16.248,
+     "fin": 16.387
+    },
+    {
+     "texte": "un",
+     "debut": 16.445,
+     "fin": 16.492
+    },
+    {
+     "texte": "seuil",
+     "debut": 16.55,
+     "fin": 16.736
+    },
+    {
+     "texte": "d'impôt.",
+     "debut": 16.77,
+     "fin": 17.293
+    }
+   ]
+  },
+  {
+   "texte_lu": "Règle numéro un : vendre ses propres affaires dont on ne veut plus, ce n'est pas imposable.",
+   "debut": 18.407,
+   "mots": [
+    {
+     "texte": "Règle",
+     "debut": 18.407,
+     "fin": 18.663
+    },
+    {
+     "texte": "numéro",
+     "debut": 18.709,
+     "fin": 19.023
+    },
+    {
+     "texte": "un",
+     "debut": 19.081,
+     "fin": 19.174
+    },
+    {
+     "texte": ":",
+     "debut": 19.29,
+     "fin": 19.325
+    },
+    {
+     "texte": "vendre",
+     "debut": 19.534,
+     "fin": 19.824
+    },
+    {
+     "texte": "ses",
+     "debut": 19.87,
+     "fin": 19.986
+    },
+    {
+     "texte": "propres",
+     "debut": 20.021,
+     "fin": 20.428
+    },
+    {
+     "texte": "affaires",
+     "debut": 20.486,
+     "fin": 20.822
+    },
+    {
+     "texte": "dont",
+     "debut": 20.846,
+     "fin": 20.996
+    },
+    {
+     "texte": "on",
+     "debut": 21.054,
+     "fin": 21.113
+    },
+    {
+     "texte": "ne",
+     "debut": 21.147,
+     "fin": 21.217
+    },
+    {
+     "texte": "veut",
+     "debut": 21.275,
+     "fin": 21.414
+    },
+    {
+     "texte": "plus,",
+     "debut": 21.438,
+     "fin": 21.751
+    },
+    {
+     "texte": "ce",
+     "debut": 21.995,
+     "fin": 22.053
+    },
+    {
+     "texte": "n'est",
+     "debut": 22.088,
+     "fin": 22.262
+    },
+    {
+     "texte": "pas",
+     "debut": 22.285,
+     "fin": 22.39
+    },
+    {
+     "texte": "imposable.",
+     "debut": 22.413,
+     "fin": 23.051
+    }
+   ]
+  },
+  {
+   "texte_lu": "Manon garde donc ses mille cent quarante euros.",
+   "debut": 23.133,
+   "mots": [
+    {
+     "texte": "Manon",
+     "debut": 23.133,
+     "fin": 23.423
+    },
+    {
+     "texte": "garde",
+     "debut": 23.469,
+     "fin": 23.725
+    },
+    {
+     "texte": "donc",
+     "debut": 23.783,
+     "fin": 24.015
+    },
+    {
+     "texte": "ses",
+     "debut": 24.398,
+     "fin": 24.607
+    },
+    {
+     "texte": "mille",
+     "debut": 24.665,
+     "fin": 24.886
+    },
+    {
+     "texte": "cent",
+     "debut": 24.921,
+     "fin": 25.072
+    },
+    {
+     "texte": "quarante",
+     "debut": 25.106,
+     "fin": 25.408
+    },
+    {
+     "texte": "euros.",
+     "debut": 25.466,
+     "fin": 25.907
+    }
+   ]
+  },
+  {
+   "texte_lu": "Piège numéro un : croire que seul le montant compte. Pour le fisc, c'est l'intention qui compte.",
+   "debut": 26.418,
+   "mots": [
+    {
+     "texte": "Piège",
+     "debut": 26.418,
+     "fin": 26.685
+    },
+    {
+     "texte": "numéro",
+     "debut": 26.709,
+     "fin": 26.987
+    },
+    {
+     "texte": "un",
+     "debut": 27.045,
+     "fin": 27.127
+    },
+    {
+     "texte": ":",
+     "debut": 27.243,
+     "fin": 27.324
+    },
+    {
+     "texte": "croire",
+     "debut": 27.568,
+     "fin": 27.776
+    },
+    {
+     "texte": "que",
+     "debut": 27.799,
+     "fin": 27.916
+    },
+    {
+     "texte": "seul",
+     "debut": 27.974,
+     "fin": 28.171
+    },
+    {
+     "texte": "le",
+     "debut": 28.229,
+     "fin": 28.287
+    },
+    {
+     "texte": "montant",
+     "debut": 28.345,
+     "fin": 28.67
+    },
+    {
+     "texte": "compte.",
+     "debut": 28.705,
+     "fin": 29.169
+    },
+    {
+     "texte": "Pour",
+     "debut": 29.378,
+     "fin": 29.529
+    },
+    {
+     "texte": "le",
+     "debut": 29.564,
+     "fin": 29.622
+    },
+    {
+     "texte": "fisc,",
+     "debut": 29.669,
+     "fin": 29.912
+    },
+    {
+     "texte": "c'est",
+     "debut": 29.936,
+     "fin": 30.063
+    },
+    {
+     "texte": "l'intention",
+     "debut": 30.087,
+     "fin": 30.505
+    },
+    {
+     "texte": "qui",
+     "debut": 30.551,
+     "fin": 30.644
+    },
+    {
+     "texte": "compte.",
+     "debut": 30.702,
+     "fin": 31.12
+    }
+   ]
+  },
+  {
+   "texte_lu": "Un jour, Manon achète des jeans quinze euros en friperie, pour les revendre quarante euros.",
+   "debut": 31.561,
+   "mots": [
+    {
+     "texte": "Un",
+     "debut": 31.561,
+     "fin": 31.689
+    },
+    {
+     "texte": "jour,",
+     "debut": 31.747,
+     "fin": 31.921
+    },
+    {
+     "texte": "Manon",
+     "debut": 31.944,
+     "fin": 32.153
+    },
+    {
+     "texte": "achète",
+     "debut": 32.2,
+     "fin": 32.467
+    },
+    {
+     "texte": "des",
+     "debut": 32.49,
+     "fin": 32.594
+    },
+    {
+     "texte": "jeans",
+     "debut": 32.641,
+     "fin": 33.001
+    },
+    {
+     "texte": "quinze",
+     "debut": 33.094,
+     "fin": 33.326
+    },
+    {
+     "texte": "euros",
+     "debut": 33.442,
+     "fin": 33.697
+    },
+    {
+     "texte": "en",
+     "debut": 33.732,
+     "fin": 33.825
+    },
+    {
+     "texte": "friperie,",
+     "debut": 33.86,
+     "fin": 34.429
+    },
+    {
+     "texte": "pour",
+     "debut": 34.603,
+     "fin": 34.742
+    },
+    {
+     "texte": "les",
+     "debut": 34.777,
+     "fin": 34.858
+    },
+    {
+     "texte": "revendre",
+     "debut": 34.882,
+     "fin": 35.253
+    },
+    {
+     "texte": "quarante",
+     "debut": 35.311,
+     "fin": 35.648
+    },
+    {
+     "texte": "euros.",
+     "debut": 35.671,
+     "fin": 36.031
+    }
+   ]
+  },
+  {
+   "texte_lu": "Attention : acheter régulièrement pour revendre avec une marge, c'est une activité commerciale.",
+   "debut": 36.101,
+   "mots": [
+    {
+     "texte": "Attention",
+     "debut": 36.101,
+     "fin": 36.611
+    },
+    {
+     "texte": ":",
+     "debut": 36.704,
+     "fin": 36.786
+    },
+    {
+     "texte": "acheter",
+     "debut": 37.064,
+     "fin": 37.459
+    },
+    {
+     "texte": "régulièrement",
+     "debut": 37.494,
+     "fin": 38.074
+    },
+    {
+     "texte": "pour",
+     "debut": 38.109,
+     "fin": 38.248
+    },
+    {
+     "texte": "revendre",
+     "debut": 38.272,
+     "fin": 38.632
+    },
+    {
+     "texte": "avec",
+     "debut": 38.678,
+     "fin": 38.945
+    },
+    {
+     "texte": "une",
+     "debut": 39.038,
+     "fin": 39.131
+    },
+    {
+     "texte": "marge,",
+     "debut": 39.166,
+     "fin": 39.63
+    },
+    {
+     "texte": "c'est",
+     "debut": 39.804,
+     "fin": 39.99
+    },
+    {
+     "texte": "une",
+     "debut": 40.083,
+     "fin": 40.199
+    },
+    {
+     "texte": "activité",
+     "debut": 40.257,
+     "fin": 40.849
+    },
+    {
+     "texte": "commerciale.",
+     "debut": 40.907,
+     "fin": 41.592
+    }
+   ]
+  },
+  {
+   "texte_lu": "Il faut alors un statut, souvent micro-entrepreneur.",
+   "debut": 41.917,
+   "mots": [
+    {
+     "texte": "Il",
+     "debut": 41.917,
+     "fin": 42.01
+    },
+    {
+     "texte": "faut",
+     "debut": 42.068,
+     "fin": 42.266
+    },
+    {
+     "texte": "alors",
+     "debut": 42.324,
+     "fin": 42.672
+    },
+    {
+     "texte": "un",
+     "debut": 42.707,
+     "fin": 42.753
+    },
+    {
+     "texte": "statut,",
+     "debut": 42.788,
+     "fin": 43.252
+    },
+    {
+     "texte": "souvent",
+     "debut": 43.461,
+     "fin": 43.763
+    },
+    {
+     "texte": "micro-entrepreneur.",
+     "debut": 43.798,
+     "fin": 44.901
+    }
+   ]
+  },
+  {
+   "texte_lu": "Et des cotisations : douze virgule trois pour cent du chiffre d'affaires.",
+   "debut": 45.18,
+   "mots": [
+    {
+     "texte": "Et",
+     "debut": 45.18,
+     "fin": 45.377
+    },
+    {
+     "texte": "des",
+     "debut": 45.458,
+     "fin": 45.563
+    },
+    {
+     "texte": "cotisations",
+     "debut": 45.586,
+     "fin": 46.236
+    },
+    {
+     "texte": ":",
+     "debut": 46.317,
+     "fin": 46.399
+    },
+    {
+     "texte": "douze",
+     "debut": 46.782,
+     "fin": 47.037
+    },
+    {
+     "texte": "virgule",
+     "debut": 47.06,
+     "fin": 47.49
+    },
+    {
+     "texte": "trois",
+     "debut": 47.525,
+     "fin": 47.722
+    },
+    {
+     "texte": "pour",
+     "debut": 47.745,
+     "fin": 47.885
+    },
+    {
+     "texte": "cent",
+     "debut": 47.943,
+     "fin": 48.094
+    },
+    {
+     "texte": "du",
+     "debut": 48.117,
+     "fin": 48.198
+    },
+    {
+     "texte": "chiffre",
+     "debut": 48.233,
+     "fin": 48.488
+    },
+    {
+     "texte": "d'affaires.",
+     "debut": 48.523,
+     "fin": 49.046
+    }
+   ]
+  },
+  {
+   "texte_lu": "Dix jeans : cent cinquante euros d'achat, quatre cents de ventes, quarante-neuf de cotisations.",
+   "debut": 49.429,
+   "mots": [
+    {
+     "texte": "Dix",
+     "debut": 49.429,
+     "fin": 49.649
+    },
+    {
+     "texte": "jeans",
+     "debut": 49.766,
+     "fin": 50.091
+    },
+    {
+     "texte": ":",
+     "debut": 50.207,
+     "fin": 50.23
+    },
+    {
+     "texte": "cent",
+     "debut": 50.439,
+     "fin": 50.613
+    },
+    {
+     "texte": "cinquante",
+     "debut": 50.636,
+     "fin": 50.985
+    },
+    {
+     "texte": "euros",
+     "debut": 51.008,
+     "fin": 51.182
+    },
+    {
+     "texte": "d'achat,",
+     "debut": 51.205,
+     "fin": 51.704
+    },
+    {
+     "texte": "quatre",
+     "debut": 51.948,
+     "fin": 52.25
+    },
+    {
+     "texte": "cents",
+     "debut": 52.297,
+     "fin": 52.471
+    },
+    {
+     "texte": "de",
+     "debut": 52.494,
+     "fin": 52.575
+    },
+    {
+     "texte": "ventes,",
+     "debut": 52.645,
+     "fin": 53.051
+    },
+    {
+     "texte": "quarante-neuf",
+     "debut": 53.26,
+     "fin": 53.806
+    },
+    {
+     "texte": "de",
+     "debut": 53.875,
+     "fin": 53.933
+    },
+    {
+     "texte": "cotisations.",
+     "debut": 53.98,
+     "fin": 54.665
+    }
+   ]
+  },
+  {
+   "texte_lu": "Il reste environ deux cents euros, avant l'impôt. Pas mal, mais pas magique.",
+   "debut": 55.106,
+   "mots": [
+    {
+     "texte": "Il",
+     "debut": 55.106,
+     "fin": 55.269
+    },
+    {
+     "texte": "reste",
+     "debut": 55.327,
+     "fin": 55.536
+    },
+    {
+     "texte": "environ",
+     "debut": 55.559,
+     "fin": 55.884
+    },
+    {
+     "texte": "deux",
+     "debut": 55.965,
+     "fin": 56.093
+    },
+    {
+     "texte": "cents",
+     "debut": 56.128,
+     "fin": 56.418
+    },
+    {
+     "texte": "euros,",
+     "debut": 56.464,
+     "fin": 56.708
+    },
+    {
+     "texte": "avant",
+     "debut": 56.731,
+     "fin": 56.929
+    },
+    {
+     "texte": "l'impôt.",
+     "debut": 56.952,
+     "fin": 57.451
+    },
+    {
+     "texte": "Pas",
+     "debut": 57.521,
+     "fin": 57.707
+    },
+    {
+     "texte": "mal,",
+     "debut": 57.73,
+     "fin": 57.939
+    },
+    {
+     "texte": "mais",
+     "debut": 57.962,
+     "fin": 58.136
+    },
+    {
+     "texte": "pas",
+     "debut": 58.171,
+     "fin": 58.287
+    },
+    {
+     "texte": "magique.",
+     "debut": 58.322,
+     "fin": 58.763
+    }
+   ]
+  },
+  {
+   "texte_lu": "Piège numéro deux : ne pas déclarer.",
+   "debut": 59.274,
+   "mots": [
+    {
+     "texte": "Piège",
+     "debut": 59.274,
+     "fin": 59.553
+    },
+    {
+     "texte": "numéro",
+     "debut": 59.576,
+     "fin": 59.831
+    },
+    {
+     "texte": "deux",
+     "debut": 59.889,
+     "fin": 60.005
+    },
+    {
+     "texte": ":",
+     "debut": 60.04,
+     "fin": 60.075
+    },
+    {
+     "texte": "ne",
+     "debut": 60.156,
+     "fin": 60.249
+    },
+    {
+     "texte": "pas",
+     "debut": 60.284,
+     "fin": 60.4
+    },
+    {
+     "texte": "déclarer.",
+     "debut": 60.423,
+     "fin": 60.923
+    }
+   ]
+  },
+  {
+   "texte_lu": "Dix pour cent de majoration, quarante si c'est jugé volontaire.",
+   "debut": 61.306,
+   "mots": [
+    {
+     "texte": "Dix",
+     "debut": 61.306,
+     "fin": 61.48
+    },
+    {
+     "texte": "pour",
+     "debut": 61.503,
+     "fin": 61.619
+    },
+    {
+     "texte": "cent",
+     "debut": 61.654,
+     "fin": 61.782
+    },
+    {
+     "texte": "de",
+     "debut": 61.805,
+     "fin": 61.851
+    },
+    {
+     "texte": "majoration,",
+     "debut": 61.886,
+     "fin": 62.548
+    },
+    {
+     "texte": "quarante",
+     "debut": 62.641,
+     "fin": 62.989
+    },
+    {
+     "texte": "si",
+     "debut": 63.012,
+     "fin": 63.14
+    },
+    {
+     "texte": "c'est",
+     "debut": 63.187,
+     "fin": 63.326
+    },
+    {
+     "texte": "jugé",
+     "debut": 63.361,
+     "fin": 63.593
+    },
+    {
+     "texte": "volontaire.",
+     "debut": 63.628,
+     "fin": 64.22
+    }
+   ]
+  },
+  {
+   "texte_lu": "Mon conseil : garde tes preuves d'achat.",
+   "debut": 64.603,
+   "mots": [
+    {
+     "texte": "Mon",
+     "debut": 64.603,
+     "fin": 64.731
+    },
+    {
+     "texte": "conseil",
+     "debut": 64.766,
+     "fin": 65.079
+    },
+    {
+     "texte": ":",
+     "debut": 65.102,
+     "fin": 65.125
+    },
+    {
+     "texte": "garde",
+     "debut": 65.16,
+     "fin": 65.439
+    },
+    {
+     "texte": "tes",
+     "debut": 65.485,
+     "fin": 65.59
+    },
+    {
+     "texte": "preuves",
+     "debut": 65.613,
+     "fin": 65.868
+    },
+    {
+     "texte": "d'achat.",
+     "debut": 65.892,
+     "fin": 66.333
+    }
+   ]
+  },
+  {
+   "texte_lu": "Et si tu achètes pour revendre, déclare-toi tôt.",
+   "debut": 66.716,
+   "mots": [
+    {
+     "texte": "Et",
+     "debut": 66.716,
+     "fin": 66.878
+    },
+    {
+     "texte": "si",
+     "debut": 66.925,
+     "fin": 67.053
+    },
+    {
+     "texte": "tu",
+     "debut": 67.099,
+     "fin": 67.227
+    },
+    {
+     "texte": "achètes",
+     "debut": 67.285,
+     "fin": 67.552
+    },
+    {
+     "texte": "pour",
+     "debut": 67.575,
+     "fin": 67.807
+    },
+    {
+     "texte": "revendre,",
+     "debut": 67.854,
+     "fin": 68.423
+    },
+    {
+     "texte": "déclare-toi",
+     "debut": 68.597,
+     "fin": 69.073
+    },
+    {
+     "texte": "tôt.",
+     "debut": 69.108,
+     "fin": 69.398
+    }
+   ]
+  },
+  {
+   "texte_lu": "Et toi, dressing ou achat-revente ? Dis-le-moi en commentaire, et abonne-toi pour d'autres vrais chiffres.",
+   "debut": 69.676,
+   "mots": [
+    {
+     "texte": "Et",
+     "debut": 69.676,
+     "fin": 69.804
+    },
+    {
+     "texte": "toi,",
+     "debut": 69.839,
+     "fin": 70.048
+    },
+    {
+     "texte": "dressing",
+     "debut": 70.071,
+     "fin": 70.431
+    },
+    {
+     "texte": "ou",
+     "debut": 70.489,
+     "fin": 70.536
+    },
+    {
+     "texte": "achat-revente",
+     "debut": 70.594,
+     "fin": 71.221
+    },
+    {
+     "texte": "?",
+     "debut": 71.279,
+     "fin": 71.325
+    },
+    {
+     "texte": "Dis-le-moi",
+     "debut": 71.766,
+     "fin": 72.138
+    },
+    {
+     "texte": "en",
+     "debut": 72.161,
+     "fin": 72.219
+    },
+    {
+     "texte": "commentaire,",
+     "debut": 72.277,
+     "fin": 73.009
+    },
+    {
+     "texte": "et",
+     "debut": 73.125,
+     "fin": 73.252
+    },
+    {
+     "texte": "abonne-toi",
+     "debut": 73.287,
+     "fin": 73.798
+    },
+    {
+     "texte": "pour",
+     "debut": 73.856,
+     "fin": 73.995
+    },
+    {
+     "texte": "d'autres",
+     "debut": 74.053,
+     "fin": 74.355
+    },
+    {
+     "texte": "vrais",
+     "debut": 74.39,
+     "fin": 74.587
+    },
+    {
+     "texte": "chiffres.",
+     "debut": 74.622,
+     "fin": 75.307
+    }
+   ]
+  }
+ ]
+}

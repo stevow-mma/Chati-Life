@@ -76,6 +76,20 @@ export const PlanScene: React.FC<{plan: Plan; personnage: Apparence; premier?: b
       ? frame - motStart < 18
       : frame < reveal + 4;
 
+  // Changement d'expression en cours de plan (« contente puis inquiète »), calé sur le mot prononcé.
+  let expression = plan.expression;
+  if (plan.puis) {
+    const norm = (w: string) => w.toLowerCase().replace(/[^\p{L}\p{N}'-]/gu, '');
+    const k = motsTexte.findIndex((w) => norm(w) === norm(plan.puis!.au_mot));
+    const bascule = k >= 0 && voix && motsVoix[k] ? debutF(k) : Math.round(durationInFrames / 2);
+    if (frame >= bascule) expression = plan.puis.expression;
+  }
+
+  // Objets au sol (un seul ou une liste)
+  const objets = plan.accessoire_sol ? (Array.isArray(plan.accessoire_sol) ? plan.accessoire_sol : [plan.accessoire_sol]) : [];
+  const objetsDerriere = objets.filter((o) => !OBJETS_SOL[o].devant);
+  const objetsDevant = objets.filter((o) => OBJETS_SOL[o].devant);
+
   return (
     <PremiereImage.Provider value={premier}>
     <AbsoluteFill style={{overflow: 'hidden'}}>
@@ -83,9 +97,9 @@ export const PlanScene: React.FC<{plan: Plan; personnage: Apparence; premier?: b
       <AbsoluteFill style={{transform: `scale(${sceneScale})`}}>
         <Decor nom={plan.decor} variante={motIndex} />
 
-        {plan.accessoire_sol && !OBJETS_SOL[plan.accessoire_sol].devant ? (
-          <ObjetSol nom={plan.accessoire_sol} couleurVelo={personnage.velo ?? undefined} />
-        ) : null}
+        {objetsDerriere.map((o) => (
+          <ObjetSol key={o} nom={o} couleurVelo={personnage.velo ?? undefined} />
+        ))}
 
         {/* Personnage : centre de l'écran */}
         <div
@@ -97,12 +111,12 @@ export const PlanScene: React.FC<{plan: Plan; personnage: Apparence; premier?: b
             height: 840,
           }}
         >
-          <Personnage apparence={personnage} expression={plan.expression} talking={talking} accessoire={accessoire} entree={!premier} pose={plan.pose} />
+          <Personnage apparence={personnage} expression={expression} talking={talking} accessoire={accessoire} entree={!premier} pose={plan.pose} objetMain={plan.objet_main ?? null} />
         </div>
 
-        {plan.accessoire_sol && OBJETS_SOL[plan.accessoire_sol].devant ? (
-          <ObjetSol nom={plan.accessoire_sol} couleurVelo={personnage.velo ?? undefined} />
-        ) : null}
+        {objetsDevant.map((o) => (
+          <ObjetSol key={o} nom={o} couleurVelo={personnage.velo ?? undefined} />
+        ))}
 
         {/* Élément visuel : zone haute */}
         {ev && ev.type !== 'mots_rotatifs' ? (

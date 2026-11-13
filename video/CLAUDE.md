@@ -32,6 +32,23 @@ Options Remotion après l'épisode, ex. `npm run render -- ep03 --concurrency=2`
 - Étiquettes : `MAIS` rouge ; `ATTENTION`, `PIÈGE N°1/2/3`, `CONSEIL` jaunes à bandes noires ;
   `EN CLAIR`, `TON AVIS`, etc. en aplat coloré.
 - Coupures : flash blanc + zoom (sauf la toute première image).
+- Une émotion « A puis B » : `expression` = A, `puis: {expression: B, au_mot: "mot"}` (bascule quand la voix
+  prononce ce mot).
+- Durée visée : 70 à 80 s ; toujours vérifier au ffprobe que le mp4 dépasse 62 s.
+
+## Personnages déjà utilisés (ne pas refaire un look proche)
+- ep01 Max : casquette rouge, sweat turquoise, mèches châtain.
+- ep02 Inès : chignon bouclé, lunettes rondes dorées, haut corail, créoles dorées.
+- ep03 Karim : casque de vélo blanc, veste marine à bandes, barbe, sac de livraison.
+- ep04 Manon : carré noir lisse à frange, sweat à capuche oversize vert forêt, créoles argentées,
+  smartphone en main gauche (`telephone`), tote bag de jeans (`objet_main: "tote_jeans"`).
+
+## Éléments visuels réutilisables (en plus de ceux du README)
+- `carte_texte` (titre, surtitre, indices, petit, illustration `enveloppe_batiment` | `appli_cintre`, mention, source).
+- `compteur_tampon` (compteur + tampon au passage d'un seuil), `calcul_lignes` (calcul posé ligne par ligne).
+- `liste` avec `deja` (suite d'une checklist), `chaine` avec `barrer: false`.
+- Objets au sol (un ou plusieurs) : `velo`, `sablier`, `pile_vetements`, `veste_cintre`, `portant_jeans`.
+- Poses : `debout`, `velo`, `assis`, `pointe_bas`, `photo` (photographie avec le téléphone).
 
 ## Fichiers
 - `episodes/epNN/{episode,script}.json` (à la main), `voix.json` + `voix-brute.*` (générés).

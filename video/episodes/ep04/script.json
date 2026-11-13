@@ -1,0 +1,297 @@
+[
+  {
+    "texte": "Trente ventes sur Vinted, et le fisc reçoit ton nom. Pourtant, Manon ne paiera pas un euro d'impôt.",
+    "decor": "chambre",
+    "expression": "choque",
+    "mot_jaune": "fisc",
+    "etiquette": null,
+    "element_visuel": {
+      "type": "carte_texte",
+      "illustration": "appli_cintre",
+      "surtitre": "Vinted",
+      "titre": "30 ventes OU 2 000 € par an → la plateforme transmet au fisc",
+      "source": "Source : Vinted, page DAC7"
+    },
+    "pose": "photo",
+    "accessoire_sol": [
+      "pile_vetements",
+      "veste_cintre"
+    ],
+    "duree": 3
+  },
+  {
+    "texte": "Manon, vingt-trois ans, a vendu trente-huit vêtements de son dressing : mille cent quarante euros. Seuil dépassé.",
+    "decor": "chambre",
+    "expression": "content",
+    "puis": {
+      "expression": "perplexe",
+      "au_mot": "Seuil"
+    },
+    "mot_jaune": "dépassé",
+    "etiquette": null,
+    "element_visuel": {
+      "type": "compteur_tampon",
+      "cible": 38,
+      "seuil": 30,
+      "tampon": "30 dépassé",
+      "legende": "38 ventes · 1 140 €",
+      "mention": "Exemple illustratif"
+    },
+    "accessoire_sol": "pile_vetements",
+    "duree": 3
+  },
+  {
+    "texte": "Mais trente ventes, c'est un seuil de transmission, pas un seuil d'impôt.",
+    "decor": "bureau",
+    "expression": "content",
+    "mot_jaune": "transmission",
+    "etiquette": "MAIS",
+    "element_visuel": {
+      "type": "carte_texte",
+      "titre": "SEUIL DE TRANSMISSION ≠ SEUIL D'IMPOSITION",
+      "illustration": "enveloppe_batiment",
+      "source": "Source : Vinted, page DAC7"
+    },
+    "duree": 3
+  },
+  {
+    "texte": "Règle numéro un : vendre ses propres affaires dont on ne veut plus, ce n'est pas imposable.",
+    "decor": "salon",
+    "expression": "fier",
+    "mot_jaune": "propres",
+    "etiquette": "RÈGLE N°1",
+    "element_visuel": {
+      "type": "carte_texte",
+      "titre": "Affaires perso dont tu ne veux plus = pas imposable",
+      "petit": "hors objets de plus de 5 000 €",
+      "source": "Source : impots.gouv.fr"
+    },
+    "duree": 3
+  },
+  {
+    "texte": "Manon garde donc ses mille cent quarante euros.",
+    "decor": "salon",
+    "expression": "content",
+    "mot_jaune": "garde",
+    "etiquette": null,
+    "element_visuel": {
+      "type": "calcul_lignes",
+      "lignes": [
+        {
+          "label": "encaissés",
+          "valeur": "1 140 €"
+        },
+        {
+          "label": "impôt",
+          "valeur": "0 €"
+        }
+      ],
+      "mention": "Exemple illustratif"
+    },
+    "duree": 3
+  },
+  {
+    "texte": "Piège numéro un : croire que seul le montant compte. Pour le fisc, c'est l'intention qui compte.",
+    "decor": "salon",
+    "expression": "perplexe",
+    "mot_jaune": "intention",
+    "etiquette": "PIÈGE N°1",
+    "element_visuel": {
+      "type": "carte_texte",
+      "titre": "C'EST L'INTENTION QUI COMPTE, PAS LE MONTANT",
+      "indices": [
+        "régularité",
+        "volume",
+        "achat pour revendre"
+      ],
+      "source": "Source : administration fiscale"
+    },
+    "duree": 3
+  },
+  {
+    "texte": "Un jour, Manon achète des jeans quinze euros en friperie, pour les revendre quarante euros.",
+    "decor": "magasin",
+    "expression": "fier",
+    "mot_jaune": "revendre",
+    "etiquette": null,
+    "element_visuel": {
+      "type": "calcul_lignes",
+      "lignes": [
+        {
+          "label": "achat",
+          "valeur": "15 €"
+        },
+        {
+          "label": "revente",
+          "valeur": "40 €"
+        }
+      ],
+      "mention": "Exemple illustratif"
+    },
+    "accessoire_sol": "portant_jeans",
+    "objet_main": "tote_jeans",
+    "duree": 3
+  },
+  {
+    "texte": "Attention : acheter régulièrement pour revendre avec une marge, c'est une activité commerciale.",
+    "decor": "magasin",
+    "expression": "neutre",
+    "mot_jaune": "commerciale",
+    "etiquette": "ATTENTION",
+    "element_visuel": {
+      "type": "carte_texte",
+      "titre": "ACHETER POUR REVENDRE = ACTIVITÉ COMMERCIALE",
+      "source": "Source : impots.gouv.fr"
+    },
+    "accessoire_sol": "portant_jeans",
+    "objet_main": "tote_jeans",
+    "duree": 3
+  },
+  {
+    "texte": "Il faut alors un statut, souvent micro-entrepreneur.",
+    "decor": "bureau",
+    "expression": "neutre",
+    "mot_jaune": "statut",
+    "etiquette": "EN CLAIR",
+    "element_visuel": {
+      "type": "carte_texte",
+      "surtitre": "Statut",
+      "titre": "micro-entreprise",
+      "petit": "(le plus courant)"
+    },
+    "duree": 3
+  },
+  {
+    "texte": "Et des cotisations : douze virgule trois pour cent du chiffre d'affaires.",
+    "decor": "bureau",
+    "expression": "choque",
+    "mot_jaune": "cotisations",
+    "etiquette": null,
+    "element_visuel": {
+      "type": "carte_chiffre",
+      "valeur": "12,3 %",
+      "legende": "du chiffre d'affaires (vente de marchandises)",
+      "source": "Source : Service-Public.gouv.fr"
+    },
+    "duree": 3
+  },
+  {
+    "texte": "Dix jeans : cent cinquante euros d'achat, quatre cents de ventes, quarante-neuf de cotisations.",
+    "decor": "bureau",
+    "expression": "neutre",
+    "mot_jaune": "ventes",
+    "etiquette": null,
+    "element_visuel": {
+      "type": "calcul_lignes",
+      "lignes": [
+        {
+          "label": "achats",
+          "valeur": "150 €"
+        },
+        {
+          "label": "ventes",
+          "valeur": "400 €"
+        },
+        {
+          "label": "cotisations 12,3 % × 400 €",
+          "valeur": "= 49,20 €"
+        }
+      ],
+      "mention": "Exemple illustratif"
+    },
+    "duree": 3
+  },
+  {
+    "texte": "Il reste environ deux cents euros, avant l'impôt. Pas mal, mais pas magique.",
+    "decor": "chambre",
+    "expression": "content",
+    "puis": {
+      "expression": "neutre",
+      "au_mot": "Pas"
+    },
+    "mot_jaune": "magique",
+    "etiquette": "MAIS",
+    "element_visuel": {
+      "type": "calcul",
+      "expression": "400 − 150 − 49,20 = 200,80 €",
+      "mention": "Exemple illustratif · marge avant emballage et impôt sur le revenu"
+    },
+    "duree": 3
+  },
+  {
+    "texte": "Piège numéro deux : ne pas déclarer.",
+    "decor": "bureau",
+    "expression": "perplexe",
+    "mot_jaune": "déclarer",
+    "etiquette": "PIÈGE N°2",
+    "element_visuel": {
+      "type": "carte_texte",
+      "titre": "NE PAS DÉCLARER = RISQUE"
+    },
+    "duree": 3
+  },
+  {
+    "texte": "Dix pour cent de majoration, quarante si c'est jugé volontaire.",
+    "decor": "bureau",
+    "expression": "choque",
+    "mot_jaune": "quarante",
+    "etiquette": null,
+    "element_visuel": {
+      "type": "calcul_lignes",
+      "lignes": [
+        {
+          "label": "majoration",
+          "valeur": "10 %"
+        },
+        {
+          "label": "si manquement délibéré",
+          "valeur": "40 %"
+        }
+      ],
+      "source": "Source : impots.gouv.fr / BOFiP, art. 1728 et 1729 du CGI"
+    },
+    "duree": 3
+  },
+  {
+    "texte": "Mon conseil : garde tes preuves d'achat.",
+    "decor": "salon",
+    "expression": "fier",
+    "mot_jaune": "preuves",
+    "etiquette": "CONSEIL",
+    "element_visuel": {
+      "type": "liste",
+      "items": [
+        "Preuves d'achat"
+      ]
+    },
+    "duree": 3
+  },
+  {
+    "texte": "Et si tu achètes pour revendre, déclare-toi tôt.",
+    "decor": "salon",
+    "expression": "fier",
+    "mot_jaune": "tôt",
+    "etiquette": null,
+    "element_visuel": {
+      "type": "liste",
+      "items": [
+        "Preuves d'achat",
+        "Achat-revente = déclaration dès le début"
+      ],
+      "deja": 1
+    },
+    "duree": 3
+  },
+  {
+    "texte": "Et toi, dressing ou achat-revente ? Dis-le-moi en commentaire, et abonne-toi pour d'autres vrais chiffres.",
+    "decor": "studio",
+    "expression": "content",
+    "mot_jaune": "commentaire",
+    "etiquette": "TON AVIS",
+    "element_visuel": {
+      "type": "icones_cta"
+    },
+    "pose": "pointe_bas",
+    "duree": 3
+  }
+]

@@ -8,6 +8,7 @@ npm run studio            # aperçu interactif (une composition par épisode)
 npm run render            # épisode 1 → out/ep01.mp4
 npm run render -- ep02    # épisode 2 → out/ep02.mp4
 npm run render -- ep03    # épisode 3 → out/ep03.mp4
+npm run render -- ep04    # épisode 4 → out/ep04.mp4
 ```
 
 ## Épisodes
@@ -81,7 +82,7 @@ Un tableau de plans. Chaque plan correspond à une coupe (~4 s) :
 
 ## Structure
 
-- `src/components/Personnage.tsx` : personnage paramétrable (SVG, 6 expressions, clignement, bouche synchronisée) ; presets dans `src/personnages.ts` (Max, Inès, Karim)
+- `src/components/Personnage.tsx` : personnage paramétrable (SVG, 6 expressions, clignement, bouche synchronisée) ; presets dans `src/personnages.ts` (Max, Inès, Karim, Manon)
 - `src/components/Decor.tsx` : les décors
 - `src/components/Objets.tsx` : objets au sol (vélo garé, sablier)
 

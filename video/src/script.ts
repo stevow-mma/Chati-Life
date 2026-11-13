@@ -33,6 +33,9 @@ export const loadScript = (raw: unknown, fichier: string): Plan[] => {
     if (plan.expression && !EXPRESSIONS.includes(plan.expression)) {
       throw new Error(`${where} : expression "${plan.expression}" inconnue (${EXPRESSIONS.join(', ')}).`);
     }
+    if (plan.puis && !EXPRESSIONS.includes(plan.puis.expression)) {
+      throw new Error(`${where} : expression "${plan.puis.expression}" inconnue dans "puis".`);
+    }
     return {
       texte: plan.texte,
       decor: plan.decor ?? 'uni',
@@ -43,6 +46,8 @@ export const loadScript = (raw: unknown, fichier: string): Plan[] => {
       duree: plan.duree,
       pose: plan.pose ?? 'debout',
       accessoire_sol: plan.accessoire_sol ?? null,
+      objet_main: plan.objet_main ?? null,
+      puis: plan.puis ?? null,
       voix: null,
     };
   });

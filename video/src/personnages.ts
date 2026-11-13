@@ -36,4 +36,15 @@ export const PERSONNAGES: Record<string, Apparence> = {
     sac: {couleur: '#B5452F', ombre: '#8E3322'},
     velo: '#2D6A4F',
   },
+  /** Manon — 23 ans, étudiante qui vend ses vêtements en ligne (épisode 4). Aucun logo ni couleur de marque. */
+  manon: {
+    nom: 'Manon',
+    genre: 'femme',
+    teint: {peau: '#E2BD93', ombre: '#C69D72', joues: '#D98A76'},
+    cheveux: {style: 'carre_frange', couleur: '#141418'},
+    tenue: {haut: '#2F5D3A', hautOmbre: '#234A2C', bas: '#2B3A55', chaussures: '#F4EDE1', bandeChaussures: '#1F3B2A', capuche: true, oversize: true},
+    tete: null,
+    boucles: '#C9CED6',
+    telephone: '#E8E4F0',
+  },
 };
