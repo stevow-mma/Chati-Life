@@ -50,9 +50,11 @@ const GESTES_BRAS = new Set([
   'serrer', 'essuyer', 'porter', 'tourner',
   // ep17
   'raclette', 'pulveriser', 'frotter', 'perche', 'sonner', 'applaudir',
+  // ep18
+  'manette', 'frotterYeux', 'baille',
 ]);
 /** Gestes à deux bras par défaut. */
-const DEUX_BRAS = new Set(['croiser', 'teteMains', 'ballants', 'taper', 'squat', 'fente', 'etirement', 'pompe', 'applaudir']);
+const DEUX_BRAS = new Set(['croiser', 'teteMains', 'ballants', 'taper', 'squat', 'fente', 'etirement', 'pompe', 'applaudir', 'manette', 'frotterYeux']);
 
 const finDe = (a: ActionActeur, dureeScene: number) => a.fin ?? (a.type === 'objet' ? dureeScene + 1 : a.t + 0.6);
 
@@ -201,6 +203,13 @@ const cibleGeste = (a: ActionActeur, u: number, duree: number, frame: number, s:
       const coup = Math.max(0, Math.sin(u * 9));
       return {epaule: 88 + coup * 6, coude: -12 + coup * 10, index: true};
     }
+    case 'manette':
+      // tient une manette à deux mains, gesticule
+      return {epaule: 34 + osc(0.6, 6), coude: -84 + osc(0.9, 10)};
+    case 'frotterYeux':
+      return {epaule: 142 + osc(0.3, 2), coude: 74 + osc(1.4, 12)};
+    case 'baille':
+      return {epaule: -16, coude: -146, ouverte: true};
     case 'applaudir':
       // applaudit : mains devant la poitrine qui se rejoignent
       return {epaule: 40, coude: 105 + Math.sin(u * 16) * 18};

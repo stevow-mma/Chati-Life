@@ -217,6 +217,8 @@ export type TypeAction =
   // objet tenu en main (sans geste particulier)
   // ep17 : laveuse de vitres
   | 'raclette' | 'pulveriser' | 'frotter' | 'perche' | 'sonner' | 'applaudir'
+  // ep18 : streamer
+  | 'manette' | 'frotterYeux' | 'baille'
   | 'objet';
 
 export type ObjetTenuNom =
@@ -235,7 +237,9 @@ export type ObjetTenuNom =
   // ep16
   | 'cle_molette' | 'caisse_outils' | 'panier' | 'carte_paiement' | 'recu' | 'attestation' | 'pistolet'
   // ep17
-  | 'raclette' | 'perche' | 'seau' | 'pulverisateur' | 'microfibre';
+  | 'raclette' | 'perche' | 'seau' | 'pulverisateur' | 'microfibre'
+  // ep18
+  | 'manette';
 
 export type ActionActeur = {
   t: number;
@@ -314,7 +318,9 @@ export type ObjetScene = {
     // ep16
     | 'evier' | 'camion' | 'pompe' | 'chaudiere' | 'calendrier' | 'pile_papiers' | 'boite_pieces' | 'tuyaux'
     // ep17
-    | 'baie_vitree' | 'gouttes' | 'seau_sol' | 'immeuble_nacelle';
+    | 'baie_vitree' | 'gouttes' | 'seau_sol' | 'immeuble_nacelle'
+    // ep18
+    | 'ecran_jeu' | 'tirelire' | 'timeline' | 'globe' | 'video_retiree' | 'pile_clips' | 'graphique' | 'compteur_abos' | 'bouton_abo';
   x: number;
   y: number;
   /** Largeur (bureau, écran). */

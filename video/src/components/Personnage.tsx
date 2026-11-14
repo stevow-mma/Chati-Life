@@ -3,6 +3,7 @@ import {GrosseBarbe} from './Ep14';
 import {ChronoCou, VesteZip} from './Ep15';
 import {Salopette} from './Ep16';
 import {TablierVitres} from './Ep17';
+import {Bonnet, CasqueAudio, Echarpe} from './Ep18';
 import {useCurrentFrame, useVideoConfig, interpolate, spring} from 'remotion';
 import type {Accessoire, Expression, ObjetMain, Pose as Posture} from '../types';
 import {
@@ -105,6 +106,10 @@ export type Apparence = {
     | {type: 'aviateur'; monture: string; verre: string}
     /** ep12 : lunettes carrées à fine monture. */
     | {type: 'lunettes_carrees'; couleur: string}
+    /** ep18 : casque audio porté sur les oreilles. */
+    | {type: 'casque_audio'; couleur: string; coussins: string}
+    /** ep18 : bonnet en maille à pompon. */
+    | {type: 'bonnet'; couleur: string}
     | null;
   /** Barbe de trois jours (couleur). */
   barbe?: string | null;
@@ -190,6 +195,8 @@ export type Apparence = {
   salopette?: {couleur: string; ombre: string} | null;
   /** ep17 : tablier de taille avec raclettes dans la poche (couleur). */
   tablierVitres?: string | null;
+  /** ep18 : écharpe enroulée au cou (couleur). */
+  echarpe?: string | null;
   /** ep16 : genouillères (couleur, jambes animées). */
   genouilleres?: string | null;
 };
@@ -1550,6 +1557,7 @@ export const Personnage: React.FC<{
         {a.chronoCou ? <ChronoCou cordon={a.chronoCou} /> : null}
         {a.salopette ? <Salopette couleur={a.salopette.couleur} ombre={a.salopette.ombre} /> : null}
         {a.tablierVitres && !assis ? <TablierVitres couleur={a.tablierVitres} /> : null}
+        {a.echarpe ? <Echarpe couleur={a.echarpe} /> : null}
         {a.casqueCou ? <CasqueCou couleur={a.casqueCou.couleur} coussins={a.casqueCou.coussins} /> : null}
         {a.doudoune ? <Doudoune couleur={a.doudoune.couleur} ombre={a.doudoune.ombre} /> : null}
         {a.vesteJean ? <VesteJean couleur={a.vesteJean.couleur} ombre={a.vesteJean.ombre} dessous={a.vesteJean.dessous} /> : null}
@@ -1687,6 +1695,8 @@ export const Personnage: React.FC<{
           {casque ? <CasqueVelo couleur={casque.couleur} ombre={casque.couleurOmbre} /> : null}
           {casquette && casquette.envers ? <CasquetteEnvers couleur={casquette.couleur} ombre={casquette.couleurOmbre} cheveux={a.cheveux.couleur} /> : null}
           {casquette && !casquette.envers ? <Casquette couleur={casquette.couleur} ombre={casquette.couleurOmbre} initiale={casquette.initiale} /> : null}
+          {a.tete?.type === 'bonnet' ? <Bonnet couleur={a.tete.couleur} /> : null}
+          {a.tete?.type === 'casque_audio' ? <CasqueAudio couleur={a.tete.couleur} coussins={a.tete.coussins} /> : null}
           {a.tete?.type === 'aviateur' ? <AviateurReleve monture={a.tete.monture} verre={a.tete.verre} /> : null}
 
           {/* Goutte de sueur quand il/elle est choqué(e) */}

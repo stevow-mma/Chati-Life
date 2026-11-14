@@ -3,6 +3,7 @@ import {DecorShopTatouage} from './Ep14';
 import {DecorParc} from './Ep15';
 import {DecorCuisine} from './Ep16';
 import {DecorMaisonJardin} from './Ep17';
+import {DecorSetupGaming} from './Ep18';
 import {DecorVoiture} from './ObjetsSceneEp12';
 import {AbsoluteFill, interpolate, useCurrentFrame, useVideoConfig} from 'remotion';
 
@@ -972,6 +973,17 @@ export const Decor: React.FC<{nom: string; variante?: number}> = ({nom, variante
       break;
     case 'parc':
       content = <DecorParc frame={frame} />;
+      break;
+    case 'setup_gaming':
+      content = <DecorSetupGaming frame={frame} />;
+      break;
+    case 'chambre_nuit':
+      content = (
+        <div style={{position: 'relative', width: W, height: H}}>
+          <Chambre frame={frame} />
+          <div style={{position: 'absolute', inset: 0, background: 'rgba(16,12,60,0.55)'}} />
+        </div>
+      );
       break;
     case 'maison_jardin':
       content = <DecorMaisonJardin frame={frame} />;

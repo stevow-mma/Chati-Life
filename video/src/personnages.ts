@@ -701,4 +701,73 @@ export const PERSONNAGES: Record<string, Apparence> = {
     barbe: '#2B1D16',
     gilet: {couleur: '#FB8500', ombre: '#D96F00', bandes: '#E9ECEF'},
   },
+  /** Nolan — 18 ans, jeune streamer (ep18). Cheveux châtain foncé en pétard, boucle d'oreille discrète, sweat à capuche
+   *  gris chiné, casque audio autour du cou, bracelet-montre noir. Aucun logo. */
+  nolan: {
+    nom: 'Nolan',
+    genre: 'homme',
+    teint: {peau: '#F1C9A5', ombre: '#D9AC86', joues: '#E89C84'},
+    cheveux: {style: 'court_dessus', couleur: '#3B2A20'},
+    tenue: {haut: '#9AA0A6', hautOmbre: '#7D838A', bas: '#2F3E5C', chaussures: '#F8F9FA', bandeChaussures: '#ADB5BD', capuche: true, chine: '#C5C9CE'},
+    tete: null,
+    sourcils: '#2E2018',
+    clous: '#CED4DA',
+    casqueCou: {couleur: '#212529', coussins: '#495057'},
+    montre: '#111111',
+  },
+  /** Nolan avec le casque sur les oreilles (ep18, setup gaming). */
+  nolan_casque: {
+    nom: 'Nolan',
+    genre: 'homme',
+    teint: {peau: '#F1C9A5', ombre: '#D9AC86', joues: '#E89C84'},
+    cheveux: {style: 'court_dessus', couleur: '#3B2A20'},
+    tenue: {haut: '#9AA0A6', hautOmbre: '#7D838A', bas: '#2F3E5C', chaussures: '#F8F9FA', bandeChaussures: '#ADB5BD', capuche: true, chine: '#C5C9CE'},
+    tete: {type: 'casque_audio', couleur: '#212529', coussins: '#495057'},
+    sourcils: '#2E2018',
+    clous: '#CED4DA',
+    montre: '#111111',
+  },
+  /** Spectatrice abonnée (ep18), 20 ans : bonnet rose, écharpe blanche. */
+  spectatrice: {
+    nom: 'Spectatrice',
+    genre: 'femme',
+    teint: {peau: '#C68B65', ombre: '#A9704C', joues: '#C77560'},
+    cheveux: {style: 'long_lisse', couleur: '#4A2E1E'},
+    tenue: {haut: '#6D597A', hautOmbre: '#574766', bas: '#2B2D42', chaussures: '#F8F9FA', bandeChaussures: '#ADB5BD'},
+    tete: {type: 'bonnet', couleur: '#FF8FAB'},
+    echarpe: '#F8F9FA',
+  },
+  /** Responsable de marque (ep18), 30 ans : chemise bleue, badge sans nom. */
+  resp_marque: {
+    nom: 'Responsable de marque',
+    genre: 'homme',
+    teint: {peau: '#8D5A3B', ombre: '#71442A', joues: '#9E5A44'},
+    cheveux: {style: 'rase', couleur: '#1A1412'},
+    tenue: {haut: '#4A90E2', hautOmbre: '#3A74BC', bas: '#343A40', chaussures: '#4A3326', bandeChaussures: '#2E1F16', chemise: true},
+    tete: null,
+    badge: {texte: '', couleur: '#F8F9FA'},
+  },
+  /** Conseillère (ep18), 40 ans : cheveux roux courts, blazer vert. */
+  conseillere: {
+    nom: 'Conseillère',
+    genre: 'femme',
+    teint: {peau: '#F6D3BC', ombre: '#E0B59A', joues: '#EF9F8F'},
+    cheveux: {style: 'pixie', couleur: '#C1440E'},
+    tenue: {haut: '#2D6A4F', hautOmbre: '#1B4332', bas: '#343A40', chaussures: '#212529', bandeChaussures: '#111'},
+    tete: null,
+    sourcils: '#9C3A10',
+    costume: {revers: '#1B4332'},
+  },
+  /** Agent de modération (ep18), 50 ans : costume gris, badge sans nom. */
+  moderateur: {
+    nom: 'Agent de modération',
+    genre: 'homme',
+    teint: {peau: '#E8BE9C', ombre: '#CFA07C', joues: '#DE937C'},
+    cheveux: {style: 'court', couleur: '#8E8E8E'},
+    tenue: {haut: '#868E96', hautOmbre: '#6C757D', bas: '#5D646F', chaussures: '#2E2018', bandeChaussures: '#1E140C'},
+    tete: null,
+    barbe: '#9E9E9E',
+    costume: {revers: '#6C757D'},
+    badge: {texte: '', couleur: '#F8F9FA'},
+  },
 };

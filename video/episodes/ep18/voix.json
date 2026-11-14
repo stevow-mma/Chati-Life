@@ -1,0 +1,1238 @@
+{
+ "mode": "piste_unique",
+ "fichier": "ep18/voix.mp3",
+ "hash": "0f16523d8e4e9cd9f0afb95eb702b4ff6a9b489e6b79dba54507404ba1a2c147",
+ "duree_piste": 80.117551,
+ "derniere_parole": 80.091,
+ "fin": 83.091,
+ "scenes": [
+  {
+   "texte_lu": "Nolan, dix-huit ans, surfe sur G.T.A. six et encaisse huit cents euros par mois. Il lui reste environ cinq cent cinquante euros.",
+   "debut": 0,
+   "mots": [
+    {
+     "texte": "Nolan,",
+     "debut": 0.4,
+     "fin": 0.911
+    },
+    {
+     "texte": "dix-huit",
+     "debut": 0.934,
+     "fin": 1.271
+    },
+    {
+     "texte": "ans,",
+     "debut": 1.34,
+     "fin": 1.607
+    },
+    {
+     "texte": "surfe",
+     "debut": 1.991,
+     "fin": 2.234
+    },
+    {
+     "texte": "sur",
+     "debut": 2.258,
+     "fin": 2.467
+    },
+    {
+     "texte": "G.T.A.",
+     "debut": 2.548,
+     "fin": 2.989
+    },
+    {
+     "texte": "six",
+     "debut": 3.012,
+     "fin": 3.349
+    },
+    {
+     "texte": "et",
+     "debut": 3.5,
+     "fin": 3.581
+    },
+    {
+     "texte": "encaisse",
+     "debut": 3.628,
+     "fin": 3.976
+    },
+    {
+     "texte": "huit",
+     "debut": 4.011,
+     "fin": 4.162
+    },
+    {
+     "texte": "cents",
+     "debut": 4.185,
+     "fin": 4.359
+    },
+    {
+     "texte": "euros",
+     "debut": 4.382,
+     "fin": 4.545
+    },
+    {
+     "texte": "par",
+     "debut": 4.568,
+     "fin": 4.684
+    },
+    {
+     "texte": "mois.",
+     "debut": 4.719,
+     "fin": 5.021
+    },
+    {
+     "texte": "Il",
+     "debut": 5.23,
+     "fin": 5.334
+    },
+    {
+     "texte": "lui",
+     "debut": 5.357,
+     "fin": 5.462
+    },
+    {
+     "texte": "reste",
+     "debut": 5.497,
+     "fin": 5.706
+    },
+    {
+     "texte": "environ",
+     "debut": 5.729,
+     "fin": 6.124
+    },
+    {
+     "texte": "cinq",
+     "debut": 6.217,
+     "fin": 6.414
+    },
+    {
+     "texte": "cent",
+     "debut": 6.46,
+     "fin": 6.6
+    },
+    {
+     "texte": "cinquante",
+     "debut": 6.623,
+     "fin": 6.971
+    },
+    {
+     "texte": "euros.",
+     "debut": 7.018,
+     "fin": 7.447
+    }
+   ]
+  },
+  {
+   "texte_lu": "Trois sources : TikTok, quatre cent cinquante euros ; YouTube, deux cent cinquante ; Twitch, cent.",
+   "debut": 8.051,
+   "mots": [
+    {
+     "texte": "Trois",
+     "debut": 8.051,
+     "fin": 8.306
+    },
+    {
+     "texte": "sources",
+     "debut": 8.33,
+     "fin": 8.678
+    },
+    {
+     "texte": ":",
+     "debut": 8.701,
+     "fin": 8.759
+    },
+    {
+     "texte": "TikTok,",
+     "debut": 8.84,
+     "fin": 9.456
+    },
+    {
+     "texte": "quatre",
+     "debut": 9.549,
+     "fin": 9.851
+    },
+    {
+     "texte": "cent",
+     "debut": 9.885,
+     "fin": 10.036
+    },
+    {
+     "texte": "cinquante",
+     "debut": 10.071,
+     "fin": 10.431
+    },
+    {
+     "texte": "euros",
+     "debut": 10.454,
+     "fin": 10.721
+    },
+    {
+     "texte": ";",
+     "debut": 10.756,
+     "fin": 10.907
+    },
+    {
+     "texte": "YouTube,",
+     "debut": 11.116,
+     "fin": 11.662
+    },
+    {
+     "texte": "deux",
+     "debut": 11.697,
+     "fin": 11.824
+    },
+    {
+     "texte": "cent",
+     "debut": 11.847,
+     "fin": 11.975
+    },
+    {
+     "texte": "cinquante",
+     "debut": 11.998,
+     "fin": 12.451
+    },
+    {
+     "texte": ";",
+     "debut": 12.776,
+     "fin": 13.728
+    },
+    {
+     "texte": "Twitch,",
+     "debut": 13.902,
+     "fin": 14.367
+    },
+    {
+     "texte": "cent.",
+     "debut": 14.46,
+     "fin": 14.947
+    }
+   ]
+  },
+  {
+   "texte_lu": "Ensuite, deux cent cinq euros de cotisations et quarante de matériel. Il reste environ cinq cent cinquante euros, avant impôt.",
+   "debut": 14.982,
+   "mots": [
+    {
+     "texte": "Ensuite,",
+     "debut": 14.982,
+     "fin": 15.563
+    },
+    {
+     "texte": "deux",
+     "debut": 15.679,
+     "fin": 15.818
+    },
+    {
+     "texte": "cent",
+     "debut": 15.841,
+     "fin": 15.981
+    },
+    {
+     "texte": "cinq",
+     "debut": 16.004,
+     "fin": 16.178
+    },
+    {
+     "texte": "euros",
+     "debut": 16.213,
+     "fin": 16.41
+    },
+    {
+     "texte": "de",
+     "debut": 16.445,
+     "fin": 16.503
+    },
+    {
+     "texte": "cotisations",
+     "debut": 16.549,
+     "fin": 17.234
+    },
+    {
+     "texte": "et",
+     "debut": 17.292,
+     "fin": 17.409
+    },
+    {
+     "texte": "quarante",
+     "debut": 17.455,
+     "fin": 17.745
+    },
+    {
+     "texte": "de",
+     "debut": 17.768,
+     "fin": 17.827
+    },
+    {
+     "texte": "matériel.",
+     "debut": 17.873,
+     "fin": 18.523
+    },
+    {
+     "texte": "Il",
+     "debut": 18.848,
+     "fin": 18.976
+    },
+    {
+     "texte": "reste",
+     "debut": 19.046,
+     "fin": 19.243
+    },
+    {
+     "texte": "environ",
+     "debut": 19.266,
+     "fin": 19.742
+    },
+    {
+     "texte": "cinq",
+     "debut": 19.858,
+     "fin": 20.09
+    },
+    {
+     "texte": "cent",
+     "debut": 20.137,
+     "fin": 20.288
+    },
+    {
+     "texte": "cinquante",
+     "debut": 20.311,
+     "fin": 20.671
+    },
+    {
+     "texte": "euros,",
+     "debut": 20.694,
+     "fin": 21.043
+    },
+    {
+     "texte": "avant",
+     "debut": 21.159,
+     "fin": 21.449
+    },
+    {
+     "texte": "impôt.",
+     "debut": 21.472,
+     "fin": 21.902
+    }
+   ]
+  },
+  {
+   "texte_lu": "Mais entre le live, les clips et les montages, cent soixante-quinze heures : environ trois euros de l'heure.",
+   "debut": 22.343,
+   "mots": [
+    {
+     "texte": "Mais",
+     "debut": 22.343,
+     "fin": 22.552
+    },
+    {
+     "texte": "entre",
+     "debut": 22.587,
+     "fin": 22.796
+    },
+    {
+     "texte": "le",
+     "debut": 22.83,
+     "fin": 22.9
+    },
+    {
+     "texte": "live,",
+     "debut": 22.947,
+     "fin": 23.399
+    },
+    {
+     "texte": "les",
+     "debut": 23.515,
+     "fin": 23.643
+    },
+    {
+     "texte": "clips",
+     "debut": 23.666,
+     "fin": 23.957
+    },
+    {
+     "texte": "et",
+     "debut": 23.98,
+     "fin": 24.073
+    },
+    {
+     "texte": "les",
+     "debut": 24.096,
+     "fin": 24.177
+    },
+    {
+     "texte": "montages,",
+     "debut": 24.2,
+     "fin": 24.793
+    },
+    {
+     "texte": "cent",
+     "debut": 25.118,
+     "fin": 25.269
+    },
+    {
+     "texte": "soixante-quinze",
+     "debut": 25.292,
+     "fin": 25.907
+    },
+    {
+     "texte": "heures",
+     "debut": 25.965,
+     "fin": 26.174
+    },
+    {
+     "texte": ":",
+     "debut": 26.197,
+     "fin": 26.232
+    },
+    {
+     "texte": "environ",
+     "debut": 26.267,
+     "fin": 26.697
+    },
+    {
+     "texte": "trois",
+     "debut": 26.778,
+     "fin": 27.022
+    },
+    {
+     "texte": "euros",
+     "debut": 27.08,
+     "fin": 27.254
+    },
+    {
+     "texte": "de",
+     "debut": 27.277,
+     "fin": 27.335
+    },
+    {
+     "texte": "l'heure.",
+     "debut": 27.37,
+     "fin": 27.753
+    }
+   ]
+  },
+  {
+   "texte_lu": "Premier levier : transformer les spectateurs en abonnés. Cinquante abonnés, c'est environ cent vingt-cinq euros par mois.",
+   "debut": 28.264,
+   "mots": [
+    {
+     "texte": "Premier",
+     "debut": 28.264,
+     "fin": 28.577
+    },
+    {
+     "texte": "levier",
+     "debut": 28.6,
+     "fin": 28.96
+    },
+    {
+     "texte": ":",
+     "debut": 29.007,
+     "fin": 29.135
+    },
+    {
+     "texte": "transformer",
+     "debut": 29.169,
+     "fin": 29.657
+    },
+    {
+     "texte": "les",
+     "debut": 29.68,
+     "fin": 29.761
+    },
+    {
+     "texte": "spectateurs",
+     "debut": 29.785,
+     "fin": 30.446
+    },
+    {
+     "texte": "en",
+     "debut": 30.47,
+     "fin": 30.632
+    },
+    {
+     "texte": "abonnés.",
+     "debut": 30.702,
+     "fin": 31.213
+    },
+    {
+     "texte": "Cinquante",
+     "debut": 31.596,
+     "fin": 32.025
+    },
+    {
+     "texte": "abonnés,",
+     "debut": 32.049,
+     "fin": 32.42
+    },
+    {
+     "texte": "c'est",
+     "debut": 32.443,
+     "fin": 32.641
+    },
+    {
+     "texte": "environ",
+     "debut": 32.71,
+     "fin": 33.047
+    },
+    {
+     "texte": "cent",
+     "debut": 33.117,
+     "fin": 33.303
+    },
+    {
+     "texte": "vingt-cinq",
+     "debut": 33.326,
+     "fin": 33.72
+    },
+    {
+     "texte": "euros",
+     "debut": 33.779,
+     "fin": 34.034
+    },
+    {
+     "texte": "par",
+     "debut": 34.069,
+     "fin": 34.208
+    },
+    {
+     "texte": "mois.",
+     "debut": 34.255,
+     "fin": 34.58
+    }
+   ]
+  },
+  {
+   "texte_lu": "Deuxième levier : miser sur les montages. Ils paient dix euros de l'heure, contre sept cinquante pour les clips.",
+   "debut": 35.183,
+   "mots": [
+    {
+     "texte": "Deuxième",
+     "debut": 35.183,
+     "fin": 35.52
+    },
+    {
+     "texte": "levier",
+     "debut": 35.543,
+     "fin": 35.892
+    },
+    {
+     "texte": ":",
+     "debut": 35.95,
+     "fin": 35.973
+    },
+    {
+     "texte": "miser",
+     "debut": 36.101,
+     "fin": 36.414
+    },
+    {
+     "texte": "sur",
+     "debut": 36.437,
+     "fin": 36.565
+    },
+    {
+     "texte": "les",
+     "debut": 36.6,
+     "fin": 36.669
+    },
+    {
+     "texte": "montages.",
+     "debut": 36.693,
+     "fin": 37.273
+    },
+    {
+     "texte": "Ils",
+     "debut": 37.598,
+     "fin": 37.796
+    },
+    {
+     "texte": "paient",
+     "debut": 37.819,
+     "fin": 38.097
+    },
+    {
+     "texte": "dix",
+     "debut": 38.121,
+     "fin": 38.318
+    },
+    {
+     "texte": "euros",
+     "debut": 38.364,
+     "fin": 38.562
+    },
+    {
+     "texte": "de",
+     "debut": 38.597,
+     "fin": 38.666
+    },
+    {
+     "texte": "l'heure,",
+     "debut": 38.724,
+     "fin": 39.061
+    },
+    {
+     "texte": "contre",
+     "debut": 39.096,
+     "fin": 39.421
+    },
+    {
+     "texte": "sept",
+     "debut": 39.479,
+     "fin": 39.665
+    },
+    {
+     "texte": "cinquante",
+     "debut": 39.711,
+     "fin": 40.234
+    },
+    {
+     "texte": "pour",
+     "debut": 40.292,
+     "fin": 40.42
+    },
+    {
+     "texte": "les",
+     "debut": 40.455,
+     "fin": 40.536
+    },
+    {
+     "texte": "clips.",
+     "debut": 40.559,
+     "fin": 41.047
+    }
+   ]
+  },
+  {
+   "texte_lu": "Troisième levier : une vidéo sponsorisée par mois. De cinquante à deux cent cinquante euros, dès mille abonnés.",
+   "debut": 41.488,
+   "mots": [
+    {
+     "texte": "Troisième",
+     "debut": 41.488,
+     "fin": 41.883
+    },
+    {
+     "texte": "levier",
+     "debut": 41.906,
+     "fin": 42.243
+    },
+    {
+     "texte": ":",
+     "debut": 42.277,
+     "fin": 42.312
+    },
+    {
+     "texte": "une",
+     "debut": 42.359,
+     "fin": 42.498
+    },
+    {
+     "texte": "vidéo",
+     "debut": 42.521,
+     "fin": 42.823
+    },
+    {
+     "texte": "sponsorisée",
+     "debut": 42.846,
+     "fin": 43.369
+    },
+    {
+     "texte": "par",
+     "debut": 43.392,
+     "fin": 43.508
+    },
+    {
+     "texte": "mois.",
+     "debut": 43.543,
+     "fin": 43.903
+    },
+    {
+     "texte": "De",
+     "debut": 44.228,
+     "fin": 44.437
+    },
+    {
+     "texte": "cinquante",
+     "debut": 44.495,
+     "fin": 44.924
+    },
+    {
+     "texte": "à",
+     "debut": 44.971,
+     "fin": 45.017
+    },
+    {
+     "texte": "deux",
+     "debut": 45.099,
+     "fin": 45.203
+    },
+    {
+     "texte": "cent",
+     "debut": 45.226,
+     "fin": 45.354
+    },
+    {
+     "texte": "cinquante",
+     "debut": 45.377,
+     "fin": 45.726
+    },
+    {
+     "texte": "euros,",
+     "debut": 45.749,
+     "fin": 46.074
+    },
+    {
+     "texte": "dès",
+     "debut": 46.19,
+     "fin": 46.318
+    },
+    {
+     "texte": "mille",
+     "debut": 46.353,
+     "fin": 46.538
+    },
+    {
+     "texte": "abonnés.",
+     "debut": 46.561,
+     "fin": 47.084
+    }
+   ]
+  },
+  {
+   "texte_lu": "Quatrième levier : sous-titrer en anglais. Une vue américaine paie deux à trois fois plus qu'en France.",
+   "debut": 47.467,
+   "mots": [
+    {
+     "texte": "Quatrième",
+     "debut": 47.467,
+     "fin": 47.885
+    },
+    {
+     "texte": "levier",
+     "debut": 47.908,
+     "fin": 48.28
+    },
+    {
+     "texte": ":",
+     "debut": 48.303,
+     "fin": 48.326
+    },
+    {
+     "texte": "sous-titrer",
+     "debut": 48.442,
+     "fin": 48.93
+    },
+    {
+     "texte": "en",
+     "debut": 48.953,
+     "fin": 49.023
+    },
+    {
+     "texte": "anglais.",
+     "debut": 49.092,
+     "fin": 49.592
+    },
+    {
+     "texte": "Une",
+     "debut": 49.87,
+     "fin": 50.068
+    },
+    {
+     "texte": "vue",
+     "debut": 50.103,
+     "fin": 50.265
+    },
+    {
+     "texte": "américaine",
+     "debut": 50.3,
+     "fin": 50.834
+    },
+    {
+     "texte": "paie",
+     "debut": 50.869,
+     "fin": 51.031
+    },
+    {
+     "texte": "deux",
+     "debut": 51.113,
+     "fin": 51.264
+    },
+    {
+     "texte": "à",
+     "debut": 51.31,
+     "fin": 51.333
+    },
+    {
+     "texte": "trois",
+     "debut": 51.38,
+     "fin": 51.565
+    },
+    {
+     "texte": "fois",
+     "debut": 51.6,
+     "fin": 51.728
+    },
+    {
+     "texte": "plus",
+     "debut": 51.751,
+     "fin": 51.937
+    },
+    {
+     "texte": "qu'en",
+     "debut": 51.96,
+     "fin": 52.076
+    },
+    {
+     "texte": "France.",
+     "debut": 52.111,
+     "fin": 52.599
+    }
+   ]
+  },
+  {
+   "texte_lu": "Cinquième levier : l'A.C.R.E. Vingt-cinq pour cent de cotisations en moins la première année, si tu y as droit.",
+   "debut": 52.982,
+   "mots": [
+    {
+     "texte": "Cinquième",
+     "debut": 52.982,
+     "fin": 53.4
+    },
+    {
+     "texte": "levier",
+     "debut": 53.423,
+     "fin": 53.806
+    },
+    {
+     "texte": ":",
+     "debut": 53.83,
+     "fin": 53.888
+    },
+    {
+     "texte": "l'A.C.R.E.",
+     "debut": 54.004,
+     "fin": 54.48
+    },
+    {
+     "texte": "Vingt-cinq",
+     "debut": 54.526,
+     "fin": 55.037
+    },
+    {
+     "texte": "pour",
+     "debut": 55.095,
+     "fin": 55.223
+    },
+    {
+     "texte": "cent",
+     "debut": 55.269,
+     "fin": 55.443
+    },
+    {
+     "texte": "de",
+     "debut": 55.478,
+     "fin": 55.536
+    },
+    {
+     "texte": "cotisations",
+     "debut": 55.583,
+     "fin": 56.117
+    },
+    {
+     "texte": "en",
+     "debut": 56.152,
+     "fin": 56.256
+    },
+    {
+     "texte": "moins",
+     "debut": 56.291,
+     "fin": 56.5
+    },
+    {
+     "texte": "la",
+     "debut": 56.523,
+     "fin": 56.581
+    },
+    {
+     "texte": "première",
+     "debut": 56.628,
+     "fin": 56.929
+    },
+    {
+     "texte": "année,",
+     "debut": 56.953,
+     "fin": 57.185
+    },
+    {
+     "texte": "si",
+     "debut": 57.22,
+     "fin": 57.324
+    },
+    {
+     "texte": "tu",
+     "debut": 57.359,
+     "fin": 57.487
+    },
+    {
+     "texte": "y",
+     "debut": 57.545,
+     "fin": 57.568
+    },
+    {
+     "texte": "as",
+     "debut": 57.614,
+     "fin": 57.661
+    },
+    {
+     "texte": "droit.",
+     "debut": 57.684,
+     "fin": 58.021
+    }
+   ]
+  },
+  {
+   "texte_lu": "Conseil : note tes heures par plateforme, et garde ce qui paie le mieux.",
+   "debut": 58.532,
+   "mots": [
+    {
+     "texte": "Conseil",
+     "debut": 58.532,
+     "fin": 59.019
+    },
+    {
+     "texte": ":",
+     "debut": 59.17,
+     "fin": 59.298
+    },
+    {
+     "texte": "note",
+     "debut": 59.542,
+     "fin": 59.716
+    },
+    {
+     "texte": "tes",
+     "debut": 59.739,
+     "fin": 59.878
+    },
+    {
+     "texte": "heures",
+     "debut": 59.925,
+     "fin": 60.087
+    },
+    {
+     "texte": "par",
+     "debut": 60.111,
+     "fin": 60.203
+    },
+    {
+     "texte": "plateforme,",
+     "debut": 60.238,
+     "fin": 60.83
+    },
+    {
+     "texte": "et",
+     "debut": 60.888,
+     "fin": 61.039
+    },
+    {
+     "texte": "garde",
+     "debut": 61.121,
+     "fin": 61.376
+    },
+    {
+     "texte": "ce",
+     "debut": 61.399,
+     "fin": 61.469
+    },
+    {
+     "texte": "qui",
+     "debut": 61.527,
+     "fin": 61.62
+    },
+    {
+     "texte": "paie",
+     "debut": 61.655,
+     "fin": 61.782
+    },
+    {
+     "texte": "le",
+     "debut": 61.806,
+     "fin": 61.864
+    },
+    {
+     "texte": "mieux.",
+     "debut": 61.922,
+     "fin": 62.2
+    }
+   ]
+  },
+  {
+   "texte_lu": "Attention : Rockstar peut retirer tes vidéos. Pas de spoilers, ni de cinématiques isolées, ni de fuites.",
+   "debut": 62.804,
+   "mots": [
+    {
+     "texte": "Attention",
+     "debut": 62.804,
+     "fin": 63.245
+    },
+    {
+     "texte": ":",
+     "debut": 63.338,
+     "fin": 63.373
+    },
+    {
+     "texte": "Rockstar",
+     "debut": 63.977,
+     "fin": 64.36
+    },
+    {
+     "texte": "peut",
+     "debut": 64.395,
+     "fin": 64.522
+    },
+    {
+     "texte": "retirer",
+     "debut": 64.546,
+     "fin": 64.859
+    },
+    {
+     "texte": "tes",
+     "debut": 64.882,
+     "fin": 64.987
+    },
+    {
+     "texte": "vidéos.",
+     "debut": 65.01,
+     "fin": 65.486
+    },
+    {
+     "texte": "Pas",
+     "debut": 65.811,
+     "fin": 65.95
+    },
+    {
+     "texte": "de",
+     "debut": 65.974,
+     "fin": 66.032
+    },
+    {
+     "texte": "spoilers,",
+     "debut": 66.066,
+     "fin": 66.542
+    },
+    {
+     "texte": "ni",
+     "debut": 66.612,
+     "fin": 66.717
+    },
+    {
+     "texte": "de",
+     "debut": 66.763,
+     "fin": 66.844
+    },
+    {
+     "texte": "cinématiques",
+     "debut": 66.891,
+     "fin": 67.599
+    },
+    {
+     "texte": "isolées,",
+     "debut": 67.645,
+     "fin": 68.098
+    },
+    {
+     "texte": "ni",
+     "debut": 68.214,
+     "fin": 68.33
+    },
+    {
+     "texte": "de",
+     "debut": 68.377,
+     "fin": 68.435
+    },
+    {
+     "texte": "fuites.",
+     "debut": 68.505,
+     "fin": 68.957
+    }
+   ]
+  },
+  {
+   "texte_lu": "Règle numéro un : calcule ton revenu par heure, pas ton nombre de vues.",
+   "debut": 69.34,
+   "mots": [
+    {
+     "texte": "Règle",
+     "debut": 69.34,
+     "fin": 69.619
+    },
+    {
+     "texte": "numéro",
+     "debut": 69.666,
+     "fin": 69.979
+    },
+    {
+     "texte": "un",
+     "debut": 70.06,
+     "fin": 70.142
+    },
+    {
+     "texte": ":",
+     "debut": 70.258,
+     "fin": 70.304
+    },
+    {
+     "texte": "calcule",
+     "debut": 70.548,
+     "fin": 70.931
+    },
+    {
+     "texte": "ton",
+     "debut": 70.954,
+     "fin": 71.059
+    },
+    {
+     "texte": "revenu",
+     "debut": 71.094,
+     "fin": 71.372
+    },
+    {
+     "texte": "par",
+     "debut": 71.419,
+     "fin": 71.558
+    },
+    {
+     "texte": "heure,",
+     "debut": 71.628,
+     "fin": 71.988
+    },
+    {
+     "texte": "pas",
+     "debut": 72.231,
+     "fin": 72.359
+    },
+    {
+     "texte": "ton",
+     "debut": 72.382,
+     "fin": 72.498
+    },
+    {
+     "texte": "nombre",
+     "debut": 72.522,
+     "fin": 72.754
+    },
+    {
+     "texte": "de",
+     "debut": 72.789,
+     "fin": 72.87
+    },
+    {
+     "texte": "vues.",
+     "debut": 72.905,
+     "fin": 73.207
+    }
+   ]
+  },
+  {
+   "texte_lu": "Surfer sur G.T.A. six : bon plan ou piège ? Dis-le en commentaire, et abonne-toi pour d'autres vrais chiffres.",
+   "debut": 73.59,
+   "mots": [
+    {
+     "texte": "Surfer",
+     "debut": 73.59,
+     "fin": 73.938
+    },
+    {
+     "texte": "sur",
+     "debut": 73.973,
+     "fin": 74.124
+    },
+    {
+     "texte": "G.T.A.",
+     "debut": 74.17,
+     "fin": 74.553
+    },
+    {
+     "texte": "six",
+     "debut": 74.588,
+     "fin": 74.867
+    },
+    {
+     "texte": ":",
+     "debut": 75.018,
+     "fin": 75.053
+    },
+    {
+     "texte": "bon",
+     "debut": 75.18,
+     "fin": 75.343
+    },
+    {
+     "texte": "plan",
+     "debut": 75.401,
+     "fin": 75.621
+    },
+    {
+     "texte": "ou",
+     "debut": 75.703,
+     "fin": 75.784
+    },
+    {
+     "texte": "piège",
+     "debut": 75.83,
+     "fin": 76.283
+    },
+    {
+     "texte": "?",
+     "debut": 76.33,
+     "fin": 76.376
+    },
+    {
+     "texte": "Dis-le",
+     "debut": 76.655,
+     "fin": 76.887
+    },
+    {
+     "texte": "en",
+     "debut": 76.933,
+     "fin": 76.991
+    },
+    {
+     "texte": "commentaire,",
+     "debut": 77.038,
+     "fin": 77.711
+    },
+    {
+     "texte": "et",
+     "debut": 77.839,
+     "fin": 77.978
+    },
+    {
+     "texte": "abonne-toi",
+     "debut": 78.036,
+     "fin": 78.536
+    },
+    {
+     "texte": "pour",
+     "debut": 78.582,
+     "fin": 78.721
+    },
+    {
+     "texte": "d'autres",
+     "debut": 78.791,
+     "fin": 79.093
+    },
+    {
+     "texte": "vrais",
+     "debut": 79.116,
+     "fin": 79.302
+    },
+    {
+     "texte": "chiffres.",
+     "debut": 79.325,
+     "fin": 80.091
+    }
+   ]
+  }
+ ]
+}

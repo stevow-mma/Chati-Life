@@ -1,5 +1,6 @@
 import {interpolate} from 'remotion';
 import type {ObjetScene} from '../types';
+import {ObjetSceneEp18} from './Ep18';
 
 /**
  * ep17 (Chloé, laveuse de vitres indépendante) : ajouts optionnels, inutilisés par les épisodes précédents.
@@ -238,7 +239,7 @@ export const ObjetSceneEp17: React.FC<{o: ObjetScene; frame: number; fps: number
       );
     }
     default:
-      return null;
+      return <ObjetSceneEp18 o={o} frame={frame} fps={fps} />;
   }
 };
 
