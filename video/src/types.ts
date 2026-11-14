@@ -200,6 +200,8 @@ export type TypeAction =
   | 'poing' | 'tapeEpaule' | 'montrer' | 'lever'
   // ep11 : gestes de coiffeuse et gestes simples
   | 'couper' | 'peigner' | 'appliquer' | 'coller' | 'gratter' | 'tamponner' | 'ouvrir'
+  // ep13 : vise avec un appareil photo tenu devant l'œil
+  | 'viser'
   // ep11 : cape de coupe sur une cliente assise (`couleur`), clin d'œil
   | 'cape' | 'clin'
   // ep11 : changement de pose en cours de scène (`pose`, ex. se lever : assis → debout)
@@ -213,7 +215,9 @@ export type ObjetTenuNom =
   | 'calculatrice' | 'sac' | 'papiers'
   // ep11
   | 'ciseaux' | 'peigne' | 'trousse' | 'agenda' | 'carnet' | 'calepin' | 'note' | 'flacon' | 'serviette' | 'miroir'
-  | 'pinceau' | 'postit' | 'diplome' | 'tampon';
+  | 'pinceau' | 'postit' | 'diplome' | 'tampon'
+  // ep13
+  | 'appareil' | 'objectif' | 'bouquet' | 'album' | 'sac_photo';
 
 export type ActionActeur = {
   t: number;
@@ -282,7 +286,9 @@ export type ObjetScene = {
     | 'porte' | 'meches' | 'voiture' | 'agenda_mural' | 'chrono' | 'recus' | 'etagere_flacons' | 'comptoir' | 'facade'
     | 'fenetre' | 'panneau_tarifs' | 'balance' | 'meuble_tiroir' | 'papier_tampon' | 'chaise_coiffure' | 'trousse_sol' | 'chaise_simple'
     // ep12
-    | 'volant' | 'telephones_bord' | 'borne' | 'jauge_courses' | 'pile_descend' | 'hotel';
+    | 'volant' | 'telephones_bord' | 'borne' | 'jauge_courses' | 'pile_descend' | 'hotel'
+    // ep13
+    | 'miniatures';
   x: number;
   y: number;
   /** Largeur (bureau, écran). */

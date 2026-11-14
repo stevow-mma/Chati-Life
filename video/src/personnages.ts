@@ -384,4 +384,70 @@ export const PERSONNAGES: Record<string, Apparence> = {
     tete: null,
     barbe: '#4A4A4A',
   },
+  /** Inès (ep13), photographe de mariage, 31 ans : longues tresses attachées, lunettes rondes dorées, veste en jean sur
+   *  t-shirt moutarde, cargo olive, bottines marron, appareil photo générique en bandoulière. */
+  ines_photo: {
+    nom: 'Inès',
+    genre: 'femme',
+    teint: {peau: '#8D5A3B', ombre: '#73452A', joues: '#A8614A'},
+    cheveux: {style: 'tresses', couleur: '#1E1614'},
+    tenue: {haut: '#5A7FB5', hautOmbre: '#45679A', bas: '#6B7A3A', chaussures: '#7A4A2A', bandeChaussures: '#5A3418', poches: '#5A6830'},
+    tete: {type: 'lunettes_rondes', couleur: '#D4A72C'},
+    vesteJean: {couleur: '#5A7FB5', ombre: '#45679A', dessous: '#D9A21B'},
+    bandouliere: true,
+  },
+  /** Mariée (ep13) : robe blanche simple, chignon châtain. */
+  mariee: {
+    nom: 'Mariée',
+    genre: 'femme',
+    teint: {peau: '#F3D2B8', ombre: '#DDB496', joues: '#EFA08C'},
+    cheveux: {style: 'chignon_boucle', couleur: '#7A4E2D'},
+    tenue: {haut: '#FFFFFF', hautOmbre: '#E9ECEF', bas: '#FFFFFF', chaussures: '#F1F3F5', bandeChaussures: '#DEE2E6', tshirt: true},
+    tete: null,
+    robe: {couleur: '#FFFFFF', ombre: '#E3E6EA'},
+  },
+  /** Marié (ep13) : barbe courte, costume bleu marine. */
+  marie: {
+    nom: 'Marié',
+    genre: 'homme',
+    teint: {peau: '#D9A880', ombre: '#BF8C62', joues: '#D98A70'},
+    cheveux: {style: 'court', couleur: '#2E211A'},
+    tenue: {haut: '#1D2D50', hautOmbre: '#14203C', bas: '#1D2D50', chaussures: '#111114', bandeChaussures: '#2A2A30'},
+    tete: null,
+    barbe: '#2E211A',
+    costume: {revers: '#14203C'},
+    chemiseOuverte: '#FFFFFF',
+  },
+  /** Cliente professionnelle (ep13) : blazer corail, badge sans nom. */
+  cliente_pro: {
+    nom: 'Cliente',
+    genre: 'femme',
+    teint: {peau: '#E8BE98', ombre: '#CFA077', joues: '#E5927A'},
+    cheveux: {style: 'mi_long', couleur: '#3B2A22'},
+    tenue: {haut: '#F27059', hautOmbre: '#D85A44', bas: '#2B2D42', chaussures: '#2E2018', bandeChaussures: '#1E140C'},
+    tete: null,
+    costume: {revers: '#D85A44'},
+    chemiseOuverte: '#FFFFFF',
+    badge: {texte: '', couleur: '#FFFFFF'},
+  },
+  /** Imprimeur d'albums (ep13) : tablier gris, casquette sans logo. */
+  imprimeur: {
+    nom: 'Imprimeur',
+    genre: 'homme',
+    teint: {peau: '#F1C9A5', ombre: '#D9AC86', joues: '#EB9A84'},
+    cheveux: {style: 'court', couleur: '#6B4A2F'},
+    tenue: {haut: '#90BE6D', hautOmbre: '#76A355', bas: '#495057', chaussures: '#343A40', bandeChaussures: '#212529', tshirt: true},
+    tete: {type: 'casquette', couleur: '#6C757D', couleurOmbre: '#495057'},
+    tablier: {couleur: '#868E96', poche: '#6C757D'},
+  },
+  /** Expert-comptable (ep13) : cheveux gris, gilet bordeaux, dossier. */
+  expert: {
+    nom: 'Expert-comptable',
+    genre: 'homme',
+    teint: {peau: '#EAC3A0', ombre: '#D1A47F', joues: '#E39880'},
+    cheveux: {style: 'court_dessus', couleur: '#A7A9AC'},
+    tenue: {haut: '#7B1E3A', hautOmbre: '#5E1229', bas: '#3D405B', chaussures: '#2E2018', bandeChaussures: '#1E140C'},
+    tete: {type: 'lunettes_carrees', couleur: '#343A40'},
+    cardigan: {ombre: '#5E1229', dessous: '#FFFFFF'},
+  },
 };

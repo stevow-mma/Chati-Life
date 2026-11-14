@@ -40,6 +40,8 @@ const GESTES_BRAS = new Set([
   'tapeMain', 'pouce', 'ballants', 'sousBras', 'tenir', 'ecrire', 'tracer', 'nuque', 'poing', 'tapeEpaule', 'montrer', 'lever',
   // ep11
   'couper', 'peigner', 'appliquer', 'coller', 'gratter', 'tamponner', 'ouvrir',
+  // ep13
+  'viser',
 ]);
 /** Gestes à deux bras par défaut. */
 const DEUX_BRAS = new Set(['croiser', 'teteMains', 'ballants', 'taper']);
@@ -140,6 +142,10 @@ const cibleGeste = (a: ActionActeur, u: number, duree: number, frame: number, s:
       const p = clamp01(u / Math.max(duree, 0.01));
       return p < 0.4 ? {epaule: 84, coude: -14} : {epaule: lerp(84, 156, lisse((p - 0.4) * 2.5)), coude: lerp(-14, 4, lisse((p - 0.4) * 2.5))};
     }
+    // --- ep13 ---
+    case 'viser':
+      // appareil photo levé devant l'œil, petit tremblé de cadrage
+      return {epaule: 100 + osc(0.3, 2), coude: 135 + osc(0.45, 2)};
     default:
       return REPOS;
   }

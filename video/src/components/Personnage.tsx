@@ -1,3 +1,4 @@
+import {Bandouliere, RobeLongue, TressesArriere, TressesAvant, VesteJean} from './Ep13';
 import {useCurrentFrame, useVideoConfig, interpolate, spring} from 'remotion';
 import type {Accessoire, Expression, ObjetMain, Pose as Posture} from '../types';
 import {
@@ -51,7 +52,7 @@ export type Apparence = {
   nom: string;
   genre: 'homme' | 'femme';
   teint: {peau: string; ombre: string; joues: string};
-  cheveux: {style: 'meches' | 'chignon_boucle' | 'court' | 'carre_frange' | 'court_dessus' | 'afro_puff' | 'ondule_meche' | 'queue_frange' | 'degrade' | 'gomine' | 'long_boucle' | 'pixie' | 'mi_long' | 'long_lisse' | 'court_ondule' | 'rase'; couleur: string; /** ep10 : mèches (couleur) des cheveux longs bouclés. */ meches?: string; /** ep11 : racines plus foncées (pixie décolorée). */ racines?: string};
+  cheveux: {style: 'meches' | 'chignon_boucle' | 'court' | 'carre_frange' | 'court_dessus' | 'afro_puff' | 'ondule_meche' | 'queue_frange' | 'degrade' | 'gomine' | 'long_boucle' | 'pixie' | 'mi_long' | 'long_lisse' | 'court_ondule' | 'rase' | 'tresses'; couleur: string; /** ep10 : mèches (couleur) des cheveux longs bouclés. */ meches?: string; /** ep11 : racines plus foncées (pixie décolorée). */ racines?: string};
   tenue: {
     haut: string;
     hautOmbre: string;
@@ -165,6 +166,12 @@ export type Apparence = {
   oreillette?: string | null;
   /** ep12 : chemise blanche col ouvert sous la veste (couleur de la chemise). */
   chemiseOuverte?: string | null;
+  /** ep13 : veste en jean ouverte (couleur, ombre) sur un t-shirt (dessous). */
+  vesteJean?: {couleur: string; ombre: string; dessous: string} | null;
+  /** ep13 : appareil photo en bandoulière (boîtier générique à la hanche). */
+  bandouliere?: boolean;
+  /** ep13 : robe longue jusqu'au sol (couleur, ombre). */
+  robe?: {couleur: string; ombre: string} | null;
 };
 
 /** Durée (frames) d'un passage d'article au scanner (pose « scanne ») ; le bip du décor « caisse_tapis » suit le même cycle. */
@@ -417,6 +424,7 @@ const CheveuxArriere: React.FC<{a: Apparence; frame: number}> = ({a, frame}) => 
   if (a.cheveux.style === 'mi_long') return <MiLongArriere c={a.cheveux.couleur} frame={frame} />;
   if (a.cheveux.style === 'long_lisse') return <LongLisseArriere c={a.cheveux.couleur} frame={frame} />;
   if (a.cheveux.style === 'court_ondule') return <CourtOnduleArriere c={a.cheveux.couleur} />;
+  if (a.cheveux.style === 'tresses') return <TressesArriere c={a.cheveux.couleur} frame={frame} />;
   if (a.tete?.type === 'casquette' && a.tete.envers) {
     // ep09 : visière de la casquette portée à l'envers, qui dépasse derrière la tête
     return (
@@ -533,6 +541,7 @@ const CheveuxAvant: React.FC<{a: Apparence}> = ({a}) => {
   if (a.cheveux.style === 'mi_long') return <MiLongAvant c={c} />;
   if (a.cheveux.style === 'long_lisse') return <LongLisseAvant c={c} />;
   if (a.cheveux.style === 'court_ondule') return <CourtOnduleAvant c={c} />;
+  if (a.cheveux.style === 'tresses') return <TressesAvant c={c} />;
   if (a.cheveux.style === 'rase') {
     // ep12 : crâne rasé (léger reflet et ombre de repousse)
     return (
@@ -1511,6 +1520,9 @@ export const Personnage: React.FC<{
         {a.cordonBadge ? <CordonBadge cordon={a.cordonBadge.cordon} /> : null}
         {a.casqueCou ? <CasqueCou couleur={a.casqueCou.couleur} coussins={a.casqueCou.coussins} /> : null}
         {a.doudoune ? <Doudoune couleur={a.doudoune.couleur} ombre={a.doudoune.ombre} /> : null}
+        {a.vesteJean ? <VesteJean couleur={a.vesteJean.couleur} ombre={a.vesteJean.ombre} dessous={a.vesteJean.dessous} /> : null}
+        {a.bandouliere ? <Bandouliere enMain={mv?.objets?.l === 'appareil' || mv?.objets?.r === 'appareil'} /> : null}
+        {a.robe && !assis ? <RobeLongue couleur={a.robe.couleur} ombre={a.robe.ombre} /> : null}
         {a.petitSac ? (
           <path d="M 226 414 Q 234 520 230 610 M 374 414 Q 366 520 370 610" fill="none" stroke={a.petitSac.couleur} strokeWidth={13} strokeLinecap="round" />
         ) : null}

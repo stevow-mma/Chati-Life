@@ -1,3 +1,4 @@
+import {ObjetMainEp13} from './Ep13';
 /**
  * Extensions du personnage (ep10) : bras articulés (épaule + coude), jambes qui marchent, objets animés tenus
  * en main, nouvelles coiffures et nouveaux vêtements. Tout est optionnel : rien ici n'est utilisé par les
@@ -28,6 +29,8 @@ export type BrasAngles = {
 };
 
 export type ObjetTenu =
+  // ep13
+  | 'appareil' | 'objectif' | 'bouquet' | 'album' | 'sac_photo'
   | 'telephone'
   | 'telephone_b'
   | 'ordinateur'
@@ -1075,7 +1078,7 @@ export const ObjetMainEp11: React.FC<{nom: string; main: Pt; peau: string; miroi
         </g>
       );
     default:
-      return null;
+      return <ObjetMainEp13 nom={nom} main={main} peau={peau} miroir={miroir} texte={texte} frame={frame} />;
   }
 };
 

@@ -1,3 +1,4 @@
+import {ObjetSceneEp13} from './Ep13';
 import {interpolate} from 'remotion';
 import {FONT_TITRE} from '../fonts';
 import type {ObjetScene} from '../types';
@@ -214,6 +215,6 @@ export const ObjetSceneEp12: React.FC<{o: ObjetScene; frame: number; fps: number
       );
     }
     default:
-      return null;
+      return <ObjetSceneEp13 o={o} frame={frame} fps={fps} />;
   }
 };

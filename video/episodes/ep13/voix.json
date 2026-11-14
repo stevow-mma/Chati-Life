@@ -1,0 +1,1183 @@
+{
+ "mode": "piste_unique",
+ "fichier": "ep13/voix.mp3",
+ "hash": "e2e7ef8de0ae20a4b884e81e4c1d5ec9394c8ac785ab123c691a1d86590587b9",
+ "duree_piste": 75.206531,
+ "derniere_parole": 75.168,
+ "fin": 78.168,
+ "scenes": [
+  {
+   "texte_lu": "Inès facture mille huit cents euros un mariage. Il lui reste environ mille deux cents, pour quarante heures de travail.",
+   "debut": 0,
+   "mots": [
+    {
+     "texte": "Inès",
+     "debut": 0.4,
+     "fin": 0.702
+    },
+    {
+     "texte": "facture",
+     "debut": 0.76,
+     "fin": 1.143
+    },
+    {
+     "texte": "mille",
+     "debut": 1.166,
+     "fin": 1.352
+    },
+    {
+     "texte": "huit",
+     "debut": 1.387,
+     "fin": 1.515
+    },
+    {
+     "texte": "cents",
+     "debut": 1.549,
+     "fin": 1.77
+    },
+    {
+     "texte": "euros",
+     "debut": 1.828,
+     "fin": 2.153
+    },
+    {
+     "texte": "un",
+     "debut": 2.2,
+     "fin": 2.292
+    },
+    {
+     "texte": "mariage.",
+     "debut": 2.339,
+     "fin": 2.943
+    },
+    {
+     "texte": "Il",
+     "debut": 2.989,
+     "fin": 3.105
+    },
+    {
+     "texte": "lui",
+     "debut": 3.14,
+     "fin": 3.244
+    },
+    {
+     "texte": "reste",
+     "debut": 3.291,
+     "fin": 3.488
+    },
+    {
+     "texte": "environ",
+     "debut": 3.511,
+     "fin": 3.848
+    },
+    {
+     "texte": "mille",
+     "debut": 3.941,
+     "fin": 4.231
+    },
+    {
+     "texte": "deux",
+     "debut": 4.266,
+     "fin": 4.405
+    },
+    {
+     "texte": "cents,",
+     "debut": 4.44,
+     "fin": 4.8
+    },
+    {
+     "texte": "pour",
+     "debut": 4.951,
+     "fin": 5.114
+    },
+    {
+     "texte": "quarante",
+     "debut": 5.16,
+     "fin": 5.474
+    },
+    {
+     "texte": "heures",
+     "debut": 5.497,
+     "fin": 5.659
+    },
+    {
+     "texte": "de",
+     "debut": 5.683,
+     "fin": 5.752
+    },
+    {
+     "texte": "travail.",
+     "debut": 5.787,
+     "fin": 6.333
+    }
+   ]
+  },
+  {
+   "texte_lu": "D'abord, les cotisations : trois cent quatre-vingt-deux euros. Puis le matériel : cent euros par mariage.",
+   "debut": 6.716,
+   "mots": [
+    {
+     "texte": "D'abord,",
+     "debut": 6.716,
+     "fin": 7.087
+    },
+    {
+     "texte": "les",
+     "debut": 7.111,
+     "fin": 7.192
+    },
+    {
+     "texte": "cotisations",
+     "debut": 7.215,
+     "fin": 7.83
+    },
+    {
+     "texte": ":",
+     "debut": 7.854,
+     "fin": 7.912
+    },
+    {
+     "texte": "trois",
+     "debut": 7.97,
+     "fin": 8.19
+    },
+    {
+     "texte": "cent",
+     "debut": 8.214,
+     "fin": 8.364
+    },
+    {
+     "texte": "quatre-vingt-deux",
+     "debut": 8.388,
+     "fin": 9.096
+    },
+    {
+     "texte": "euros.",
+     "debut": 9.166,
+     "fin": 9.514
+    },
+    {
+     "texte": "Puis",
+     "debut": 9.897,
+     "fin": 10.083
+    },
+    {
+     "texte": "le",
+     "debut": 10.106,
+     "fin": 10.164
+    },
+    {
+     "texte": "matériel",
+     "debut": 10.199,
+     "fin": 10.663
+    },
+    {
+     "texte": ":",
+     "debut": 10.779,
+     "fin": 10.837
+    },
+    {
+     "texte": "cent",
+     "debut": 10.93,
+     "fin": 11.209
+    },
+    {
+     "texte": "euros",
+     "debut": 11.255,
+     "fin": 11.557
+    },
+    {
+     "texte": "par",
+     "debut": 11.58,
+     "fin": 11.696
+    },
+    {
+     "texte": "mariage.",
+     "debut": 11.743,
+     "fin": 12.254
+    }
+   ]
+  },
+  {
+   "texte_lu": "Ensuite, soixante pour les logiciels, l'assurance et la galerie, soixante de déplacement. Il reste environ mille deux cents euros, avant impôt.",
+   "debut": 12.277,
+   "mots": [
+    {
+     "texte": "Ensuite,",
+     "debut": 12.277,
+     "fin": 12.765
+    },
+    {
+     "texte": "soixante",
+     "debut": 12.788,
+     "fin": 13.218
+    },
+    {
+     "texte": "pour",
+     "debut": 13.241,
+     "fin": 13.357
+    },
+    {
+     "texte": "les",
+     "debut": 13.392,
+     "fin": 13.473
+    },
+    {
+     "texte": "logiciels,",
+     "debut": 13.496,
+     "fin": 14.065
+    },
+    {
+     "texte": "l'assurance",
+     "debut": 14.147,
+     "fin": 14.657
+    },
+    {
+     "texte": "et",
+     "debut": 14.681,
+     "fin": 14.727
+    },
+    {
+     "texte": "la",
+     "debut": 14.75,
+     "fin": 14.797
+    },
+    {
+     "texte": "galerie,",
+     "debut": 14.855,
+     "fin": 15.308
+    },
+    {
+     "texte": "soixante",
+     "debut": 15.586,
+     "fin": 16.19
+    },
+    {
+     "texte": "de",
+     "debut": 16.271,
+     "fin": 16.364
+    },
+    {
+     "texte": "déplacement.",
+     "debut": 16.411,
+     "fin": 17.061
+    },
+    {
+     "texte": "Il",
+     "debut": 17.27,
+     "fin": 17.374
+    },
+    {
+     "texte": "reste",
+     "debut": 17.455,
+     "fin": 17.653
+    },
+    {
+     "texte": "environ",
+     "debut": 17.676,
+     "fin": 18.036
+    },
+    {
+     "texte": "mille",
+     "debut": 18.106,
+     "fin": 18.315
+    },
+    {
+     "texte": "deux",
+     "debut": 18.349,
+     "fin": 18.454
+    },
+    {
+     "texte": "cents",
+     "debut": 18.489,
+     "fin": 18.675
+    },
+    {
+     "texte": "euros,",
+     "debut": 18.698,
+     "fin": 19.023
+    },
+    {
+     "texte": "avant",
+     "debut": 19.058,
+     "fin": 19.336
+    },
+    {
+     "texte": "impôt.",
+     "debut": 19.371,
+     "fin": 19.836
+    }
+   ]
+  },
+  {
+   "texte_lu": "Mais sur place, huit à douze heures. Le reste est invisible : environ trente euros de l'heure.",
+   "debut": 20.219,
+   "mots": [
+    {
+     "texte": "Mais",
+     "debut": 20.219,
+     "fin": 20.439
+    },
+    {
+     "texte": "sur",
+     "debut": 20.462,
+     "fin": 20.613
+    },
+    {
+     "texte": "place,",
+     "debut": 20.66,
+     "fin": 21.008
+    },
+    {
+     "texte": "huit",
+     "debut": 21.055,
+     "fin": 21.229
+    },
+    {
+     "texte": "à",
+     "debut": 21.264,
+     "fin": 21.298
+    },
+    {
+     "texte": "douze",
+     "debut": 21.356,
+     "fin": 21.565
+    },
+    {
+     "texte": "heures.",
+     "debut": 21.589,
+     "fin": 22.169
+    },
+    {
+     "texte": "Le",
+     "debut": 22.68,
+     "fin": 22.761
+    },
+    {
+     "texte": "reste",
+     "debut": 22.796,
+     "fin": 23.005
+    },
+    {
+     "texte": "est",
+     "debut": 23.028,
+     "fin": 23.098
+    },
+    {
+     "texte": "invisible",
+     "debut": 23.144,
+     "fin": 23.678
+    },
+    {
+     "texte": ":",
+     "debut": 23.713,
+     "fin": 23.736
+    },
+    {
+     "texte": "environ",
+     "debut": 23.76,
+     "fin": 24.154
+    },
+    {
+     "texte": "trente",
+     "debut": 24.212,
+     "fin": 24.48
+    },
+    {
+     "texte": "euros",
+     "debut": 24.503,
+     "fin": 24.688
+    },
+    {
+     "texte": "de",
+     "debut": 24.711,
+     "fin": 24.781
+    },
+    {
+     "texte": "l'heure.",
+     "debut": 24.827,
+     "fin": 25.234
+    }
+   ]
+  },
+  {
+   "texte_lu": "Premier levier : le tri et la retouche par lots. Quinze heures gagnées : environ quarante-huit euros de l'heure.",
+   "debut": 25.745,
+   "mots": [
+    {
+     "texte": "Premier",
+     "debut": 25.745,
+     "fin": 26.07
+    },
+    {
+     "texte": "levier",
+     "debut": 26.093,
+     "fin": 26.488
+    },
+    {
+     "texte": ":",
+     "debut": 26.511,
+     "fin": 26.58
+    },
+    {
+     "texte": "le",
+     "debut": 26.697,
+     "fin": 26.801
+    },
+    {
+     "texte": "tri",
+     "debut": 26.859,
+     "fin": 27.114
+    },
+    {
+     "texte": "et",
+     "debut": 27.207,
+     "fin": 27.289
+    },
+    {
+     "texte": "la",
+     "debut": 27.323,
+     "fin": 27.37
+    },
+    {
+     "texte": "retouche",
+     "debut": 27.416,
+     "fin": 27.741
+    },
+    {
+     "texte": "par",
+     "debut": 27.765,
+     "fin": 27.904
+    },
+    {
+     "texte": "lots.",
+     "debut": 27.95,
+     "fin": 28.241
+    },
+    {
+     "texte": "Quinze",
+     "debut": 28.751,
+     "fin": 28.984
+    },
+    {
+     "texte": "heures",
+     "debut": 29.007,
+     "fin": 29.251
+    },
+    {
+     "texte": "gagnées",
+     "debut": 29.32,
+     "fin": 29.715
+    },
+    {
+     "texte": ":",
+     "debut": 29.738,
+     "fin": 29.866
+    },
+    {
+     "texte": "environ",
+     "debut": 29.901,
+     "fin": 30.284
+    },
+    {
+     "texte": "quarante-huit",
+     "debut": 30.33,
+     "fin": 30.795
+    },
+    {
+     "texte": "euros",
+     "debut": 30.853,
+     "fin": 31.062
+    },
+    {
+     "texte": "de",
+     "debut": 31.085,
+     "fin": 31.143
+    },
+    {
+     "texte": "l'heure.",
+     "debut": 31.19,
+     "fin": 31.584
+    }
+   ]
+  },
+  {
+   "texte_lu": "Deuxième levier : vends des albums. Un couple sur deux suffit à ajouter environ soixante-dix euros par mariage.",
+   "debut": 31.967,
+   "mots": [
+    {
+     "texte": "Deuxième",
+     "debut": 31.967,
+     "fin": 32.339
+    },
+    {
+     "texte": "levier",
+     "debut": 32.362,
+     "fin": 32.734
+    },
+    {
+     "texte": ":",
+     "debut": 32.78,
+     "fin": 32.827
+    },
+    {
+     "texte": "vends",
+     "debut": 32.943,
+     "fin": 33.117
+    },
+    {
+     "texte": "des",
+     "debut": 33.14,
+     "fin": 33.233
+    },
+    {
+     "texte": "albums.",
+     "debut": 33.291,
+     "fin": 33.802
+    },
+    {
+     "texte": "Un",
+     "debut": 33.871,
+     "fin": 33.988
+    },
+    {
+     "texte": "couple",
+     "debut": 34.046,
+     "fin": 34.289
+    },
+    {
+     "texte": "sur",
+     "debut": 34.324,
+     "fin": 34.475
+    },
+    {
+     "texte": "deux",
+     "debut": 34.545,
+     "fin": 34.684
+    },
+    {
+     "texte": "suffit",
+     "debut": 34.707,
+     "fin": 35.067
+    },
+    {
+     "texte": "à",
+     "debut": 35.102,
+     "fin": 35.125
+    },
+    {
+     "texte": "ajouter",
+     "debut": 35.149,
+     "fin": 35.659
+    },
+    {
+     "texte": "environ",
+     "debut": 35.834,
+     "fin": 36.31
+    },
+    {
+     "texte": "soixante-dix",
+     "debut": 36.356,
+     "fin": 36.855
+    },
+    {
+     "texte": "euros",
+     "debut": 36.902,
+     "fin": 37.122
+    },
+    {
+     "texte": "par",
+     "debut": 37.145,
+     "fin": 37.273
+    },
+    {
+     "texte": "mariage.",
+     "debut": 37.308,
+     "fin": 37.877
+    }
+   ]
+  },
+  {
+   "texte_lu": "Troisième levier : remplis l'hiver avec des portraits et des clients professionnels.",
+   "debut": 37.935,
+   "mots": [
+    {
+     "texte": "Troisième",
+     "debut": 37.935,
+     "fin": 38.364
+    },
+    {
+     "texte": "levier",
+     "debut": 38.388,
+     "fin": 38.736
+    },
+    {
+     "texte": ":",
+     "debut": 38.806,
+     "fin": 38.898
+    },
+    {
+     "texte": "remplis",
+     "debut": 39.107,
+     "fin": 39.456
+    },
+    {
+     "texte": "l'hiver",
+     "debut": 39.479,
+     "fin": 39.862
+    },
+    {
+     "texte": "avec",
+     "debut": 39.92,
+     "fin": 40.071
+    },
+    {
+     "texte": "des",
+     "debut": 40.129,
+     "fin": 40.21
+    },
+    {
+     "texte": "portraits",
+     "debut": 40.234,
+     "fin": 40.698
+    },
+    {
+     "texte": "et",
+     "debut": 40.849,
+     "fin": 41
+    },
+    {
+     "texte": "des",
+     "debut": 41.046,
+     "fin": 41.128
+    },
+    {
+     "texte": "clients",
+     "debut": 41.151,
+     "fin": 41.406
+    },
+    {
+     "texte": "professionnels.",
+     "debut": 41.429,
+     "fin": 42.23
+    }
+   ]
+  },
+  {
+   "texte_lu": "Quatrième levier : un acompte et un contrat. Ta date est bloquée, ton revenu aussi.",
+   "debut": 42.741,
+   "mots": [
+    {
+     "texte": "Quatrième",
+     "debut": 42.741,
+     "fin": 43.148
+    },
+    {
+     "texte": "levier",
+     "debut": 43.171,
+     "fin": 43.461
+    },
+    {
+     "texte": ":",
+     "debut": 43.531,
+     "fin": 43.577
+    },
+    {
+     "texte": "un",
+     "debut": 43.635,
+     "fin": 43.728
+    },
+    {
+     "texte": "acompte",
+     "debut": 43.809,
+     "fin": 44.088
+    },
+    {
+     "texte": "et",
+     "debut": 44.111,
+     "fin": 44.169
+    },
+    {
+     "texte": "un",
+     "debut": 44.204,
+     "fin": 44.262
+    },
+    {
+     "texte": "contrat.",
+     "debut": 44.309,
+     "fin": 44.854
+    },
+    {
+     "texte": "Ta",
+     "debut": 44.97,
+     "fin": 45.087
+    },
+    {
+     "texte": "date",
+     "debut": 45.133,
+     "fin": 45.319
+    },
+    {
+     "texte": "est",
+     "debut": 45.354,
+     "fin": 45.458
+    },
+    {
+     "texte": "bloquée,",
+     "debut": 45.481,
+     "fin": 46.758
+    },
+    {
+     "texte": "ton",
+     "debut": 47.2,
+     "fin": 47.304
+    },
+    {
+     "texte": "revenu",
+     "debut": 47.339,
+     "fin": 47.617
+    },
+    {
+     "texte": "aussi.",
+     "debut": 47.641,
+     "fin": 48.059
+    }
+   ]
+  },
+  {
+   "texte_lu": "Cinquième levier : monte tes prix avec l'expérience. Un profil confirmé facture quarante à soixante-dix pour cent de plus.",
+   "debut": 48.57,
+   "mots": [
+    {
+     "texte": "Cinquième",
+     "debut": 48.57,
+     "fin": 48.929
+    },
+    {
+     "texte": "levier",
+     "debut": 48.953,
+     "fin": 49.254
+    },
+    {
+     "texte": ":",
+     "debut": 49.301,
+     "fin": 49.336
+    },
+    {
+     "texte": "monte",
+     "debut": 49.405,
+     "fin": 49.614
+    },
+    {
+     "texte": "tes",
+     "debut": 49.638,
+     "fin": 49.742
+    },
+    {
+     "texte": "prix",
+     "debut": 49.777,
+     "fin": 49.939
+    },
+    {
+     "texte": "avec",
+     "debut": 49.963,
+     "fin": 50.102
+    },
+    {
+     "texte": "l'expérience.",
+     "debut": 50.149,
+     "fin": 50.904
+    },
+    {
+     "texte": "Un",
+     "debut": 51.229,
+     "fin": 51.345
+    },
+    {
+     "texte": "profil",
+     "debut": 51.391,
+     "fin": 51.658
+    },
+    {
+     "texte": "confirmé",
+     "debut": 51.716,
+     "fin": 52.134
+    },
+    {
+     "texte": "facture",
+     "debut": 52.192,
+     "fin": 52.61
+    },
+    {
+     "texte": "quarante",
+     "debut": 52.633,
+     "fin": 52.982
+    },
+    {
+     "texte": "à",
+     "debut": 53.017,
+     "fin": 53.051
+    },
+    {
+     "texte": "soixante-dix",
+     "debut": 53.109,
+     "fin": 53.585
+    },
+    {
+     "texte": "pour",
+     "debut": 53.609,
+     "fin": 53.725
+    },
+    {
+     "texte": "cent",
+     "debut": 53.771,
+     "fin": 53.911
+    },
+    {
+     "texte": "de",
+     "debut": 53.934,
+     "fin": 54.003
+    },
+    {
+     "texte": "plus.",
+     "debut": 54.05,
+     "fin": 54.572
+    }
+   ]
+  },
+  {
+   "texte_lu": "Conseil : note tes heures réelles, de la réservation à la livraison.",
+   "debut": 54.63,
+   "mots": [
+    {
+     "texte": "Conseil",
+     "debut": 54.63,
+     "fin": 55.083
+    },
+    {
+     "texte": ":",
+     "debut": 55.234,
+     "fin": 55.292
+    },
+    {
+     "texte": "note",
+     "debut": 55.733,
+     "fin": 55.965
+    },
+    {
+     "texte": "tes",
+     "debut": 56.024,
+     "fin": 56.151
+    },
+    {
+     "texte": "heures",
+     "debut": 56.198,
+     "fin": 56.372
+    },
+    {
+     "texte": "réelles,",
+     "debut": 56.523,
+     "fin": 57.01
+    },
+    {
+     "texte": "de",
+     "debut": 57.057,
+     "fin": 57.126
+    },
+    {
+     "texte": "la",
+     "debut": 57.161,
+     "fin": 57.208
+    },
+    {
+     "texte": "réservation",
+     "debut": 57.243,
+     "fin": 57.742
+    },
+    {
+     "texte": "à",
+     "debut": 57.777,
+     "fin": 57.8
+    },
+    {
+     "texte": "la",
+     "debut": 57.823,
+     "fin": 57.87
+    },
+    {
+     "texte": "livraison.",
+     "debut": 57.916,
+     "fin": 58.438
+    }
+   ]
+  },
+  {
+   "texte_lu": "Attention : au-delà de trente-sept mille cinq cents euros par an, la T.V.A. s'applique.",
+   "debut": 58.88,
+   "mots": [
+    {
+     "texte": "Attention",
+     "debut": 58.88,
+     "fin": 59.367
+    },
+    {
+     "texte": ":",
+     "debut": 59.483,
+     "fin": 59.576
+    },
+    {
+     "texte": "au-delà",
+     "debut": 59.901,
+     "fin": 60.273
+    },
+    {
+     "texte": "de",
+     "debut": 60.308,
+     "fin": 60.377
+    },
+    {
+     "texte": "trente-sept",
+     "debut": 60.424,
+     "fin": 60.888
+    },
+    {
+     "texte": "mille",
+     "debut": 61.004,
+     "fin": 61.271
+    },
+    {
+     "texte": "cinq",
+     "debut": 61.306,
+     "fin": 61.492
+    },
+    {
+     "texte": "cents",
+     "debut": 61.527,
+     "fin": 61.724
+    },
+    {
+     "texte": "euros",
+     "debut": 61.77,
+     "fin": 62.049
+    },
+    {
+     "texte": "par",
+     "debut": 62.084,
+     "fin": 62.235
+    },
+    {
+     "texte": "an,",
+     "debut": 62.281,
+     "fin": 62.49
+    },
+    {
+     "texte": "la",
+     "debut": 62.618,
+     "fin": 62.722
+    },
+    {
+     "texte": "T.V.A.",
+     "debut": 62.792,
+     "fin": 63.326
+    },
+    {
+     "texte": "s'applique.",
+     "debut": 63.442,
+     "fin": 64.069
+    }
+   ]
+  },
+  {
+   "texte_lu": "Règle numéro un : fixe ton prix à partir de tes quarante heures, pas des huit heures sur place.",
+   "debut": 64.243,
+   "mots": [
+    {
+     "texte": "Règle",
+     "debut": 64.243,
+     "fin": 64.51
+    },
+    {
+     "texte": "numéro",
+     "debut": 64.545,
+     "fin": 64.835
+    },
+    {
+     "texte": "un",
+     "debut": 64.87,
+     "fin": 64.951
+    },
+    {
+     "texte": ":",
+     "debut": 65.067,
+     "fin": 65.126
+    },
+    {
+     "texte": "fixe",
+     "debut": 65.404,
+     "fin": 65.671
+    },
+    {
+     "texte": "ton",
+     "debut": 65.694,
+     "fin": 65.799
+    },
+    {
+     "texte": "prix",
+     "debut": 65.845,
+     "fin": 66.02
+    },
+    {
+     "texte": "à",
+     "debut": 66.043,
+     "fin": 66.066
+    },
+    {
+     "texte": "partir",
+     "debut": 66.112,
+     "fin": 66.368
+    },
+    {
+     "texte": "de",
+     "debut": 66.426,
+     "fin": 66.507
+    },
+    {
+     "texte": "tes",
+     "debut": 66.565,
+     "fin": 66.67
+    },
+    {
+     "texte": "quarante",
+     "debut": 66.693,
+     "fin": 67.064
+    },
+    {
+     "texte": "heures,",
+     "debut": 67.088,
+     "fin": 67.413
+    },
+    {
+     "texte": "pas",
+     "debut": 67.657,
+     "fin": 67.807
+    },
+    {
+     "texte": "des",
+     "debut": 67.831,
+     "fin": 67.935
+    },
+    {
+     "texte": "huit",
+     "debut": 67.982,
+     "fin": 68.144
+    },
+    {
+     "texte": "heures",
+     "debut": 68.191,
+     "fin": 68.411
+    },
+    {
+     "texte": "sur",
+     "debut": 68.434,
+     "fin": 68.562
+    },
+    {
+     "texte": "place.",
+     "debut": 68.597,
+     "fin": 69.096
+    }
+   ]
+  },
+  {
+   "texte_lu": "Photographe de mariage : passion ou piège ? Dis-le en commentaire, et abonne-toi pour d'autres vrais chiffres.",
+   "debut": 69.607,
+   "mots": [
+    {
+     "texte": "Photographe",
+     "debut": 69.607,
+     "fin": 70.071
+    },
+    {
+     "texte": "de",
+     "debut": 70.095,
+     "fin": 70.153
+    },
+    {
+     "texte": "mariage",
+     "debut": 70.211,
+     "fin": 70.768
+    },
+    {
+     "texte": ":",
+     "debut": 70.791,
+     "fin": 70.814
+    },
+    {
+     "texte": "passion",
+     "debut": 70.861,
+     "fin": 71.209
+    },
+    {
+     "texte": "ou",
+     "debut": 71.256,
+     "fin": 71.302
+    },
+    {
+     "texte": "piège",
+     "debut": 71.337,
+     "fin": 71.778
+    },
+    {
+     "texte": "?",
+     "debut": 71.801,
+     "fin": 71.871
+    },
+    {
+     "texte": "Dis-le",
+     "debut": 72.08,
+     "fin": 72.301
+    },
+    {
+     "texte": "en",
+     "debut": 72.359,
+     "fin": 72.417
+    },
+    {
+     "texte": "commentaire,",
+     "debut": 72.451,
+     "fin": 72.985
+    },
+    {
+     "texte": "et",
+     "debut": 73.02,
+     "fin": 73.113
+    },
+    {
+     "texte": "abonne-toi",
+     "debut": 73.16,
+     "fin": 73.67
+    },
+    {
+     "texte": "pour",
+     "debut": 73.717,
+     "fin": 73.856
+    },
+    {
+     "texte": "d'autres",
+     "debut": 73.914,
+     "fin": 74.205
+    },
+    {
+     "texte": "vrais",
+     "debut": 74.228,
+     "fin": 74.425
+    },
+    {
+     "texte": "chiffres.",
+     "debut": 74.448,
+     "fin": 75.168
+    }
+   ]
+  }
+ ]
+}
