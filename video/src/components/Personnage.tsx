@@ -51,7 +51,7 @@ export type Apparence = {
   nom: string;
   genre: 'homme' | 'femme';
   teint: {peau: string; ombre: string; joues: string};
-  cheveux: {style: 'meches' | 'chignon_boucle' | 'court' | 'carre_frange' | 'court_dessus' | 'afro_puff' | 'ondule_meche' | 'queue_frange' | 'degrade' | 'gomine' | 'long_boucle' | 'pixie' | 'mi_long' | 'long_lisse' | 'court_ondule'; couleur: string; /** ep10 : mèches (couleur) des cheveux longs bouclés. */ meches?: string; /** ep11 : racines plus foncées (pixie décolorée). */ racines?: string};
+  cheveux: {style: 'meches' | 'chignon_boucle' | 'court' | 'carre_frange' | 'court_dessus' | 'afro_puff' | 'ondule_meche' | 'queue_frange' | 'degrade' | 'gomine' | 'long_boucle' | 'pixie' | 'mi_long' | 'long_lisse' | 'court_ondule' | 'rase'; couleur: string; /** ep10 : mèches (couleur) des cheveux longs bouclés. */ meches?: string; /** ep11 : racines plus foncées (pixie décolorée). */ racines?: string};
   tenue: {
     haut: string;
     hautOmbre: string;
@@ -98,6 +98,8 @@ export type Apparence = {
     | {type: 'lunettes_protection'; couleur: string; elastique: string}
     /** ep10 : lunettes de soleil aviateur relevées dans les cheveux. */
     | {type: 'aviateur'; monture: string; verre: string}
+    /** ep12 : lunettes carrées à fine monture. */
+    | {type: 'lunettes_carrees'; couleur: string}
     | null;
   /** Barbe de trois jours (couleur). */
   barbe?: string | null;
@@ -159,6 +161,10 @@ export type Apparence = {
   costume?: {revers: string} | null;
   /** ep11 : gilet à poches (couleur, ombre). */
   giletPoches?: {couleur: string; ombre: string} | null;
+  /** ep12 : oreillette (couleur) à l'oreille droite de l'écran. */
+  oreillette?: string | null;
+  /** ep12 : chemise blanche col ouvert sous la veste (couleur de la chemise). */
+  chemiseOuverte?: string | null;
 };
 
 /** Durée (frames) d'un passage d'article au scanner (pose « scanne ») ; le bip du décor « caisse_tapis » suit le même cycle. */
@@ -527,6 +533,15 @@ const CheveuxAvant: React.FC<{a: Apparence}> = ({a}) => {
   if (a.cheveux.style === 'mi_long') return <MiLongAvant c={c} />;
   if (a.cheveux.style === 'long_lisse') return <LongLisseAvant c={c} />;
   if (a.cheveux.style === 'court_ondule') return <CourtOnduleAvant c={c} />;
+  if (a.cheveux.style === 'rase') {
+    // ep12 : crâne rasé (léger reflet et ombre de repousse)
+    return (
+      <g>
+        <path d="M 160 240 Q 170 150 300 146 Q 430 150 440 240 Q 380 196 300 194 Q 220 196 160 240 Z" fill={c} opacity={0.18} />
+        <path d="M 236 176 Q 270 160 310 162" fill="none" stroke="white" strokeWidth={10} strokeLinecap="round" opacity={0.35} />
+      </g>
+    );
+  }
   if (a.cheveux.style === 'court') {
     // cheveux courts : pattes sur les tempes et petite frange (le dessus est sous le casque)
     return (
@@ -695,6 +710,20 @@ const CheveuxAvant: React.FC<{a: Apparence}> = ({a}) => {
     </g>
   );
 };
+
+/** ep12 : lunettes carrées noires à fine monture. */
+const LunettesCarrees: React.FC<{couleur: string}> = ({couleur}) => (
+  <g>
+    {[242, 358].map((cx) => (
+      <g key={cx}>
+        <rect x={cx - 50} y={236} width={100} height={72} rx={10} fill="rgba(255,255,255,0.14)" stroke={couleur} strokeWidth={8} />
+        <path d={`M ${cx - 34} 252 l 20 -6`} stroke="white" strokeWidth={5} strokeLinecap="round" opacity={0.7} />
+      </g>
+    ))}
+    <path d="M 292 262 Q 300 254 308 262" fill="none" stroke={couleur} strokeWidth={7} strokeLinecap="round" />
+    <path d="M 192 258 L 158 266 M 408 258 L 442 266" stroke={couleur} strokeWidth={7} strokeLinecap="round" />
+  </g>
+);
 
 const Lunettes: React.FC<{couleur: string}> = ({couleur}) => (
   <g>
@@ -1510,6 +1539,13 @@ export const Personnage: React.FC<{
             <path d="M 300 436 L 316 456 L 306 470 L 318 590 L 300 612 L 282 590 L 294 470 L 284 456 Z" fill="#1D3557" stroke={OUT} strokeWidth={6} strokeLinejoin="round" />
           </g>
         ) : null}
+        {a.chemiseOuverte ? (
+          <g strokeLinejoin="round">
+            <path d="M 252 408 L 300 520 L 348 408 Z" fill={a.chemiseOuverte} stroke={OUT} strokeWidth={6} />
+            <path d="M 278 408 L 300 456 L 322 408 Z" fill={a.teint.peau} />
+            <path d="M 262 408 L 282 446 L 300 456 M 338 408 L 318 446 L 300 456" fill="none" stroke={OUT} strokeWidth={5} />
+          </g>
+        ) : null}
         {a.costume ? <ReversCostume ombre={a.costume.revers} /> : null}
 
         {a.ceintureOutils && !assis && !velo ? <CeintureOutils couleur={a.ceintureOutils.couleur} ombre={a.ceintureOutils.ombre} /> : null}
@@ -1567,6 +1603,12 @@ export const Personnage: React.FC<{
           <ellipse cx={300} cy={282} rx={150} ry={135} fill={peau} stroke={OUT} strokeWidth={SW} />
           <CheveuxAvant a={a} />
           {a.piercing ? <Piercing couleur={a.piercing} /> : null}
+          {a.oreillette ? (
+            <g>
+              <ellipse cx={452} cy={292} rx={13} ry={16} fill={a.oreillette} stroke={OUT} strokeWidth={5} />
+              <path d="M 456 306 Q 462 340 450 360" fill="none" stroke={a.oreillette} strokeWidth={6} strokeLinecap="round" />
+            </g>
+          ) : null}
           {a.peigneOreille ? <PeigneOreille couleur={a.peigneOreille} /> : null}
           {a.boucles && carre ? (
             // petites créoles qui dépassent sous le carré
@@ -1586,7 +1628,8 @@ export const Personnage: React.FC<{
           {a.rousseur ? <Rousseur couleur={a.rousseur} /> : null}
           <Eyes expression={expression} blink={blink} frame={frame} cils={femme} />
           {lunettes ? <Lunettes couleur={lunettes.couleur} /> : null}
-          <g transform={lunettes ? 'translate(0 -14)' : undefined}>
+          {a.tete?.type === 'lunettes_carrees' ? <LunettesCarrees couleur={a.tete.couleur} /> : null}
+          <g transform={lunettes || a.tete?.type === 'lunettes_carrees' ? 'translate(0 -14)' : undefined}>
             <Brows expression={expression} couleur={a.sourcils ?? a.cheveux.couleur} fines={femme} />
           </g>
           {/* Nez */}

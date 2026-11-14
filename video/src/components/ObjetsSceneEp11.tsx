@@ -1,6 +1,7 @@
 import {interpolate, spring} from 'remotion';
 import {FONT_TEXTE, FONT_TITRE} from '../fonts';
 import type {ObjetScene} from '../types';
+import {ObjetSceneEp12} from './ObjetsSceneEp12';
 
 /**
  * Objets de décor animés ajoutés en ep11 (coordonnées écran 1080 x 1920). Aucun logo, aucune marque :
@@ -426,6 +427,7 @@ export const ObjetSceneEp11: React.FC<{o: ObjetScene; frame: number; fps: number
       );
     }
     default:
-      return null;
+      // ep12
+      return <ObjetSceneEp12 o={o} frame={frame} fps={fps} />;
   }
 };

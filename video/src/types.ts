@@ -182,7 +182,7 @@ export type ElementVisuel =
   | {type: 'verrous'; pastilles: {texte: string; au_mot?: string}[]; destination: string; mention?: string}
   // --- Épisode 11 ---
   /** Barres horizontales comparées (ex. euros par heure), chacune sur son `au_mot`, la plus haute surlignée. */
-  | {type: 'barres_comparees'; titre?: string; barres: {label: string; valeur: number; texte: string; au_mot?: string}[]; mention?: string; source?: string}
+  | {type: 'barres_comparees'; titre?: string; barres: {label: string; valeur: number; texte: string; au_mot?: string}[]; mention?: string; source?: string; /** ep12 : fraction finale, les barres rétrécissent. */ retrecit?: number}
   /** Pastilles qui s'additionnent (+) puis une pastille résultat qui s'allume (`resultat`, sur son `au_mot`). */
   | {type: 'addition_pastilles'; pastilles: {texte: string; au_mot?: string}[]; resultat: {texte: string; au_mot?: string}; mention?: string};
 
@@ -280,7 +280,9 @@ export type ObjetScene = {
     | 'bureau' | 'ordinateur' | 'poste' | 'tableau_blanc' | 'calculatrice' | 'pile_billets' | 'escalier' | 'ecran_mural' | 'pastilles_bureau'
     // ep11
     | 'porte' | 'meches' | 'voiture' | 'agenda_mural' | 'chrono' | 'recus' | 'etagere_flacons' | 'comptoir' | 'facade'
-    | 'fenetre' | 'panneau_tarifs' | 'balance' | 'meuble_tiroir' | 'papier_tampon' | 'chaise_coiffure' | 'trousse_sol' | 'chaise_simple';
+    | 'fenetre' | 'panneau_tarifs' | 'balance' | 'meuble_tiroir' | 'papier_tampon' | 'chaise_coiffure' | 'trousse_sol' | 'chaise_simple'
+    // ep12
+    | 'volant' | 'telephones_bord' | 'borne' | 'jauge_courses' | 'pile_descend' | 'hotel';
   x: number;
   y: number;
   /** Largeur (bureau, écran). */

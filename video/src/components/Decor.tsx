@@ -1,3 +1,4 @@
+import {DecorVoiture} from './ObjetsSceneEp12';
 import {AbsoluteFill, interpolate, useCurrentFrame, useVideoConfig} from 'remotion';
 
 /**
@@ -948,6 +949,9 @@ export const Decor: React.FC<{nom: string; variante?: number}> = ({nom, variante
       break;
     case 'coworking':
       content = <Coworking frame={frame} />;
+      break;
+    case 'voiture':
+      content = <DecorVoiture frame={frame} />;
       break;
     case 'salon_coiffure':
       content = <SalonCoiffure frame={frame} />;

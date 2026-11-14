@@ -307,4 +307,81 @@ export const PERSONNAGES: Record<string, Apparence> = {
     barbe: '#5B4636',
     giletPoches: {couleur: '#CDB891', ombre: '#B39D72'},
   },
+  /** Yanis (épisode 12), 32 ans, chauffeur VTC : peau brun foncé, crâne rasé, lunettes carrées noires à fine monture, costume
+   *  noir sur chemise blanche col ouvert, mocassins noirs, montre, oreillette. Aucun logo. */
+  yanis: {
+    nom: 'Yanis',
+    genre: 'homme',
+    teint: {peau: '#7A4A2E', ombre: '#5E3720', joues: '#8E4F3A'},
+    cheveux: {style: 'rase', couleur: '#1A1210'},
+    tenue: {haut: '#1E1F26', hautOmbre: '#121318', bas: '#1A1B21', chaussures: '#111114', bandeChaussures: '#2A2A30'},
+    tete: {type: 'lunettes_carrees', couleur: '#111111'},
+    sourcils: '#1A1210',
+    costume: {revers: '#2C2D36'},
+    chemiseOuverte: '#FFFFFF',
+    montre: '#C9CED6',
+    oreillette: '#2B2D33',
+  },
+  /** Passagère d'affaires (ep12) : tailleur beige, chignon châtain. */
+  passagere: {
+    nom: 'Passagère',
+    genre: 'femme',
+    teint: {peau: '#F1CDAE', ombre: '#DAAF8C', joues: '#E89A86'},
+    cheveux: {style: 'chignon_boucle', couleur: '#8A5A36'},
+    tenue: {haut: '#D9C3A0', hautOmbre: '#BFA57E', bas: '#D9C3A0', chaussures: '#5A3E2B', bandeChaussures: '#3E2A1C'},
+    tete: null,
+    costume: {revers: '#C4AB84'},
+  },
+  /** Touriste A (ep12) : casquette verte sans logo, T-shirt, sac à dos. */
+  touriste_a: {
+    nom: 'Touriste',
+    genre: 'homme',
+    teint: {peau: '#F6D3B8', ombre: '#E0B595', joues: '#EFA08C'},
+    cheveux: {style: 'court', couleur: '#C79A5B'},
+    tenue: {haut: '#F28F3B', hautOmbre: '#D6762A', bas: '#8D99AE', chaussures: '#FFFFFF', bandeChaussures: '#ADB5BD', tshirt: true},
+    tete: {type: 'casquette', couleur: '#2D6A4F', couleurOmbre: '#1E4D38'},
+    petitSac: {couleur: '#3A86FF', ombre: '#2A66C8'},
+  },
+  /** Touriste B (ep12) : cheveux noirs mi-longs, sweat lilas, sac à dos. */
+  touriste_b: {
+    nom: 'Touriste',
+    genre: 'femme',
+    teint: {peau: '#D9A77E', ombre: '#BF8A60', joues: '#D98A70'},
+    cheveux: {style: 'mi_long', couleur: '#1E1A1C'},
+    tenue: {haut: '#9B5DE5', hautOmbre: '#7D45C4', bas: '#3D5A80', chaussures: '#FFFFFF', bandeChaussures: '#E9ECEF', sweat: true},
+    tete: null,
+    petitSac: {couleur: '#E63946', ombre: '#B5202D'},
+  },
+  /** Concierge d'hôtel (ep12) : veste bordeaux, badge sans nom. */
+  concierge: {
+    nom: 'Concierge',
+    genre: 'homme',
+    teint: {peau: '#E8B98F', ombre: '#CE9A6F', joues: '#E08E78'},
+    cheveux: {style: 'gomine', couleur: '#3A2A20'},
+    tenue: {haut: '#7B1E3A', hautOmbre: '#5E1229', bas: '#1E1E24', chaussures: '#111114', bandeChaussures: '#2A2A30'},
+    tete: null,
+    costume: {revers: '#5E1229'},
+    chemiseOuverte: '#FFFFFF',
+    badge: {texte: '', couleur: '#F2C14E'},
+  },
+  /** Comptable (ep12) : cheveux roux attachés, lunettes, dossier. */
+  comptable_r: {
+    nom: 'Comptable',
+    genre: 'femme',
+    teint: {peau: '#F8DCC4', ombre: '#E8BFA0', joues: '#F2A08B'},
+    cheveux: {style: 'queue_frange', couleur: '#C8501E'},
+    tenue: {haut: '#4A6FA5', hautOmbre: '#3A5A88', bas: '#2B2D42', chaussures: '#2E2018', bandeChaussures: '#1E140C', pull: true},
+    tete: {type: 'lunettes_rondes', couleur: '#3A2A20'},
+    sourcils: '#9E3E14',
+  },
+  /** Agent de préfecture (ep12) : chemise bleue, tampon. */
+  agent: {
+    nom: 'Agent',
+    genre: 'homme',
+    teint: {peau: '#C99068', ombre: '#AD744C', joues: '#C77A62'},
+    cheveux: {style: 'court_dessus', couleur: '#4A4A4A'},
+    tenue: {haut: '#5B8FD6', hautOmbre: '#4475BB', bas: '#2B2D42', chaussures: '#111114', bandeChaussures: '#2A2A30', chemise: true},
+    tete: null,
+    barbe: '#4A4A4A',
+  },
 };

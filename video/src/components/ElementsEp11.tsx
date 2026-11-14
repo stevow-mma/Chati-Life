@@ -22,6 +22,9 @@ const BarresComparees: React.FC<{el: Extract<ElementVisuel, {type: 'barres_compa
   const max = Math.max(...el.barres.map((b) => b.valeur));
   const debuts = el.barres.map((b, i) => frameDe(motFrame, b.au_mot, 10 + i * 40));
   const tous = frame >= Math.max(...debuts) + 20;
+  // ep12 : `retrecit` (optionnel) = toutes les barres rétrécissent jusqu'à cette fraction après leur apparition
+  const q = el.retrecit !== undefined ? interpolate(frame, [Math.max(...debuts) + 8, Math.max(...debuts) + 30], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'}) : 0;
+  const fac = 1 - (1 - (el.retrecit ?? 1)) * q;
   return (
     <Glisse>
       <div style={{width: 940, background: 'white', border: `10px solid ${OUT}`, borderRadius: 38, boxShadow: '0 16px 0 rgba(0,0,0,0.3)', padding: '22px 34px 16px', transform: 'rotate(-1.5deg)', fontFamily: FONT_TEXTE, color: OUT, textAlign: 'center'}}>
@@ -29,13 +32,13 @@ const BarresComparees: React.FC<{el: Extract<ElementVisuel, {type: 'barres_compa
         <div style={{display: 'flex', flexDirection: 'column', gap: 14}}>
           {el.barres.map((b, i) => {
             const p = spring({frame: frame - debuts[i], fps, config: {damping: 12, stiffness: 90}});
-            const meilleure = b.valeur === max && tous;
+            const meilleure = el.retrecit !== undefined ? q > 0.5 : b.valeur === max && tous;
             return (
               <div key={i} style={{textAlign: 'left', opacity: frame >= debuts[i] ? 1 : 0.25}}>
                 <div style={{fontSize: 32, marginBottom: 4}}>{b.label}</div>
                 <div style={{display: 'flex', alignItems: 'center', gap: 16}}>
                   <div style={{flex: 1, height: 64, background: '#E9ECEF', border: `6px solid ${OUT}`, borderRadius: 18, overflow: 'hidden'}}>
-                    <div style={{width: `${(b.valeur / max) * 100 * Math.max(0, p)}%`, height: '100%', background: meilleure ? VERT : '#4CC9F0', borderRight: p > 0.02 ? `5px solid ${OUT}` : undefined}} />
+                    <div style={{width: `${(b.valeur / max) * 100 * Math.max(0, p) * fac}%`, height: '100%', background: meilleure ? VERT : '#4CC9F0', borderRight: p > 0.02 ? `5px solid ${OUT}` : undefined}} />
                   </div>
                   <div
                     style={{
