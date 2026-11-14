@@ -408,4 +408,4 @@ export const ElementEp10: React.FC<{element: ElementVisuel; bascule?: number; mo
   }
 };
 
-export const EST_EP10 = new Set(['cartes_successives', 'cascade', 'contrat_cases', 'carte_taux', 'profils_comptes', 'tableau_bord', 'compte_suspendu', 'verrous', 'barres_comparees', 'addition_pastilles']);
+export const EST_EP10 = new Set(['cartes_successives', 'cascade', 'contrat_cases', 'carte_taux', 'profils_comptes', 'tableau_bord', 'compte_suspendu', 'verrous', 'barres_comparees', 'addition_pastilles', 'carte_vedette']);

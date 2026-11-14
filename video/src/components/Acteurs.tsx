@@ -46,6 +46,8 @@ const GESTES_BRAS = new Set([
   'tatouer',
   // ep15
   'squat', 'fente', 'etirement', 'pompe',
+  // ep16
+  'serrer', 'essuyer', 'porter', 'tourner',
 ]);
 /** Gestes à deux bras par défaut. */
 const DEUX_BRAS = new Set(['croiser', 'teteMains', 'ballants', 'taper', 'squat', 'fente', 'etirement', 'pompe']);
@@ -166,6 +168,19 @@ const cibleGeste = (a: ActionActeur, u: number, duree: number, frame: number, s:
       return {epaule: 160 + Math.sin(u * 2.5) * 8, coude: 10, ouverte: true};
     case 'pompe':
       return {epaule: 70 + Math.sin(u * 4.4) * 14, coude: -60 + Math.sin(u * 4.4) * 30};
+    // --- ep16 ---
+    case 'serrer':
+      // clé à molette : bras tendu vers l'avant-bas, va-et-vient de serrage
+      return {epaule: 60 + Math.sin(u * 6) * 14, coude: -30 + Math.sin(u * 6) * 18};
+    case 'essuyer':
+      // s'essuie le front d'un revers de main
+      return {epaule: 150 + Math.sin(u * 5) * 8, coude: 60 + Math.sin(u * 5) * 16};
+    case 'porter':
+      // porte un objet lourd bras tendu le long du corps
+      return {epaule: 4 + osc(0.3, 2), coude: 0};
+    case 'tourner':
+      // tourne un robinet / une vanne : main en avant, rotation
+      return {epaule: 78 + Math.sin(u * 8) * 6, coude: -40 + Math.cos(u * 8) * 14};
     default:
       return REPOS;
   }
@@ -277,6 +292,13 @@ const evaluer = (acteur: Acteur, t: number, frame: number, dureeScene: number, e
       case 'pose':
         if (a.pose) pose = a.pose;
         break;
+      case 'agenouille': {
+        // ep16 : à genoux (corps tassé), tenu jusqu'à `fin`
+        if (t > fin) break;
+        const w = Math.min(lisse((t - a.t) / 0.3), 1 - lisse((t - fin) / 0.3));
+        ecrase = Math.min(ecrase, 1 - 0.24 * w);
+        break;
+      }
       case 'squat':
       case 'fente':
       case 'pompe': {

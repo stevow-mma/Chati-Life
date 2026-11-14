@@ -1,6 +1,7 @@
 import {interpolate} from 'remotion';
 import {FONT_TITRE} from '../fonts';
 import type {ObjetScene} from '../types';
+import {ObjetSceneEp16} from './Ep16';
 
 /**
  * ep15 (Léa, coach sportive à domicile) : ajouts optionnels, inutilisés par les épisodes précédents.
@@ -197,7 +198,7 @@ export const ObjetSceneEp15: React.FC<{o: ObjetScene; frame: number; fps: number
       );
     }
     default:
-      return null;
+      return <ObjetSceneEp16 o={o} frame={frame} fps={fps} />;
   }
 };
 

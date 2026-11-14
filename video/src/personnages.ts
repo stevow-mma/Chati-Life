@@ -580,4 +580,69 @@ export const PERSONNAGES: Record<string, Apparence> = {
     chemiseOuverte: '#FFFFFF',
     badge: {texte: '', couleur: '#FFFFFF'},
   },
+  /** Karim (ep16), 34 ans, plombier indépendant : peau mate, cheveux noirs courts, barbe de trois jours, casquette grise
+   *  sans logo, salopette bleu marine sur t-shirt orange, genouillères, ceinture à outils. */
+  karim_plombier: {
+    nom: 'Karim',
+    genre: 'homme',
+    teint: {peau: '#B98058', ombre: '#9C6640', joues: '#C8735A'},
+    cheveux: {style: 'court', couleur: '#141418'},
+    tenue: {haut: '#F77F00', hautOmbre: '#D46A00', bas: '#1D3557', chaussures: '#3A2A1E', bandeChaussures: '#22180F', tshirt: true},
+    tete: {type: 'casquette', couleur: '#8D99AE', couleurOmbre: '#6C7889'},
+    barbe: '#1A1A1E',
+    salopette: {couleur: '#1D3557', ombre: '#14273F'},
+    genouilleres: '#343A40',
+    ceintureOutils: {couleur: '#8B5E34', ombre: '#6B4423'},
+  },
+  /** Cliente (ep16), 30 ans : cheveux bruns bouclés, pull moutarde. */
+  cliente_moutarde: {
+    nom: 'Cliente',
+    genre: 'femme',
+    teint: {peau: '#E8B996', ombre: '#CF9C78', joues: '#E39080'},
+    cheveux: {style: 'long_boucle', couleur: '#4A2C1D'},
+    tenue: {haut: '#E0A526', hautOmbre: '#C08A16', bas: '#3D405B', chaussures: '#FFFFFF', bandeChaussures: '#ADB5BD', pull: true},
+    tete: null,
+  },
+  /** La même cliente la nuit (ep16), en robe de chambre. */
+  cliente_nuit: {
+    nom: 'Cliente',
+    genre: 'femme',
+    teint: {peau: '#E8B996', ombre: '#CF9C78', joues: '#E39080'},
+    cheveux: {style: 'long_boucle', couleur: '#4A2C1D'},
+    tenue: {haut: '#9BB1D4', hautOmbre: '#7D93B8', bas: '#9BB1D4', chaussures: '#F4ACB7', bandeChaussures: '#E58C9B'},
+    tete: null,
+    robeChambre: {couleur: '#9BB1D4', ombre: '#7D93B8'},
+  },
+  /** Client senior (ep16), 70 ans : lunettes rondes, gilet beige. */
+  client_senior: {
+    nom: 'Client',
+    genre: 'homme',
+    teint: {peau: '#EFC9AE', ombre: '#D6AC8F', joues: '#E39A88'},
+    cheveux: {style: 'court_ondule', couleur: '#D9DCE0'},
+    tenue: {haut: '#D8C3A5', hautOmbre: '#BFA683', bas: '#6B705C', chaussures: '#5C4033', bandeChaussures: '#3E2A20'},
+    tete: {type: 'lunettes_rondes', couleur: '#5C4033'},
+    sourcils: '#B0B4BA',
+    cardigan: {ombre: '#BFA683', dessous: '#FFFFFF'},
+  },
+  /** Vendeur de magasin de bricolage (ep16) : blouse verte unie, sans logo. */
+  vendeur_brico: {
+    nom: 'Vendeur',
+    genre: 'homme',
+    teint: {peau: '#F2CFB3', ombre: '#DDB295', joues: '#EBA08C'},
+    cheveux: {style: 'court_dessus', couleur: '#C46A2B'},
+    tenue: {haut: '#2E9E6A', hautOmbre: '#237A52', bas: '#2B2D42', chaussures: '#111114', bandeChaussures: '#2A2A30', tunique: true},
+    tete: null,
+    badge: {texte: '', couleur: '#F8F9FA'},
+  },
+  /** Assureur (ep16), 50 ans : costume gris, cravate, dossier. */
+  assureur: {
+    nom: 'Assureur',
+    genre: 'homme',
+    teint: {peau: '#D9A27E', ombre: '#BF8662', joues: '#D3836C'},
+    cheveux: {style: 'court', couleur: '#8D8D8D'},
+    tenue: {haut: '#868E96', hautOmbre: '#6C757D', bas: '#6C757D', chaussures: '#2E2018', bandeChaussures: '#1E140C'},
+    tete: null,
+    costume: {revers: '#6C757D'},
+    chemiseOuverte: '#FFFFFF',
+  },
 };

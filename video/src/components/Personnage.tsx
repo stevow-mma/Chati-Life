@@ -1,6 +1,7 @@
 import {Bandouliere, RobeLongue, TressesArriere, TressesAvant, VesteJean} from './Ep13';
 import {GrosseBarbe} from './Ep14';
 import {ChronoCou, VesteZip} from './Ep15';
+import {Salopette} from './Ep16';
 import {useCurrentFrame, useVideoConfig, interpolate, spring} from 'remotion';
 import type {Accessoire, Expression, ObjetMain, Pose as Posture} from '../types';
 import {
@@ -184,6 +185,10 @@ export type Apparence = {
   vesteZip?: {dessous: string; zip: string} | null;
   /** ep15 : chronomètre au cou (couleur du cordon). */
   chronoCou?: string | null;
+  /** ep16 : salopette (bavette + bretelles) sur le haut. */
+  salopette?: {couleur: string; ombre: string} | null;
+  /** ep16 : genouillères (couleur, jambes animées). */
+  genouilleres?: string | null;
 };
 
 /** Durée (frames) d'un passage d'article au scanner (pose « scanne ») ; le bip du décor « caisse_tapis » suit le même cycle. */
@@ -1385,7 +1390,7 @@ export const Personnage: React.FC<{
             <VeloFace couleur={a.velo ?? '#2D6A4F'} frame={frame} />
           </>
         ) : assis ? null : mv ? (
-          <Jambes phase={mv.marche ?? null} bas={t.bas} jean={t.jean} chaussures={t.chaussures} bande={t.bandeChaussures} />
+          <Jambes phase={mv.marche ?? null} bas={t.bas} jean={t.jean} chaussures={t.chaussures} bande={t.bandeChaussures} genou={a.genouilleres} />
         ) : (
           <>
             {/* Jambes */}
@@ -1532,6 +1537,7 @@ export const Personnage: React.FC<{
         {a.cordonBadge ? <CordonBadge cordon={a.cordonBadge.cordon} /> : null}
         {a.vesteZip ? <VesteZip dessous={a.vesteZip.dessous} zip={a.vesteZip.zip} /> : null}
         {a.chronoCou ? <ChronoCou cordon={a.chronoCou} /> : null}
+        {a.salopette ? <Salopette couleur={a.salopette.couleur} ombre={a.salopette.ombre} /> : null}
         {a.casqueCou ? <CasqueCou couleur={a.casqueCou.couleur} coussins={a.casqueCou.coussins} /> : null}
         {a.doudoune ? <Doudoune couleur={a.doudoune.couleur} ombre={a.doudoune.ombre} /> : null}
         {a.vesteJean ? <VesteJean couleur={a.vesteJean.couleur} ombre={a.vesteJean.ombre} dessous={a.vesteJean.dessous} /> : null}

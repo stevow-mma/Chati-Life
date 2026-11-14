@@ -184,6 +184,8 @@ export type ElementVisuel =
   /** Barres horizontales comparées (ex. euros par heure), chacune sur son `au_mot`, la plus haute surlignée. */
   | {type: 'barres_comparees'; titre?: string; barres: {label: string; valeur: number; texte: string; au_mot?: string}[]; mention?: string; source?: string; /** ep12 : fraction finale, les barres rétrécissent. */ retrecit?: number}
   /** Pastilles qui s'additionnent (+) puis une pastille résultat qui s'allume (`resultat`, sur son `au_mot`). */
+  /** ep16 : carte simplifiée, un chiffre vedette (étapes successives sur `au_mot`), 3 lignes max. */
+  | {type: 'carte_vedette'; etapes: {valeur: string; lignes?: string[]; au_mot?: string; couleur?: 'rouge' | 'vert'; icones?: string[]}[]; mention?: string; source?: string}
   | {type: 'addition_pastilles'; pastilles: {texte: string; au_mot?: string}[]; resultat: {texte: string; au_mot?: string}; mention?: string};
 
 // --- Épisode 10 : mouvement (plusieurs personnages, actions déclarées par scène) ---
@@ -202,6 +204,8 @@ export type TypeAction =
   | 'couper' | 'peigner' | 'appliquer' | 'coller' | 'gratter' | 'tamponner' | 'ouvrir'
   // ep13 : vise avec un appareil photo tenu devant l'œil
   | 'viser'
+  // ep16 : plombier
+  | 'serrer' | 'essuyer' | 'porter' | 'tourner' | 'agenouille'
   // ep14 : tatoue (machine générique)
   | 'tatouer'
   // ep15 : mouvements de sport
@@ -225,7 +229,9 @@ export type ObjetTenuNom =
   // ep14
   | 'machine_tatouage' | 'tablette' | 'valise' | 'cle'
   // ep15
-  | 'chronometre' | 'bouteille' | 'haltere' | 'elastique' | 'tapis_roule';
+  | 'chronometre' | 'bouteille' | 'haltere' | 'elastique' | 'tapis_roule'
+  // ep16
+  | 'cle_molette' | 'caisse_outils' | 'panier' | 'carte_paiement' | 'recu' | 'attestation' | 'pistolet';
 
 export type ActionActeur = {
   t: number;
@@ -300,7 +306,9 @@ export type ObjetScene = {
     // ep13
     | 'miniatures'
     // ep15
-    | 'tapis_sol' | 'halteres_sol' | 'canape' | 'tablette_livres' | 'compteur' | 'plan_mural';
+    | 'tapis_sol' | 'halteres_sol' | 'canape' | 'tablette_livres' | 'compteur' | 'plan_mural'
+    // ep16
+    | 'evier' | 'camion' | 'pompe' | 'chaudiere' | 'calendrier' | 'pile_papiers' | 'boite_pieces' | 'tuyaux';
   x: number;
   y: number;
   /** Largeur (bureau, écran). */

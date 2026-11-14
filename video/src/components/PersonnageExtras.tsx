@@ -1,5 +1,6 @@
 import {ObjetMainEp13} from './Ep13';
 import {ObjetMainEp15} from './Ep15';
+import {Genouillere, ObjetMainEp16, OBJETS_EP16} from './Ep16';
 import {MotifsAvantBras, ObjetMainEp14} from './Ep14';
 /**
  * Extensions du personnage (ep10) : bras articulés (épaule + coude), jambes qui marchent, objets animés tenus
@@ -37,6 +38,8 @@ export type ObjetTenu =
   | 'machine_tatouage' | 'tablette' | 'valise' | 'cle'
   // ep15
   | 'chronometre' | 'bouteille' | 'haltere' | 'elastique' | 'tapis_roule'
+  // ep16
+  | 'cle_molette' | 'caisse_outils' | 'panier' | 'carte_paiement' | 'recu' | 'attestation' | 'pistolet'
   | 'telephone'
   | 'telephone_b'
   | 'ordinateur'
@@ -226,7 +229,9 @@ export const Jambes: React.FC<{
   jean?: string;
   chaussures: string;
   bande: string;
-}> = ({phase, bas, jean, chaussures, bande}) => {
+  /** ep16 : genouillères (couleur). */
+  genou?: string | null;
+}> = ({phase, bas, jean, chaussures, bande, genou}) => {
   const amp = phase === null ? 0 : Math.sin(phase) * 20;
   const lever = (s: number) => (phase === null ? 0 : Math.max(0, Math.sin(phase) * s) * 14);
   const jambe = (x: number, hanche: Pt, ang: number, leve: number, gauche: boolean) => (
@@ -239,6 +244,7 @@ export const Jambes: React.FC<{
           <path d={`M ${x + 4} 812 H ${x + 62}`} stroke={jean} strokeWidth={4} strokeDasharray="8 6" />
         </g>
       ) : null}
+      {genou ? <Genouillere x={x} couleur={genou} /> : null}
       {gauche ? (
         <>
           <path d="M 196 836 q 0 -34 40 -34 h 46 q 14 0 14 20 v 26 h -100 z" fill={chaussures} stroke={OUT} strokeWidth={SW} strokeLinejoin="round" />
@@ -1089,6 +1095,7 @@ export const ObjetMainEp11: React.FC<{nom: string; main: Pt; peau: string; miroi
         </g>
       );
     default:
+      if (OBJETS_EP16.has(nom)) return <ObjetMainEp16 nom={nom} main={main} peau={peau} frame={frame} />;
       if (['chronometre', 'bouteille', 'haltere', 'elastique', 'tapis_roule'].includes(nom)) return <ObjetMainEp15 nom={nom} main={main} peau={peau} frame={frame} />;
       if (['machine_tatouage', 'tablette', 'valise', 'cle'].includes(nom)) return <ObjetMainEp14 nom={nom} main={main} peau={peau} frame={frame} />;
       return <ObjetMainEp13 nom={nom} main={main} peau={peau} miroir={miroir} texte={texte} frame={frame} />;

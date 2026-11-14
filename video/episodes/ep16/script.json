@@ -1,0 +1,1555 @@
+[
+ {
+  "texte": "Karim, plombier, encaisse trois mille euros par mois. Il lui reste environ mille deux cent soixante euros.",
+  "decor": "cuisine",
+  "expression": "fier",
+  "mot_jaune": "reste",
+  "etiquette": null,
+  "puis": {
+   "expression": "choque",
+   "au_mot": "mille#2"
+  },
+  "element_visuel": {
+   "type": "carte_vedette",
+   "etapes": [
+    {
+     "valeur": "3 000 €",
+     "lignes": [
+      "encaissés par mois"
+     ],
+     "au_mot": "trois"
+    },
+    {
+     "valeur": "≈ 1 260 €",
+     "lignes": [
+      "ce qui reste"
+     ],
+     "au_mot": "reste",
+     "couleur": "rouge"
+    }
+   ],
+   "mention": "Exemple illustratif"
+  },
+  "objets_scene": [
+   {
+    "type": "evier",
+    "x": 800,
+    "y": 1500,
+    "largeur": 380
+   }
+  ],
+  "acteurs": [
+   {
+    "id": "cliente_moutarde",
+    "x": 250,
+    "expression": "content",
+    "actions": [
+     {
+      "t": 1.5,
+      "fin": 2.6,
+      "type": "walkIn",
+      "from": "left",
+      "x": 250
+     },
+     {
+      "t": 2.7,
+      "fin": 3.6,
+      "type": "tendre",
+      "cote": "r",
+      "objet": "billets"
+     },
+     {
+      "t": 3.7,
+      "fin": 4.4,
+      "type": "hoche"
+     },
+     {
+      "t": 4.5,
+      "fin": 5.3,
+      "type": "saluer",
+      "cote": "r"
+     }
+    ]
+   },
+   {
+    "id": "karim_plombier",
+    "x": 620,
+    "nom": "Karim, plombier",
+    "actions": [
+     {
+      "t": 0,
+      "fin": 2.5,
+      "type": "agenouille"
+     },
+     {
+      "t": 0,
+      "fin": 1.4,
+      "type": "serrer",
+      "cote": "r",
+      "objet": "cle_molette"
+     },
+     {
+      "t": 1.4,
+      "fin": 2.3,
+      "type": "essuyer",
+      "cote": "l"
+     },
+     {
+      "t": 3.0,
+      "fin": 3.8,
+      "type": "saisir",
+      "cote": "l",
+      "objet": "billets"
+     },
+     {
+      "t": 3.8,
+      "fin": 6.28,
+      "type": "objet",
+      "cote": "l",
+      "objet": "billets"
+     },
+     {
+      "t": 3.9,
+      "fin": 4.8,
+      "type": "compter",
+      "cote": "r",
+      "doigts": [
+       1,
+       2,
+       3
+      ]
+     },
+     {
+      "t": 4.6,
+      "fin": 5.0,
+      "type": "recul",
+      "dx": -50
+     },
+     {
+      "t": 5.0,
+      "fin": 5.9,
+      "type": "hausse"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "texte": "D'abord, les cotisations : vingt et un pour cent. Puis six cents euros de pièces.",
+  "decor": "magasin",
+  "expression": "neutre",
+  "mot_jaune": "cotisations",
+  "etiquette": "EN CLAIR",
+  "element_visuel": {
+   "type": "carte_vedette",
+   "etapes": [
+    {
+     "valeur": "− 636 €",
+     "lignes": [
+      "cotisations (21,2 %)",
+      "un % de ce que tu encaisses"
+     ],
+     "au_mot": "cotisations",
+     "couleur": "rouge"
+    },
+    {
+     "valeur": "− 600 €",
+     "lignes": [
+      "de pièces",
+      "sur 3 000 € encaissés"
+     ],
+     "au_mot": "six",
+     "couleur": "rouge"
+    }
+   ],
+   "mention": "Estimation : 21,2 % sur tout le CA",
+   "source": "Source : Abby"
+  },
+  "objets_scene": [
+   {
+    "type": "comptoir",
+    "x": 790,
+    "y": 1300,
+    "largeur": 400,
+    "devant": true,
+    "instants": [
+     1.2,
+     1.8,
+     2.4
+    ]
+   },
+   {
+    "type": "pile_descend",
+    "x": 120,
+    "y": 1490,
+    "instants": [
+     1.3,
+     2.25,
+     3.1,
+     3.8
+    ],
+    "devant": true
+   }
+  ],
+  "acteurs": [
+   {
+    "id": "vendeur_brico",
+    "x": 820,
+    "miroir": true,
+    "expression": "content",
+    "actions": [
+     {
+      "t": 0.2,
+      "fin": 1.0,
+      "type": "saluer",
+      "cote": "l"
+     },
+     {
+      "t": 1.1,
+      "fin": 2.6,
+      "type": "tourner",
+      "cote": "l"
+     },
+     {
+      "t": 2.7,
+      "fin": 3.4,
+      "type": "tendre",
+      "cote": "l",
+      "objet": "recu"
+     },
+     {
+      "t": 3.6,
+      "fin": 4.3,
+      "type": "hoche"
+     }
+    ]
+   },
+   {
+    "id": "karim_plombier",
+    "x": 380,
+    "actions": [
+     {
+      "t": 0,
+      "fin": 1.0,
+      "type": "walkIn",
+      "from": "left",
+      "x": 380
+     },
+     {
+      "t": 0,
+      "fin": 1.9,
+      "type": "objet",
+      "cote": "r",
+      "objet": "panier"
+     },
+     {
+      "t": 1.0,
+      "fin": 1.9,
+      "type": "tendre",
+      "cote": "r",
+      "objet": "panier"
+     },
+     {
+      "t": 2.0,
+      "fin": 2.9,
+      "type": "saisir",
+      "cote": "l",
+      "objet": "carte_paiement"
+     },
+     {
+      "t": 3.0,
+      "fin": 3.8,
+      "type": "tendre",
+      "cote": "r",
+      "objet": "carte_paiement"
+     },
+     {
+      "t": 3.9,
+      "fin": 4.8,
+      "type": "hoche"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "texte": "Ensuite, camionnette, carburant, assurance et outils : cinq cents euros. Il reste mille deux cent soixante euros, avant impôt.",
+  "decor": "parking",
+  "expression": "perplexe",
+  "mot_jaune": "assurance",
+  "etiquette": null,
+  "element_visuel": {
+   "type": "carte_vedette",
+   "etapes": [
+    {
+     "valeur": "− 500 €",
+     "lignes": [
+      "camionnette, carburant,",
+      "assurance, outils"
+     ],
+     "au_mot": "cinq",
+     "couleur": "rouge"
+    },
+    {
+     "valeur": "≈ 1 260 €",
+     "lignes": [
+      "avant impôt"
+     ],
+     "au_mot": "reste"
+    }
+   ],
+   "mention": "Hypothèse"
+  },
+  "objets_scene": [
+   {
+    "type": "camion",
+    "x": 260,
+    "y": 1500,
+    "largeur": 500,
+    "ferme": 3.7
+   },
+   {
+    "type": "pompe",
+    "x": 930,
+    "y": 1500,
+    "instants": [
+     0.2
+    ]
+   }
+  ],
+  "acteurs": [
+   {
+    "id": "karim_plombier",
+    "x": 740,
+    "actions": [
+     {
+      "t": 0,
+      "fin": 1.8,
+      "type": "tenir",
+      "cote": "r",
+      "objet": "pistolet"
+     },
+     {
+      "t": 1.9,
+      "fin": 2.8,
+      "type": "walkTo",
+      "x": 560
+     },
+     {
+      "t": 1.9,
+      "fin": 3.5,
+      "type": "porter",
+      "cote": "l",
+      "objet": "caisse_outils"
+     },
+     {
+      "t": 2.9,
+      "fin": 3.5,
+      "type": "tendre",
+      "cote": "l",
+      "objet": "caisse_outils"
+     },
+     {
+      "t": 3.5,
+      "fin": 3.9,
+      "type": "tendre",
+      "cote": "r"
+     },
+     {
+      "t": 4.4,
+      "fin": 5.1,
+      "type": "saisir",
+      "cote": "r",
+      "objet": "recu"
+     },
+     {
+      "t": 5.1,
+      "fin": 7.39,
+      "type": "objet",
+      "cote": "r",
+      "objet": "recu"
+     },
+     {
+      "t": 5.3,
+      "fin": 6.2,
+      "type": "hausse"
+     },
+     {
+      "t": 6.2,
+      "fin": 7.1,
+      "type": "incline",
+      "angle": -10
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "texte": "Mais il travaille cent quarante heures, pour soixante facturées. Trajets, devis, courses : jamais payés.",
+  "decor": "bureau",
+  "expression": "perplexe",
+  "mot_jaune": "facturées",
+  "etiquette": "MAIS",
+  "element_visuel": {
+   "type": "carte_vedette",
+   "etapes": [
+    {
+     "valeur": "140 h",
+     "lignes": [
+      "travaillées"
+     ],
+     "au_mot": "cent"
+    },
+    {
+     "valeur": "60 h",
+     "lignes": [
+      "facturées"
+     ],
+     "au_mot": "soixante"
+    },
+    {
+     "valeur": "≈ 9 €",
+     "lignes": [
+      "de l’heure",
+      "140 h travaillées, 60 h facturées"
+     ],
+     "au_mot": "Trajets",
+     "couleur": "rouge"
+    }
+   ],
+   "mention": "Hypothèse : 80 h de trajets, devis, courses, admin"
+  },
+  "objets_scene": [
+   {
+    "type": "bureau",
+    "x": 480,
+    "y": 1290,
+    "largeur": 460,
+    "devant": true
+   },
+   {
+    "type": "pile_papiers",
+    "x": 650,
+    "y": 1200,
+    "t": 0.0,
+    "fin": 3.0,
+    "hauteur": 11,
+    "devant": true
+   },
+   {
+    "type": "chrono",
+    "x": 120,
+    "y": 1000,
+    "texte": "",
+    "instants": [
+     0.0,
+     6.234999999999999
+    ],
+    "largeur": 66,
+    "hauteur": 3
+   }
+  ],
+  "acteurs": [
+   {
+    "id": "karim_plombier",
+    "x": 480,
+    "pose": "assis",
+    "chaise": "#343A40",
+    "actions": [
+     {
+      "t": 0,
+      "fin": 0.8,
+      "type": "tendre",
+      "cote": "r",
+      "objet": "papiers"
+     },
+     {
+      "t": 0.9,
+      "fin": 1.7,
+      "type": "tendre",
+      "cote": "r",
+      "objet": "papiers"
+     },
+     {
+      "t": 1.8,
+      "fin": 2.6,
+      "type": "incline",
+      "angle": -14
+     },
+     {
+      "t": 1.9,
+      "fin": 2.7,
+      "type": "pointer",
+      "cote": "l",
+      "cible": "haut"
+     },
+     {
+      "t": 2.8,
+      "fin": 4.1,
+      "type": "nuque",
+      "cote": "r"
+     },
+     {
+      "t": 4.2,
+      "fin": 6.23,
+      "type": "teteMains",
+      "cote": "l"
+     },
+     {
+      "t": 4.4,
+      "fin": 5.2,
+      "type": "hoche"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "texte": "Premier levier : une marge sur les pièces, refacturées au prix d'achat. Vingt-cinq pour cent : cent cinquante euros par mois.",
+  "decor": "cuisine",
+  "expression": "fier",
+  "mot_jaune": "marge",
+  "etiquette": "LEVIER N°1",
+  "element_visuel": {
+   "type": "carte_vedette",
+   "etapes": [
+    {
+     "valeur": "+ 25 %",
+     "lignes": [
+      "de marge sur les pièces"
+     ],
+     "au_mot": "marge",
+     "couleur": "vert"
+    },
+    {
+     "valeur": "+ 150 €",
+     "lignes": [
+      "par mois",
+      "25 % × 600 € de pièces"
+     ],
+     "au_mot": "cinquante",
+     "couleur": "vert"
+    }
+   ],
+   "mention": "Marge habituelle : 15 à 30 %",
+   "source": "Source : HabitatPresto"
+  },
+  "objets_scene": [
+   {
+    "type": "boite_pieces",
+    "x": 860,
+    "y": 1150,
+    "ouvre": 1.5
+   }
+  ],
+  "acteurs": [
+   {
+    "id": "cliente_moutarde",
+    "x": 250,
+    "expression": "content",
+    "actions": [
+     {
+      "t": 0.3,
+      "fin": 1.0,
+      "type": "saluer",
+      "cote": "r"
+     },
+     {
+      "t": 4.8,
+      "fin": 5.6,
+      "type": "saisir",
+      "cote": "r",
+      "objet": "tablette"
+     },
+     {
+      "t": 5.6,
+      "fin": 6.6,
+      "type": "ecrire",
+      "cote": "r",
+      "objet": "stylo"
+     },
+     {
+      "t": 6.8,
+      "fin": 7.5,
+      "type": "hoche"
+     },
+     {
+      "t": 1.1,
+      "fin": 1.9,
+      "type": "incline",
+      "angle": 7
+     },
+     {
+      "t": 2.0,
+      "fin": 2.8,
+      "type": "hoche"
+     },
+     {
+      "t": 2.9,
+      "fin": 3.7,
+      "type": "incline",
+      "angle": 7
+     }
+    ]
+   },
+   {
+    "id": "karim_plombier",
+    "x": 640,
+    "actions": [
+     {
+      "t": 0.6,
+      "fin": 1.3,
+      "type": "walkTo",
+      "x": 700
+     },
+     {
+      "t": 1.3,
+      "fin": 1.9,
+      "type": "coller",
+      "cote": "r"
+     },
+     {
+      "t": 2.2,
+      "fin": 4.6,
+      "type": "objet",
+      "cote": "l",
+      "objet": "tablette"
+     },
+     {
+      "t": 2.3,
+      "fin": 3.8,
+      "type": "ecrire",
+      "cote": "r",
+      "objet": "stylo"
+     },
+     {
+      "t": 3.9,
+      "fin": 4.6,
+      "type": "hoche"
+     },
+     {
+      "t": 4.5,
+      "fin": 5.3,
+      "type": "tendre",
+      "cote": "l",
+      "objet": "tablette"
+     },
+     {
+      "t": 5.4,
+      "fin": 6.1,
+      "type": "walkTo",
+      "x": 560
+     },
+     {
+      "t": 6.2,
+      "fin": 7.2,
+      "type": "pouce",
+      "cote": "r"
+     },
+     {
+      "t": 7.3,
+      "fin": 8.0,
+      "type": "hoche"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "texte": "Deuxième levier : des contrats d'entretien. Vingt contrats à cent vingt euros par an : deux mille quatre cents euros.",
+  "decor": "salon",
+  "expression": "content",
+  "mot_jaune": "contrats",
+  "etiquette": "LEVIER N°2",
+  "mot_jaune_rang": 1,
+  "element_visuel": {
+   "type": "carte_vedette",
+   "etapes": [
+    {
+     "valeur": "2 400 €",
+     "lignes": [
+      "par an",
+      "20 contrats × 120 €"
+     ],
+     "au_mot": "Vingt",
+     "couleur": "vert"
+    }
+   ],
+   "mention": "Hypothèse. Contrat : 100 à 250 € par an",
+   "source": "Source : HabitatPresto"
+  },
+  "objets_scene": [
+   {
+    "type": "chaudiere",
+    "x": 930,
+    "y": 1180,
+    "ouvre": 0.6
+   },
+   {
+    "type": "calendrier",
+    "x": 150,
+    "y": 1060,
+    "instants": [
+     2.9
+    ]
+   },
+   {
+    "type": "pile_papiers",
+    "x": 560,
+    "y": 1500,
+    "t": 0.3,
+    "fin": 5.5,
+    "hauteur": 12,
+    "devant": true
+   }
+  ],
+  "acteurs": [
+   {
+    "id": "client_senior",
+    "x": 320,
+    "expression": "content",
+    "actions": [
+     {
+      "t": 0.2,
+      "fin": 1.5,
+      "type": "ecrire",
+      "cote": "r",
+      "objet": "stylo"
+     },
+     {
+      "t": 0,
+      "fin": 1.6,
+      "type": "objet",
+      "cote": "l",
+      "objet": "contrat"
+     },
+     {
+      "t": 1.7,
+      "fin": 2.4,
+      "type": "hoche"
+     },
+     {
+      "t": 2.6,
+      "fin": 3.4,
+      "type": "pouce",
+      "cote": "r"
+     },
+     {
+      "t": 4.4,
+      "fin": 5.6,
+      "type": "serrerMain",
+      "cote": "r"
+     },
+     {
+      "t": 5.7,
+      "fin": 6.3,
+      "type": "hoche"
+     }
+    ]
+   },
+   {
+    "id": "karim_plombier",
+    "x": 780,
+    "actions": [
+     {
+      "t": 0.3,
+      "fin": 1.6,
+      "type": "tourner",
+      "cote": "r"
+     },
+     {
+      "t": 1.7,
+      "fin": 2.6,
+      "type": "walkTo",
+      "x": 560
+     },
+     {
+      "t": 2.6,
+      "fin": 3.3,
+      "type": "pointer",
+      "cote": "l",
+      "cible": "cote"
+     },
+     {
+      "t": 3.4,
+      "fin": 4.2,
+      "type": "hoche"
+     },
+     {
+      "t": 4.4,
+      "fin": 5.6,
+      "type": "serrerMain",
+      "cote": "l"
+     },
+     {
+      "t": 5.7,
+      "fin": 6.3,
+      "type": "saut"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "texte": "Troisième levier : facturer le déplacement, trente-cinq euros. Dix dépannages par mois : trois cent cinquante euros.",
+  "decor": "rue",
+  "expression": "fier",
+  "mot_jaune": "déplacement",
+  "etiquette": "LEVIER N°3",
+  "element_visuel": {
+   "type": "carte_vedette",
+   "etapes": [
+    {
+     "valeur": "35 €",
+     "lignes": [
+      "le déplacement"
+     ],
+     "au_mot": "trente-cinq"
+    },
+    {
+     "valeur": "+ 350 €",
+     "lignes": [
+      "par mois",
+      "10 dépannages × 35 €"
+     ],
+     "au_mot": "Dix",
+     "couleur": "vert"
+    }
+   ],
+   "mention": "Déplacement : 20 à 50 €, à écrire sur le devis",
+   "source": "Source : ABC Travaux"
+  },
+  "objets_scene": [
+   {
+    "type": "facade",
+    "x": 860,
+    "y": 1500,
+    "largeur": 340,
+    "hauteur": 960,
+    "ouvre": 2.6,
+    "instants": [
+     2.2
+    ]
+   }
+  ],
+  "acteurs": [
+   {
+    "id": "cliente_moutarde",
+    "x": 860,
+    "expression": "content",
+    "apparition": 2.6,
+    "actions": [
+     {
+      "t": 2.8,
+      "fin": 3.5,
+      "type": "saluer",
+      "cote": "l"
+     },
+     {
+      "t": 4.2,
+      "fin": 4.9,
+      "type": "hoche"
+     },
+     {
+      "t": 5.0,
+      "fin": 5.8,
+      "type": "pouce",
+      "cote": "l"
+     }
+    ]
+   },
+   {
+    "id": "karim_plombier",
+    "x": 560,
+    "actions": [
+     {
+      "t": 0,
+      "fin": 2.0,
+      "type": "walkIn",
+      "from": "left",
+      "x": 560
+     },
+     {
+      "t": 0,
+      "fin": 6.34,
+      "type": "objet",
+      "cote": "l",
+      "objet": "caisse_outils"
+     },
+     {
+      "t": 0,
+      "fin": 2.1,
+      "type": "porter",
+      "cote": "l",
+      "objet": "caisse_outils"
+     },
+     {
+      "t": 2.0,
+      "fin": 2.5,
+      "type": "pointer",
+      "cote": "r",
+      "cible": "cote"
+     },
+     {
+      "t": 3.0,
+      "fin": 4.6,
+      "type": "tendre",
+      "cote": "r",
+      "objet": "contrat"
+     },
+     {
+      "t": 4.7,
+      "fin": 5.3,
+      "type": "hoche"
+     },
+     {
+      "t": 5.4,
+      "fin": 6.2,
+      "type": "pointer",
+      "cote": "r",
+      "cible": "avant"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "texte": "Quatrième levier : majorer urgences, soirs et week-ends, de vingt à cent pour cent. Ta disponibilité a un prix.",
+  "decor": "cuisine_nuit",
+  "expression": "fier",
+  "mot_jaune": "urgences",
+  "etiquette": "LEVIER N°4",
+  "element_visuel": {
+   "type": "carte_vedette",
+   "etapes": [
+    {
+     "valeur": "+ 50 %",
+     "lignes": [
+      "urgence, soir, week-end : + 20 à + 100 %",
+      "Exemple : 40 € → 60 €"
+     ],
+     "au_mot": "urgences",
+     "couleur": "vert"
+    }
+   ],
+   "mention": "Estimation",
+   "source": "Source : MesDépanneurs"
+  },
+  "objets_scene": [
+   {
+    "type": "evier",
+    "x": 820,
+    "y": 1500,
+    "largeur": 360,
+    "ouvre": 0,
+    "ferme": 3.4
+   }
+  ],
+  "acteurs": [
+   {
+    "id": "cliente_nuit",
+    "x": 270,
+    "expression": "perplexe",
+    "actions": [
+     {
+      "t": 0,
+      "fin": 1.3,
+      "type": "pointer",
+      "cote": "r",
+      "cible": "cote"
+     },
+     {
+      "t": 1.4,
+      "fin": 2.1,
+      "type": "teteMains",
+      "cote": "deux"
+     },
+     {
+      "t": 2.3,
+      "fin": 3.0,
+      "type": "hoche"
+     },
+     {
+      "t": 5.5,
+      "fin": 6.6,
+      "type": "serrerMain",
+      "cote": "r"
+     },
+     {
+      "t": 3.1,
+      "fin": 3.9,
+      "type": "incline",
+      "angle": 7
+     },
+     {
+      "t": 4.0,
+      "fin": 4.8,
+      "type": "hoche"
+     }
+    ]
+   },
+   {
+    "id": "karim_plombier",
+    "x": 620,
+    "miroir": false,
+    "actions": [
+     {
+      "t": 0,
+      "fin": 1.3,
+      "type": "walkIn",
+      "from": "right",
+      "x": 620,
+      "course": true
+     },
+     {
+      "t": 0,
+      "fin": 1.5,
+      "type": "porter",
+      "cote": "l",
+      "objet": "caisse_outils"
+     },
+     {
+      "t": 1.5,
+      "fin": 2.5,
+      "type": "tourner",
+      "cote": "r"
+     },
+     {
+      "t": 2.6,
+      "fin": 4.6,
+      "type": "agenouille"
+     },
+     {
+      "t": 2.7,
+      "fin": 4.4,
+      "type": "serrer",
+      "cote": "r",
+      "objet": "cle_molette"
+     },
+     {
+      "t": 4.7,
+      "fin": 5.4,
+      "type": "pouce",
+      "cote": "r"
+     },
+     {
+      "t": 5.5,
+      "fin": 6.6,
+      "type": "serrerMain",
+      "cote": "l"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "texte": "Cinquième levier : une spécialité, comme le chauffage. Marge sur les pièces : trente à quarante pour cent.",
+  "decor": "chantier",
+  "expression": "fier",
+  "mot_jaune": "spécialité",
+  "etiquette": "LEVIER N°5",
+  "element_visuel": {
+   "type": "carte_vedette",
+   "etapes": [
+    {
+     "valeur": "15–30 %",
+     "lignes": [
+      "Généraliste : marge sur les pièces"
+     ],
+     "au_mot": "spécialité"
+    },
+    {
+     "valeur": "30–40 %",
+     "lignes": [
+      "Plombier-chauffagiste",
+      "contre 15–30 % en généraliste"
+     ],
+     "au_mot": "Marge",
+     "couleur": "vert"
+    }
+   ],
+   "mention": "Estimation",
+   "source": "Source : MesDépanneurs"
+  },
+  "objets_scene": [
+   {
+    "type": "chaudiere",
+    "x": 800,
+    "y": 1150,
+    "ouvre": 0.9
+   },
+   {
+    "type": "tuyaux",
+    "x": 300,
+    "y": 1460,
+    "devant": true
+   }
+  ],
+  "acteurs": [
+   {
+    "id": "karim_plombier",
+    "x": 560,
+    "actions": [
+     {
+      "t": 0,
+      "fin": 1.0,
+      "type": "coller",
+      "cote": "r"
+     },
+     {
+      "t": 1.1,
+      "fin": 2.4,
+      "type": "serrer",
+      "cote": "r",
+      "objet": "cle_molette"
+     },
+     {
+      "t": 2.5,
+      "fin": 3.2,
+      "type": "pointer",
+      "cote": "r",
+      "cible": "haut"
+     },
+     {
+      "t": 3.3,
+      "fin": 3.9,
+      "type": "hoche"
+     },
+     {
+      "t": 4.0,
+      "fin": 5.0,
+      "type": "poing",
+      "cote": "r"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "texte": "Conseil : note chaque heure, trajets et devis compris, pour connaître ton revenu par heure.",
+  "decor": "bureau",
+  "expression": "neutre",
+  "mot_jaune": "heure",
+  "etiquette": "CONSEIL",
+  "element_visuel": {
+   "type": "carte_vedette",
+   "etapes": [
+    {
+     "valeur": "≈ 9 €",
+     "lignes": [
+      "par heure : 1 260 € ÷ 140 h",
+      "Chantier · Trajets · Devis · Admin"
+     ],
+     "au_mot": "note"
+    }
+   ],
+   "mention": "Exemple illustratif"
+  },
+  "objets_scene": [
+   {
+    "type": "bureau",
+    "x": 500,
+    "y": 1290,
+    "largeur": 460,
+    "devant": true
+   }
+  ],
+  "acteurs": [
+   {
+    "id": "karim_plombier",
+    "x": 500,
+    "pose": "assis",
+    "chaise": "#343A40",
+    "actions": [
+     {
+      "t": 0,
+      "fin": 2.0,
+      "type": "objet",
+      "cote": "l",
+      "objet": "carnet"
+     },
+     {
+      "t": 0,
+      "fin": 1.2,
+      "type": "ecrire",
+      "cote": "r",
+      "objet": "stylo"
+     },
+     {
+      "t": 1.3,
+      "fin": 2.0,
+      "type": "saisir",
+      "cote": "r",
+      "objet": "chronometre"
+     },
+     {
+      "t": 2.0,
+      "fin": 2.8,
+      "type": "tenir",
+      "cote": "r",
+      "objet": "chronometre"
+     },
+     {
+      "t": 2.9,
+      "fin": 3.8,
+      "type": "montrer",
+      "cote": "l",
+      "objet": "telephone"
+     },
+     {
+      "t": 3.8,
+      "fin": 4.6,
+      "type": "gratter",
+      "cote": "r"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "texte": "Attention : l'assurance décennale est obligatoire avant le premier chantier : mille deux cents à deux mille euros par an.",
+  "decor": "bureau",
+  "expression": "neutre",
+  "mot_jaune": "décennale",
+  "etiquette": "ATTENTION",
+  "element_visuel": {
+   "type": "carte_vedette",
+   "etapes": [
+    {
+     "valeur": "≈ 1 200–2 000 €",
+     "lignes": [
+      "par an : décennale obligatoire",
+      "avant le premier chantier",
+      "TVA au-delà de 37 500 € de CA/an (voir un comptable)"
+     ],
+     "au_mot": "décennale"
+    }
+   ],
+   "mention": "Certaines sources : jusqu’à 4 000 €",
+   "source": "Source : Abby"
+  },
+  "acteurs": [
+   {
+    "id": "assureur",
+    "x": 300,
+    "expression": "neutre",
+    "actions": [
+     {
+      "t": 0,
+      "fin": 2.0,
+      "type": "objet",
+      "cote": "l",
+      "objet": "dossier"
+     },
+     {
+      "t": 0.4,
+      "fin": 1.6,
+      "type": "tamponner",
+      "cote": "r",
+      "objet": "tampon"
+     },
+     {
+      "t": 1.8,
+      "fin": 2.8,
+      "type": "tendre",
+      "cote": "r",
+      "objet": "attestation"
+     },
+     {
+      "t": 3.0,
+      "fin": 3.6,
+      "type": "hoche"
+     },
+     {
+      "t": 3.8,
+      "fin": 4.8,
+      "type": "croiser"
+     },
+     {
+      "t": 5.0,
+      "fin": 5.7,
+      "type": "hoche"
+     }
+    ]
+   },
+   {
+    "id": "karim_plombier",
+    "x": 760,
+    "actions": [
+     {
+      "t": 0.3,
+      "fin": 1.1,
+      "type": "hoche"
+     },
+     {
+      "t": 2.0,
+      "fin": 2.8,
+      "type": "saisir",
+      "cote": "l",
+      "objet": "attestation"
+     },
+     {
+      "t": 2.8,
+      "fin": 3.6,
+      "type": "tenir",
+      "cote": "l",
+      "objet": "attestation"
+     },
+     {
+      "t": 3.6,
+      "fin": 4.4,
+      "type": "sousBras",
+      "cote": "l",
+      "objet": "attestation"
+     },
+     {
+      "t": 3.7,
+      "fin": 4.3,
+      "type": "hoche"
+     },
+     {
+      "t": 4.6,
+      "fin": 5.9,
+      "type": "tapeMain",
+      "cote": "r"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "texte": "Règle numéro un : fixe ton prix sur les cent quarante heures, pas sur les soixante facturées.",
+  "decor": "studio",
+  "expression": "neutre",
+  "mot_jaune": "prix",
+  "etiquette": "RÈGLE N°1",
+  "element_visuel": {
+   "type": "addition_pastilles",
+   "pastilles": [
+    {
+     "texte": "Facturées : 60 h",
+     "au_mot": "fixe"
+    },
+    {
+     "texte": "Trajets, devis… : 80 h",
+     "au_mot": "prix"
+    }
+   ],
+   "resultat": {
+    "texte": "140 h = ton prix",
+    "au_mot": "quarante"
+   }
+  },
+  "acteurs": [
+   {
+    "id": "karim_plombier",
+    "x": 540,
+    "echelle": 0.85,
+    "actions": [
+     {
+      "t": 0,
+      "fin": 0.8,
+      "type": "coller",
+      "cote": "l"
+     },
+     {
+      "t": 0.9,
+      "fin": 1.6,
+      "type": "coller",
+      "cote": "r"
+     },
+     {
+      "t": 1.7,
+      "fin": 2.8,
+      "type": "compter",
+      "cote": "r",
+      "doigts": [
+       1,
+       2
+      ]
+     },
+     {
+      "t": 2.9,
+      "fin": 4.1,
+      "type": "pointer",
+      "cote": "r",
+      "cible": "haut"
+     },
+     {
+      "t": 4.2,
+      "fin": 4.9,
+      "type": "hoche"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "texte": "Plombier indépendant : bon plan ou casse-tête ? Dis-le en commentaire, et abonne-toi pour d'autres vrais chiffres.",
+  "decor": "cuisine",
+  "expression": "content",
+  "mot_jaune": "commentaire",
+  "etiquette": "TON AVIS",
+  "element_visuel": {
+   "type": "carte_vedette",
+   "etapes": [
+    {
+     "valeur": "",
+     "icones": [
+      "coeur",
+      "bulle",
+      "plus"
+     ],
+     "lignes": [
+      "Bon plan ou casse-tête ?",
+      "Dis-le en commentaire"
+     ]
+    }
+   ]
+  },
+  "acteurs": [
+   {
+    "id": "cliente_moutarde",
+    "x": 540,
+    "y": 1360,
+    "echelle": 0.55,
+    "expression": "content",
+    "actions": [
+     {
+      "t": 0.8,
+      "fin": 2.2,
+      "type": "walkIn",
+      "from": "left",
+      "x": 540
+     },
+     {
+      "t": 2.2,
+      "fin": 3.6,
+      "type": "walkOut",
+      "to": "right"
+     },
+     {
+      "t": 1.2,
+      "fin": 3.2,
+      "type": "saluer",
+      "cote": "r"
+     }
+    ]
+   },
+   {
+    "id": "client_senior",
+    "x": 540,
+    "y": 1360,
+    "echelle": 0.55,
+    "expression": "content",
+    "actions": [
+     {
+      "t": 2.6,
+      "fin": 4.0,
+      "type": "walkIn",
+      "from": "left",
+      "x": 540
+     },
+     {
+      "t": 4.0,
+      "fin": 5.4,
+      "type": "walkOut",
+      "to": "right"
+     },
+     {
+      "t": 3.0,
+      "fin": 5.0,
+      "type": "saluer",
+      "cote": "r"
+     }
+    ]
+   },
+   {
+    "id": "vendeur_brico",
+    "x": 540,
+    "y": 1360,
+    "echelle": 0.55,
+    "expression": "content",
+    "actions": [
+     {
+      "t": 4.4,
+      "fin": 5.8,
+      "type": "walkIn",
+      "from": "left",
+      "x": 540
+     },
+     {
+      "t": 5.8,
+      "fin": 7.2,
+      "type": "walkOut",
+      "to": "right"
+     },
+     {
+      "t": 4.8,
+      "fin": 6.8,
+      "type": "saluer",
+      "cote": "r"
+     }
+    ]
+   },
+   {
+    "id": "karim_plombier",
+    "x": 540,
+    "echelle": 0.82,
+    "actions": [
+     {
+      "t": 0.2,
+      "fin": 1.2,
+      "type": "clin"
+     },
+     {
+      "t": 0.3,
+      "fin": 1.5,
+      "type": "pointer",
+      "cote": "r",
+      "cible": "bas"
+     },
+     {
+      "t": 1.6,
+      "fin": 2.4,
+      "type": "hoche"
+     },
+     {
+      "t": 2.5,
+      "fin": 3.5,
+      "type": "pointer",
+      "cote": "l",
+      "cible": "bas"
+     },
+     {
+      "t": 3.6,
+      "fin": 4.4,
+      "type": "hausse"
+     },
+     {
+      "t": 4.6,
+      "fin": 5.6,
+      "type": "saut"
+     },
+     {
+      "t": 5.7,
+      "fin": 6.7,
+      "type": "pouce",
+      "cote": "r"
+     },
+     {
+      "t": 6.8,
+      "fin": 8.0,
+      "type": "saluer",
+      "cote": "r"
+     },
+     {
+      "t": 8.1,
+      "fin": 8.9,
+      "type": "hoche"
+     }
+    ]
+   }
+  ]
+ }
+]

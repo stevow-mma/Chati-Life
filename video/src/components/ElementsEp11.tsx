@@ -2,6 +2,7 @@ import {interpolate, spring, useCurrentFrame, useVideoConfig} from 'remotion';
 import {FONT_TEXTE, FONT_TITRE} from '../fonts';
 import type {ElementVisuel} from '../types';
 import {Glisse} from './ElementsEp10';
+import {ElementEp16} from './Ep16';
 
 /** Éléments visuels ajoutés en ep11 (glissent depuis le côté et rebondissent, comme ceux d'ep10). */
 
@@ -120,6 +121,6 @@ export const ElementEp11: React.FC<{element: ElementVisuel; motFrame?: MotFrame}
     case 'addition_pastilles':
       return <AdditionPastilles el={element} motFrame={motFrame} />;
     default:
-      return null;
+      return <ElementEp16 element={element} motFrame={motFrame} />;
   }
 };
