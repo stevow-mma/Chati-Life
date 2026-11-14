@@ -132,7 +132,8 @@
      }
     ]
    }
-  ]
+  ],
+  "duree": 6.28
  },
  {
   "texte": "D'abord, les cotisations : vingt et un pour cent. Puis six cents euros de pièces.",
@@ -270,7 +271,8 @@
      }
     ]
    }
-  ]
+  ],
+  "duree": 4.99
  },
  {
   "texte": "Ensuite, camionnette, carburant, assurance et outils : cinq cents euros. Il reste mille deux cent soixante euros, avant impôt.",
@@ -382,7 +384,8 @@
      }
     ]
    }
-  ]
+  ],
+  "duree": 7.39
  },
  {
   "texte": "Mais il travaille cent quarante heures, pour soixante facturées. Trajets, devis, courses : jamais payés.",
@@ -502,7 +505,8 @@
      }
     ]
    }
-  ]
+  ],
+  "duree": 6.23
  },
  {
   "texte": "Premier levier : une marge sur les pièces, refacturées au prix d'achat. Vingt-cinq pour cent : cent cinquante euros par mois.",
@@ -653,7 +657,8 @@
      }
     ]
    }
-  ]
+  ],
+  "duree": 8.27
  },
  {
   "texte": "Deuxième levier : des contrats d'entretien. Vingt contrats à cent vingt euros par an : deux mille quatre cents euros.",
@@ -788,7 +793,8 @@
      }
     ]
    }
-  ]
+  ],
+  "duree": 6.4
  },
  {
   "texte": "Troisième levier : facturer le déplacement, trente-cinq euros. Dix dépannages par mois : trois cent cinquante euros.",
@@ -911,7 +917,8 @@
      }
     ]
    }
-  ]
+  ],
+  "duree": 6.34
  },
  {
   "texte": "Quatrième levier : majorer urgences, soirs et week-ends, de vingt à cent pour cent. Ta disponibilité a un prix.",
@@ -1040,7 +1047,8 @@
      }
     ]
    }
-  ]
+  ],
+  "duree": 6.92
  },
  {
   "texte": "Cinquième levier : une spécialité, comme le chauffage. Marge sur les pièces : trente à quarante pour cent.",
@@ -1123,7 +1131,8 @@
      }
     ]
    }
-  ]
+  ],
+  "duree": 5.33
  },
  {
   "texte": "Conseil : note chaque heure, trajets et devis compris, pour connaître ton revenu par heure.",
@@ -1204,7 +1213,8 @@
      }
     ]
    }
-  ]
+  ],
+  "duree": 4.68
  },
  {
   "texte": "Attention : l'assurance décennale est obligatoire avant le premier chantier : mille deux cents à deux mille euros par an.",
@@ -1315,7 +1325,8 @@
      }
     ]
    }
-  ]
+  ],
+  "duree": 6.4
  },
  {
   "texte": "Règle numéro un : fixe ton prix sur les cent quarante heures, pas sur les soixante facturées.",
@@ -1382,7 +1393,8 @@
      }
     ]
    }
-  ]
+  ],
+  "duree": 5.02
  },
  {
   "texte": "Plombier indépendant : bon plan ou casse-tête ? Dis-le en commentaire, et abonne-toi pour d'autres vrais chiffres.",
@@ -1550,6 +1562,7 @@
      }
     ]
    }
-  ]
+  ],
+  "duree": 9.04
  }
 ]
