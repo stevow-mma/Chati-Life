@@ -204,6 +204,8 @@ export type TypeAction =
   | 'viser'
   // ep14 : tatoue (machine générique)
   | 'tatouer'
+  // ep15 : mouvements de sport
+  | 'squat' | 'fente' | 'etirement' | 'pompe'
   // ep11 : cape de coupe sur une cliente assise (`couleur`), clin d'œil
   | 'cape' | 'clin'
   // ep11 : changement de pose en cours de scène (`pose`, ex. se lever : assis → debout)
@@ -221,7 +223,9 @@ export type ObjetTenuNom =
   // ep13
   | 'appareil' | 'objectif' | 'bouquet' | 'album' | 'sac_photo'
   // ep14
-  | 'machine_tatouage' | 'tablette' | 'valise' | 'cle';
+  | 'machine_tatouage' | 'tablette' | 'valise' | 'cle'
+  // ep15
+  | 'chronometre' | 'bouteille' | 'haltere' | 'elastique' | 'tapis_roule';
 
 export type ActionActeur = {
   t: number;
@@ -258,6 +262,8 @@ export type ActionActeur = {
   couleur?: string;
   /** ep11 : action `pose` : nouvelle pose. */
   pose?: Pose;
+  /** ep15 : walkIn / walkTo / walkOut en courant (cadence doublée, foulée bondissante). */
+  course?: boolean;
 };
 
 export type Acteur = {
@@ -292,7 +298,9 @@ export type ObjetScene = {
     // ep12
     | 'volant' | 'telephones_bord' | 'borne' | 'jauge_courses' | 'pile_descend' | 'hotel'
     // ep13
-    | 'miniatures';
+    | 'miniatures'
+    // ep15
+    | 'tapis_sol' | 'halteres_sol' | 'canape' | 'tablette_livres' | 'compteur' | 'plan_mural';
   x: number;
   y: number;
   /** Largeur (bureau, écran). */

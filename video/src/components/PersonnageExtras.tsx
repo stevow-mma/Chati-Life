@@ -1,4 +1,5 @@
 import {ObjetMainEp13} from './Ep13';
+import {ObjetMainEp15} from './Ep15';
 import {MotifsAvantBras, ObjetMainEp14} from './Ep14';
 /**
  * Extensions du personnage (ep10) : bras articulés (épaule + coude), jambes qui marchent, objets animés tenus
@@ -34,6 +35,8 @@ export type ObjetTenu =
   | 'appareil' | 'objectif' | 'bouquet' | 'album' | 'sac_photo'
   // ep14
   | 'machine_tatouage' | 'tablette' | 'valise' | 'cle'
+  // ep15
+  | 'chronometre' | 'bouteille' | 'haltere' | 'elastique' | 'tapis_roule'
   | 'telephone'
   | 'telephone_b'
   | 'ordinateur'
@@ -1086,6 +1089,7 @@ export const ObjetMainEp11: React.FC<{nom: string; main: Pt; peau: string; miroi
         </g>
       );
     default:
+      if (['chronometre', 'bouteille', 'haltere', 'elastique', 'tapis_roule'].includes(nom)) return <ObjetMainEp15 nom={nom} main={main} peau={peau} frame={frame} />;
       if (['machine_tatouage', 'tablette', 'valise', 'cle'].includes(nom)) return <ObjetMainEp14 nom={nom} main={main} peau={peau} frame={frame} />;
       return <ObjetMainEp13 nom={nom} main={main} peau={peau} miroir={miroir} texte={texte} frame={frame} />;
   }

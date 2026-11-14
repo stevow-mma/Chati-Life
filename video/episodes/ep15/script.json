@@ -1,0 +1,1612 @@
+[
+ {
+  "texte": "Léa encaisse trois mille euros par mois en coachant à domicile. Il lui reste environ deux mille euros, pour quatre-vingt-quinze heures.",
+  "decor": "parc",
+  "expression": "content",
+  "puis": {
+   "expression": "choque",
+   "au_mot": "quatre-vingt-quinze"
+  },
+  "mot_jaune": "reste",
+  "etiquette": null,
+  "element_visuel": {
+   "type": "cartes_successives",
+   "cartes": [
+    {
+     "valeur": "3 000 €",
+     "legende": "encaissés par mois",
+     "au_mot": "trois"
+    },
+    {
+     "valeur": "≈ 2 000 €",
+     "legende": "ce qu’il lui reste",
+     "au_mot": "reste"
+    },
+    {
+     "valeur": "95 h",
+     "legende": "de travail par mois",
+     "au_mot": "quatre-vingt-quinze",
+     "alerte": true
+    }
+   ],
+   "mention": "Exemple illustratif : 50 séances par mois à 60 €"
+  },
+  "objets_scene": [
+   {
+    "type": "tapis_sol",
+    "x": 780,
+    "y": 1540,
+    "largeur": 360
+   }
+  ],
+  "acteurs": [
+   {
+    "id": "cadre",
+    "x": 780,
+    "actions": [
+     {
+      "type": "squat",
+      "t": 0.0,
+      "fin": 1.06
+     },
+     {
+      "type": "squat",
+      "t": 1.11,
+      "fin": 2.16
+     },
+     {
+      "type": "saisir",
+      "cote": "l",
+      "objet": "bouteille",
+      "t": 2.21,
+      "fin": 3.27
+     },
+     {
+      "type": "boire",
+      "cote": "l",
+      "objet": "bouteille",
+      "t": 3.32,
+      "fin": 4.37
+     },
+     {
+      "type": "squat",
+      "t": 4.42,
+      "fin": 5.48
+     },
+     {
+      "type": "hoche",
+      "t": 5.53,
+      "fin": 6.58
+     },
+     {
+      "type": "squat",
+      "t": 6.63,
+      "fin": 7.69
+     }
+    ],
+    "expression": "content",
+    "accessoire": "cravate"
+   },
+   {
+    "id": "lea",
+    "x": 330,
+    "actions": [
+     {
+      "type": "compter",
+      "cote": "r",
+      "doigts": [
+       1,
+       2,
+       3
+      ],
+      "t": 0.0,
+      "fin": 1.14
+     },
+     {
+      "type": "compter",
+      "cote": "r",
+      "doigts": [
+       4,
+       5
+      ],
+      "t": 1.19,
+      "fin": 2.33
+     },
+     {
+      "type": "tendre",
+      "cote": "l",
+      "objet": "bouteille",
+      "t": 2.38,
+      "fin": 3.51
+     },
+     {
+      "type": "saisir",
+      "cote": "r",
+      "objet": "chronometre",
+      "t": 3.56,
+      "fin": 4.7
+     },
+     {
+      "type": "compter",
+      "cote": "r",
+      "doigts": [
+       1,
+       2,
+       3
+      ],
+      "t": 4.75,
+      "fin": 5.89
+     },
+     {
+      "type": "tenir",
+      "cote": "r",
+      "objet": "chronometre",
+      "t": 6.04,
+      "fin": 7.24
+     },
+     {
+      "type": "recul",
+      "dx": -60,
+      "t": 6.14,
+      "fin": 6.84
+     },
+     {
+      "type": "incline",
+      "angle": -10,
+      "t": 7.29,
+      "fin": 7.74
+     },
+     {
+      "type": "hausse",
+      "t": 7.34,
+      "fin": 7.74
+     },
+     {
+      "type": "hoche",
+      "t": 7.44,
+      "fin": 7.54
+     },
+     {
+      "type": "montre",
+      "cote": "l",
+      "t": 7.59,
+      "fin": 7.69
+     }
+    ],
+    "nom": "Léa, coach sportive à domicile"
+   }
+  ],
+  "duree": 4
+ },
+ {
+  "texte": "D'abord, les cotisations : sept cent soixante-huit euros. Puis les trajets : cent cinquante.",
+  "decor": "bureau",
+  "expression": "neutre",
+  "mot_jaune": "cotisations",
+  "etiquette": "EN CLAIR",
+  "hypotheses": "Hypothèse : coach sportif en BNC à 25,6 % (certaines sources donnent 21,2 % en BIC), à valider\nTrajets : 150 € par mois (Hypothèse)",
+  "element_visuel": {
+   "type": "cascade",
+   "definition": "Micro-entreprise : les cotisations sont un pourcentage de ce que tu encaisses, avant toute dépense",
+   "lignes": [
+    {
+     "label": "Encaissé",
+     "valeur": "3 000 €"
+    },
+    {
+     "label": "Cotisations (25,6 %)",
+     "valeur": "− 768 €",
+     "au_mot": "cotisations",
+     "negatif": true
+    },
+    {
+     "label": "Trajets (Hypothèse)",
+     "valeur": "− 150 €",
+     "au_mot": "trajets",
+     "negatif": true
+    }
+   ],
+   "source": "Sources : Abby, Legalstart"
+  },
+  "objets_scene": [
+   {
+    "type": "tableau_blanc",
+    "x": 250,
+    "y": 1250,
+    "trace": [
+     4.16,
+     5.28
+    ]
+   },
+   {
+    "type": "bureau",
+    "x": 720,
+    "y": 1330,
+    "largeur": 560,
+    "devant": true
+   },
+   {
+    "type": "pile_billets",
+    "x": 820,
+    "y": 1180,
+    "t": 0.5,
+    "fin": 5.08,
+    "devant": true
+   }
+  ],
+  "acteurs": [
+   {
+    "id": "lea",
+    "x": 600,
+    "actions": [
+     {
+      "type": "tendre",
+      "cote": "r",
+      "objet": "tapis_roule",
+      "t": 0.0,
+      "fin": 0.75
+     },
+     {
+      "type": "tendre",
+      "cote": "l",
+      "objet": "elastique",
+      "t": 0.8,
+      "fin": 1.55
+     },
+     {
+      "type": "saisir",
+      "cote": "r",
+      "objet": "billets",
+      "t": 1.6,
+      "fin": 2.34
+     },
+     {
+      "type": "compter",
+      "cote": "r",
+      "doigts": [
+       1,
+       2,
+       3
+      ],
+      "objet": "billets",
+      "t": 2.39,
+      "fin": 3.14
+     },
+     {
+      "type": "tracer",
+      "cote": "l",
+      "objet": "feutre",
+      "t": 3.19,
+      "fin": 3.94
+     },
+     {
+      "type": "tracer",
+      "cote": "l",
+      "objet": "feutre",
+      "t": 3.99,
+      "fin": 4.74
+     },
+     {
+      "type": "hoche",
+      "t": 4.79,
+      "fin": 5.53
+     }
+    ]
+   }
+  ],
+  "duree": 4
+ },
+ {
+  "texte": "Ensuite, quatre-vingts pour le matériel, l'assurance et le logiciel. Il reste environ deux mille euros, avant impôt.",
+  "decor": "parking",
+  "expression": "perplexe",
+  "mot_jaune": "assurance",
+  "etiquette": null,
+  "hypotheses": "Hypothèses : matériel 2 000 € amortis sur 4 ans ≈ 42 € par mois,\nlogiciel 25 € par mois, RC Pro ≈ 150 € par an",
+  "element_visuel": {
+   "type": "cascade",
+   "lignes": [
+    {
+     "label": "3 000 − 768 − 150",
+     "valeur": "2 082 €"
+    },
+    {
+     "label": "Matériel, assurance, logiciel",
+     "valeur": "− 80 €",
+     "au_mot": "quatre-vingts",
+     "negatif": true
+    },
+    {
+     "label": "Il reste",
+     "valeur": "≈ 2 002 €",
+     "au_mot": "reste",
+     "resultat": true
+    }
+   ],
+   "petit": "RC Pro : 100 à 200 € par an",
+   "mention": "Estimation",
+   "source": "Sources : Copeps, Coover"
+  },
+  "objets_scene": [
+   {
+    "type": "voiture",
+    "x": 760,
+    "y": 1500,
+    "ouvre": 0.6,
+    "couleur": "#2EC4B6"
+   }
+  ],
+  "acteurs": [
+   {
+    "id": "lea",
+    "x": 360,
+    "actions": [
+     {
+      "type": "tendre",
+      "cote": "r",
+      "objet": "tapis_roule",
+      "t": 0.0,
+      "fin": 0.99
+     },
+     {
+      "type": "tendre",
+      "cote": "r",
+      "objet": "sac",
+      "t": 1.04,
+      "fin": 2.03
+     },
+     {
+      "type": "ouvrir",
+      "cote": "r",
+      "t": 2.08,
+      "fin": 3.06
+     },
+     {
+      "type": "saisir",
+      "cote": "l",
+      "objet": "note",
+      "t": 3.11,
+      "fin": 4.1
+     },
+     {
+      "type": "tenir",
+      "cote": "l",
+      "objet": "note",
+      "t": 4.15,
+      "fin": 5.14
+     },
+     {
+      "type": "hausse",
+      "t": 5.19,
+      "fin": 6.18
+     },
+     {
+      "type": "nuque",
+      "cote": "r",
+      "t": 6.23,
+      "fin": 7.22
+     }
+    ]
+   }
+  ],
+  "duree": 4
+ },
+ {
+  "texte": "Mais sur quatre-vingt-quinze heures, cinquante seulement sont payées : environ vingt et un euros de l'heure.",
+  "decor": "salon",
+  "expression": "perplexe",
+  "mot_jaune": "payées",
+  "etiquette": "MAIS",
+  "hypotheses": "Hypothèse : trajets 30 min par séance,\n20 h de préparation et d’administratif",
+  "element_visuel": {
+   "type": "barres_comparees",
+   "titre": "2 002 € ÷ 95 h ≈ 21 € par heure",
+   "barres": [
+    {
+     "label": "Séances payées",
+     "valeur": 50,
+     "texte": "50 h",
+     "au_mot": "cinquante"
+    },
+    {
+     "label": "Total (séances + trajets + préparation et admin)",
+     "valeur": 95,
+     "texte": "95 h",
+     "au_mot": "quatre-vingt-quinze"
+    }
+   ],
+   "mention": "Hypothèse"
+  },
+  "objets_scene": [
+   {
+    "type": "canape",
+    "x": 560,
+    "y": 1500,
+    "largeur": 640
+   },
+   {
+    "type": "chrono",
+    "x": 930,
+    "y": 1000,
+    "texte": "95 h",
+    "instants": [
+     0.0,
+     5.13
+    ],
+    "largeur": 70,
+    "hauteur": 4
+   }
+  ],
+  "acteurs": [
+   {
+    "id": "lea",
+    "x": 520,
+    "actions": [
+     {
+      "type": "walkTo",
+      "x": 500,
+      "t": 0,
+      "fin": 0.6
+     },
+     {
+      "type": "montrer",
+      "cote": "r",
+      "objet": "tablette",
+      "t": 0.65,
+      "fin": 1.5
+     },
+     {
+      "type": "tenir",
+      "cote": "r",
+      "objet": "tablette",
+      "t": 1.55,
+      "fin": 2.39
+     },
+     {
+      "type": "montre",
+      "cote": "l",
+      "t": 2.44,
+      "fin": 3.29
+     },
+     {
+      "type": "nuque",
+      "cote": "l",
+      "t": 3.34,
+      "fin": 4.18
+     },
+     {
+      "type": "teteMains",
+      "t": 4.23,
+      "fin": 5.08
+     }
+    ]
+   }
+  ],
+  "duree": 4
+ },
+ {
+  "texte": "Premier levier : regroupe tes clients par quartier. Environ trente-deux pour cent de plus par heure.",
+  "decor": "rue",
+  "expression": "content",
+  "mot_jaune": "quartier",
+  "etiquette": "LEVIER N°1",
+  "element_visuel": {
+   "type": "carte_taux",
+   "titre": "Clients regroupés",
+   "lignes": [
+    {
+     "label": "CA par heure mobilisée",
+     "valeur": "≈ + 32 %",
+     "au_mot": "trente-deux"
+    },
+    {
+     "label": "Trajets 30 → 15 min : 95 h → ≈ 82 h",
+     "valeur": "≈ 24 € par heure",
+     "au_mot": "heure"
+    }
+   ],
+   "petit": "Exemple illustratif",
+   "mention": "Estimation",
+   "source": "Source : Modèles de Business Plan"
+  },
+  "objets_scene": [
+   {
+    "type": "facade",
+    "x": 800,
+    "y": 1500,
+    "ouvre": 2.0,
+    "instants": [
+     1.6
+    ]
+   },
+   {
+    "type": "plan_mural",
+    "x": 230,
+    "y": 1000,
+    "largeur": 300,
+    "hauteur": 230,
+    "instants": [
+     0.5,
+     1.0,
+     3.3,
+     3.8
+    ]
+   }
+  ],
+  "acteurs": [
+   {
+    "id": "senior",
+    "x": 820,
+    "actions": [
+     {
+      "type": "saluer",
+      "cote": "r",
+      "t": 2.1,
+      "fin": 2.78
+     },
+     {
+      "type": "hoche",
+      "t": 2.83,
+      "fin": 3.5
+     },
+     {
+      "type": "pouce",
+      "cote": "r",
+      "t": 3.55,
+      "fin": 4.23
+     },
+     {
+      "type": "hoche",
+      "t": 4.28,
+      "fin": 4.95
+     }
+    ],
+    "apparition": 2.1,
+    "expression": "content"
+   },
+   {
+    "id": "lea",
+    "x": 420,
+    "actions": [
+     {
+      "type": "walkIn",
+      "from": "left",
+      "x": 560,
+      "t": 0,
+      "fin": 1.4
+     },
+     {
+      "type": "pointer",
+      "cote": "r",
+      "cible": "cote",
+      "t": 1.45,
+      "fin": 1.95
+     },
+     {
+      "type": "saluer",
+      "cote": "r",
+      "t": 2.1,
+      "fin": 2.8
+     },
+     {
+      "type": "ecrire",
+      "cote": "r",
+      "objet": "carnet",
+      "t": 2.85,
+      "fin": 3.7
+     },
+     {
+      "type": "pouce",
+      "cote": "r",
+      "t": 3.75,
+      "fin": 4.5
+     },
+     {
+      "type": "hoche",
+      "t": 4.55,
+      "fin": 5.0
+     }
+    ]
+   }
+  ],
+  "duree": 4
+ },
+ {
+  "texte": "Deuxième levier : des séances à trois. Vingt-cinq euros par personne : soixante-quinze euros l'heure.",
+  "decor": "parc",
+  "expression": "content",
+  "mot_jaune": "trois",
+  "etiquette": "LEVIER N°2",
+  "element_visuel": {
+   "type": "carte_taux",
+   "titre": "Séance à trois",
+   "lignes": [
+    {
+     "label": "3 × 25 €",
+     "valeur": "75 € l’heure (au lieu de 60 €)",
+     "au_mot": "soixante-quinze"
+    },
+    {
+     "label": "20 séances par mois à trois",
+     "valeur": "≈ + 300 € de CA",
+     "au_mot": "personne"
+    }
+   ],
+   "petit": "Groupe de 3 à 6 personnes : 20 à 35 € par personne",
+   "mention": "Hypothèse"
+  },
+  "acteurs": [
+   {
+    "id": "voisine_yoga",
+    "x": 170,
+    "actions": [
+     {
+      "type": "fente",
+      "t": 0.0,
+      "fin": 1.1
+     },
+     {
+      "type": "fente",
+      "t": 1.15,
+      "fin": 2.26
+     },
+     {
+      "type": "tapeMain",
+      "cote": "r",
+      "t": 2.31,
+      "fin": 3.41
+     },
+     {
+      "type": "fente",
+      "t": 3.46,
+      "fin": 4.57
+     },
+     {
+      "type": "fente",
+      "t": 4.62,
+      "fin": 5.72
+     }
+    ],
+    "echelle": 0.62,
+    "expression": "content"
+   },
+   {
+    "id": "voisin_orange",
+    "x": 540,
+    "actions": [
+     {
+      "type": "fente",
+      "t": 0.0,
+      "fin": 1.1
+     },
+     {
+      "type": "fente",
+      "t": 1.15,
+      "fin": 2.26
+     },
+     {
+      "type": "etirement",
+      "t": 2.31,
+      "fin": 3.41
+     },
+     {
+      "type": "fente",
+      "t": 3.46,
+      "fin": 4.57
+     },
+     {
+      "type": "fente",
+      "t": 4.62,
+      "fin": 5.72
+     }
+    ],
+    "echelle": 0.62,
+    "expression": "content"
+   },
+   {
+    "id": "cadre",
+    "x": 910,
+    "actions": [
+     {
+      "type": "fente",
+      "t": 0.0,
+      "fin": 1.1
+     },
+     {
+      "type": "etirement",
+      "t": 1.15,
+      "fin": 2.26
+     },
+     {
+      "type": "fente",
+      "t": 2.31,
+      "fin": 3.41
+     },
+     {
+      "type": "hoche",
+      "t": 3.46,
+      "fin": 4.57
+     },
+     {
+      "type": "fente",
+      "t": 4.62,
+      "fin": 5.72
+     }
+    ],
+    "echelle": 0.62,
+    "expression": "content",
+    "accessoire": "cravate"
+   },
+   {
+    "id": "lea",
+    "x": 360,
+    "actions": [
+     {
+      "type": "compter",
+      "cote": "l",
+      "doigts": [
+       1,
+       2
+      ],
+      "t": 0,
+      "fin": 1.0
+     },
+     {
+      "type": "walkTo",
+      "x": 450,
+      "t": 1.05,
+      "fin": 1.8
+     },
+     {
+      "type": "tapeEpaule",
+      "cote": "r",
+      "t": 1.85,
+      "fin": 2.7
+     },
+     {
+      "type": "walkTo",
+      "x": 300,
+      "t": 2.75,
+      "fin": 3.5
+     },
+     {
+      "type": "tapeMain",
+      "cote": "l",
+      "t": 3.55,
+      "fin": 4.3
+     },
+     {
+      "type": "poing",
+      "cote": "r",
+      "t": 4.35,
+      "fin": 5.1
+     },
+     {
+      "type": "hoche",
+      "t": 5.15,
+      "fin": 5.77
+     }
+    ],
+    "echelle": 0.66
+   }
+  ],
+  "duree": 4
+ },
+ {
+  "texte": "Troisième levier : des forfaits de dix séances, quinze pour cent de remise au maximum. Tu encaisses d'avance.",
+  "decor": "bureau",
+  "expression": "content",
+  "mot_jaune": "forfaits",
+  "etiquette": "LEVIER N°3",
+  "element_visuel": {
+   "type": "carte_taux",
+   "titre": "Forfait 10 séances",
+   "lignes": [
+    {
+     "label": "10 × (60 € − 15 %)",
+     "valeur": "510 €",
+     "au_mot": "dix"
+    },
+    {
+     "label": "≈ 51 € par séance",
+     "valeur": "encaissé d’avance",
+     "au_mot": "avance"
+    }
+   ],
+   "petit": "Ne dépasse pas ≈ 15 % de remise",
+   "mention": "Exemple illustratif",
+   "source": "Source : Business or Not"
+  },
+  "objets_scene": [
+   {
+    "type": "bureau",
+    "x": 540,
+    "y": 1330,
+    "largeur": 700,
+    "devant": true
+   }
+  ],
+  "acteurs": [
+   {
+    "id": "senior",
+    "x": 800,
+    "actions": [
+     {
+      "type": "ecrire",
+      "cote": "l",
+      "objet": "stylo",
+      "t": 0.0,
+      "fin": 0.98
+     },
+     {
+      "type": "ecrire",
+      "cote": "l",
+      "objet": "stylo",
+      "t": 1.03,
+      "fin": 2.01
+     },
+     {
+      "type": "saisir",
+      "cote": "l",
+      "objet": "carnet",
+      "t": 2.06,
+      "fin": 3.03
+     },
+     {
+      "type": "serrerMain",
+      "cote": "l",
+      "t": 3.08,
+      "fin": 4.06
+     },
+     {
+      "type": "hoche",
+      "t": 4.11,
+      "fin": 5.09
+     },
+     {
+      "type": "pouce",
+      "cote": "l",
+      "t": 5.14,
+      "fin": 6.12
+     }
+    ],
+    "expression": "content"
+   },
+   {
+    "id": "lea",
+    "x": 300,
+    "actions": [
+     {
+      "type": "tendre",
+      "cote": "r",
+      "objet": "contrat",
+      "t": 0.0,
+      "fin": 0.98
+     },
+     {
+      "type": "pointer",
+      "cote": "r",
+      "cible": "cote",
+      "t": 1.03,
+      "fin": 2.01
+     },
+     {
+      "type": "tendre",
+      "cote": "r",
+      "objet": "carnet",
+      "t": 2.06,
+      "fin": 3.03
+     },
+     {
+      "type": "serrerMain",
+      "cote": "r",
+      "t": 3.08,
+      "fin": 4.06
+     },
+     {
+      "type": "sousBras",
+      "cote": "l",
+      "objet": "dossier",
+      "t": 4.11,
+      "fin": 5.09
+     },
+     {
+      "type": "hoche",
+      "t": 5.14,
+      "fin": 6.12
+     }
+    ]
+   }
+  ],
+  "duree": 4
+ },
+ {
+  "texte": "Quatrième levier : un abonnement en ligne. Vingt abonnés à cinquante euros : mille euros par mois.",
+  "decor": "salon",
+  "expression": "content",
+  "mot_jaune": "abonnement",
+  "etiquette": "LEVIER N°4",
+  "element_visuel": {
+   "type": "carte_taux",
+   "titre": "Programme en ligne",
+   "lignes": [
+    {
+     "label": "20 abonnés × 50 €",
+     "valeur": "1 000 € de CA par mois",
+     "au_mot": "abonnés"
+    },
+    {
+     "label": "Après cotisations (25,6 %)",
+     "valeur": "≈ + 744 € net",
+     "au_mot": "mille"
+    }
+   ],
+   "petit": "Programme en ligne : 50 à 150 € par mois",
+   "mention": "Hypothèse",
+   "source": "Source : Modèles de Business Plan"
+  },
+  "objets_scene": [
+   {
+    "type": "tablette_livres",
+    "x": 860,
+    "y": 1500
+   },
+   {
+    "type": "compteur",
+    "x": 200,
+    "y": 1080,
+    "affiche": "20",
+    "texte": "abonnés",
+    "t": 1.5,
+    "fin": 5.19
+   }
+  ],
+  "acteurs": [
+   {
+    "id": "lea",
+    "x": 520,
+    "actions": [
+     {
+      "type": "pointer",
+      "cote": "r",
+      "cible": "cote",
+      "t": 0.0,
+      "fin": 0.62
+     },
+     {
+      "type": "squat",
+      "t": 0.67,
+      "fin": 1.28
+     },
+     {
+      "type": "squat",
+      "t": 1.33,
+      "fin": 1.95
+     },
+     {
+      "type": "etirement",
+      "t": 2.0,
+      "fin": 2.61
+     },
+     {
+      "type": "walkTo",
+      "x": 640,
+      "t": 2.66,
+      "fin": 3.28
+     },
+     {
+      "type": "pointer",
+      "cote": "r",
+      "cible": "cote",
+      "t": 3.33,
+      "fin": 3.94
+     },
+     {
+      "type": "pouce",
+      "cote": "r",
+      "t": 3.99,
+      "fin": 4.61
+     },
+     {
+      "type": "walkTo",
+      "x": 520,
+      "t": 4.66,
+      "fin": 5.28
+     },
+     {
+      "type": "saut",
+      "t": 5.33,
+      "fin": 5.94
+     }
+    ]
+   }
+  ],
+  "duree": 4
+ },
+ {
+  "texte": "Cinquième levier : une spécialité, comme les seniors ou le running. Soixante-dix euros la séance, au lieu de soixante.",
+  "decor": "studio",
+  "expression": "fier",
+  "mot_jaune": "spécialité",
+  "etiquette": "LEVIER N°5",
+  "element_visuel": {
+   "type": "carte_taux",
+   "titre": "Une spécialité",
+   "lignes": [
+    {
+     "label": "Seniors · Running · Cadres",
+     "valeur": "70 € au lieu de 60 €",
+     "au_mot": "seniors"
+    },
+    {
+     "label": "+ 10 € × 50 séances",
+     "valeur": "+ 500 € de CA ≈ + 372 € net",
+     "au_mot": "Soixante-dix"
+    }
+   ],
+   "petit": "Attention : au-delà de 37 500 € de CA par an, la TVA peut s’appliquer : à valider avec un comptable",
+   "mention": "Hypothèse"
+  },
+  "acteurs": [
+   {
+    "id": "senior",
+    "x": 760,
+    "actions": [
+     {
+      "type": "etirement",
+      "t": 0.0,
+      "fin": 0.98
+     },
+     {
+      "type": "incline",
+      "angle": 8,
+      "t": 1.03,
+      "fin": 2.01
+     },
+     {
+      "type": "etirement",
+      "t": 2.06,
+      "fin": 3.04
+     },
+     {
+      "type": "fente",
+      "t": 3.09,
+      "fin": 4.08
+     },
+     {
+      "type": "hoche",
+      "t": 4.13,
+      "fin": 5.11
+     },
+     {
+      "type": "etirement",
+      "t": 5.16,
+      "fin": 6.14
+     },
+     {
+      "type": "incline",
+      "angle": 8,
+      "t": 6.19,
+      "fin": 7.17
+     }
+    ],
+    "expression": "content"
+   },
+   {
+    "id": "lea",
+    "x": 330,
+    "actions": [
+     {
+      "type": "tendre",
+      "cote": "r",
+      "t": 0.0,
+      "fin": 0.98
+     },
+     {
+      "type": "tapeEpaule",
+      "cote": "r",
+      "t": 1.03,
+      "fin": 2.01
+     },
+     {
+      "type": "coller",
+      "cote": "l",
+      "objet": "postit",
+      "t": 2.06,
+      "fin": 3.04
+     },
+     {
+      "type": "hoche",
+      "t": 3.09,
+      "fin": 4.08
+     },
+     {
+      "type": "poing",
+      "cote": "r",
+      "t": 4.13,
+      "fin": 5.11
+     },
+     {
+      "type": "compter",
+      "cote": "l",
+      "doigts": [
+       1,
+       2,
+       3
+      ],
+      "t": 5.16,
+      "fin": 6.14
+     },
+     {
+      "type": "tendre",
+      "cote": "r",
+      "t": 6.19,
+      "fin": 7.17
+     }
+    ]
+   }
+  ],
+  "duree": 4
+ },
+ {
+  "texte": "Conseil : note chaque heure, trajets compris, pour connaître ton revenu par heure.",
+  "decor": "salon",
+  "expression": "neutre",
+  "mot_jaune": "heure",
+  "mot_jaune_rang": 1,
+  "etiquette": "CONSEIL",
+  "element_visuel": {
+   "type": "carte_texte",
+   "surtitre": "Note chaque heure",
+   "titre": "2 002 € ÷ 95 h ≈ 21 € par heure",
+   "indices": [
+    "Séances",
+    "Trajets",
+    "Préparation",
+    "Administratif"
+   ],
+   "mention": "Exemple illustratif"
+  },
+  "objets_scene": [
+   {
+    "type": "chrono",
+    "x": 930,
+    "y": 1000,
+    "texte": "≈ 21 €",
+    "instants": [
+     0.5,
+     4.44
+    ],
+    "largeur": 66,
+    "hauteur": 3
+   }
+  ],
+  "acteurs": [
+   {
+    "id": "lea",
+    "x": 480,
+    "actions": [
+     {
+      "type": "ecrire",
+      "cote": "r",
+      "objet": "carnet",
+      "t": 0.0,
+      "fin": 0.9
+     },
+     {
+      "type": "tenir",
+      "cote": "l",
+      "objet": "chronometre",
+      "t": 0.95,
+      "fin": 1.84
+     },
+     {
+      "type": "montrer",
+      "cote": "r",
+      "objet": "calculatrice",
+      "t": 1.89,
+      "fin": 2.79
+     },
+     {
+      "type": "gratter",
+      "cote": "l",
+      "t": 2.84,
+      "fin": 3.74
+     },
+     {
+      "type": "hoche",
+      "t": 3.79,
+      "fin": 4.69
+     }
+    ]
+   }
+  ],
+  "duree": 4
+ },
+ {
+  "texte": "Attention : sans carte professionnelle, c'est jusqu'à un an de prison et quinze mille euros d'amende.",
+  "decor": "bureau",
+  "expression": "neutre",
+  "mot_jaune": "carte",
+  "etiquette": "ATTENTION",
+  "element_visuel": {
+   "type": "carte_taux",
+   "titre": "Carte professionnelle obligatoire",
+   "lignes": [
+    {
+     "label": "Éducateur sportif rémunéré",
+     "valeur": "déclaration sur eaps.sports.gouv.fr, valable 5 ans",
+     "au_mot": "carte"
+    },
+    {
+     "label": "Sans carte",
+     "valeur": "jusqu’à 1 an de prison et 15 000 € d’amende",
+     "au_mot": "prison"
+    }
+   ],
+   "source": "Sources : Sports.gouv.fr (EAPS), SDJES"
+  },
+  "objets_scene": [
+   {
+    "type": "papier_tampon",
+    "x": 620,
+    "y": 1300,
+    "instants": [
+     0.9
+    ],
+    "texte": "CARTE PRO",
+    "devant": true
+   }
+  ],
+  "acteurs": [
+   {
+    "id": "agent_sdjes",
+    "x": 820,
+    "actions": [
+     {
+      "type": "tamponner",
+      "cote": "l",
+      "objet": "tampon",
+      "t": 0.0,
+      "fin": 1.11
+     },
+     {
+      "type": "tendre",
+      "cote": "l",
+      "objet": "diplome",
+      "texte": "CARTE PRO",
+      "t": 1.16,
+      "fin": 2.27
+     },
+     {
+      "type": "hoche",
+      "t": 2.32,
+      "fin": 3.43
+     },
+     {
+      "type": "croiser",
+      "t": 3.48,
+      "fin": 4.58
+     },
+     {
+      "type": "hoche",
+      "t": 4.63,
+      "fin": 5.74
+     }
+    ],
+    "expression": "neutre"
+   },
+   {
+    "id": "lea",
+    "x": 320,
+    "actions": [
+     {
+      "type": "hoche",
+      "t": 0.0,
+      "fin": 0.92
+     },
+     {
+      "type": "saisir",
+      "cote": "r",
+      "objet": "diplome",
+      "texte": "CARTE PRO",
+      "t": 0.97,
+      "fin": 1.88
+     },
+     {
+      "type": "tendre",
+      "cote": "r",
+      "objet": "sac",
+      "t": 1.93,
+      "fin": 2.85
+     },
+     {
+      "type": "hoche",
+      "t": 2.9,
+      "fin": 3.81
+     },
+     {
+      "type": "lever",
+      "cote": "r",
+      "t": 3.86,
+      "fin": 4.78
+     },
+     {
+      "type": "pointer",
+      "cote": "r",
+      "cible": "haut",
+      "t": 4.83,
+      "fin": 5.74
+     }
+    ]
+   }
+  ],
+  "duree": 4
+ },
+ {
+  "texte": "Règle numéro un : fixe ton prix sur tes quatre-vingt-quinze heures, pas sur les cinquante payées.",
+  "decor": "studio",
+  "expression": "neutre",
+  "mot_jaune": "prix",
+  "etiquette": "RÈGLE N°1",
+  "element_visuel": {
+   "type": "addition_pastilles",
+   "pastilles": [
+    {
+     "texte": "Séances payées",
+     "au_mot": "fixe"
+    },
+    {
+     "texte": "Trajets",
+     "au_mot": "tes"
+    },
+    {
+     "texte": "Administratif",
+     "au_mot": "quatre-vingt-quinze"
+    }
+   ],
+   "resultat": {
+    "texte": "95 h = ton prix",
+    "au_mot": "cinquante"
+   }
+  },
+  "acteurs": [
+   {
+    "id": "lea",
+    "x": 540,
+    "actions": [
+     {
+      "type": "coller",
+      "cote": "l",
+      "objet": "postit",
+      "t": 0.0,
+      "fin": 0.8
+     },
+     {
+      "type": "coller",
+      "cote": "r",
+      "objet": "postit",
+      "t": 0.85,
+      "fin": 1.65
+     },
+     {
+      "type": "compter",
+      "cote": "r",
+      "doigts": [
+       1,
+       2,
+       3
+      ],
+      "t": 1.7,
+      "fin": 2.5
+     },
+     {
+      "type": "pointer",
+      "cote": "r",
+      "cible": "haut",
+      "t": 2.55,
+      "fin": 3.35
+     },
+     {
+      "type": "hoche",
+      "t": 3.4,
+      "fin": 4.2
+     },
+     {
+      "type": "pointer",
+      "cote": "deux",
+      "cible": "cote",
+      "t": 4.25,
+      "fin": 5.05
+     }
+    ]
+   }
+  ],
+  "duree": 4
+ },
+ {
+  "texte": "Coach sportif indépendant : rêve ou mirage ? Dis-le en commentaire, et abonne-toi pour d'autres vrais chiffres.",
+  "decor": "parc",
+  "expression": "content",
+  "mot_jaune": "commentaire",
+  "etiquette": "TON AVIS",
+  "element_visuel": {
+   "type": "icones_cta"
+  },
+  "acteurs": [
+   {
+    "id": "cadre",
+    "x": -200,
+    "actions": [
+     {
+      "type": "walkIn",
+      "from": "left",
+      "x": 1300,
+      "t": 0.2,
+      "fin": 2.4,
+      "course": true
+     },
+     {
+      "type": "saluer",
+      "cote": "r",
+      "t": 0.2,
+      "fin": 1.25
+     },
+     {
+      "type": "saluer",
+      "cote": "r",
+      "t": 1.3,
+      "fin": 2.35
+     }
+    ],
+    "echelle": 0.55,
+    "y": 1420,
+    "expression": "content",
+    "accessoire": "cravate"
+   },
+   {
+    "id": "senior",
+    "x": -200,
+    "actions": [
+     {
+      "type": "walkIn",
+      "from": "left",
+      "x": 1300,
+      "t": 1.6,
+      "fin": 4.0,
+      "course": true
+     },
+     {
+      "type": "saluer",
+      "cote": "r",
+      "t": 1.6,
+      "fin": 2.75
+     },
+     {
+      "type": "saluer",
+      "cote": "r",
+      "t": 2.8,
+      "fin": 3.95
+     }
+    ],
+    "echelle": 0.55,
+    "y": 1420,
+    "expression": "content"
+   },
+   {
+    "id": "voisine_yoga",
+    "x": 1300,
+    "actions": [
+     {
+      "type": "walkIn",
+      "from": "right",
+      "x": -250,
+      "t": 3.2,
+      "fin": 5.4,
+      "course": true
+     },
+     {
+      "type": "saluer",
+      "cote": "l",
+      "t": 3.2,
+      "fin": 4.25
+     },
+     {
+      "type": "saluer",
+      "cote": "l",
+      "t": 4.3,
+      "fin": 5.35
+     }
+    ],
+    "echelle": 0.55,
+    "y": 1420,
+    "miroir": true,
+    "expression": "content"
+   },
+   {
+    "id": "voisin_orange",
+    "x": 1300,
+    "actions": [
+     {
+      "type": "walkIn",
+      "from": "right",
+      "x": -250,
+      "t": 4.6,
+      "fin": 7.0,
+      "course": true
+     },
+     {
+      "type": "saluer",
+      "cote": "l",
+      "t": 4.6,
+      "fin": 5.75
+     },
+     {
+      "type": "saluer",
+      "cote": "l",
+      "t": 5.8,
+      "fin": 6.95
+     }
+    ],
+    "echelle": 0.55,
+    "y": 1420,
+    "miroir": true,
+    "expression": "content"
+   },
+   {
+    "id": "lea",
+    "x": 540,
+    "actions": [
+     {
+      "type": "clin",
+      "t": 0.0,
+      "fin": 1.05
+     },
+     {
+      "type": "pointer",
+      "cote": "r",
+      "cible": "bas",
+      "t": 1.1,
+      "fin": 2.15
+     },
+     {
+      "type": "saut",
+      "t": 2.2,
+      "fin": 3.25
+     },
+     {
+      "type": "saluer",
+      "cote": "r",
+      "t": 3.3,
+      "fin": 4.35
+     },
+     {
+      "type": "pouce",
+      "cote": "r",
+      "t": 4.4,
+      "fin": 5.45
+     },
+     {
+      "type": "pointer",
+      "cote": "r",
+      "cible": "bas",
+      "t": 5.5,
+      "fin": 6.55
+     },
+     {
+      "type": "saut",
+      "t": 6.6,
+      "fin": 7.65
+     },
+     {
+      "type": "poing",
+      "cote": "l",
+      "t": 7.7,
+      "fin": 8.75
+     }
+    ]
+   }
+  ],
+  "duree": 4
+ }
+]

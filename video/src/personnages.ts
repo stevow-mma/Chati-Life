@@ -518,4 +518,66 @@ export const PERSONNAGES: Record<string, Apparence> = {
     tete: {type: 'lunettes_carrees', couleur: '#343A40'},
     badge: {texte: '', couleur: '#FFFFFF'},
   },
+  /** Léa (ep15), 27 ans, coach sportive à domicile : rousse, queue haute, taches de rousseur, veste turquoise zippée. */
+  lea: {
+    nom: 'Léa',
+    genre: 'femme',
+    teint: {peau: '#F6D5BE', ombre: '#E2B79C', joues: '#F29E8E'},
+    cheveux: {style: 'queue_frange', couleur: '#D9622B'},
+    tenue: {haut: '#14B8A6', hautOmbre: '#0E8F82', bas: '#16161C', chaussures: '#FFFFFF', bandeChaussures: '#CED4DA', sweat: true},
+    tete: null,
+    sourcils: '#A8441A',
+    rousseur: '#C8693F',
+    vesteZip: {dessous: '#ADB5BD', zip: '#0E8F82'},
+    chronoCou: '#212529',
+  },
+  /** Cliente senior (ep15), 65 ans : cheveux blancs courts, polaire lilas. */
+  senior: {
+    nom: 'Cliente',
+    genre: 'femme',
+    teint: {peau: '#F0CDB4', ombre: '#D8AF94', joues: '#E89A8A'},
+    cheveux: {style: 'court_ondule', couleur: '#F1F3F5'},
+    tenue: {haut: '#B8A1E3', hautOmbre: '#9B82CC', bas: '#495057', chaussures: '#FFFFFF', bandeChaussures: '#ADB5BD', sweat: true},
+    tete: null,
+  },
+  /** Client cadre (ep15), 40 ans : chemise bleue, cravate desserrée. */
+  cadre: {
+    nom: 'Client',
+    genre: 'homme',
+    teint: {peau: '#D9A27E', ombre: '#BF8662', joues: '#D3836C'},
+    cheveux: {style: 'court', couleur: '#3B2A20'},
+    tenue: {haut: '#5B8DEF', hautOmbre: '#456FC4', bas: '#2B2D42', chaussures: '#3A2A1E', bandeChaussures: '#22180F', chemise: true},
+    tete: null,
+  },
+  /** Voisine (ep15), 35 ans : haut de yoga rose. */
+  voisine_yoga: {
+    nom: 'Voisine',
+    genre: 'femme',
+    teint: {peau: '#9C6644', ombre: '#7F5032', joues: '#B06A50'},
+    cheveux: {style: 'long_lisse', couleur: '#1A1210'},
+    tenue: {haut: '#FF7BAC', hautOmbre: '#E05A8E', bas: '#343A40', chaussures: '#FFFFFF', bandeChaussures: '#ADB5BD', tshirt: true},
+    tete: null,
+  },
+  /** Voisin (ep15), 50 ans : t-shirt orange. */
+  voisin_orange: {
+    nom: 'Voisin',
+    genre: 'homme',
+    teint: {peau: '#EBC3A2', ombre: '#D2A584', joues: '#E39A82'},
+    cheveux: {style: 'court_dessus', couleur: '#8D8D8D'},
+    tenue: {haut: '#F77F00', hautOmbre: '#D46A00', bas: '#3D5A80', chaussures: '#495057', bandeChaussures: '#343A40', tshirt: true},
+    tete: null,
+    barbe: '#8D8D8D',
+  },
+  /** Agent du SDJES (ep15) : veste grise, badge sans nom. */
+  agent_sdjes: {
+    nom: 'Agent',
+    genre: 'femme',
+    teint: {peau: '#C68B65', ombre: '#A9704B', joues: '#C47A62'},
+    cheveux: {style: 'carre_frange', couleur: '#2B1D16'},
+    tenue: {haut: '#6C757D', hautOmbre: '#565E64', bas: '#343A40', chaussures: '#111114', bandeChaussures: '#2A2A30'},
+    tete: null,
+    costume: {revers: '#565E64'},
+    chemiseOuverte: '#FFFFFF',
+    badge: {texte: '', couleur: '#FFFFFF'},
+  },
 };

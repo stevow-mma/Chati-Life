@@ -1,5 +1,6 @@
 import {Bandouliere, RobeLongue, TressesArriere, TressesAvant, VesteJean} from './Ep13';
 import {GrosseBarbe} from './Ep14';
+import {ChronoCou, VesteZip} from './Ep15';
 import {useCurrentFrame, useVideoConfig, interpolate, spring} from 'remotion';
 import type {Accessoire, Expression, ObjetMain, Pose as Posture} from '../types';
 import {
@@ -179,6 +180,10 @@ export type Apparence = {
   tatouagesBras?: string | null;
   /** ep14 : grosse barbe fournie (couleur). */
   grosseBarbe?: string | null;
+  /** ep15 : veste zippée ouverte (couleur du débardeur dessous, couleur de la fermeture). */
+  vesteZip?: {dessous: string; zip: string} | null;
+  /** ep15 : chronomètre au cou (couleur du cordon). */
+  chronoCou?: string | null;
 };
 
 /** Durée (frames) d'un passage d'article au scanner (pose « scanne ») ; le bip du décor « caisse_tapis » suit le même cycle. */
@@ -1525,6 +1530,8 @@ export const Personnage: React.FC<{
         ) : null}
         {a.gilet ? <Gilet couleur={a.gilet.couleur} ombre={a.gilet.ombre} bandes={a.gilet.bandes} /> : null}
         {a.cordonBadge ? <CordonBadge cordon={a.cordonBadge.cordon} /> : null}
+        {a.vesteZip ? <VesteZip dessous={a.vesteZip.dessous} zip={a.vesteZip.zip} /> : null}
+        {a.chronoCou ? <ChronoCou cordon={a.chronoCou} /> : null}
         {a.casqueCou ? <CasqueCou couleur={a.casqueCou.couleur} coussins={a.casqueCou.coussins} /> : null}
         {a.doudoune ? <Doudoune couleur={a.doudoune.couleur} ombre={a.doudoune.ombre} /> : null}
         {a.vesteJean ? <VesteJean couleur={a.vesteJean.couleur} ombre={a.vesteJean.ombre} dessous={a.vesteJean.dessous} /> : null}

@@ -44,9 +44,11 @@ const GESTES_BRAS = new Set([
   'viser',
   // ep14
   'tatouer',
+  // ep15
+  'squat', 'fente', 'etirement', 'pompe',
 ]);
 /** Gestes à deux bras par défaut. */
-const DEUX_BRAS = new Set(['croiser', 'teteMains', 'ballants', 'taper']);
+const DEUX_BRAS = new Set(['croiser', 'teteMains', 'ballants', 'taper', 'squat', 'fente', 'etirement', 'pompe']);
 
 const finDe = (a: ActionActeur, dureeScene: number) => a.fin ?? (a.type === 'objet' ? dureeScene + 1 : a.t + 0.6);
 
@@ -152,6 +154,18 @@ const cibleGeste = (a: ActionActeur, u: number, duree: number, frame: number, s:
     case 'tatouer':
       // machine tenue bras tendu vers le bas, petits tracés précis
       return {epaule: 58 + Math.sin(u * 5) * 6, coude: -36 + Math.sin(u * 7 + 1) * 8};
+    // --- ep15 ---
+    case 'squat':
+      // bras tendus devant (vue de face : à l'horizontale)
+      return {epaule: 92 + Math.sin(u * 4.4) * 6, coude: 4};
+    case 'fente':
+      // mains sur les hanches
+      return {epaule: 38, coude: 118};
+    case 'etirement':
+      // bras levés au-dessus de la tête, léger balancement
+      return {epaule: 160 + Math.sin(u * 2.5) * 8, coude: 10, ouverte: true};
+    case 'pompe':
+      return {epaule: 70 + Math.sin(u * 4.4) * 14, coude: -60 + Math.sin(u * 4.4) * 30};
     default:
       return REPOS;
   }
@@ -170,6 +184,8 @@ type EtatActeur = {
   arrivee: number;
   /** ep11 : pose courante (action `pose`). */
   pose?: import('../types').Pose;
+  /** ep15 : écrasement vertical (squat, fente, pompe), 1 = aucun. */
+  ecrase?: number;
 };
 
 const evaluer = (acteur: Acteur, t: number, frame: number, dureeScene: number, expressionPlan: Expression, seed: number): EtatActeur => {
@@ -196,6 +212,7 @@ const evaluer = (acteur: Acteur, t: number, frame: number, dureeScene: number, e
   let cape: string | null = null;
   let clin = false;
   let pose = acteur.pose;
+  let ecrase = 1;
 
   for (const a of actions) {
     const fin = finDe(a, dureeScene);
@@ -216,7 +233,8 @@ const evaluer = (acteur: Acteur, t: number, frame: number, dureeScene: number, e
         x = lerp(x0, x1, pp);
         y = lerp(y0, y1, pp);
         ech = lerp(e0, a.echelle ?? e0, pp);
-        if (p < 1 && a.type !== 'glisse') marche = (t - a.t) * Math.PI * CADENCE;
+        if (p < 1 && a.type !== 'glisse') marche = (t - a.t) * Math.PI * CADENCE * (a.course ? 2 : 1);
+        if (p < 1 && a.course) saut = Math.max(saut, Math.abs(Math.sin((t - a.t) * Math.PI * CADENCE * 2)) * 26);
         if (a.type === 'glisse' && p < 1) penche = Math.sin(p * Math.PI) * (x1 > x0 ? 5 : -5);
         break;
       }
@@ -259,6 +277,17 @@ const evaluer = (acteur: Acteur, t: number, frame: number, dureeScene: number, e
       case 'pose':
         if (a.pose) pose = a.pose;
         break;
+      case 'squat':
+      case 'fente':
+      case 'pompe': {
+        if (t > fin) break;
+        const w = Math.min(lisse((t - a.t) / 0.25), 1 - lisse((t - fin) / 0.25));
+        const k = a.type === 'squat' ? 0.2 : a.type === 'fente' ? 0.14 : 0.1;
+        ecrase = Math.min(ecrase, 1 - k * w * (0.5 + 0.5 * Math.sin((t - a.t) * Math.PI * 1.4 - Math.PI / 2)));
+        if (a.type === 'fente') penche += Math.sin((t - a.t) * Math.PI * 0.7) * 6 * w;
+        if (a.type === 'pompe') penche += 10 * w;
+        break;
+      }
       default:
         break;
     }
@@ -316,6 +345,7 @@ const evaluer = (acteur: Acteur, t: number, frame: number, dureeScene: number, e
     expression,
     arrivee: acteur.apparition ?? arrivee,
     pose,
+    ...(ecrase !== 1 ? {ecrase} : {}),
     mv: {marche, bras: {l: brasCote(-1), r: brasCote(1)}, objets, texteObjet, tete, epaules, miroir, ...(cape ? {cape} : {}), ...(clin ? {clin} : {})},
   };
 };
@@ -382,7 +412,7 @@ export const Acteurs: React.FC<{
                 top,
                 width: w,
                 height: h,
-                transform: `rotate(${st.penche}deg)`,
+                transform: st.ecrase !== undefined ? `rotate(${st.penche}deg) scaleY(${st.ecrase})` : `rotate(${st.penche}deg)`,
                 transformOrigin: '50% 97%',
               }}
             >
