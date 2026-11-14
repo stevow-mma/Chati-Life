@@ -1,0 +1,1203 @@
+{
+ "mode": "piste_unique",
+ "fichier": "ep11/voix.mp3",
+ "hash": "bfbfa78250576478c685a5b42629f6775499e8cae61361073ace1518146e826a",
+ "duree_piste": 88.999184,
+ "derniere_parole": 88.96,
+ "fin": 91.96,
+ "scenes": [
+  {
+   "texte_lu": "Lina encaisse trois mille six cents euros par mois. Plus de mille trois cents disparaissent avant qu'elle touche quoi que ce soit.",
+   "debut": 0,
+   "mots": [
+    {
+     "texte": "Lina",
+     "debut": 0.4,
+     "fin": 1.515
+    },
+    {
+     "texte": "encaisse",
+     "debut": 1.596,
+     "fin": 2.246
+    },
+    {
+     "texte": "trois",
+     "debut": 2.304,
+     "fin": 2.49
+    },
+    {
+     "texte": "mille",
+     "debut": 2.525,
+     "fin": 2.722
+    },
+    {
+     "texte": "six",
+     "debut": 2.768,
+     "fin": 2.943
+    },
+    {
+     "texte": "cents",
+     "debut": 2.966,
+     "fin": 3.198
+    },
+    {
+     "texte": "euros",
+     "debut": 3.244,
+     "fin": 3.628
+    },
+    {
+     "texte": "par",
+     "debut": 3.651,
+     "fin": 3.802
+    },
+    {
+     "texte": "mois.",
+     "debut": 3.86,
+     "fin": 4.255
+    },
+    {
+     "texte": "Plus",
+     "debut": 4.638,
+     "fin": 4.835
+    },
+    {
+     "texte": "de",
+     "debut": 4.87,
+     "fin": 4.928
+    },
+    {
+     "texte": "mille",
+     "debut": 4.986,
+     "fin": 5.172
+    },
+    {
+     "texte": "trois",
+     "debut": 5.207,
+     "fin": 5.404
+    },
+    {
+     "texte": "cents",
+     "debut": 5.427,
+     "fin": 5.636
+    },
+    {
+     "texte": "disparaissent",
+     "debut": 5.659,
+     "fin": 6.286
+    },
+    {
+     "texte": "avant",
+     "debut": 6.356,
+     "fin": 6.53
+    },
+    {
+     "texte": "qu'elle",
+     "debut": 6.553,
+     "fin": 6.751
+    },
+    {
+     "texte": "touche",
+     "debut": 6.809,
+     "fin": 7.099
+    },
+    {
+     "texte": "quoi",
+     "debut": 7.134,
+     "fin": 7.261
+    },
+    {
+     "texte": "que",
+     "debut": 7.296,
+     "fin": 7.378
+    },
+    {
+     "texte": "ce",
+     "debut": 7.412,
+     "fin": 7.505
+    },
+    {
+     "texte": "soit.",
+     "debut": 7.552,
+     "fin": 7.97
+    }
+   ]
+  },
+  {
+   "texte_lu": "Elle coiffe à domicile : quatre-vingts clientes à quarante-cinq euros.",
+   "debut": 8.295,
+   "mots": [
+    {
+     "texte": "Elle",
+     "debut": 8.295,
+     "fin": 8.481
+    },
+    {
+     "texte": "coiffe",
+     "debut": 8.515,
+     "fin": 8.724
+    },
+    {
+     "texte": "à",
+     "debut": 8.748,
+     "fin": 8.771
+    },
+    {
+     "texte": "domicile",
+     "debut": 8.806,
+     "fin": 9.421
+    },
+    {
+     "texte": ":",
+     "debut": 9.467,
+     "fin": 9.56
+    },
+    {
+     "texte": "quatre-vingts",
+     "debut": 9.769,
+     "fin": 10.292
+    },
+    {
+     "texte": "clientes",
+     "debut": 10.327,
+     "fin": 10.884
+    },
+    {
+     "texte": "à",
+     "debut": 10.93,
+     "fin": 11
+    },
+    {
+     "texte": "quarante-cinq",
+     "debut": 11.116,
+     "fin": 11.627
+    },
+    {
+     "texte": "euros.",
+     "debut": 11.696,
+     "fin": 12.068
+    }
+   ]
+  },
+  {
+   "texte_lu": "Moins les cotisations, sept cent soixante-trois euros. Les produits, quatre cents. Le trajet, cent cinquante. L'assurance, quinze. Il reste deux mille deux cent soixante-dix euros, avant impôt.",
+   "debut": 12.509,
+   "mots": [
+    {
+     "texte": "Moins",
+     "debut": 12.509,
+     "fin": 12.73
+    },
+    {
+     "texte": "les",
+     "debut": 12.753,
+     "fin": 12.834
+    },
+    {
+     "texte": "cotisations,",
+     "debut": 12.869,
+     "fin": 13.565
+    },
+    {
+     "texte": "sept",
+     "debut": 13.681,
+     "fin": 13.879
+    },
+    {
+     "texte": "cent",
+     "debut": 13.925,
+     "fin": 14.111
+    },
+    {
+     "texte": "soixante-trois",
+     "debut": 14.169,
+     "fin": 14.819
+    },
+    {
+     "texte": "euros.",
+     "debut": 14.889,
+     "fin": 15.318
+    },
+    {
+     "texte": "Les",
+     "debut": 15.922,
+     "fin": 16.061
+    },
+    {
+     "texte": "produits,",
+     "debut": 16.085,
+     "fin": 16.444
+    },
+    {
+     "texte": "quatre",
+     "debut": 16.526,
+     "fin": 16.804
+    },
+    {
+     "texte": "cents.",
+     "debut": 16.851,
+     "fin": 17.269
+    },
+    {
+     "texte": "Le",
+     "debut": 17.652,
+     "fin": 17.791
+    },
+    {
+     "texte": "trajet,",
+     "debut": 17.838,
+     "fin": 18.302
+    },
+    {
+     "texte": "cent",
+     "debut": 18.349,
+     "fin": 18.523
+    },
+    {
+     "texte": "cinquante.",
+     "debut": 18.558,
+     "fin": 19.219
+    },
+    {
+     "texte": "L'assurance,",
+     "debut": 19.393,
+     "fin": 20.009
+    },
+    {
+     "texte": "quinze.",
+     "debut": 20.032,
+     "fin": 20.543
+    },
+    {
+     "texte": "Il",
+     "debut": 21.147,
+     "fin": 21.297
+    },
+    {
+     "texte": "reste",
+     "debut": 21.367,
+     "fin": 21.681
+    },
+    {
+     "texte": "deux",
+     "debut": 21.762,
+     "fin": 21.89
+    },
+    {
+     "texte": "mille",
+     "debut": 21.924,
+     "fin": 22.203
+    },
+    {
+     "texte": "deux",
+     "debut": 22.273,
+     "fin": 22.424
+    },
+    {
+     "texte": "cent",
+     "debut": 22.447,
+     "fin": 22.575
+    },
+    {
+     "texte": "soixante-dix",
+     "debut": 22.598,
+     "fin": 23.074
+    },
+    {
+     "texte": "euros,",
+     "debut": 23.12,
+     "fin": 23.492
+    },
+    {
+     "texte": "avant",
+     "debut": 23.573,
+     "fin": 23.991
+    },
+    {
+     "texte": "impôt.",
+     "debut": 24.804,
+     "fin": 25.338
+    }
+   ]
+  },
+  {
+   "texte_lu": "Mais cela suppose quatre-vingts rendez-vous par mois. Le vrai défi, c'est de les remplir.",
+   "debut": 25.941,
+   "mots": [
+    {
+     "texte": "Mais",
+     "debut": 25.941,
+     "fin": 26.208
+    },
+    {
+     "texte": "cela",
+     "debut": 26.232,
+     "fin": 26.441
+    },
+    {
+     "texte": "suppose",
+     "debut": 26.487,
+     "fin": 26.824
+    },
+    {
+     "texte": "quatre-vingts",
+     "debut": 26.859,
+     "fin": 27.393
+    },
+    {
+     "texte": "rendez-vous",
+     "debut": 27.428,
+     "fin": 27.892
+    },
+    {
+     "texte": "par",
+     "debut": 27.927,
+     "fin": 28.066
+    },
+    {
+     "texte": "mois.",
+     "debut": 28.113,
+     "fin": 28.414
+    },
+    {
+     "texte": "Le",
+     "debut": 28.925,
+     "fin": 29.029
+    },
+    {
+     "texte": "vrai",
+     "debut": 29.076,
+     "fin": 29.25
+    },
+    {
+     "texte": "défi,",
+     "debut": 29.285,
+     "fin": 29.877
+    },
+    {
+     "texte": "c'est",
+     "debut": 30.028,
+     "fin": 30.202
+    },
+    {
+     "texte": "de",
+     "debut": 30.225,
+     "fin": 30.283
+    },
+    {
+     "texte": "les",
+     "debut": 30.318,
+     "fin": 30.399
+    },
+    {
+     "texte": "remplir.",
+     "debut": 30.434,
+     "fin": 31.108
+    }
+   ]
+  },
+  {
+   "texte_lu": "Premier levier : compte en euros par heure. Une coupe rapide peut rapporter plus qu'une couleur longue.",
+   "debut": 31.711,
+   "mots": [
+    {
+     "texte": "Premier",
+     "debut": 31.711,
+     "fin": 32.036
+    },
+    {
+     "texte": "levier",
+     "debut": 32.06,
+     "fin": 32.431
+    },
+    {
+     "texte": ":",
+     "debut": 32.524,
+     "fin": 32.582
+    },
+    {
+     "texte": "compte",
+     "debut": 32.756,
+     "fin": 33.035
+    },
+    {
+     "texte": "en",
+     "debut": 33.081,
+     "fin": 33.197
+    },
+    {
+     "texte": "euros",
+     "debut": 33.267,
+     "fin": 33.511
+    },
+    {
+     "texte": "par",
+     "debut": 33.534,
+     "fin": 33.697
+    },
+    {
+     "texte": "heure.",
+     "debut": 33.743,
+     "fin": 34.173
+    },
+    {
+     "texte": "Une",
+     "debut": 34.382,
+     "fin": 34.533
+    },
+    {
+     "texte": "coupe",
+     "debut": 34.567,
+     "fin": 34.753
+    },
+    {
+     "texte": "rapide",
+     "debut": 34.776,
+     "fin": 35.101
+    },
+    {
+     "texte": "peut",
+     "debut": 35.125,
+     "fin": 35.252
+    },
+    {
+     "texte": "rapporter",
+     "debut": 35.276,
+     "fin": 35.682
+    },
+    {
+     "texte": "plus",
+     "debut": 35.728,
+     "fin": 35.949
+    },
+    {
+     "texte": "qu'une",
+     "debut": 35.995,
+     "fin": 36.158
+    },
+    {
+     "texte": "couleur",
+     "debut": 36.181,
+     "fin": 36.437
+    },
+    {
+     "texte": "longue.",
+     "debut": 36.483,
+     "fin": 36.901
+    }
+   ]
+  },
+  {
+   "texte_lu": "Deuxième levier : fais réserver le prochain rendez-vous avant de partir. Une visite de plus pour soixante clientes, c'est deux mille six cents euros par an.",
+   "debut": 37.505,
+   "mots": [
+    {
+     "texte": "Deuxième",
+     "debut": 37.505,
+     "fin": 37.83
+    },
+    {
+     "texte": "levier",
+     "debut": 37.853,
+     "fin": 38.19
+    },
+    {
+     "texte": ":",
+     "debut": 38.271,
+     "fin": 38.352
+    },
+    {
+     "texte": "fais",
+     "debut": 38.596,
+     "fin": 38.735
+    },
+    {
+     "texte": "réserver",
+     "debut": 38.759,
+     "fin": 39.084
+    },
+    {
+     "texte": "le",
+     "debut": 39.107,
+     "fin": 39.165
+    },
+    {
+     "texte": "prochain",
+     "debut": 39.211,
+     "fin": 39.56
+    },
+    {
+     "texte": "rendez-vous",
+     "debut": 39.583,
+     "fin": 40.012
+    },
+    {
+     "texte": "avant",
+     "debut": 40.047,
+     "fin": 40.221
+    },
+    {
+     "texte": "de",
+     "debut": 40.245,
+     "fin": 40.303
+    },
+    {
+     "texte": "partir.",
+     "debut": 40.349,
+     "fin": 40.883
+    },
+    {
+     "texte": "Une",
+     "debut": 41.324,
+     "fin": 41.487
+    },
+    {
+     "texte": "visite",
+     "debut": 41.51,
+     "fin": 41.847
+    },
+    {
+     "texte": "de",
+     "debut": 41.87,
+     "fin": 41.951
+    },
+    {
+     "texte": "plus",
+     "debut": 42.009,
+     "fin": 42.288
+    },
+    {
+     "texte": "pour",
+     "debut": 42.311,
+     "fin": 42.439
+    },
+    {
+     "texte": "soixante",
+     "debut": 42.474,
+     "fin": 42.799
+    },
+    {
+     "texte": "clientes,",
+     "debut": 42.822,
+     "fin": 43.391
+    },
+    {
+     "texte": "c'est",
+     "debut": 43.565,
+     "fin": 43.762
+    },
+    {
+     "texte": "deux",
+     "debut": 43.821,
+     "fin": 43.948
+    },
+    {
+     "texte": "mille",
+     "debut": 43.983,
+     "fin": 44.192
+    },
+    {
+     "texte": "six",
+     "debut": 44.238,
+     "fin": 44.424
+    },
+    {
+     "texte": "cents",
+     "debut": 44.447,
+     "fin": 44.831
+    },
+    {
+     "texte": "euros",
+     "debut": 44.854,
+     "fin": 45.202
+    },
+    {
+     "texte": "par",
+     "debut": 45.225,
+     "fin": 45.376
+    },
+    {
+     "texte": "an.",
+     "debut": 45.399,
+     "fin": 45.667
+    }
+   ]
+  },
+  {
+   "texte_lu": "Troisième levier : vends des soins. Ces ventes cotisent à douze virgule trois pour cent, pas à vingt-et-un.",
+   "debut": 45.875,
+   "mots": [
+    {
+     "texte": "Troisième",
+     "debut": 45.875,
+     "fin": 46.293
+    },
+    {
+     "texte": "levier",
+     "debut": 46.317,
+     "fin": 46.688
+    },
+    {
+     "texte": ":",
+     "debut": 46.746,
+     "fin": 46.804
+    },
+    {
+     "texte": "vends",
+     "debut": 46.955,
+     "fin": 47.187
+    },
+    {
+     "texte": "des",
+     "debut": 47.211,
+     "fin": 47.327
+    },
+    {
+     "texte": "soins.",
+     "debut": 47.373,
+     "fin": 47.78
+    },
+    {
+     "texte": "Ces",
+     "debut": 47.988,
+     "fin": 48.174
+    },
+    {
+     "texte": "ventes",
+     "debut": 48.209,
+     "fin": 48.465
+    },
+    {
+     "texte": "cotisent",
+     "debut": 48.488,
+     "fin": 49.08
+    },
+    {
+     "texte": "à",
+     "debut": 49.358,
+     "fin": 49.475
+    },
+    {
+     "texte": "douze",
+     "debut": 49.626,
+     "fin": 49.985
+    },
+    {
+     "texte": "virgule",
+     "debut": 50.032,
+     "fin": 50.554
+    },
+    {
+     "texte": "trois",
+     "debut": 50.601,
+     "fin": 50.868
+    },
+    {
+     "texte": "pour",
+     "debut": 50.891,
+     "fin": 51.042
+    },
+    {
+     "texte": "cent,",
+     "debut": 51.1,
+     "fin": 51.448
+    },
+    {
+     "texte": "pas",
+     "debut": 51.959,
+     "fin": 52.122
+    },
+    {
+     "texte": "à",
+     "debut": 52.156,
+     "fin": 52.18
+    },
+    {
+     "texte": "vingt-et-un.",
+     "debut": 52.215,
+     "fin": 52.737
+    }
+   ]
+  },
+  {
+   "texte_lu": "Quatrième levier : regroupe tes rendez-vous par quartier pour réduire le trajet.",
+   "debut": 53.341,
+   "mots": [
+    {
+     "texte": "Quatrième",
+     "debut": 53.341,
+     "fin": 53.782
+    },
+    {
+     "texte": "levier",
+     "debut": 53.805,
+     "fin": 54.153
+    },
+    {
+     "texte": ":",
+     "debut": 54.188,
+     "fin": 54.235
+    },
+    {
+     "texte": "regroupe",
+     "debut": 54.362,
+     "fin": 54.745
+    },
+    {
+     "texte": "tes",
+     "debut": 54.769,
+     "fin": 54.862
+    },
+    {
+     "texte": "rendez-vous",
+     "debut": 54.896,
+     "fin": 55.361
+    },
+    {
+     "texte": "par",
+     "debut": 55.384,
+     "fin": 55.535
+    },
+    {
+     "texte": "quartier",
+     "debut": 55.582,
+     "fin": 55.895
+    },
+    {
+     "texte": "pour",
+     "debut": 55.93,
+     "fin": 56.069
+    },
+    {
+     "texte": "réduire",
+     "debut": 56.093,
+     "fin": 56.36
+    },
+    {
+     "texte": "le",
+     "debut": 56.383,
+     "fin": 56.453
+    },
+    {
+     "texte": "trajet.",
+     "debut": 56.487,
+     "fin": 56.975
+    }
+   ]
+  },
+  {
+   "texte_lu": "Cinquième levier : l'A.C.R.E., si tu es éligible. Tes cotisations baissent d'un quart au démarrage.",
+   "debut": 57.486,
+   "mots": [
+    {
+     "texte": "Cinquième",
+     "debut": 57.486,
+     "fin": 57.857
+    },
+    {
+     "texte": "levier",
+     "debut": 57.881,
+     "fin": 58.217
+    },
+    {
+     "texte": ":",
+     "debut": 58.299,
+     "fin": 58.415
+    },
+    {
+     "texte": "l'A.C.R.E.,",
+     "debut": 58.74,
+     "fin": 59.564
+    },
+    {
+     "texte": "si",
+     "debut": 59.773,
+     "fin": 59.878
+    },
+    {
+     "texte": "tu",
+     "debut": 59.912,
+     "fin": 60.029
+    },
+    {
+     "texte": "es",
+     "debut": 60.098,
+     "fin": 60.145
+    },
+    {
+     "texte": "éligible.",
+     "debut": 60.214,
+     "fin": 60.818
+    },
+    {
+     "texte": "Tes",
+     "debut": 61.259,
+     "fin": 61.387
+    },
+    {
+     "texte": "cotisations",
+     "debut": 61.41,
+     "fin": 62.014
+    },
+    {
+     "texte": "baissent",
+     "debut": 62.049,
+     "fin": 62.583
+    },
+    {
+     "texte": "d'un",
+     "debut": 62.861,
+     "fin": 63.024
+    },
+    {
+     "texte": "quart",
+     "debut": 63.094,
+     "fin": 63.349
+    },
+    {
+     "texte": "au",
+     "debut": 63.372,
+     "fin": 63.43
+    },
+    {
+     "texte": "démarrage.",
+     "debut": 63.477,
+     "fin": 64.104
+    }
+   ]
+  },
+  {
+   "texte_lu": "Conseil : affiche tes prix, et remets une note dès vingt-cinq euros.",
+   "debut": 64.487,
+   "mots": [
+    {
+     "texte": "Conseil",
+     "debut": 64.487,
+     "fin": 64.905
+    },
+    {
+     "texte": ":",
+     "debut": 65.021,
+     "fin": 65.09
+    },
+    {
+     "texte": "affiche",
+     "debut": 65.416,
+     "fin": 65.775
+    },
+    {
+     "texte": "tes",
+     "debut": 65.799,
+     "fin": 65.903
+    },
+    {
+     "texte": "prix,",
+     "debut": 65.938,
+     "fin": 66.217
+    },
+    {
+     "texte": "et",
+     "debut": 66.286,
+     "fin": 66.437
+    },
+    {
+     "texte": "remets",
+     "debut": 66.518,
+     "fin": 66.809
+    },
+    {
+     "texte": "une",
+     "debut": 66.867,
+     "fin": 67.018
+    },
+    {
+     "texte": "note",
+     "debut": 67.053,
+     "fin": 67.366
+    },
+    {
+     "texte": "dès",
+     "debut": 67.459,
+     "fin": 67.621
+    },
+    {
+     "texte": "vingt-cinq",
+     "debut": 67.656,
+     "fin": 68.028
+    },
+    {
+     "texte": "euros.",
+     "debut": 68.086,
+     "fin": 68.446
+    }
+   ]
+  },
+  {
+   "texte_lu": "Attention : il faut un C.A.P. coiffure, ou trois ans d'expérience avec attestation. Sinon, c'est interdit.",
+   "debut": 69.049,
+   "mots": [
+    {
+     "texte": "Attention",
+     "debut": 69.049,
+     "fin": 69.514
+    },
+    {
+     "texte": ":",
+     "debut": 69.63,
+     "fin": 69.653
+    },
+    {
+     "texte": "il",
+     "debut": 69.978,
+     "fin": 70.071
+    },
+    {
+     "texte": "faut",
+     "debut": 70.141,
+     "fin": 70.35
+    },
+    {
+     "texte": "un",
+     "debut": 70.408,
+     "fin": 70.477
+    },
+    {
+     "texte": "C.A.P.",
+     "debut": 70.547,
+     "fin": 70.93
+    },
+    {
+     "texte": "coiffure,",
+     "debut": 70.953,
+     "fin": 71.638
+    },
+    {
+     "texte": "ou",
+     "debut": 71.882,
+     "fin": 72.044
+    },
+    {
+     "texte": "trois",
+     "debut": 72.102,
+     "fin": 72.311
+    },
+    {
+     "texte": "ans",
+     "debut": 72.358,
+     "fin": 72.427
+    },
+    {
+     "texte": "d'expérience",
+     "debut": 72.451,
+     "fin": 73.031
+    },
+    {
+     "texte": "avec",
+     "debut": 73.054,
+     "fin": 73.252
+    },
+    {
+     "texte": "attestation.",
+     "debut": 73.31,
+     "fin": 74.088
+    },
+    {
+     "texte": "Sinon,",
+     "debut": 74.471,
+     "fin": 74.773
+    },
+    {
+     "texte": "c'est",
+     "debut": 74.796,
+     "fin": 74.935
+    },
+    {
+     "texte": "interdit.",
+     "debut": 74.982,
+     "fin": 75.643
+    }
+   ]
+  },
+  {
+   "texte_lu": "Règle numéro un : fixe ton prix après avoir compté cotisations, produits et trajet.",
+   "debut": 75.771,
+   "mots": [
+    {
+     "texte": "Règle",
+     "debut": 75.771,
+     "fin": 76.05
+    },
+    {
+     "texte": "numéro",
+     "debut": 76.096,
+     "fin": 76.421
+    },
+    {
+     "texte": "un",
+     "debut": 76.468,
+     "fin": 76.561
+    },
+    {
+     "texte": ":",
+     "debut": 76.735,
+     "fin": 76.77
+    },
+    {
+     "texte": "fixe",
+     "debut": 77.013,
+     "fin": 77.292
+    },
+    {
+     "texte": "ton",
+     "debut": 77.315,
+     "fin": 77.431
+    },
+    {
+     "texte": "prix",
+     "debut": 77.478,
+     "fin": 77.78
+    },
+    {
+     "texte": "après",
+     "debut": 77.849,
+     "fin": 78.163
+    },
+    {
+     "texte": "avoir",
+     "debut": 78.186,
+     "fin": 78.337
+    },
+    {
+     "texte": "compté",
+     "debut": 78.383,
+     "fin": 78.627
+    },
+    {
+     "texte": "cotisations,",
+     "debut": 78.674,
+     "fin": 79.568
+    },
+    {
+     "texte": "produits",
+     "debut": 79.893,
+     "fin": 80.369
+    },
+    {
+     "texte": "et",
+     "debut": 80.427,
+     "fin": 80.531
+    },
+    {
+     "texte": "trajet.",
+     "debut": 80.566,
+     "fin": 81.158
+    }
+   ]
+  },
+  {
+   "texte_lu": "Coiffeuse à domicile ou en salon : tu choisirais quoi ? Dis-le en commentaire, et abonne-toi pour d'autres vrais chiffres.",
+   "debut": 82.273,
+   "mots": [
+    {
+     "texte": "Coiffeuse",
+     "debut": 82.273,
+     "fin": 82.644
+    },
+    {
+     "texte": "à",
+     "debut": 82.667,
+     "fin": 82.691
+    },
+    {
+     "texte": "domicile",
+     "debut": 82.737,
+     "fin": 83.202
+    },
+    {
+     "texte": "ou",
+     "debut": 83.225,
+     "fin": 83.283
+    },
+    {
+     "texte": "en",
+     "debut": 83.318,
+     "fin": 83.376
+    },
+    {
+     "texte": "salon",
+     "debut": 83.434,
+     "fin": 83.701
+    },
+    {
+     "texte": ":",
+     "debut": 83.817,
+     "fin": 83.863
+    },
+    {
+     "texte": "tu",
+     "debut": 83.979,
+     "fin": 84.084
+    },
+    {
+     "texte": "choisirais",
+     "debut": 84.13,
+     "fin": 84.548
+    },
+    {
+     "texte": "quoi",
+     "debut": 84.595,
+     "fin": 84.78
+    },
+    {
+     "texte": "?",
+     "debut": 84.897,
+     "fin": 84.989
+    },
+    {
+     "texte": "Dis-le",
+     "debut": 85.373,
+     "fin": 85.605
+    },
+    {
+     "texte": "en",
+     "debut": 85.674,
+     "fin": 85.732
+    },
+    {
+     "texte": "commentaire,",
+     "debut": 85.779,
+     "fin": 86.499
+    },
+    {
+     "texte": "et",
+     "debut": 86.58,
+     "fin": 86.731
+    },
+    {
+     "texte": "abonne-toi",
+     "debut": 86.789,
+     "fin": 87.323
+    },
+    {
+     "texte": "pour",
+     "debut": 87.37,
+     "fin": 87.567
+    },
+    {
+     "texte": "d'autres",
+     "debut": 87.648,
+     "fin": 87.95
+    },
+    {
+     "texte": "vrais",
+     "debut": 87.973,
+     "fin": 88.171
+    },
+    {
+     "texte": "chiffres.",
+     "debut": 88.194,
+     "fin": 88.96
+    }
+   ]
+  }
+ ]
+}

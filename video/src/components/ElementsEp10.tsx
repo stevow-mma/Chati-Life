@@ -1,6 +1,7 @@
 import {interpolate, spring, useCurrentFrame, useVideoConfig} from 'remotion';
 import {FONT_TEXTE, FONT_TITRE} from '../fonts';
 import type {ElementVisuel} from '../types';
+import {ElementEp11} from './ElementsEp11';
 
 /**
  * Éléments visuels de l'épisode 10 : cartes qui glissent depuis le côté et rebondissent, chiffres en symboles,
@@ -215,6 +216,7 @@ const ContratCases: React.FC<{el: Extract<ElementVisuel, {type: 'contrat_cases'}
         </div>
         {el.petit ? <div style={{fontSize: 28, color: '#495057', marginTop: 12, textAlign: 'center'}}>{el.petit}</div> : null}
         {el.mention ? <div style={{textAlign: 'center'}}><Mention>{el.mention}</Mention></div> : null}
+        {el.source ? <div style={{textAlign: 'center'}}><Source>{el.source}</Source></div> : null}
       </div>
     </Glisse>
   );
@@ -398,9 +400,12 @@ export const ElementEp10: React.FC<{element: ElementVisuel; bascule?: number; mo
       return <CompteSuspendu el={element} bascule={bascule} />;
     case 'verrous':
       return <Verrous el={element} motFrame={motFrame} />;
+    case 'barres_comparees':
+    case 'addition_pastilles':
+      return <ElementEp11 element={element} motFrame={motFrame} />;
     default:
       return null;
   }
 };
 
-export const EST_EP10 = new Set(['cartes_successives', 'cascade', 'contrat_cases', 'carte_taux', 'profils_comptes', 'tableau_bord', 'compte_suspendu', 'verrous']);
+export const EST_EP10 = new Set(['cartes_successives', 'cascade', 'contrat_cases', 'carte_taux', 'profils_comptes', 'tableau_bord', 'compte_suspendu', 'verrous', 'barres_comparees', 'addition_pastilles']);

@@ -46,7 +46,22 @@ export type ObjetTenu =
   | 'pancarte'
   | 'calculatrice'
   | 'sac'
-  | 'papiers';
+  | 'papiers'
+  // ep11
+  | 'ciseaux'
+  | 'peigne'
+  | 'trousse'
+  | 'agenda'
+  | 'carnet'
+  | 'calepin'
+  | 'note'
+  | 'flacon'
+  | 'serviette'
+  | 'miroir'
+  | 'pinceau'
+  | 'postit'
+  | 'diplome'
+  | 'tampon';
 
 /** État du mouvement à l'image courante (calculé par le calque Acteurs à partir des actions du script). */
 export type Mouvement = {
@@ -63,6 +78,10 @@ export type Mouvement = {
   epaules?: number;
   /** Miroir gauche/droite. */
   miroir?: boolean;
+  /** ep11 : cape de coupe sur les épaules (couleur). */
+  cape?: string | null;
+  /** ep11 : clin d'œil. */
+  clin?: boolean;
 };
 
 export const L_BRAS = 118;
@@ -94,7 +113,9 @@ export const BrasArticule: React.FC<{
   poignet?: string;
   /** Montre (couleur du boîtier) au poignet. */
   montre?: string;
-}> = ({epaule, coude, main, cote, a, manche, peau, revers, poignet, montre}) => {
+  /** ep11 : rayures de marinière sur la manche (couleur). */
+  rayures?: string;
+}> = ({epaule, coude, main, cote, a, manche, peau, revers, poignet, montre, rayures}) => {
   const d1 = `M ${epaule[0]} ${epaule[1]} L ${coude[0]} ${coude[1]}`;
   const d2 = `M ${coude[0]} ${coude[1]} L ${main[0]} ${main[1]}`;
   const avantNu = !!revers;
@@ -109,6 +130,7 @@ export const BrasArticule: React.FC<{
       <path d={d2} stroke={OUT} strokeWidth={58} strokeLinecap="round" />
       <path d={d2} stroke={avantNu ? peau : manche} strokeWidth={42} strokeLinecap="round" />
       <path d={d1} stroke={manche} strokeWidth={46} strokeLinecap="round" />
+      {rayures ? <path d={d1} stroke={rayures} strokeWidth={46} strokeDasharray="12 16" /> : null}
       {revers ? (
         <g>
           <circle cx={coude[0]} cy={coude[1]} r={31} fill={OUT} />
@@ -641,6 +663,420 @@ export const ObjetMain: React.FC<{nom: ObjetTenu; main: Pt; peau: string; miroir
         </g>
       );
     default:
+      // ep11 : objets supplémentaires (ciseaux, peigne, trousse, agenda…)
+      return <ObjetMainEp11 nom={nom} main={main} peau={peau} miroir={miroir} texte={texte} frame={frame} />;
+  }
+};
+
+// ---------------------------------------------------------------------------
+// ep11 : coiffures, vêtements et objets (Lina, coiffeuse à domicile, et personnages secondaires). Tout est optionnel.
+
+/** Coupe pixie (Lina) : petite calotte derrière la tête. */
+export const PixieArriere: React.FC<{c: string}> = ({c}) => (
+  <path d="M 158 252 Q 150 118 300 106 Q 450 118 442 252 Z" fill={c} stroke={OUT} strokeWidth={SW} strokeLinejoin="round" />
+);
+
+/** Coupe pixie décolorée : dessus texturé en mèches pointues, frange balayée sur le côté, côtés courts (oreilles dégagées),
+ *  racines un peu plus foncées. */
+export const PixieAvant: React.FC<{c: string; racines: string}> = ({c, racines}) => (
+  <g>
+    <path
+      d="M 156 252 Q 140 150 214 112 L 232 84 L 252 104 L 276 72 L 298 98 L 326 70 L 344 100 L 372 82 L 384 114 Q 456 146 444 252 Q 438 214 422 198 Q 404 214 380 206 Q 350 196 322 210 Q 286 230 244 228 Q 204 226 182 214 Q 166 226 156 252 Z"
+      fill={c}
+      stroke={OUT}
+      strokeWidth={SW}
+      strokeLinejoin="round"
+    />
+    {/* racines plus foncées au sommet */}
+    <path d="M 236 112 Q 300 88 366 108" fill="none" stroke={racines} strokeWidth={10} strokeLinecap="round" opacity={0.55} />
+    {/* mèches de la frange balayée */}
+    <path d="M 214 140 Q 262 160 316 200 M 262 120 Q 316 150 356 196 M 330 112 Q 380 140 410 190" fill="none" stroke="rgba(0,0,0,0.16)" strokeWidth={5} strokeLinecap="round" />
+    <path d="M 220 130 Q 270 116 330 120" fill="none" stroke="rgba(255,255,255,0.7)" strokeWidth={8} strokeLinecap="round" />
+  </g>
+);
+
+/** Cheveux mi-longs raie au milieu (cliente A) : masse jusqu'aux épaules. */
+export const MiLongArriere: React.FC<{c: string; frame: number}> = ({c, frame}) => {
+  const sway = Math.sin(frame / 12) * 2;
+  return <path d={`M 300 100 Q 136 106 130 260 Q 124 380 ${140 + sway} 476 L ${460 + sway} 476 Q 476 380 470 260 Q 464 106 300 100 Z`} fill={c} stroke={OUT} strokeWidth={SW} strokeLinejoin="round" />;
+};
+
+export const MiLongAvant: React.FC<{c: string}> = ({c}) => (
+  <g>
+    <path
+      d="M 300 110 Q 176 118 154 252 Q 144 340 156 436 Q 178 440 188 392 Q 190 262 232 192 Q 268 148 300 128 Q 332 148 368 192 Q 410 262 412 392 Q 422 440 444 436 Q 456 340 446 252 Q 424 118 300 110 Z"
+      fill={c}
+      stroke={OUT}
+      strokeWidth={SW}
+      strokeLinejoin="round"
+    />
+    <path d="M 300 112 V 130" stroke="rgba(0,0,0,0.25)" strokeWidth={5} />
+    <path d="M 200 200 Q 176 300 176 400 M 400 200 Q 424 300 424 400" fill="none" stroke="rgba(255,255,255,0.25)" strokeWidth={7} strokeLinecap="round" />
+  </g>
+);
+
+/** Longs cheveux lisses (cliente B) : masse jusqu'au milieu du dos. */
+export const LongLisseArriere: React.FC<{c: string; frame: number}> = ({c, frame}) => {
+  const sway = Math.sin(frame / 13) * 3;
+  return <path d={`M 300 96 Q 128 104 124 260 L ${118 + sway} 600 L ${482 + sway} 600 L 476 260 Q 472 104 300 96 Z`} fill={c} stroke={OUT} strokeWidth={SW} strokeLinejoin="round" />;
+};
+
+export const LongLisseAvant: React.FC<{c: string}> = ({c}) => (
+  <g>
+    <path d="M 152 292 Q 138 128 300 106 Q 462 128 448 292 Q 432 218 384 178 Q 334 146 300 150 Q 266 146 216 178 Q 168 218 152 292 Z" fill={c} stroke={OUT} strokeWidth={SW} strokeLinejoin="round" />
+    {[-1, 1].map((s) => (
+      <path
+        key={s}
+        d={`M ${300 + s * 150} 250 L ${300 + s * 160} 604 Q ${300 + s * 130} 616 ${300 + s * 102} 604 L ${300 + s * 106} 330 Q ${300 + s * 112} 280 ${300 + s * 126} 250 Z`}
+        fill={c}
+        stroke={OUT}
+        strokeWidth={SW}
+        strokeLinejoin="round"
+      />
+    ))}
+    <path d="M 220 150 Q 260 130 300 128" fill="none" stroke="rgba(255,255,255,0.35)" strokeWidth={8} strokeLinecap="round" />
+    <path d="M 172 330 V 560 M 428 330 V 560" stroke="rgba(255,255,255,0.18)" strokeWidth={8} strokeLinecap="round" />
+  </g>
+);
+
+/** Cheveux courts bouclés (voisine) : calotte de petites boucles. */
+export const CourtOnduleArriere: React.FC<{c: string}> = ({c}) => (
+  <path d="M 150 262 Q 138 108 300 98 Q 462 108 450 262 Z" fill={c} stroke={OUT} strokeWidth={SW} strokeLinejoin="round" />
+);
+
+export const CourtOnduleAvant: React.FC<{c: string}> = ({c}) => {
+  const pts: Pt[] = [];
+  for (let k = 0; k <= 8; k++) {
+    const a = Math.PI + (k / 8) * Math.PI;
+    pts.push([300 + Math.cos(a) * 140, 238 + Math.sin(a) * 118]);
+  }
+  return (
+    <g>
+      {pts.map(([x, y], i) => (
+        <circle key={i} cx={x} cy={y} r={36} fill={c} stroke={OUT} strokeWidth={SW - 2} />
+      ))}
+      <path d="M 170 246 Q 170 140 300 132 Q 430 140 430 246 Q 300 196 170 246 Z" fill={c} />
+      {pts.slice(1, 8).map(([x, y], i) => (
+        <path key={i} d={`M ${x - 12} ${y + 6} q 12 -14 24 0`} fill="none" stroke="rgba(0,0,0,0.18)" strokeWidth={4} strokeLinecap="round" />
+      ))}
+    </g>
+  );
+};
+
+/** Rayures horizontales de marinière, à placer dans un clipPath du torse. */
+export const RayuresTorse: React.FC<{couleur: string}> = ({couleur}) => (
+  <g>
+    {Array.from({length: 10}).map((_, k) => (
+      <rect key={k} x={150} y={432 + k * 30} width={300} height={13} fill={couleur} />
+    ))}
+  </g>
+);
+
+/** Tablier de coiffure noir : bavette, bretelle de cou, lien à la taille, poche avec ciseaux et peigne. */
+export const TablierCoiffure: React.FC<{couleur: string; poche: string}> = ({couleur, poche}) => (
+  <g>
+    <path d="M 252 444 Q 246 410 268 402 M 348 444 Q 354 410 332 402" fill="none" stroke={OUT} strokeWidth={14} strokeLinecap="round" />
+    <path d="M 252 444 Q 246 410 268 402 M 348 444 Q 354 410 332 402" fill="none" stroke={couleur} strokeWidth={7} strokeLinecap="round" />
+    <path d="M 244 442 L 356 442 L 366 566 Q 384 640 398 800 Q 300 818 202 800 Q 216 640 234 566 Z" fill={couleur} stroke={OUT} strokeWidth={SW} strokeLinejoin="round" />
+    {/* lien à la taille */}
+    <path d="M 234 568 Q 300 580 366 568" fill="none" stroke="#3A3A44" strokeWidth={6} />
+    <path d="M 204 572 L 234 568 M 396 572 L 366 568" stroke={couleur} strokeWidth={10} strokeLinecap="round" />
+    {/* surpiqûres */}
+    <path d="M 256 456 H 344 M 214 786 Q 300 802 386 786" fill="none" stroke="#6C757D" strokeWidth={3} strokeDasharray="8 6" />
+    {/* ciseaux et peigne qui dépassent de la poche */}
+    <g>
+      <path d="M 270 646 L 284 588 M 284 646 L 272 588" stroke="#CED4DA" strokeWidth={7} strokeLinecap="round" />
+      <path d="M 270 646 L 284 588 M 284 646 L 272 588" stroke={OUT} strokeWidth={2} strokeLinecap="round" />
+      <circle cx={268} cy={580} r={10} fill="none" stroke="#E76F51" strokeWidth={6} />
+      <circle cx={290} cy={580} r={10} fill="none" stroke="#E76F51" strokeWidth={6} />
+      <rect x={318} y={590} width={16} height={60} rx={4} fill="#F1F3F5" stroke={OUT} strokeWidth={4} />
+      {[600, 612, 624, 636].map((y) => (
+        <path key={y} d={`M 334 ${y} h 8`} stroke={OUT} strokeWidth={3} />
+      ))}
+    </g>
+    <rect x={244} y={622} width={112} height={78} rx={10} fill={poche} stroke={OUT} strokeWidth={6} />
+    <path d="M 252 634 H 348" stroke="#6C757D" strokeWidth={3} strokeDasharray="7 5" />
+  </g>
+);
+
+/** Peigne glissé derrière l'oreille (à droite de l'écran). */
+export const PeigneOreille: React.FC<{couleur: string}> = ({couleur}) => (
+  <g transform="rotate(-62 452 238)">
+    <rect x={412} y={228} width={86} height={18} rx={5} fill={couleur} stroke={OUT} strokeWidth={5} />
+    {Array.from({length: 9}).map((_, k) => (
+      <path key={k} d={`M ${418 + k * 9} 246 v 12`} stroke={OUT} strokeWidth={3} strokeLinecap="round" />
+    ))}
+  </g>
+);
+
+/** Petit piercing (clou) au lobe de l'oreille à gauche de l'écran. */
+export const Piercing: React.FC<{couleur: string}> = ({couleur}) => (
+  <g>
+    <circle cx={146} cy={310} r={8} fill={couleur} stroke={OUT} strokeWidth={3} />
+    <circle cx={143} cy={307} r={2.5} fill="white" opacity={0.7} />
+  </g>
+);
+
+/** Gilet en maille ouvert (cliente A) : pans, boutons, haut visible au milieu. */
+export const Cardigan: React.FC<{ombre: string; dessous: string}> = ({ombre, dessous}) => (
+  <g>
+    <path d="M 270 412 Q 300 440 330 412 L 334 690 Q 300 696 266 690 Z" fill={dessous} stroke={OUT} strokeWidth={6} strokeLinejoin="round" />
+    <path d="M 244 414 Q 300 452 356 414" fill="none" stroke={OUT} strokeWidth={5} opacity={0.5} />
+    {[470, 530, 590, 650].map((y) => (
+      <circle key={y} cx={262} cy={y} r={7} fill={ombre} stroke={OUT} strokeWidth={3} />
+    ))}
+    <path d="M 180 680 Q 300 702 420 680" fill="none" stroke={ombre} strokeWidth={12} />
+    <path d="M 226 470 Q 236 580 230 670 M 374 470 Q 364 580 370 670" fill="none" stroke={ombre} strokeWidth={5} strokeDasharray="4 8" opacity={0.8} />
+  </g>
+);
+
+/** Robe de chambre légère (voisine) : col châle, ceinture nouée, pan qui descend sous les genoux. */
+export const RobeChambre: React.FC<{couleur: string; ombre: string}> = ({couleur, ombre}) => (
+  <g>
+    <path d="M 194 676 L 406 676 L 418 806 Q 300 824 182 806 Z" fill={couleur} stroke={OUT} strokeWidth={SW} strokeLinejoin="round" />
+    <path d="M 300 700 L 306 812" stroke={ombre} strokeWidth={6} />
+    <path d="M 250 410 Q 286 480 302 600 M 350 410 Q 316 480 300 600" fill="none" stroke={OUT} strokeWidth={30} strokeLinecap="round" />
+    <path d="M 250 410 Q 286 480 302 600 M 350 410 Q 316 480 300 600" fill="none" stroke={ombre} strokeWidth={18} strokeLinecap="round" />
+    <rect x={192} y={604} width={216} height={24} rx={10} fill={ombre} stroke={OUT} strokeWidth={6} />
+    <path d="M 316 620 l 12 70 M 322 620 l 30 62" stroke={OUT} strokeWidth={14} strokeLinecap="round" />
+    <path d="M 316 620 l 12 70 M 322 620 l 30 62" stroke={ombre} strokeWidth={7} strokeLinecap="round" />
+  </g>
+);
+
+/** Veste de costume : revers et boutons (à combiner avec l'accessoire « cravate »). */
+export const ReversCostume: React.FC<{ombre: string}> = ({ombre}) => (
+  <g>
+    <path d="M 256 412 L 292 548 L 230 456 Z M 344 412 L 308 548 L 370 456 Z" fill={ombre} stroke={OUT} strokeWidth={6} strokeLinejoin="round" />
+    {[640, 676].map((y) => (
+      <circle key={y} cx={300} cy={y} r={7} fill={OUT} />
+    ))}
+    <rect x={340} y={492} width={42} height={8} rx={3} fill={OUT} opacity={0.5} />
+  </g>
+);
+
+/** Gilet beige à poches (contrôleur), ouvert devant. */
+export const GiletPoches: React.FC<{couleur: string; ombre: string}> = ({couleur, ombre}) => {
+  const gauche = 'M 190 468 Q 190 414 248 406 L 270 406 Q 280 520 278 690 Q 226 692 182 682 Z';
+  const droite = 'M 410 468 Q 410 414 352 406 L 330 406 Q 320 520 322 690 Q 374 692 418 682 Z';
+  return (
+    <g>
+      {[gauche, droite].map((d, i) => (
+        <path key={i} d={d} fill={couleur} stroke={OUT} strokeWidth={SW} strokeLinejoin="round" />
+      ))}
+      {[
+        [200, 470],
+        [334, 470],
+        [198, 580],
+        [330, 580],
+      ].map(([x, y], i) => (
+        <g key={i}>
+          <rect x={x} y={y} width={66} height={70} rx={6} fill={ombre} stroke={OUT} strokeWidth={5} />
+          <rect x={x} y={y} width={66} height={20} rx={5} fill={couleur} stroke={OUT} strokeWidth={4} />
+        </g>
+      ))}
+    </g>
+  );
+};
+
+/** Cape de coupe posée sur les épaules d'une cliente assise (cache le buste et les bras). */
+export const CapeCoupe: React.FC<{couleur: string}> = ({couleur}) => (
+  <g>
+    <path d="M 232 412 Q 300 446 368 412 L 482 724 Q 300 772 118 724 Z" fill={couleur} stroke={OUT} strokeWidth={SW} strokeLinejoin="round" />
+    <path d="M 200 520 Q 190 620 178 716 M 400 520 Q 410 620 422 716" fill="none" stroke="rgba(0,0,0,0.18)" strokeWidth={6} strokeLinecap="round" />
+    <path d="M 236 416 Q 300 450 364 416" fill="none" stroke="white" strokeWidth={10} strokeLinecap="round" />
+  </g>
+);
+
+/** Clin d'œil : l'œil à droite de l'écran se ferme en arc. */
+export const ClinOeil: React.FC<{peau: string}> = ({peau}) => (
+  <g>
+    <ellipse cx={355} cy={272} rx={48} ry={58} fill={peau} />
+    <path d="M 316 278 Q 355 300 394 278" fill="none" stroke={OUT} strokeWidth={9} strokeLinecap="round" />
+  </g>
+);
+
+/** Objets tenus en main ajoutés en ep11 (dessinés à la position de la main, la main redessinée par-dessus). */
+export const ObjetMainEp11: React.FC<{nom: string; main: Pt; peau: string; miroir: boolean; texte?: string; frame: number}> = ({nom, main, peau, miroir, texte, frame}) => {
+  const [x, y] = main;
+  const lisible = (cx: number, cy: number) => (miroir ? `translate(${cx} ${cy}) scale(-1 1) translate(${-cx} ${-cy})` : undefined);
+  const mainDessus = <circle cx={x} cy={y} r={30} fill={peau} stroke={OUT} strokeWidth={SW} />;
+  switch (nom) {
+    case 'ciseaux': {
+      const op = 6 + Math.abs(Math.sin(frame * 0.7)) * 22;
+      return (
+        <g transform={`translate(${x} ${y}) rotate(-28)`}>
+          {[-1, 1].map((s) => (
+            <g key={s} transform={`rotate(${s * op * 0.5} 24 0)`}>
+              <path d={`M 0 ${s * 12} L 24 0`} stroke="#E76F51" strokeWidth={10} strokeLinecap="round" />
+              <path d={`M 22 ${-s * 5} L 112 ${s * 1} L 22 ${s * 6} Z`} fill="#DEE2E6" stroke={OUT} strokeWidth={5} strokeLinejoin="round" />
+            </g>
+          ))}
+          <circle cx={24} cy={0} r={5} fill={OUT} />
+          <circle cx={0} cy={0} r={30} fill={peau} stroke={OUT} strokeWidth={SW} />
+        </g>
+      );
+    }
+    case 'peigne':
+      return (
+        <g transform={`translate(${x} ${y}) rotate(-20)`}>
+          <rect x={14} y={-24} width={100} height={18} rx={5} fill="#3A3A44" stroke={OUT} strokeWidth={5} />
+          {Array.from({length: 11}).map((_, k) => (
+            <path key={k} d={`M ${22 + k * 8.5} -6 v 14`} stroke={OUT} strokeWidth={3} strokeLinecap="round" />
+          ))}
+          <circle cx={0} cy={0} r={30} fill={peau} stroke={OUT} strokeWidth={SW} />
+        </g>
+      );
+    case 'trousse':
+      return (
+        <g>
+          <path d={`M ${x - 22} ${y + 6} Q ${x} ${y - 28} ${x + 22} ${y + 6}`} fill="none" stroke={OUT} strokeWidth={9} />
+          <rect x={x - 78} y={y + 8} width={156} height={96} rx={18} fill="#2A9D8F" stroke={OUT} strokeWidth={7} />
+          <path d={`M ${x - 64} ${y + 30} H ${x + 64}`} stroke="#E9ECEF" strokeWidth={4} strokeDasharray="6 4" />
+          <rect x={x + 40} y={y + 22} width={14} height={18} rx={3} fill="#E9C46A" stroke={OUT} strokeWidth={3} />
+          <rect x={x - 54} y={y + 50} width={108} height={36} rx={8} fill="#21867A" stroke={OUT} strokeWidth={4} />
+          {mainDessus}
+        </g>
+      );
+    case 'agenda': {
+      // agenda ouvert tenu devant soi ; une page tourne régulièrement
+      const p = (frame % 40) / 40;
+      const flip = p < 0.35 ? Math.cos((p / 0.35) * Math.PI) : 1;
+      return (
+        <g>
+          <g transform={lisible(x, y - 70)}>
+            <rect x={x - 104} y={y - 136} width={208} height={132} rx={10} fill="#C1121F" stroke={OUT} strokeWidth={7} />
+            <rect x={x - 96} y={y - 128} width={92} height={116} rx={4} fill="white" stroke={OUT} strokeWidth={4} />
+            <rect x={x + 4} y={y - 128} width={92} height={116} rx={4} fill="white" stroke={OUT} strokeWidth={4} />
+            {[0, 1, 2, 3, 4].map((k) => (
+              <g key={k}>
+                <path d={`M ${x - 86} ${y - 108 + k * 20} h 72`} stroke="#CED4DA" strokeWidth={4} />
+                <path d={`M ${x + 14} ${y - 108 + k * 20} h 72`} stroke="#CED4DA" strokeWidth={4} />
+              </g>
+            ))}
+            <rect x={x - 86} y={y - 92} width={40} height={12} rx={4} fill="#FFD60A" />
+            {texte ? (
+              <g>
+                <rect x={x + 14} y={y - 76} width={70} height={22} rx={6} fill="#B7E4C7" stroke={OUT} strokeWidth={3} />
+                <path d={`M ${x + 130} ${y - 64} H ${x + 92} M ${x + 104} ${y - 76} L ${x + 90} ${y - 64} L ${x + 104} ${y - 52}`} fill="none" stroke="#E63946" strokeWidth={7} strokeLinecap="round" strokeLinejoin="round" />
+                <text x={x + 136} y={y - 50} fontFamily="Lilita One" fontSize={38} fill="#E63946" stroke="white" strokeWidth={8} paintOrder="stroke">
+                  {texte}
+                </text>
+              </g>
+            ) : null}
+            {flip < 1 ? (
+              <g transform={`translate(${x} 0) scale(${flip} 1) translate(${-x} 0)`}>
+                <rect x={x + 4} y={y - 128} width={92} height={116} rx={4} fill="#F8F9FA" stroke={OUT} strokeWidth={4} />
+              </g>
+            ) : null}
+          </g>
+          {mainDessus}
+        </g>
+      );
+    }
+    case 'carnet':
+    case 'calepin':
+      return (
+        <g transform={`rotate(-8 ${x} ${y})`}>
+          <rect x={x - 44} y={y - 124} width={88} height={116} rx={8} fill={nom === 'calepin' ? '#D4A373' : 'white'} stroke={OUT} strokeWidth={6} />
+          <rect x={x - 36} y={y - 112} width={72} height={96} rx={4} fill="white" />
+          {[0, 1, 2, 3].map((k) => (
+            <path key={k} d={`M ${x - 28} ${y - 96 + k * 20} h 56`} stroke="#ADB5BD" strokeWidth={4} />
+          ))}
+          {[-24, -8, 8, 24].map((dx) => (
+            <circle key={dx} cx={x + dx} cy={y - 124} r={5} fill="none" stroke={OUT} strokeWidth={3} />
+          ))}
+          {mainDessus}
+        </g>
+      );
+    case 'note':
+      // note (reçu) détachée du carnet
+      return (
+        <g transform={`rotate(6 ${x} ${y})`}>
+          <rect x={x - 40} y={y - 96} width={80} height={84} rx={4} fill="white" stroke={OUT} strokeWidth={5} />
+          <g transform={lisible(x, y - 78)}>
+            <text x={x} y={y - 70} textAnchor="middle" fontFamily="Luckiest Guy" fontSize={20} fill={OUT}>
+              NOTE
+            </text>
+          </g>
+          {[0, 1, 2].map((k) => (
+            <path key={k} d={`M ${x - 28} ${y - 56 + k * 14} h 56`} stroke="#ADB5BD" strokeWidth={4} />
+          ))}
+          {mainDessus}
+        </g>
+      );
+    case 'flacon':
+      return (
+        <g>
+          <rect x={x - 10} y={y - 132} width={20} height={20} rx={4} fill="#343A40" stroke={OUT} strokeWidth={4} />
+          <rect x={x - 28} y={y - 114} width={56} height={98} rx={16} fill="#8ECAE6" stroke={OUT} strokeWidth={6} />
+          <rect x={x - 20} y={y - 86} width={40} height={36} rx={6} fill="white" />
+          <path d={`M ${x - 12} ${y - 104} v 70`} stroke="white" strokeWidth={5} opacity={0.5} strokeLinecap="round" />
+          {mainDessus}
+        </g>
+      );
+    case 'serviette':
+      return (
+        <g>
+          <path d={`M ${x - 20} ${y - 14} L ${x + 120} ${y - 24} Q ${x + 132} ${y + 50} ${x + 112} ${y + 100} L ${x - 6} ${y + 110} Q ${x - 24} ${y + 40} ${x - 20} ${y - 14} Z`} fill="#F8F9FA" stroke={OUT} strokeWidth={6} strokeLinejoin="round" />
+          <path d={`M ${x - 12} ${y + 80} L ${x + 116} ${y + 72}`} stroke="#4CC9F0" strokeWidth={8} />
+          {mainDessus}
+        </g>
+      );
+    case 'miroir':
+      return (
+        <g>
+          <rect x={x - 9} y={y - 70} width={18} height={70} rx={6} fill="#6C584C" stroke={OUT} strokeWidth={5} />
+          <ellipse cx={x} cy={y - 128} rx={52} ry={64} fill="#6C584C" stroke={OUT} strokeWidth={7} />
+          <ellipse cx={x} cy={y - 128} rx={40} ry={52} fill="#CDE7F7" />
+          <path d={`M ${x - 22} ${y - 150} l 30 -20 M ${x - 18} ${y - 126} l 40 -28`} stroke="white" strokeWidth={6} strokeLinecap="round" opacity={0.8} />
+          {mainDessus}
+        </g>
+      );
+    case 'pinceau':
+      return (
+        <g transform={`translate(${x} ${y}) rotate(-35)`}>
+          <rect x={10} y={-8} width={78} height={16} rx={6} fill="#343A40" stroke={OUT} strokeWidth={4} />
+          <path d="M 86 -12 L 118 -14 L 120 14 L 86 12 Z" fill="#7B2CBF" stroke={OUT} strokeWidth={4} strokeLinejoin="round" />
+          <circle cx={0} cy={0} r={30} fill={peau} stroke={OUT} strokeWidth={SW} />
+        </g>
+      );
+    case 'postit':
+      return (
+        <g transform={`rotate(-6 ${x} ${y})`}>
+          <rect x={x - 36} y={y - 92} width={72} height={72} rx={4} fill="#FFD60A" stroke={OUT} strokeWidth={5} />
+          <path d={`M ${x - 24} ${y - 70} h 48 M ${x - 24} ${y - 52} h 34`} stroke="#B08900" strokeWidth={4} />
+          {mainDessus}
+        </g>
+      );
+    case 'diplome':
+      return (
+        <g transform={`rotate(-5 ${x} ${y})`}>
+          <rect x={x - 100} y={y - 170} width={200} height={150} rx={6} fill="#BC6C25" stroke={OUT} strokeWidth={7} />
+          <rect x={x - 84} y={y - 154} width={168} height={118} fill="#FFFDF2" stroke={OUT} strokeWidth={3} />
+          <g transform={lisible(x, y - 120)}>
+            <text x={x} y={y - 116} textAnchor="middle" fontFamily="Luckiest Guy" fontSize={26} fill={OUT}>
+              {texte ?? 'DIPLÔME'}
+            </text>
+          </g>
+          {[0, 1].map((k) => (
+            <path key={k} d={`M ${x - 56} ${y - 96 + k * 16} h 112`} stroke="#ADB5BD" strokeWidth={4} />
+          ))}
+          <circle cx={x + 52} cy={y - 54} r={14} fill="#E63946" stroke={OUT} strokeWidth={4} />
+          {mainDessus}
+        </g>
+      );
+    case 'tampon':
+      return (
+        <g>
+          <circle cx={x} cy={y - 62} r={20} fill="#C1121F" stroke={OUT} strokeWidth={5} />
+          <rect x={x - 8} y={y - 46} width={16} height={30} fill="#6C584C" stroke={OUT} strokeWidth={4} />
+          <rect x={x - 34} y={y + 10} width={68} height={22} rx={5} fill="#343A40" stroke={OUT} strokeWidth={5} />
+          {mainDessus}
+        </g>
+      );
+    default:
       return null;
   }
 };
+
+export const OBJETS_EP11 = new Set(['ciseaux', 'peigne', 'trousse', 'agenda', 'carnet', 'calepin', 'note', 'flacon', 'serviette', 'miroir', 'pinceau', 'postit', 'diplome', 'tampon']);

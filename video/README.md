@@ -13,6 +13,9 @@ npm run render -- ep05    # épisode 5 → out/ep05.mp4 (personnage muet)
 npm run render -- ep06    # épisode 6 → out/ep06.mp4 (Awa, caissière, muette)
 npm run render -- ep07    # épisode 7 → out/ep07.mp4 (Mehdi, préparateur de commandes, muet)
 npm run render -- ep08    # épisode 8 → out/ep08.mp4 (Jade, créatrice de contenu, muette)
+npm run render -- ep09    # épisode 9 → out/ep09.mp4 (Théo, nettoyeur auto, muet)
+npm run render -- ep10    # épisode 10 → out/ep10.mp4 (Enzo, manager, muet)
+npm run render -- ep11    # épisode 11 → out/ep11.mp4 (Lina, coiffeuse à domicile, muette)
 ```
 
 ## Épisodes

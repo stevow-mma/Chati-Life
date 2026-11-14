@@ -4,8 +4,8 @@ Format 1080x1920, 30 fps. `npm run render -- epNN` → `out/epNN.mp4` (voix en c
 Options Remotion après l'épisode, ex. `npm run render -- ep03 --concurrency=2` si la mémoire manque.
 
 ## Personnage muet (correction de série)
-**À partir de l'épisode 5 (ep05 à ep10, …), personnages muets, voix off indépendante ; ep01 à ep04 inchangés.**
-L'option `muet` (`episode.json`) s'applique à TOUS les personnages de l'épisode, secondaires compris (ep10).
+**À partir de l'épisode 5 (ep05 à ep11, …), personnages muets, voix off indépendante ; ep01 à ep04 inchangés.**
+L'option `muet` (`episode.json`) s'applique à TOUS les personnages de l'épisode, secondaires compris (ep10, ep11).
 - `episode.json` → `"muet": true` (ep05 et suivants) ; transmis à `<Personnage muet />` (défaut `false` = comportement
   des épisodes 1 à 4, bouche synchronisée).
 - Personnage muet : aucune animation de parole, aucun visème, aucune bulle de dialogue. Il garde le clignement,
@@ -17,13 +17,16 @@ L'option `muet` (`episode.json`) s'applique à TOUS les personnages de l'épisod
 Les personnages ne restent jamais statiques : **chaque scène contient au moins 2 actions visibles** (déplacement, geste,
 objet manipulé) et **aucun personnage visible ne reste sans action plus de 1,5 s**. Vérifier avec
 `node scripts/verifie-mouvement.mjs epNN` (durées des scènes lues dans `voix.json`). ep01 à ep09 n'ont aucune action :
-rendu inchangé (contrôlé au pixel près sur des images témoins).
+rendu inchangé (contrôlé au pixel près sur des images témoins ; ep11 : 80 images témoins d'ep01 à ep10 identiques au pixel près
+avant/après les ajouts).
 - Un plan déclare `acteurs` (liste) : le calque `src/components/Acteurs.tsx` remplace alors le personnage seul au centre.
   Sans `acteurs`, comportement d'origine.
-- Acteur : `{id, x, y?, echelle?, miroir?, pose?, expression?, nom?, chaise?, accessoire?, actions}` ; `id` = clé de
+- Acteur : `{id, x, y?, echelle?, miroir?, pose?, expression?, nom?, chaise?, accessoire?, apparition?, actions}` ; `id` = clé de
   `src/personnages.ts` ; `x` = centre (px), `y` = ligne des pieds (défaut 1502), `echelle` défaut 0.78 (deux personnages) ;
   `nom` = étiquette de nom à la première apparition (« Enzo, manager ») ; `chaise` = chaise de bureau à roulettes (avec
-  `pose: "assis"`) ; `expression` défaut = celle du plan (avec `puis`).
+  `pose: "assis"`, elle suit l'acteur) ; `expression` défaut = celle du plan (avec `puis`) ; `apparition` (ep11) = instant (s)
+  avant lequel l'acteur est invisible (ex. cliente qui ouvre sa porte). L'ordre de la liste = ordre de dessin : mettre en
+  dernier le personnage dont la main passe devant l'autre (coiffeuse qui coupe les cheveux d'une cliente assise).
 - Actions `{t, fin?, type, …}` en secondes relatives au début de la scène (`fin` défaut t + 0,6 s ; `objet` : fin de scène).
   - Déplacements : `walkIn` (`from: left|right`, arrivée `x`), `walkOut` (`to`), `walkTo` (`x`, `y`, `echelle` : avancer
     vers la caméra, monter un escalier), `glisse` (sans pas, ex. chaise à roulettes), `recul` (`dx`, recul de surprise),
@@ -33,19 +36,38 @@ rendu inchangé (contrôlé au pixel près sur des images témoins).
     `taper` (clavier, deux mains), `compter` (`doigts: [2, 3]`), `tendre`, `saisir`, `serrerMain`, `saluer`, `croiser`,
     `teteMains`, `boire`, `montre` (regarde sa montre), `tapeMain` (tope-là), `pouce`, `ballants`, `sousBras`, `tenir`,
     `ecrire`, `tracer` (tableau blanc), `nuque`, `poing`, `tapeEpaule`, `montrer` (montre son téléphone), `lever` (pancarte).
+    ep11 : `couper` (bras tendu vers la tête d'une cliente assise, avec `objet: "ciseaux"`), `peigner`, `appliquer` (pinceau de
+    couleur), `coller` (post-it ou panneau en hauteur sur le côté), `gratter` (se gratte la tempe), `tamponner` (tampon abattu),
+    `ouvrir` (tend la main puis lève : coffre, porte).
+  - ep11 : `cape` (`couleur`, intervalle : cape de coupe sur une cliente assise, cache buste et bras), `clin` (clin d'œil,
+    intervalle), `pose` (`pose` : change de pose en cours de scène, ex. `assis` → `debout` pour se lever ; préférer alors une
+    chaise en objet de scène, qui reste en place).
   - Objets qui suivent la main : paramètre `objet` d'un geste, ou action `objet` (`cote`, `objet`, intervalle) :
     `telephone`, `telephone_b`, `ordinateur`, `contrat`, `papiers`, `stylo`, `feutre`, `tasse`, `billets`, `enveloppe`,
     `cheque` (+ `texte`), `dossier`, `pastille_compte|revenus|contenu`, `pastilles`, `pancarte` (+ `texte`, `\n`),
-    `calculatrice`, `sac`.
+    `calculatrice`, `sac` ; ep11 : `ciseaux` (lames qui s'ouvrent et se ferment), `peigne`, `trousse` (trousse de matériel),
+    `agenda` (pages qui tournent ; `texte` = flèche rouge, ex. « Prochain rdv »), `carnet`, `calepin`, `note` (note détachée),
+    `flacon` (générique, sans marque), `serviette`, `miroir` (miroir à main), `pinceau`, `postit`, `diplome` (+ `texte`),
+    `tampon`.
 - Composant `Personnage` : prop optionnelle `mouvement` (marche, angles des bras, objets, tête, épaules, miroir), calculée par
   le calque Acteurs. Absente = rendu des épisodes 1 à 9. Dessins dans `src/components/PersonnageExtras.tsx`.
 - `objets_scene` (coordonnées écran, `devant: true` = devant les personnages) : `bureau`, `ordinateur` (`ouvre`, `ferme`,
   `ecran: barres|messages|tableau`), `poste` (bureau + écran de messages génériques sur le côté + clavier), `tableau_blanc`
   (`trace: [début, fin]`), `calculatrice`, `pile_billets` (monte entre `t` et `fin`), `escalier` (`marches: [{label, petit}]`),
   `ecran_mural` (`variante: loi|suspendu`), `pastilles_bureau` (`prises` : instants où chaque pastille est prise).
+  ep11 (`src/components/ObjetsSceneEp11.tsx`) : `porte` (`ouvre`), `meches` (mèches coupées qui tombent entre `t` et `fin`,
+  `couleur` ; `devant: true`), `voiture` (citadine de profil sans logo : coffre `ouvre`, portière `ouvre_porte`, `couleur`),
+  `agenda_mural` (`deja` cases remplies, `instants` = post-its qui remplissent une case chacun), `chrono` (horloge murale,
+  `instants: [début, fin]`, `texte`, `hauteur` = nombre de tours), `recus` (`labels`, `instants` d'envol depuis la pile, `coches`,
+  grille de 2 colonnes à partir de x = `hauteur`), `etagere_flacons` (flacons génériques), `comptoir` (`instants` = bips du
+  scanner), `facade` (maison : porte `ouvre`, sonnette `instants`), `fenetre` (pan de mur avec fenêtre, `devant: true`, un
+  acteur derrière s'y penche), `panneau_tarifs` (`labels`, descend et se balance à `t`), `balance` (`labels`, `instants`,
+  pastille PRIX qui s'allume à `allume`), `meuble_tiroir` (`ouvre`), `papier_tampon` (tampon `texte` à `instants[0]`),
+  `chaise_coiffure`, `chaise_simple` (chaise en bois), `trousse_sol`.
 - Plans avec acteurs : léger travelling horizontal pendant la scène ; la carte glisse depuis le côté et rebondit, dans la
   zone haute (y ≈ 318 à 920), sans couvrir les personnages (têtes sous y ≈ 900 à l'échelle 0.78).
-- Personnages secondaires : même composant (muet), apparence différente, actions plus simples.
+- Personnages secondaires : même composant (muet), apparence différente, actions plus simples, `expression` explicite (sinon
+  ils prennent l'expression du plan, y compris la bascule `puis` du personnage principal).
 
 ## Voix (ElevenLabs, REST direct)
 - Voix « Guillaume - Narrator », `voice_id` `ohItIVrXTBI80RrUECOD`. **Ne jamais changer de voix.**
@@ -62,7 +84,8 @@ rendu inchangé (contrôlé au pixel près sur des images témoins).
 - Sous-titres mot à mot et mot jaune calés sur `alignment` (ep01 à ep04 : la bouche aussi ; ep05+ : jamais la bouche).
 - Cache : hash (texte + réglages). `scripts/voix.mjs` ne rappelle pas l'API si rien n'a changé.
 - **Sigles épelés pour la voix (depuis ep10)** : champ de plan `texte_voix` = texte prononcé (« O.F. », « B.N.C. »,
-  « B.I.C. »), `texte` = texte affiché (« OF », « BNC », « BIC », sous-titres compris). Même nombre de mots dans les deux.
+  « B.I.C. », ep11 : « A.C.R.E. », « C.A.P. »), `texte` = texte affiché (« OF », « BNC », « BIC », « ACRE », « CAP »,
+  sous-titres compris). Même nombre de mots dans les deux. Les `au_mot` et `mot_jaune` s'écrivent avec la forme affichée.
 
 ## Écriture
 - **Scène 1 = hook chiffré**, aucune intro ni logo : la première image montre déjà l'action.
@@ -80,7 +103,8 @@ rendu inchangé (contrôlé au pixel près sur des images témoins).
   `mention` (« Exemple illustratif : estimations ») et le signe « ≈ » ; les chiffres officiels portent leur source.
 - **Exemples signalés** (`mention` : « Exemple illustratif », « Estimation »…). Les hypothèses d'un exemple
   restent visibles à l'écran : champ de plan `hypotheses` (bandeau discret en haut, `\n` = retour à la ligne).
-- Aucun logo ni couleur de marque réelle (plateformes, applis, enseignes, constructeurs automobiles).
+- **Aucune marque réelle** : aucun logo ni couleur de marque (plateformes, applis, enseignes, constructeurs automobiles) ;
+  produits génériques sans nom (ep11 : flacons de soins, matériel de coiffure).
 - **Aucun logo existant sur les cartes ou les écrans** (depuis ep09) : pas de logo de moteur de recherche, de service de
   cartes, d'assureur, de banque, de réseau social… Même si le texte lu nomme un service (« fiche Google »), l'écran montre
   une interface générique (`fiche_entreprise`, `carte_quartier`). Voitures : silhouettes génériques, sans logo ni plaque lisible.
@@ -96,7 +120,8 @@ rendu inchangé (contrôlé au pixel près sur des images témoins).
 - Coupures : flash blanc + zoom (sauf la toute première image).
 - Une émotion « A puis B » : `expression` = A, `puis: {expression: B, au_mot: "mot"}` (bascule quand la voix
   prononce ce mot).
-- Durée visée : 70 à 80 s (le texte imposé et la vitesse 1.0 peuvent donner un peu plus : ep09 ≈ 84 s, ep10 ≈ 85 s) ; toujours vérifier au ffprobe que le mp4 dépasse 62 s.
+- Durée visée : 70 à 80 s (le texte imposé et la vitesse 1.0 peuvent donner un peu plus : ep09 ≈ 84 s, ep10 ≈ 85 s,
+  ep11 ≈ 92 s) ; toujours vérifier au ffprobe que le mp4 dépasse 62 s.
 - Mot jaune : il est comparé au mot affiché débarrassé de sa ponctuation ; pour un mot élidé, écrire la forme
   affichée (`"l'employeur"`, pas `"employeur"`). Si le mot revient plusieurs fois, `mot_jaune_rang` (1 = première
   occurrence) n'en colore qu'une (sinon toutes).
@@ -143,6 +168,15 @@ rendu inchangé (contrôlé au pixel près sur des images témoins).
   jours taillée, aviateurs relevés dans les cheveux (`tete: aviateur`), chemise blanche (`tenue.chemise`) manches retroussées
   sous une doudoune sans manches kaki (`doudoune`), jean noir, baskets blanches, montre argentée (`montre`, visible avec les
   bras articulés), écouteurs tour de cou (`ecouteursCou`) ; ordinateur portable et deux smartphones (objets tenus).
+- ep11 Lina (muette), coiffeuse à domicile, 29 ans : peau mate claire, coupe pixie décolorée blond platine aux racines un peu
+  plus foncées (`pixie` + `racines`), petit piercing noir (`piercing`), peigne derrière l'oreille (`peigneOreille`), marinière
+  bleu et blanc (`tenue.mariniere` = couleur des rayures, torse et manches) aux manches retroussées, tablier de coiffure noir
+  avec poche à ciseaux et peigne (`tablier`), pantalon gris clair, baskets noires ; trousse de matériel (objet `trousse`).
+- ep11 secondaires : cliente A, 45 ans (`cliente_a` : cheveux châtains mi-longs `mi_long`, gilet beige en maille `cardigan`) ;
+  cliente B, 22 ans (`cliente_b` : longs cheveux noirs lisses `long_lisse`, sweat jaune, jean) ; voisine âgée (`voisine` :
+  cheveux blancs courts bouclés `court_ondule`, lunettes rondes, robe de chambre lavande `robeChambre`) ; vendeuse (`vendeuse` :
+  carré auburn, blouse verte `tenue.tunique`, badge sans nom) ; conseiller d'accueil (`conseiller` : costume gris `costume`,
+  `accessoire: "cravate"`) ; contrôleur (`controleur` : gilet beige à poches `giletPoches`, barbe, calepin).
 - ep10 secondaires : Luna, 22 ans (`luna` : longs cheveux bouclés châtain clair à mèches caramel `long_boucle` + `meches`,
   sweat oversize lilas `tenue.sweat`, jean droit, baskets blanches, petit sac à dos `petitSac`) ; deux chatteurs
   (`chatteur_a`, `chatteur_b`, silhouettes simples assises) ; un comptable (`comptable` : cheveux gris, lunettes rondes,
@@ -208,6 +242,12 @@ rendu inchangé (contrôlé au pixel près sur des images témoins).
   `hypotheses`, `petit`), `contrat_cases` (cases cochées sur `au_mot`), `carte_taux`, `profils_comptes`, `tableau_bord`
   (tuiles, `jauge`), `compte_suspendu` (puis plateformes génériques A/B sur `au_mot`), `verrous` (pastilles verrouillées sur
   une destination). `au_mot: "mille#2"` = 2e occurrence du mot dans le plan.
+
+- Décor `salon_coiffure` (ep11) : miroirs ronds éclairés (ampoules qui scintillent), tablettes de flacons génériques,
+  sèche-cheveux, fauteuils de coiffure, bacs à shampoing au fond à droite, plante, sol en damier noir et blanc.
+  Décor `salon` réutilisé comme « chez une cliente » (avec `chaise_simple`).
+- Éléments ep11 (`src/components/ElementsEp11.tsx`) : `barres_comparees` (barres horizontales sur `au_mot`, la plus haute
+  en vert : ex. euros par heure), `addition_pastilles` (pastilles + pastilles = résultat qui s'allume) ; `contrat_cases.source`.
 
 ## Fichiers
 - `episodes/epNN/{episode,script}.json` (à la main), `voix.json` + `voix-brute.*` (générés).

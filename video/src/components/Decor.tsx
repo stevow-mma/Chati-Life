@@ -839,6 +839,70 @@ const Coworking: React.FC<{frame: number}> = ({frame}) => (
   </svg>
 );
 
+/** ep11 : salon de coiffure : miroirs éclairés, tablette de produits génériques (sans marque), fauteuils, bacs à shampoing
+ *  au fond à droite, sol en damier, plante. Aucune enseigne réelle. */
+const SalonCoiffure: React.FC<{frame: number}> = ({frame}) => (
+  <svg viewBox={`0 0 ${W} ${H}`} width={W} height={H}>
+    <rect width={W} height={H} fill="#F6E7E1" />
+    {/* lambris et frise */}
+    <rect y={1040} width={W} height={SOL} fill="#E8CFC4" />
+    <rect y={1030} width={W} height={18} fill="#D4A5A5" stroke={OUT} strokeWidth={5} />
+    {/* miroirs éclairés (ampoules qui scintillent) */}
+    {[200, 600].map((mx, i) => (
+      <g key={mx}>
+        <rect x={mx - 150} y={260} width={300} height={560} rx={150} fill="#F8F9FA" stroke={OUT} strokeWidth={12} />
+        <rect x={mx - 128} y={282} width={256} height={516} rx={128} fill="#CDE7F7" />
+        <path d={`M ${mx - 80} 380 l 120 -80 M ${mx - 90} 470 l 160 -110`} stroke="white" strokeWidth={14} strokeLinecap="round" opacity={0.7} />
+        {Array.from({length: 7}).map((_, k) => {
+          const a = Math.PI + (k / 6) * Math.PI;
+          const bx = mx + Math.cos(a) * 168;
+          const by = 410 + Math.sin(a) * 168;
+          return <circle key={k} cx={bx} cy={by} r={14} fill="#FFF3B0" stroke={OUT} strokeWidth={4} opacity={0.75 + Math.sin(frame / 6 + k + i) * 0.25} />;
+        })}
+        {/* tablette sous le miroir */}
+        <rect x={mx - 180} y={840} width={360} height={30} rx={8} fill="#BC8A5F" stroke={OUT} strokeWidth={7} />
+        {[-120, -70, 60, 110].map((dx, k) => (
+          <g key={dx}>
+            <rect x={mx + dx - 16} y={780 - (k % 2) * 14} width={32} height={60 + (k % 2) * 14} rx={9} fill={['#8ECAE6', '#FFB4A2', '#B7E4C7', '#CDB4DB'][k]} stroke={OUT} strokeWidth={4} />
+            <rect x={mx + dx - 7} y={766 - (k % 2) * 14} width={14} height={14} fill="#495057" stroke={OUT} strokeWidth={3} />
+          </g>
+        ))}
+        {/* sèche-cheveux posé */}
+        <path d={`M ${mx - 10} 826 h 60 a 16 16 0 0 0 0 -32 h -60 z`} fill="#343A40" stroke={OUT} strokeWidth={4} />
+      </g>
+    ))}
+    {/* bacs à shampoing au fond à droite */}
+    <g>
+      <rect x={840} y={1000} width={240} height={260} rx={20} fill="#2B2D42" stroke={OUT} strokeWidth={9} />
+      <path d="M 860 1000 Q 960 920 1060 1000 Z" fill="#F8F9FA" stroke={OUT} strokeWidth={8} />
+      <path d="M 960 940 v -60 q 0 -30 30 -30 h 40" fill="none" stroke="#ADB5BD" strokeWidth={10} strokeLinecap="round" />
+      <rect x={870} y={1110} width={200} height={70} rx={20} fill="#3D405B" stroke={OUT} strokeWidth={7} />
+    </g>
+    {/* fauteuils de coiffure vides au fond */}
+    {[200, 600].map((fx) => (
+      <g key={fx} transform={`translate(${fx} 0)`}>
+        <rect x={-90} y={980} width={180} height={220} rx={40} fill="#2B2D42" stroke={OUT} strokeWidth={8} />
+        <rect x={-110} y={1180} width={220} height={40} rx={16} fill="#2B2D42" stroke={OUT} strokeWidth={8} />
+        <rect x={-14} y={1220} width={28} height={70} fill="#ADB5BD" stroke={OUT} strokeWidth={5} />
+        <ellipse cx={0} cy={1296} rx={80} ry={16} fill="#ADB5BD" stroke={OUT} strokeWidth={6} />
+      </g>
+    ))}
+    {/* plante */}
+    <rect x={410} y={1190} width={70} height={100} rx={10} fill="#E9C46A" stroke={OUT} strokeWidth={6} />
+    {[-35, 0, 35].map((a, i) => (
+      <ellipse key={i} cx={445} cy={1140} rx={16} ry={56} fill="#40916C" stroke={OUT} strokeWidth={5} transform={`rotate(${a + Math.sin(frame / 12 + i) * 4} 445 1190)`} />
+    ))}
+    {/* sol en damier */}
+    <rect y={SOL - 60} width={W} height={H} fill="#F8F9FA" />
+    {Array.from({length: 7}).map((_, r) =>
+      Array.from({length: 12}).map((_, c) =>
+        (r + c) % 2 ? <rect key={`${r}-${c}`} x={c * 90} y={SOL - 60 + r * 70} width={90} height={70} fill="#343A40" /> : null,
+      ),
+    )}
+    <rect y={SOL - 72} width={W} height={18} fill="#D4A5A5" stroke={OUT} strokeWidth={6} />
+  </svg>
+);
+
 export const Decor: React.FC<{nom: string; variante?: number}> = ({nom, variante = 0}) => {
   const frame = useCurrentFrame();
   const {durationInFrames} = useVideoConfig();
@@ -884,6 +948,9 @@ export const Decor: React.FC<{nom: string; variante?: number}> = ({nom, variante
       break;
     case 'coworking':
       content = <Coworking frame={frame} />;
+      break;
+    case 'salon_coiffure':
+      content = <SalonCoiffure frame={frame} />;
       break;
     default:
       content = <Uni nom={nom} />;

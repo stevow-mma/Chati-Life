@@ -14,6 +14,24 @@ import {
   LongBoucleArriere,
   LongBoucleAvant,
   ObjetMain as ObjetMainAnime,
+  PixieArriere,
+  PixieAvant,
+  MiLongArriere,
+  MiLongAvant,
+  LongLisseArriere,
+  LongLisseAvant,
+  CourtOnduleArriere,
+  CourtOnduleAvant,
+  RayuresTorse,
+  TablierCoiffure,
+  PeigneOreille,
+  Piercing,
+  Cardigan,
+  RobeChambre,
+  ReversCostume,
+  GiletPoches,
+  CapeCoupe,
+  ClinOeil,
   SweatColRond,
   type BrasAngles,
   type Mouvement,
@@ -33,7 +51,7 @@ export type Apparence = {
   nom: string;
   genre: 'homme' | 'femme';
   teint: {peau: string; ombre: string; joues: string};
-  cheveux: {style: 'meches' | 'chignon_boucle' | 'court' | 'carre_frange' | 'court_dessus' | 'afro_puff' | 'ondule_meche' | 'queue_frange' | 'degrade' | 'gomine' | 'long_boucle'; couleur: string; /** ep10 : mèches (couleur) des cheveux longs bouclés. */ meches?: string};
+  cheveux: {style: 'meches' | 'chignon_boucle' | 'court' | 'carre_frange' | 'court_dessus' | 'afro_puff' | 'ondule_meche' | 'queue_frange' | 'degrade' | 'gomine' | 'long_boucle' | 'pixie' | 'mi_long' | 'long_lisse' | 'court_ondule'; couleur: string; /** ep10 : mèches (couleur) des cheveux longs bouclés. */ meches?: string; /** ep11 : racines plus foncées (pixie décolorée). */ racines?: string};
   tenue: {
     haut: string;
     hautOmbre: string;
@@ -68,6 +86,8 @@ export type Apparence = {
     chemise?: boolean;
     /** Sweat à col rond sans capuche (ep10). */
     sweat?: boolean;
+    /** Marinière (ep11) : couleur des rayures horizontales (torse et manches). */
+    mariniere?: string;
   };
   /** Accessoire de tête : casquette (avec initiale) ou grosses lunettes rondes. */
   tete:
@@ -125,6 +145,20 @@ export type Apparence = {
   ecouteursCou?: {couleur: string; embouts: string} | null;
   /** Petit sac à dos : bretelles visibles (ep10). */
   petitSac?: {couleur: string; ombre: string} | null;
+  /** ep11 : petit piercing (clou) à l'oreille gauche de l'écran (couleur). */
+  piercing?: string | null;
+  /** ep11 : peigne glissé derrière l'oreille (couleur). */
+  peigneOreille?: string | null;
+  /** ep11 : tablier de coiffure (couleur, poche) avec ciseaux et peigne dans la poche. */
+  tablier?: {couleur: string; poche: string} | null;
+  /** ep11 : gilet en maille ouvert (couleur des côtes, haut visible dessous). */
+  cardigan?: {ombre: string; dessous: string} | null;
+  /** ep11 : robe de chambre légère (couleur, ombre). */
+  robeChambre?: {couleur: string; ombre: string} | null;
+  /** ep11 : revers de veste de costume (couleur des revers). */
+  costume?: {revers: string} | null;
+  /** ep11 : gilet à poches (couleur, ombre). */
+  giletPoches?: {couleur: string; ombre: string} | null;
 };
 
 /** Durée (frames) d'un passage d'article au scanner (pose « scanne ») ; le bip du décor « caisse_tapis » suit le même cycle. */
@@ -373,6 +407,10 @@ const Arm: React.FC<{shoulder: Pt; elbow: Pt; hand: Pt; gant: boolean; manche: s
 const CheveuxArriere: React.FC<{a: Apparence; frame: number}> = ({a, frame}) => {
   if (a.cheveux.style === 'gomine') return <GomineArriere c={a.cheveux.couleur} />;
   if (a.cheveux.style === 'long_boucle') return <LongBoucleArriere c={a.cheveux.couleur} meches={a.cheveux.meches ?? a.cheveux.couleur} frame={frame} />;
+  if (a.cheveux.style === 'pixie') return <PixieArriere c={a.cheveux.couleur} />;
+  if (a.cheveux.style === 'mi_long') return <MiLongArriere c={a.cheveux.couleur} frame={frame} />;
+  if (a.cheveux.style === 'long_lisse') return <LongLisseArriere c={a.cheveux.couleur} frame={frame} />;
+  if (a.cheveux.style === 'court_ondule') return <CourtOnduleArriere c={a.cheveux.couleur} />;
   if (a.tete?.type === 'casquette' && a.tete.envers) {
     // ep09 : visière de la casquette portée à l'envers, qui dépasse derrière la tête
     return (
@@ -485,6 +523,10 @@ const CheveuxAvant: React.FC<{a: Apparence}> = ({a}) => {
   const c = a.cheveux.couleur;
   if (a.cheveux.style === 'gomine') return <GomineAvant c={c} />;
   if (a.cheveux.style === 'long_boucle') return <LongBoucleAvant c={c} meches={a.cheveux.meches ?? c} />;
+  if (a.cheveux.style === 'pixie') return <PixieAvant c={c} racines={a.cheveux.racines ?? c} />;
+  if (a.cheveux.style === 'mi_long') return <MiLongAvant c={c} />;
+  if (a.cheveux.style === 'long_lisse') return <LongLisseAvant c={c} />;
+  if (a.cheveux.style === 'court_ondule') return <CourtOnduleAvant c={c} />;
   if (a.cheveux.style === 'court') {
     // cheveux courts : pattes sur les tempes et petite frange (le dessus est sous le casque)
     return (
@@ -1251,7 +1293,7 @@ export const Personnage: React.FC<{
   const bobMarche = mv?.marche != null ? -Math.abs(Math.sin(mv.marche)) * 12 : 0;
   const miroir = !!mv?.miroir;
   const brasArticuleL = brasL && angL ? (
-    <BrasArticule epaule={epL} coude={brasL[0]} main={brasL[1]} cote={-1} a={angL} manche={t.haut} peau={peau} revers={t.retroussees ? t.hautOmbre : undefined} poignet={t.sweat ? t.hautOmbre : undefined} />
+    <BrasArticule epaule={epL} coude={brasL[0]} main={brasL[1]} cote={-1} a={angL} manche={t.haut} peau={peau} revers={t.retroussees ? t.hautOmbre : undefined} poignet={t.sweat ? t.hautOmbre : undefined} rayures={t.mariniere} />
   ) : null;
 
   return (
@@ -1353,6 +1395,18 @@ export const Personnage: React.FC<{
           strokeWidth={SW}
           strokeLinejoin="round"
         />
+        {t.mariniere ? (
+          // ep11 : rayures de marinière, découpées à la forme du torse
+          <g>
+            <clipPath id={`torse-${a.nom}`}>
+              <path d={femme ? 'M 202 470 Q 202 418 252 412 L 348 412 Q 398 418 398 470 L 404 680 Q 300 700 196 680 Z' : 'M 196 470 Q 196 418 250 412 L 350 412 Q 404 418 404 470 L 412 680 Q 300 700 188 680 Z'} />
+            </clipPath>
+            <g clipPath={`url(#torse-${a.nom})`}>
+              <RayuresTorse couleur={t.mariniere} />
+            </g>
+            <path d={femme ? 'M 202 470 Q 202 418 252 412 L 348 412 Q 398 418 398 470 L 404 680 Q 300 700 196 680 Z' : 'M 196 470 Q 196 418 250 412 L 350 412 Q 404 418 404 470 L 412 680 Q 300 700 188 680 Z'} fill="none" stroke={OUT} strokeWidth={SW} strokeLinejoin="round" />
+          </g>
+        ) : null}
         {t.combinaison ? (
           <Combinaison ombre={t.hautOmbre} />
         ) : t.bandes ? (
@@ -1432,6 +1486,10 @@ export const Personnage: React.FC<{
           <path d="M 226 414 Q 234 520 230 610 M 374 414 Q 366 520 370 610" fill="none" stroke={a.petitSac.couleur} strokeWidth={13} strokeLinecap="round" />
         ) : null}
         {a.ecouteursCou ? <EcouteursCou couleur={a.ecouteursCou.couleur} embouts={a.ecouteursCou.embouts} /> : null}
+        {a.cardigan ? <Cardigan ombre={a.cardigan.ombre} dessous={a.cardigan.dessous} /> : null}
+        {a.giletPoches ? <GiletPoches couleur={a.giletPoches.couleur} ombre={a.giletPoches.ombre} /> : null}
+        {a.robeChambre && !assis ? <RobeChambre couleur={a.robeChambre.couleur} ombre={a.robeChambre.ombre} /> : null}
+        {a.tablier && !assis ? <TablierCoiffure couleur={a.tablier.couleur} poche={a.tablier.poche} /> : null}
         {assis ? (
           <g transform={`translate(0 ${-HAUT_ASSIS})`}>
             {/* Assis sur le trottoir : genoux relevés, tibias et baskets devant */}
@@ -1452,6 +1510,7 @@ export const Personnage: React.FC<{
             <path d="M 300 436 L 316 456 L 306 470 L 318 590 L 300 612 L 282 590 L 294 470 L 284 456 Z" fill="#1D3557" stroke={OUT} strokeWidth={6} strokeLinejoin="round" />
           </g>
         ) : null}
+        {a.costume ? <ReversCostume ombre={a.costume.revers} /> : null}
 
         {a.ceintureOutils && !assis && !velo ? <CeintureOutils couleur={a.ceintureOutils.couleur} ombre={a.ceintureOutils.ombre} /> : null}
         {a.ceinturePochette && !assis && !velo ? <CeinturePochette couleur={a.ceinturePochette.couleur} ombre={a.ceinturePochette.ombre} /> : null}
@@ -1469,8 +1528,8 @@ export const Personnage: React.FC<{
         <g transform={`${mv ? `translate(0 ${(mv.tete?.dy ?? 0) + hausse * 0.5}) ` : ''}rotate(${tilt + (mv?.tete?.rot ?? 0)} 300 400)`}>
           <CheveuxArriere a={a} frame={frame} />
           <rect x={268} y={370} width={64} height={56} fill={peauOmbre} stroke={OUT} strokeWidth={SW} />
-          {/* Oreilles (cachées par un carré) */}
-          {carre ? null : (
+          {/* Oreilles (cachées par un carré, ou par des cheveux longs ep11) */}
+          {carre || a.cheveux.style === 'mi_long' || a.cheveux.style === 'long_lisse' ? null : (
             <>
               <circle cx={152} cy={288} r={30} fill={peau} stroke={OUT} strokeWidth={SW} />
               <circle cx={448} cy={288} r={30} fill={peau} stroke={OUT} strokeWidth={SW} />
@@ -1507,6 +1566,8 @@ export const Personnage: React.FC<{
           ) : null}
           <ellipse cx={300} cy={282} rx={150} ry={135} fill={peau} stroke={OUT} strokeWidth={SW} />
           <CheveuxAvant a={a} />
+          {a.piercing ? <Piercing couleur={a.piercing} /> : null}
+          {a.peigneOreille ? <PeigneOreille couleur={a.peigneOreille} /> : null}
           {a.boucles && carre ? (
             // petites créoles qui dépassent sous le carré
             <>
@@ -1532,6 +1593,7 @@ export const Personnage: React.FC<{
           <path d="M 300 296 q 14 16 -2 26" fill="none" stroke={peauOmbre} strokeWidth={8} strokeLinecap="round" />
           {a.barbe ? <Barbe couleur={a.barbe} /> : null}
           <Mouth expression={expression} open={open} />
+          {mv?.clin ? <ClinOeil peau={peau} /> : null}
 
           {protection ? <LunettesProtection couleur={protection.couleur} elastique={protection.elastique} /> : null}
           {casque ? <CasqueVelo couleur={casque.couleur} ombre={casque.couleurOmbre} /> : null}
@@ -1553,7 +1615,7 @@ export const Personnage: React.FC<{
         {/* Bras droit (devant la tête si levé) */}
         {mv && lDevantTete ? brasArticuleL : null}
         {mv && brasR && angR ? (
-          <BrasArticule epaule={epR} coude={brasR[0]} main={brasR[1]} cote={1} a={angR} manche={t.haut} peau={peau} revers={t.retroussees ? t.hautOmbre : undefined} poignet={t.sweat ? t.hautOmbre : undefined} montre={a.montre ?? undefined} />
+          <BrasArticule epaule={epR} coude={brasR[0]} main={brasR[1]} cote={1} a={angR} manche={t.haut} peau={peau} revers={t.retroussees ? t.hautOmbre : undefined} poignet={t.sweat ? t.hautOmbre : undefined} montre={a.montre ?? undefined} rayures={t.mariniere} />
         ) : null}
         {mv && brasL && mv.objets?.l ? <ObjetMainAnime nom={mv.objets.l} main={brasL[1]} peau={peau} miroir={miroir} texte={mv.texteObjet?.l} frame={frame} /> : null}
         {mv && brasR && mv.objets?.r ? <ObjetMainAnime nom={mv.objets.r} main={brasR[1]} peau={peau} miroir={miroir} texte={mv.texteObjet?.r} frame={frame} /> : null}
@@ -1694,6 +1756,7 @@ export const Personnage: React.FC<{
         {posture === 'regarde_telephone' ? <TelephoneRegarde main={rightG[1]} peau={peau} frame={frame} /> : null}
         {objetMain === 'tote_jeans' ? <ToteJeans main={rightG[1]} /> : null}
         {objetMain === 'devis' ? <DevisMain main={rightG[1]} peau={peau} /> : null}
+        {mv?.cape ? <CapeCoupe couleur={mv.cape} /> : null}
         {accessoire === 'telephone' ? (
           <g transform="rotate(-12 420 300)">
             <rect x={388} y={250} width={66} height={116} rx={12} fill="#222" stroke={OUT} strokeWidth={SW} />

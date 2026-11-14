@@ -15,7 +15,7 @@ const ep = process.argv[2] ?? 'ep10';
 const script = JSON.parse(readFileSync(join(root, 'episodes', ep, 'script.json'), 'utf8'));
 const voix = JSON.parse(readFileSync(join(root, 'episodes', ep, 'voix.json'), 'utf8'));
 const SEUIL = 1.5;
-const NON_ACTIONS = new Set(['objet', 'expression', 'miroir']);
+const NON_ACTIONS = new Set(['objet', 'expression', 'miroir', 'cape', 'pose']);
 let erreurs = 0;
 
 script.forEach((plan, i) => {
@@ -30,7 +30,7 @@ script.forEach((plan, i) => {
     nbActions += actions.filter((a) => a.t < duree).length;
     const entree = actions.find((a) => a.type === 'walkIn');
     const sortie = actions.find((a) => a.type === 'walkOut');
-    const vis0 = entree ? entree.t : 0;
+    const vis0 = ac.apparition ?? (entree ? entree.t : 0);
     const vis1 = sortie ? (sortie.fin ?? sortie.t + 0.6) : duree;
     const iv = actions.map((a) => [a.t, Math.min(a.fin ?? a.t + 0.6, duree)]);
     let cur = vis0;

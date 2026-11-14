@@ -38,6 +38,8 @@ const lerpBras = (a: BrasAngles, b: BrasAngles, w: number): BrasAngles => ({
 const GESTES_BRAS = new Set([
   'pointer', 'taper', 'compter', 'tendre', 'saisir', 'serrerMain', 'saluer', 'croiser', 'teteMains', 'boire', 'montre',
   'tapeMain', 'pouce', 'ballants', 'sousBras', 'tenir', 'ecrire', 'tracer', 'nuque', 'poing', 'tapeEpaule', 'montrer', 'lever',
+  // ep11
+  'couper', 'peigner', 'appliquer', 'coller', 'gratter', 'tamponner', 'ouvrir',
 ]);
 /** Gestes à deux bras par défaut. */
 const DEUX_BRAS = new Set(['croiser', 'teteMains', 'ballants', 'taper']);
@@ -110,6 +112,34 @@ const cibleGeste = (a: ActionActeur, u: number, duree: number, frame: number, s:
       return {epaule: 72, coude: -30};
     case 'lever':
       return {epaule: 150 + osc(0.25, 3), coude: 12};
+    // --- ep11 ---
+    case 'couper':
+      // bras tendu vers la tête de la cliente, petits coups de ciseaux
+      return {epaule: 100 + osc(0.5, 4), coude: -26 + osc(0.8, 6)};
+    case 'peigner':
+      // passe le peigne de haut en bas, à hauteur de tête
+      return {epaule: 112 + Math.sin(u * 6) * 12, coude: -18 + Math.sin(u * 6) * 8};
+    case 'appliquer':
+      // pinceau de couleur : larges va-et-vient
+      return {epaule: 104 + Math.sin(u * 5) * 10, coude: -40 + Math.sin(u * 5 + 1) * 16};
+    case 'coller': {
+      // colle un post-it en hauteur, sur le côté : bras levé, petite pression
+      const presse = Math.max(0, Math.sin(u * 8)) * 6;
+      return {epaule: 122 + presse, coude: -14};
+    }
+    case 'gratter':
+      // se gratte la tempe
+      return {epaule: 140 + osc(0.3, 2), coude: 70 + osc(1.1, 9), index: true};
+    case 'tamponner': {
+      // lève le tampon et l'abat sur la table
+      const coup = Math.max(0, Math.sin(u * 7));
+      return {epaule: 40 + coup * 34, coude: -56 + coup * 20};
+    }
+    case 'ouvrir': {
+      // tend la main puis lève (coffre, porte)
+      const p = clamp01(u / Math.max(duree, 0.01));
+      return p < 0.4 ? {epaule: 84, coude: -14} : {epaule: lerp(84, 156, lisse((p - 0.4) * 2.5)), coude: lerp(-14, 4, lisse((p - 0.4) * 2.5))};
+    }
     default:
       return REPOS;
   }
@@ -126,6 +156,8 @@ type EtatActeur = {
   penche: number;
   /** Date (s) de la première apparition à l'écran. */
   arrivee: number;
+  /** ep11 : pose courante (action `pose`). */
+  pose?: import('../types').Pose;
 };
 
 const evaluer = (acteur: Acteur, t: number, frame: number, dureeScene: number, expressionPlan: Expression, seed: number): EtatActeur => {
@@ -148,6 +180,10 @@ const evaluer = (acteur: Acteur, t: number, frame: number, dureeScene: number, e
   }
   let tete = {rot: Math.sin(frame / 27 + seed) * 2.5, dy: 0};
   let epaules = 0;
+  // ep11 : cape de coupe (cliente assise), clin d'œil
+  let cape: string | null = null;
+  let clin = false;
+  let pose = acteur.pose;
 
   for (const a of actions) {
     const fin = finDe(a, dureeScene);
@@ -202,6 +238,15 @@ const evaluer = (acteur: Acteur, t: number, frame: number, dureeScene: number, e
         epaules = Math.max(epaules, 24 * w);
         break;
       }
+      case 'cape':
+        if (t < fin) cape = a.couleur ?? '#5E60CE';
+        break;
+      case 'clin':
+        if (t < fin) clin = true;
+        break;
+      case 'pose':
+        if (a.pose) pose = a.pose;
+        break;
       default:
         break;
     }
@@ -248,7 +293,7 @@ const evaluer = (acteur: Acteur, t: number, frame: number, dureeScene: number, e
     }
   }
 
-  const visible = x > -W_BOX * e * 0.55 && x < 1080 + W_BOX * e * 0.55;
+  const visible = x > -W_BOX * e * 0.55 && x < 1080 + W_BOX * e * 0.55 && (acteur.apparition === undefined || t >= acteur.apparition);
   return {
     x,
     e: ech,
@@ -257,8 +302,9 @@ const evaluer = (acteur: Acteur, t: number, frame: number, dureeScene: number, e
     saut,
     penche,
     expression,
-    arrivee,
-    mv: {marche, bras: {l: brasCote(-1), r: brasCote(1)}, objets, texteObjet, tete, epaules, miroir},
+    arrivee: acteur.apparition ?? arrivee,
+    pose,
+    mv: {marche, bras: {l: brasCote(-1), r: brasCote(1)}, objets, texteObjet, tete, epaules, miroir, ...(cape ? {cape} : {}), ...(clin ? {clin} : {})},
   };
 };
 
@@ -340,14 +386,14 @@ export const Acteurs: React.FC<{
                   talking={false}
                   muet={muet}
                   entree={false}
-                  pose={ac.pose ?? 'debout'}
+                  pose={st.pose ?? 'debout'}
                   accessoire={ac.accessoire ?? null}
                   mouvement={st.mv}
                 />
               </div>
             </div>
             {ac.nom ? (
-              <div style={{position: 'absolute', left: st.x - 300, width: 600, top: top + (ac.pose === 'assis' ? 150 * e : 0) + 24 * e - 30, display: 'flex', justifyContent: 'center'}}>
+              <div style={{position: 'absolute', left: st.x - 300, width: 600, top: top + (st.pose === 'assis' ? 150 * e : 0) + 24 * e - 30, display: 'flex', justifyContent: 'center'}}>
                 <EtiquetteNom texte={ac.nom} depuis={Math.round((st.arrivee + 0.5) * fps)} />
               </div>
             ) : null}
@@ -364,7 +410,7 @@ export const Acteurs: React.FC<{
 /** Liste des intervalles d'immobilité > `seuil` s d'un acteur (vérification de la règle MOUVEMENT). */
 export const trousImmobilite = (acteur: Acteur, dureeScene: number, seuil = 1.5) => {
   const iv = (acteur.actions ?? [])
-    .filter((a) => a.type !== 'objet' && a.type !== 'expression' && a.type !== 'miroir')
+    .filter((a) => a.type !== 'objet' && a.type !== 'expression' && a.type !== 'miroir' && a.type !== 'cape' && a.type !== 'pose')
     .map((a) => [a.t, Math.min(finDe(a, dureeScene), dureeScene)] as [number, number])
     .sort((a, b) => a[0] - b[0]);
   const trous: [number, number][] = [];

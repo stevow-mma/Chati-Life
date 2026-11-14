@@ -1,6 +1,7 @@
 import {interpolate, spring, useCurrentFrame, useVideoConfig} from 'remotion';
 import {FONT_TEXTE, FONT_TITRE} from '../fonts';
 import type {ObjetScene} from '../types';
+import {ObjetSceneEp11} from './ObjetsSceneEp11';
 
 /** Objets de décor animés (ep10), en coordonnées écran 1080 x 1920. Aucun logo. */
 
@@ -238,7 +239,8 @@ export const ObjetSceneView: React.FC<{objet: ObjetScene}> = ({objet: o}) => {
       break;
     }
     default:
-      contenu = null;
+      // ep11 : nouveaux objets (porte, mèches, voiture, agenda mural…)
+      contenu = <ObjetSceneEp11 o={o} frame={frame} fps={fps} />;
   }
   return (
     <svg

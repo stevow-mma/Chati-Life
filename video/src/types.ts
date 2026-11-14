@@ -169,7 +169,7 @@ export type ElementVisuel =
       pastille?: string;
     }
   /** Contrat papier à cases cochées une à une (sur `au_mot`). */
-  | {type: 'contrat_cases'; titre: string; cases: {label: string; petit?: string; au_mot?: string}[]; petit?: string; mention?: string}
+  | {type: 'contrat_cases'; titre: string; cases: {label: string; petit?: string; au_mot?: string}[]; petit?: string; mention?: string; /** ep11 */ source?: string}
   /** Carte de taux (titre, lignes, précision), sources en bas. */
   | {type: 'carte_taux'; titre?: string; lignes: {label: string; valeur: string; au_mot?: string}[]; petit?: string; mention?: string; source?: string}
   /** Icônes de profils neutres, puis calcul « 3 × … = … » sur `au_mot`. */
@@ -179,7 +179,12 @@ export type ElementVisuel =
   /** Écran « Compte suspendu : 0 € », puis deux plateformes génériques A et B (sur `au_mot`). */
   | {type: 'compte_suspendu'; titre: string; valeur: string; plateformes: string[]; au_mot?: string; petit?: string}
   /** Pastilles qui se verrouillent sur une destination (une par `au_mot`). */
-  | {type: 'verrous'; pastilles: {texte: string; au_mot?: string}[]; destination: string; mention?: string};
+  | {type: 'verrous'; pastilles: {texte: string; au_mot?: string}[]; destination: string; mention?: string}
+  // --- Épisode 11 ---
+  /** Barres horizontales comparées (ex. euros par heure), chacune sur son `au_mot`, la plus haute surlignée. */
+  | {type: 'barres_comparees'; titre?: string; barres: {label: string; valeur: number; texte: string; au_mot?: string}[]; mention?: string; source?: string}
+  /** Pastilles qui s'additionnent (+) puis une pastille résultat qui s'allume (`resultat`, sur son `au_mot`). */
+  | {type: 'addition_pastilles'; pastilles: {texte: string; au_mot?: string}[]; resultat: {texte: string; au_mot?: string}; mention?: string};
 
 // --- Épisode 10 : mouvement (plusieurs personnages, actions déclarées par scène) ---
 
@@ -193,13 +198,22 @@ export type TypeAction =
   | 'pointer' | 'taper' | 'compter' | 'tendre' | 'saisir' | 'serrerMain' | 'saluer' | 'croiser' | 'teteMains'
   | 'boire' | 'montre' | 'tapeMain' | 'pouce' | 'ballants' | 'sousBras' | 'tenir' | 'ecrire' | 'tracer' | 'nuque'
   | 'poing' | 'tapeEpaule' | 'montrer' | 'lever'
+  // ep11 : gestes de coiffeuse et gestes simples
+  | 'couper' | 'peigner' | 'appliquer' | 'coller' | 'gratter' | 'tamponner' | 'ouvrir'
+  // ep11 : cape de coupe sur une cliente assise (`couleur`), clin d'œil
+  | 'cape' | 'clin'
+  // ep11 : changement de pose en cours de scène (`pose`, ex. se lever : assis → debout)
+  | 'pose'
   // objet tenu en main (sans geste particulier)
   | 'objet';
 
 export type ObjetTenuNom =
   | 'telephone' | 'telephone_b' | 'ordinateur' | 'contrat' | 'stylo' | 'feutre' | 'tasse' | 'billets' | 'enveloppe'
   | 'cheque' | 'dossier' | 'pastille_compte' | 'pastille_revenus' | 'pastille_contenu' | 'pastilles' | 'pancarte'
-  | 'calculatrice' | 'sac' | 'papiers';
+  | 'calculatrice' | 'sac' | 'papiers'
+  // ep11
+  | 'ciseaux' | 'peigne' | 'trousse' | 'agenda' | 'carnet' | 'calepin' | 'note' | 'flacon' | 'serviette' | 'miroir'
+  | 'pinceau' | 'postit' | 'diplome' | 'tampon';
 
 export type ActionActeur = {
   t: number;
@@ -232,6 +246,10 @@ export type ActionActeur = {
   expression?: Expression;
   /** miroir : nouvel état. */
   valeur?: boolean;
+  /** ep11 : cape : couleur. */
+  couleur?: string;
+  /** ep11 : action `pose` : nouvelle pose. */
+  pose?: Pose;
 };
 
 export type Acteur = {
@@ -252,11 +270,17 @@ export type Acteur = {
   chaise?: string;
   accessoire?: Accessoire;
   actions?: ActionActeur[];
+  /** ep11 : instant (s) d'apparition (invisible avant, ex. cliente qui ouvre sa porte). */
+  apparition?: number;
 };
 
 /** Objet de décor animé (coordonnées écran 1080 x 1920). */
 export type ObjetScene = {
-  type: 'bureau' | 'ordinateur' | 'poste' | 'tableau_blanc' | 'calculatrice' | 'pile_billets' | 'escalier' | 'ecran_mural' | 'pastilles_bureau';
+  type:
+    | 'bureau' | 'ordinateur' | 'poste' | 'tableau_blanc' | 'calculatrice' | 'pile_billets' | 'escalier' | 'ecran_mural' | 'pastilles_bureau'
+    // ep11
+    | 'porte' | 'meches' | 'voiture' | 'agenda_mural' | 'chrono' | 'recus' | 'etagere_flacons' | 'comptoir' | 'facade'
+    | 'fenetre' | 'panneau_tarifs' | 'balance' | 'meuble_tiroir' | 'papier_tampon' | 'chaise_coiffure' | 'trousse_sol' | 'chaise_simple';
   x: number;
   y: number;
   /** Largeur (bureau, écran). */
@@ -279,6 +303,23 @@ export type ObjetScene = {
   prises?: number[];
   /** Dessiné devant les personnages. */
   devant?: boolean;
+  // --- ep11 ---
+  /** porte, voiture (coffre), facade, meuble_tiroir : instant d'ouverture (s) ; voiture : ouverture de la portière. */
+  ouvre_porte?: number;
+  /** Couleur principale (meches, voiture, facade…). */
+  couleur?: string;
+  /** chrono : libellé (« 30 min ») ; papier_tampon : texte du tampon ; panneau_tarifs : titre. */
+  texte?: string;
+  /** agenda_mural : instants de remplissage des cases ; recus : arrivée de chaque reçu ; balance : pose de chaque pastille ;
+   *  comptoir : bips du scanner. */
+  instants?: number[];
+  /** recus, balance : libellés. */
+  labels?: string[];
+  /** recus : instants où chaque reçu est coché ; balance : instant où la pastille « Prix » s'allume. */
+  coches?: number[];
+  allume?: number;
+  /** agenda_mural : nombre de cases déjà remplies au départ. */
+  deja?: number;
 };
 
 export type Plan = {

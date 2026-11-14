@@ -221,4 +221,90 @@ export const PERSONNAGES: Record<string, Apparence> = {
     tete: {type: 'lunettes_rondes', couleur: '#5A4632'},
     sourcils: '#8E939C',
   },
+  /** Lina — 29 ans, coiffeuse à domicile (épisode 11). Peau mate claire, coupe pixie décolorée blond platine (racines un peu
+   *  plus foncées), petit piercing noir à l'oreille, peigne glissé derrière l'oreille, marinière bleu et blanc aux manches
+   *  retroussées sous un tablier de coiffure noir (poche avec ciseaux et peigne), pantalon gris clair, baskets noires.
+   *  Trousse de matériel tenue à la main (objet `trousse`). Aucun logo. */
+  lina: {
+    nom: 'Lina',
+    genre: 'femme',
+    teint: {peau: '#E9BE96', ombre: '#D19F75', joues: '#E28F7A'},
+    cheveux: {style: 'pixie', couleur: '#F2EAD3', racines: '#B8A27A'},
+    tenue: {
+      haut: '#FBFBFB',
+      hautOmbre: '#E3E8EF',
+      bas: '#C7CCD3',
+      chaussures: '#1F1F25',
+      bandeChaussures: '#3A3A44',
+      mariniere: '#1D4E89',
+      retroussees: true,
+    },
+    tete: null,
+    sourcils: '#8C6A45',
+    piercing: '#111111',
+    peigneOreille: '#3A3A44',
+    tablier: {couleur: '#26262C', poche: '#34343C'},
+  },
+  /** Cliente A (épisode 11, secondaire), 45 ans : cheveux châtains mi-longs, gilet beige en maille sur un haut crème. */
+  cliente_a: {
+    nom: 'Cliente A',
+    genre: 'femme',
+    teint: {peau: '#F2D0B5', ombre: '#DDB496', joues: '#E9A08C'},
+    cheveux: {style: 'mi_long', couleur: '#7B4A2D'},
+    tenue: {haut: '#D8C3A5', hautOmbre: '#BFA683', bas: '#5C677D', chaussures: '#6B4F3A', bandeChaussures: '#4E3A2A'},
+    tete: null,
+    sourcils: '#5E3820',
+    cardigan: {ombre: '#BFA683', dessous: '#FFF8EC'},
+  },
+  /** Cliente B (épisode 11, secondaire), 22 ans (adulte) : longs cheveux noirs lisses, sweat jaune, jean, baskets blanches. */
+  cliente_b: {
+    nom: 'Cliente B',
+    genre: 'femme',
+    teint: {peau: '#C68E63', ombre: '#A87048', joues: '#C9715B'},
+    cheveux: {style: 'long_lisse', couleur: '#15131A'},
+    tenue: {haut: '#F7C548', hautOmbre: '#DFAE2F', bas: '#3D5A80', chaussures: '#FFFFFF', bandeChaussures: '#E9ECEF', sweat: true, jean: '#7FA0C8'},
+    tete: null,
+  },
+  /** Voisine âgée (épisode 11, secondaire) : cheveux blancs courts bouclés, lunettes, robe de chambre légère lavande. */
+  voisine: {
+    nom: 'Voisine',
+    genre: 'femme',
+    teint: {peau: '#F3D7C6', ombre: '#DDBBA6', joues: '#EBA3A0'},
+    cheveux: {style: 'court_ondule', couleur: '#EEF0F2'},
+    tenue: {haut: '#CDB4DB', hautOmbre: '#B497C7', bas: '#CDB4DB', chaussures: '#F4ACB7', bandeChaussures: '#E58C9B'},
+    tete: {type: 'lunettes_rondes', couleur: '#6C757D'},
+    sourcils: '#BFC3C9',
+    robeChambre: {couleur: '#CDB4DB', ombre: '#B497C7'},
+  },
+  /** Vendeuse de magasin (épisode 11, secondaire) : carré auburn, blouse verte, badge sans nom. */
+  vendeuse: {
+    nom: 'Vendeuse',
+    genre: 'femme',
+    teint: {peau: '#E6B48F', ombre: '#CC966F', joues: '#E0907A'},
+    cheveux: {style: 'carre_frange', couleur: '#8C3B2A'},
+    tenue: {haut: '#2E9E6A', hautOmbre: '#237A52', bas: '#2B2D42', chaussures: '#F8F9FA', bandeChaussures: '#ADB5BD', tunique: true},
+    tete: null,
+    badge: {texte: '', couleur: '#F8F9FA'},
+  },
+  /** Conseiller d'accueil (épisode 11, secondaire) : costume gris, cravate (accessoire « cravate »). */
+  conseiller: {
+    nom: 'Conseiller',
+    genre: 'homme',
+    teint: {peau: '#A86B45', ombre: '#8A5232', joues: '#B5644C'},
+    cheveux: {style: 'degrade', couleur: '#1A1412'},
+    tenue: {haut: '#7D8590', hautOmbre: '#616974', bas: '#5D646F', chaussures: '#2E2018', bandeChaussures: '#1E140C'},
+    tete: null,
+    costume: {revers: '#646C78'},
+  },
+  /** Contrôleur (épisode 11, secondaire) : gilet beige à poches sur une chemise bleu-gris, barbe courte, calepin. */
+  controleur: {
+    nom: 'Contrôleur',
+    genre: 'homme',
+    teint: {peau: '#F0C9A8', ombre: '#D9AB86', joues: '#E39A86'},
+    cheveux: {style: 'court_dessus', couleur: '#5B4636'},
+    tenue: {haut: '#9DB4C0', hautOmbre: '#7F98A6', bas: '#495057', chaussures: '#3A2A1E', bandeChaussures: '#261A10'},
+    tete: null,
+    barbe: '#5B4636',
+    giletPoches: {couleur: '#CDB891', ombre: '#B39D72'},
+  },
 };
