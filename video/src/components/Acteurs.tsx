@@ -42,6 +42,8 @@ const GESTES_BRAS = new Set([
   'couper', 'peigner', 'appliquer', 'coller', 'gratter', 'tamponner', 'ouvrir',
   // ep13
   'viser',
+  // ep14
+  'tatouer',
 ]);
 /** Gestes à deux bras par défaut. */
 const DEUX_BRAS = new Set(['croiser', 'teteMains', 'ballants', 'taper']);
@@ -146,6 +148,10 @@ const cibleGeste = (a: ActionActeur, u: number, duree: number, frame: number, s:
     case 'viser':
       // appareil photo levé devant l'œil, petit tremblé de cadrage
       return {epaule: 100 + osc(0.3, 2), coude: 135 + osc(0.45, 2)};
+    // --- ep14 ---
+    case 'tatouer':
+      // machine tenue bras tendu vers le bas, petits tracés précis
+      return {epaule: 58 + Math.sin(u * 5) * 6, coude: -36 + Math.sin(u * 7 + 1) * 8};
     default:
       return REPOS;
   }

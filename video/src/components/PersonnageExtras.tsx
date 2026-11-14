@@ -1,4 +1,5 @@
 import {ObjetMainEp13} from './Ep13';
+import {MotifsAvantBras, ObjetMainEp14} from './Ep14';
 /**
  * Extensions du personnage (ep10) : bras articulés (épaule + coude), jambes qui marchent, objets animés tenus
  * en main, nouvelles coiffures et nouveaux vêtements. Tout est optionnel : rien ici n'est utilisé par les
@@ -31,6 +32,8 @@ export type BrasAngles = {
 export type ObjetTenu =
   // ep13
   | 'appareil' | 'objectif' | 'bouquet' | 'album' | 'sac_photo'
+  // ep14
+  | 'machine_tatouage' | 'tablette' | 'valise' | 'cle'
   | 'telephone'
   | 'telephone_b'
   | 'ordinateur'
@@ -118,7 +121,11 @@ export const BrasArticule: React.FC<{
   montre?: string;
   /** ep11 : rayures de marinière sur la manche (couleur). */
   rayures?: string;
-}> = ({epaule, coude, main, cote, a, manche, peau, revers, poignet, montre, rayures}) => {
+  /** ep14 : gant (couleur de la main). */
+  gant?: string;
+  /** ep14 : motifs génériques sur l'avant-bras nu (couleur). */
+  tatouage?: string;
+}> = ({epaule, coude, main, cote, a, manche, peau, revers, poignet, montre, rayures, gant, tatouage}) => {
   const d1 = `M ${epaule[0]} ${epaule[1]} L ${coude[0]} ${coude[1]}`;
   const d2 = `M ${coude[0]} ${coude[1]} L ${main[0]} ${main[1]}`;
   const avantNu = !!revers;
@@ -156,7 +163,8 @@ export const BrasArticule: React.FC<{
           <path d={`M ${poignetPt[0]} ${poignetPt[1]} v -5 M ${poignetPt[0]} ${poignetPt[1]} h 4`} stroke={OUT} strokeWidth={2} />
         </g>
       ) : null}
-      <Main main={main} dir={dir} a={a} peau={peau} />
+      {tatouage && avantNu ? <MotifsAvantBras coude={coude} main={main} couleur={tatouage} /> : null}
+      <Main main={main} dir={dir} a={a} peau={gant ?? peau} />
     </g>
   );
 };
@@ -1078,6 +1086,7 @@ export const ObjetMainEp11: React.FC<{nom: string; main: Pt; peau: string; miroi
         </g>
       );
     default:
+      if (['machine_tatouage', 'tablette', 'valise', 'cle'].includes(nom)) return <ObjetMainEp14 nom={nom} main={main} peau={peau} frame={frame} />;
       return <ObjetMainEp13 nom={nom} main={main} peau={peau} miroir={miroir} texte={texte} frame={frame} />;
   }
 };

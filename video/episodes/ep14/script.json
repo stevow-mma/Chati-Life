@@ -1,0 +1,1686 @@
+[
+ {
+  "texte": "Maël encaisse trois mille euros par mois en tatouant. Il lui reste environ six cent trente euros.",
+  "decor": "shop_tatouage",
+  "expression": "fier",
+  "puis": {
+   "expression": "choque",
+   "au_mot": "reste"
+  },
+  "mot_jaune": "reste",
+  "etiquette": null,
+  "element_visuel": {
+   "type": "cartes_successives",
+   "cartes": [
+    {
+     "valeur": "3 000 €",
+     "legende": "encaissés par mois",
+     "au_mot": "trois"
+    },
+    {
+     "valeur": "≈ 630 €",
+     "legende": "ce qu’il lui reste",
+     "au_mot": "six",
+     "alerte": true
+    }
+   ],
+   "mention": "Exemple illustratif : 20 tatouages à 150 € par mois"
+  },
+  "objets_scene": [
+   {
+    "type": "chaise_coiffure",
+    "x": 760,
+    "y": 1500,
+    "couleur": "#1E1F26"
+   }
+  ],
+  "acteurs": [
+   {
+    "id": "client_tattoo",
+    "x": 760,
+    "pose": "assis",
+    "expression": "content",
+    "actions": [
+     {
+      "type": "hoche",
+      "t": 0.0,
+      "fin": 0.8
+     },
+     {
+      "type": "incline",
+      "angle": -8,
+      "t": 0.85,
+      "fin": 1.85
+     },
+     {
+      "type": "tenir",
+      "cote": "r",
+      "t": 1.9,
+      "fin": 2.8
+     },
+     {
+      "type": "pouce",
+      "cote": "r",
+      "t": 2.85,
+      "fin": 3.85
+     },
+     {
+      "type": "hoche",
+      "t": 3.9,
+      "fin": 4.7
+     },
+     {
+      "type": "pouce",
+      "cote": "r",
+      "t": 4.75,
+      "fin": 5.58
+     }
+    ]
+   },
+   {
+    "id": "mael",
+    "x": 420,
+    "nom": "Maël, tatoueur indépendant",
+    "actions": [
+     {
+      "type": "tatouer",
+      "cote": "r",
+      "objet": "machine_tatouage",
+      "t": 0.0,
+      "fin": 1.5
+     },
+     {
+      "type": "peigner",
+      "cote": "r",
+      "objet": "serviette",
+      "t": 1.55,
+      "fin": 2.35
+     },
+     {
+      "type": "saisir",
+      "cote": "l",
+      "t": 2.4,
+      "fin": 3.0
+     },
+     {
+      "type": "tendre",
+      "cote": "r",
+      "objet": "miroir",
+      "t": 3.05,
+      "fin": 3.95
+     },
+     {
+      "type": "hausse",
+      "t": 4.0,
+      "fin": 4.7
+     },
+     {
+      "type": "incline",
+      "angle": 10,
+      "t": 4.75,
+      "fin": 5.35
+     }
+    ]
+   }
+  ],
+  "duree": 4
+ },
+ {
+  "texte": "D'abord, le salon garde quarante pour cent : mille deux cents euros. Puis les cotisations : sept cent soixante-huit.",
+  "decor": "bureau",
+  "expression": "neutre",
+  "mot_jaune": "quarante",
+  "etiquette": null,
+  "hypotheses": "Hypothèse : le salon garde 40 % (fourchette 30 à 50 %)\nCotisations : classement à valider (21,2 % ou 25,6 %)",
+  "element_visuel": {
+   "type": "cascade",
+   "lignes": [
+    {
+     "label": "Encaissé",
+     "valeur": "3 000 €"
+    },
+    {
+     "label": "Salon (40 %)",
+     "valeur": "− 1 200 €",
+     "au_mot": "quarante",
+     "negatif": true
+    },
+    {
+     "label": "Cotisations (25,6 %)",
+     "valeur": "− 768 €",
+     "au_mot": "cotisations",
+     "negatif": true
+    }
+   ],
+   "source": "Sources : Superindep, Portail Auto-Entrepreneur"
+  },
+  "objets_scene": [
+   {
+    "type": "tableau_blanc",
+    "x": 250,
+    "y": 1250,
+    "trace": [
+     3.6,
+     6.213000000000001
+    ]
+   }
+  ],
+  "acteurs": [
+   {
+    "id": "gerante",
+    "x": 880,
+    "expression": "neutre",
+    "actions": [
+     {
+      "type": "tendre",
+      "cote": "l",
+      "objet": "enveloppe",
+      "t": 0.0,
+      "fin": 1.0
+     },
+     {
+      "type": "hoche",
+      "t": 1.05,
+      "fin": 1.65
+     },
+     {
+      "type": "saisir",
+      "cote": "l",
+      "objet": "enveloppe",
+      "t": 1.7,
+      "fin": 2.7
+     },
+     {
+      "type": "croiser",
+      "cote": "deux",
+      "t": 2.75,
+      "fin": 3.95
+     },
+     {
+      "type": "hoche",
+      "t": 4.0,
+      "fin": 4.8
+     },
+     {
+      "type": "hoche",
+      "t": 4.85,
+      "fin": 5.65
+     },
+     {
+      "type": "croiser",
+      "cote": "deux",
+      "t": 5.7,
+      "fin": 6.9
+     }
+    ]
+   },
+   {
+    "id": "mael",
+    "x": 580,
+    "actions": [
+     {
+      "type": "saisir",
+      "cote": "r",
+      "objet": "enveloppe",
+      "t": 0.0,
+      "fin": 1.0
+     },
+     {
+      "type": "tendre",
+      "cote": "r",
+      "objet": "enveloppe",
+      "t": 1.05,
+      "fin": 1.95
+     },
+     {
+      "type": "compter",
+      "cote": "r",
+      "doigts": [
+       1,
+       2,
+       3
+      ],
+      "t": 2.0,
+      "fin": 3.4
+     },
+     {
+      "type": "tracer",
+      "cote": "l",
+      "objet": "feutre",
+      "t": 3.45,
+      "fin": 5.05
+     },
+     {
+      "type": "hoche",
+      "t": 5.1,
+      "fin": 5.7
+     },
+     {
+      "type": "tracer",
+      "cote": "l",
+      "objet": "feutre",
+      "t": 5.75,
+      "fin": 6.95
+     }
+    ]
+   }
+  ],
+  "duree": 4
+ },
+ {
+  "texte": "Ensuite, trois cents d'aiguilles et d'encres, cent d'assurance et de matériel. Il reste environ six cent trente euros, avant impôt.",
+  "decor": "magasin",
+  "expression": "perplexe",
+  "mot_jaune": "encres",
+  "etiquette": "EN CLAIR",
+  "hypotheses": "Hypothèses : consommables ≈ 10 % du CA (300 €), assurance et matériel ≈ 100 €",
+  "element_visuel": {
+   "type": "cascade",
+   "definition": "Micro-entreprise : les cotisations sont un pourcentage de ce que tu encaisses, avant toute dépense",
+   "lignes": [
+    {
+     "label": "3 000 − 1 200 − 768",
+     "valeur": "1 032 €"
+    },
+    {
+     "label": "Aiguilles et encres",
+     "valeur": "− 300 €",
+     "au_mot": "encres",
+     "negatif": true
+    },
+    {
+     "label": "Assurance et matériel",
+     "valeur": "− 100 €",
+     "au_mot": "d'assurance",
+     "negatif": true
+    },
+    {
+     "label": "Il reste",
+     "valeur": "≈ 632 €",
+     "au_mot": "reste",
+     "resultat": true
+    }
+   ],
+   "mention": "Estimation",
+   "source": "Source : Modèles de Business Plan"
+  },
+  "objets_scene": [
+   {
+    "type": "comptoir",
+    "x": 790,
+    "y": 1300,
+    "largeur": 400,
+    "devant": true,
+    "instants": [
+     0.8,
+     1.6,
+     3.4
+    ]
+   }
+  ],
+  "acteurs": [
+   {
+    "id": "vendeur_fournitures",
+    "x": 860,
+    "expression": "content",
+    "actions": [
+     {
+      "type": "tendre",
+      "cote": "l",
+      "objet": "flacon",
+      "t": 0.0,
+      "fin": 1.0
+     },
+     {
+      "type": "tendre",
+      "cote": "l",
+      "objet": "trousse",
+      "t": 1.05,
+      "fin": 2.05
+     },
+     {
+      "type": "hoche",
+      "t": 2.1,
+      "fin": 2.7
+     },
+     {
+      "type": "tendre",
+      "cote": "l",
+      "objet": "note",
+      "t": 2.75,
+      "fin": 3.65
+     },
+     {
+      "type": "saluer",
+      "cote": "l",
+      "t": 3.7,
+      "fin": 4.7
+     },
+     {
+      "type": "hoche",
+      "t": 4.75,
+      "fin": 5.45
+     },
+     {
+      "type": "pouce",
+      "cote": "l",
+      "t": 5.5,
+      "fin": 6.5
+     },
+     {
+      "type": "hoche",
+      "t": 6.55,
+      "fin": 7.25
+     },
+     {
+      "type": "pouce",
+      "cote": "l",
+      "t": 7.3,
+      "fin": 8.3
+     }
+    ]
+   },
+   {
+    "id": "mael",
+    "x": 480,
+    "actions": [
+     {
+      "type": "saisir",
+      "cote": "r",
+      "objet": "flacon",
+      "t": 0.0,
+      "fin": 1.0
+     },
+     {
+      "type": "saisir",
+      "cote": "r",
+      "objet": "trousse",
+      "t": 1.05,
+      "fin": 2.05
+     },
+     {
+      "type": "tenir",
+      "cote": "l",
+      "objet": "sac",
+      "t": 2.1,
+      "fin": 3.1
+     },
+     {
+      "type": "tendre",
+      "cote": "r",
+      "objet": "billets",
+      "t": 3.15,
+      "fin": 4.15
+     },
+     {
+      "type": "montrer",
+      "cote": "r",
+      "objet": "note",
+      "t": 4.2,
+      "fin": 5.4
+     },
+     {
+      "type": "hausse",
+      "t": 5.45,
+      "fin": 6.25
+     },
+     {
+      "type": "nuque",
+      "cote": "r",
+      "t": 6.3,
+      "fin": 7.3
+     },
+     {
+      "type": "hausse",
+      "t": 7.35,
+      "fin": 8.15
+     }
+    ]
+   }
+  ],
+  "duree": 4
+ },
+ {
+  "texte": "Mais derrière, soixante heures de travail : environ dix euros de l'heure.",
+  "decor": "salon",
+  "expression": "perplexe",
+  "mot_jaune": "soixante",
+  "etiquette": "MAIS",
+  "element_visuel": {
+   "type": "carte_taux",
+   "titre": "Ton vrai taux horaire",
+   "lignes": [
+    {
+     "label": "632 € ÷ 60 h",
+     "valeur": "≈ 10,5 € par heure",
+     "au_mot": "dix"
+    }
+   ],
+   "mention": "Hypothèse : 20 tatouages × 3 h, dessin compris"
+  },
+  "objets_scene": [
+   {
+    "type": "chrono",
+    "x": 930,
+    "y": 1000,
+    "texte": "60 h",
+    "instants": [
+     0.0,
+     5.200999999999997
+    ],
+    "largeur": 70,
+    "hauteur": 4
+   }
+  ],
+  "acteurs": [
+   {
+    "id": "mael",
+    "x": 480,
+    "echelle": 0.85,
+    "actions": [
+     {
+      "type": "ecrire",
+      "cote": "r",
+      "objet": "tablette",
+      "t": 0.0,
+      "fin": 1.4
+     },
+     {
+      "type": "peigner",
+      "cote": "r",
+      "t": 1.45,
+      "fin": 2.25
+     },
+     {
+      "type": "ecrire",
+      "cote": "r",
+      "objet": "tablette",
+      "t": 2.3,
+      "fin": 3.5
+     },
+     {
+      "type": "montre",
+      "cote": "l",
+      "t": 3.55,
+      "fin": 4.45
+     },
+     {
+      "type": "teteMains",
+      "cote": "deux",
+      "t": 4.5,
+      "fin": 5.5
+     }
+    ]
+   }
+  ],
+  "duree": 4
+ },
+ {
+  "texte": "Premier levier : un loyer fixe plutôt qu'un pourcentage. Six cents euros au lieu de mille deux cents.",
+  "decor": "bureau",
+  "expression": "content",
+  "mot_jaune": "loyer",
+  "etiquette": "LEVIER N°1",
+  "element_visuel": {
+   "type": "carte_taux",
+   "titre": "Loyer de fauteuil fixe",
+   "lignes": [
+    {
+     "label": "Au lieu de 30 à 50 % du CA",
+     "valeur": "300 à 800 € / mois",
+     "au_mot": "fixe"
+    },
+    {
+     "label": "600 € au lieu de 1 200 €",
+     "valeur": "+ 600 € → ≈ 1 232 €",
+     "au_mot": "Six"
+    }
+   ],
+   "petit": "Attention : le loyer se paie même sans client",
+   "mention": "Hypothèse",
+   "source": "Source : Modèles de Business Plan"
+  },
+  "objets_scene": [
+   {
+    "type": "bureau",
+    "x": 540,
+    "y": 1300,
+    "largeur": 700,
+    "devant": true
+   },
+   {
+    "type": "papier_tampon",
+    "x": 560,
+    "y": 1300,
+    "instants": [
+     2.2
+    ],
+    "texte": "BAIL",
+    "devant": true
+   }
+  ],
+  "acteurs": [
+   {
+    "id": "gerante",
+    "x": 820,
+    "expression": "content",
+    "actions": [
+     {
+      "type": "ecrire",
+      "cote": "l",
+      "objet": "stylo",
+      "t": 0.0,
+      "fin": 1.4
+     },
+     {
+      "type": "serrerMain",
+      "cote": "l",
+      "t": 1.45,
+      "fin": 2.65
+     },
+     {
+      "type": "tendre",
+      "cote": "l",
+      "objet": "cle",
+      "t": 2.7,
+      "fin": 3.9
+     },
+     {
+      "type": "hoche",
+      "t": 3.95,
+      "fin": 4.65
+     },
+     {
+      "type": "hoche",
+      "t": 4.7,
+      "fin": 5.4
+     },
+     {
+      "type": "saluer",
+      "cote": "l",
+      "t": 5.45,
+      "fin": 6.45
+     },
+     {
+      "type": "hoche",
+      "t": 6.5,
+      "fin": 7.2
+     }
+    ]
+   },
+   {
+    "id": "mael",
+    "x": 300,
+    "actions": [
+     {
+      "type": "ecrire",
+      "cote": "r",
+      "objet": "stylo",
+      "t": 0.0,
+      "fin": 1.4
+     },
+     {
+      "type": "serrerMain",
+      "cote": "r",
+      "t": 1.45,
+      "fin": 2.65
+     },
+     {
+      "type": "saisir",
+      "cote": "r",
+      "objet": "cle",
+      "t": 2.7,
+      "fin": 3.9
+     },
+     {
+      "type": "pouce",
+      "cote": "l",
+      "t": 3.95,
+      "fin": 4.95
+     },
+     {
+      "type": "saut",
+      "t": 5.0,
+      "fin": 5.8
+     },
+     {
+      "type": "pouce",
+      "cote": "l",
+      "t": 5.85,
+      "fin": 6.85
+     },
+     {
+      "type": "hoche",
+      "t": 6.9,
+      "fin": 7.5
+     }
+    ]
+   }
+  ],
+  "duree": 4
+ },
+ {
+  "texte": "Deuxième levier : des flashs à prix fixe. Deux cents euros en une heure et demie : cent trente-trois euros de l'heure.",
+  "decor": "shop_tatouage",
+  "expression": "content",
+  "mot_jaune": "flashs",
+  "etiquette": "LEVIER N°2",
+  "element_visuel": {
+   "type": "carte_taux",
+   "titre": "Flash à prix fixe",
+   "lignes": [
+    {
+     "label": "Flash 200 € ÷ 1 h 30",
+     "valeur": "≈ 133 € / h",
+     "au_mot": "cent"
+    },
+    {
+     "label": "Pièce à 150 € en 3 h",
+     "valeur": "50 € / h",
+     "au_mot": "cent"
+    }
+   ],
+   "petit": "Flash : 80 à 250 € la pièce, prix fixé à l’avance",
+   "mention": "Exemple illustratif",
+   "source": "Source : Superindep"
+  },
+  "acteurs": [
+   {
+    "id": "cliente_tattoo",
+    "x": 800,
+    "expression": "content",
+    "actions": [
+     {
+      "type": "pointer",
+      "cote": "r",
+      "cible": "haut",
+      "t": 0.0,
+      "fin": 1.2
+     },
+     {
+      "type": "hoche",
+      "t": 1.25,
+      "fin": 1.95
+     },
+     {
+      "type": "tenir",
+      "cote": "l",
+      "t": 2.0,
+      "fin": 3.6
+     },
+     {
+      "type": "pouce",
+      "cote": "r",
+      "t": 3.65,
+      "fin": 4.55
+     },
+     {
+      "type": "tendre",
+      "cote": "l",
+      "objet": "billets",
+      "t": 4.6,
+      "fin": 5.5
+     },
+     {
+      "type": "walkOut",
+      "to": "right",
+      "t": 5.55,
+      "fin": 7.05
+     },
+     {
+      "type": "hoche",
+      "t": 7.1,
+      "fin": 7.8
+     }
+    ]
+   },
+   {
+    "id": "mael",
+    "x": 360,
+    "actions": [
+     {
+      "type": "coller",
+      "cote": "l",
+      "objet": "postit",
+      "t": 0.0,
+      "fin": 1.2
+     },
+     {
+      "type": "hoche",
+      "t": 1.25,
+      "fin": 1.85
+     },
+     {
+      "type": "tatouer",
+      "cote": "r",
+      "objet": "machine_tatouage",
+      "t": 1.9,
+      "fin": 3.5
+     },
+     {
+      "type": "tendre",
+      "cote": "r",
+      "objet": "miroir",
+      "t": 3.55,
+      "fin": 4.45
+     },
+     {
+      "type": "saisir",
+      "cote": "r",
+      "objet": "billets",
+      "t": 4.5,
+      "fin": 5.4
+     },
+     {
+      "type": "saluer",
+      "cote": "r",
+      "t": 5.45,
+      "fin": 6.45
+     },
+     {
+      "type": "saut",
+      "t": 6.5,
+      "fin": 7.3
+     },
+     {
+      "type": "pouce",
+      "cote": "r",
+      "t": 7.35,
+      "fin": 8.08
+     }
+    ]
+   }
+  ],
+  "duree": 4
+ },
+ {
+  "texte": "Troisième levier : un acompte à la réservation. Vingt pour cent protègent ton créneau.",
+  "decor": "bureau",
+  "expression": "content",
+  "mot_jaune": "acompte",
+  "etiquette": "LEVIER N°3",
+  "element_visuel": {
+   "type": "carte_taux",
+   "titre": "Acompte à la réservation",
+   "lignes": [
+    {
+     "label": "Projets de plus de 2 h",
+     "valeur": "acompte 20 %",
+     "au_mot": "Vingt"
+    },
+    {
+     "label": "Exemple : 150 €",
+     "valeur": "acompte 30 €",
+     "au_mot": "protègent"
+    }
+   ],
+   "petit": "Hypothèse : 2 absences par mois = 300 € de créneaux perdus sans acompte",
+   "mention": "Exemple illustratif",
+   "source": "Source : Modèles de Business Plan"
+  },
+  "objets_scene": [
+   {
+    "type": "agenda_mural",
+    "x": 300,
+    "y": 900,
+    "largeur": 440,
+    "hauteur": 340,
+    "deja": 3,
+    "instants": [
+     1.6,
+     3.0
+    ]
+   }
+  ],
+  "acteurs": [
+   {
+    "id": "client_tattoo",
+    "x": 860,
+    "expression": "content",
+    "actions": [
+     {
+      "type": "montrer",
+      "cote": "l",
+      "objet": "telephone",
+      "t": 0.0,
+      "fin": 1.4
+     },
+     {
+      "type": "hoche",
+      "t": 1.45,
+      "fin": 2.05
+     },
+     {
+      "type": "saisir",
+      "cote": "l",
+      "objet": "note",
+      "t": 2.1,
+      "fin": 3.1
+     },
+     {
+      "type": "serrerMain",
+      "cote": "l",
+      "t": 3.15,
+      "fin": 4.35
+     },
+     {
+      "type": "pouce",
+      "cote": "l",
+      "t": 4.4,
+      "fin": 5.4
+     },
+     {
+      "type": "hoche",
+      "t": 5.45,
+      "fin": 6.15
+     }
+    ]
+   },
+   {
+    "id": "mael",
+    "x": 560,
+    "actions": [
+     {
+      "type": "pointer",
+      "cote": "r",
+      "cible": "avant",
+      "t": 0.0,
+      "fin": 1.0
+     },
+     {
+      "type": "coller",
+      "cote": "l",
+      "objet": "postit",
+      "t": 1.05,
+      "fin": 2.45
+     },
+     {
+      "type": "tendre",
+      "cote": "r",
+      "objet": "note",
+      "t": 2.5,
+      "fin": 3.5
+     },
+     {
+      "type": "serrerMain",
+      "cote": "r",
+      "t": 3.55,
+      "fin": 4.75
+     },
+     {
+      "type": "hoche",
+      "t": 4.8,
+      "fin": 5.4
+     },
+     {
+      "type": "pouce",
+      "cote": "r",
+      "t": 5.45,
+      "fin": 6.29
+     }
+    ]
+   }
+  ],
+  "duree": 4
+ },
+ {
+  "texte": "Quatrième levier : des guests dans d'autres villes. Les tarifs montent de vingt à cinquante pour cent.",
+  "decor": "rue",
+  "expression": "fier",
+  "mot_jaune": "guests",
+  "etiquette": "LEVIER N°4",
+  "element_visuel": {
+   "type": "carte_taux",
+   "titre": "Guest dans une autre ville",
+   "lignes": [
+    {
+     "label": "Tarifs",
+     "valeur": "+ 20 à 50 %",
+     "au_mot": "vingt"
+    },
+    {
+     "label": "+ 20 % sur 3 000 €",
+     "valeur": "+ 600 € de CA ≈ + 386 € net",
+     "au_mot": "cinquante"
+    }
+   ],
+   "petit": "Avant redevance du shop d’accueil. Guest : déclaration à l’ARS obligatoire",
+   "mention": "Hypothèse",
+   "source": "Source : Modèles de Business Plan"
+  },
+  "acteurs": [
+   {
+    "id": "cliente_tattoo",
+    "x": 900,
+    "expression": "content",
+    "apparition": 2.6,
+    "actions": [
+     {
+      "type": "hoche",
+      "t": 2.6,
+      "fin": 3.0
+     },
+     {
+      "type": "saluer",
+      "cote": "l",
+      "t": 3.05,
+      "fin": 4.45
+     },
+     {
+      "type": "pouce",
+      "cote": "l",
+      "t": 4.5,
+      "fin": 5.5
+     }
+    ]
+   },
+   {
+    "id": "mael",
+    "x": 420,
+    "actions": [
+     {
+      "t": 0,
+      "fin": 1.4,
+      "type": "walkIn",
+      "from": "left",
+      "x": 420
+     },
+     {
+      "t": 0,
+      "fin": 5.8629999999999995,
+      "type": "objet",
+      "cote": "l",
+      "objet": "valise"
+     },
+     {
+      "type": "montrer",
+      "cote": "r",
+      "objet": "telephone",
+      "t": 1.45,
+      "fin": 2.65
+     },
+     {
+      "type": "hoche",
+      "t": 2.7,
+      "fin": 3.3
+     },
+     {
+      "type": "walkTo",
+      "x": 640,
+      "t": 3.35,
+      "fin": 4.75
+     },
+     {
+      "type": "saluer",
+      "cote": "r",
+      "t": 4.8,
+      "fin": 5.8
+     }
+    ]
+   }
+  ],
+  "duree": 4
+ },
+ {
+  "texte": "Cinquième levier : facture le dessin sur mesure. Trente euros par projet, et ton temps est payé.",
+  "decor": "salon",
+  "expression": "content",
+  "mot_jaune": "dessin",
+  "etiquette": "LEVIER N°5",
+  "element_visuel": {
+   "type": "carte_taux",
+   "titre": "Dessin sur mesure facturé",
+   "lignes": [
+    {
+     "label": "8 projets perso × 30 €",
+     "valeur": "240 € de CA",
+     "au_mot": "Trente"
+    },
+    {
+     "label": "Après cotisations et consommables",
+     "valeur": "≈ + 155 € net",
+     "au_mot": "payé"
+    }
+   ],
+   "mention": "Hypothèse : cotisations 25,6 %, consommables 10 %"
+  },
+  "acteurs": [
+   {
+    "id": "cliente_tattoo",
+    "x": 820,
+    "expression": "content",
+    "actions": [
+     {
+      "type": "incline",
+      "angle": -8,
+      "t": 0.0,
+      "fin": 1.0
+     },
+     {
+      "type": "hoche",
+      "t": 1.05,
+      "fin": 1.75
+     },
+     {
+      "type": "pouce",
+      "cote": "r",
+      "t": 1.8,
+      "fin": 3.0
+     },
+     {
+      "type": "saisir",
+      "cote": "l",
+      "objet": "note",
+      "t": 3.05,
+      "fin": 4.05
+     },
+     {
+      "type": "hoche",
+      "t": 4.1,
+      "fin": 4.8
+     },
+     {
+      "type": "pouce",
+      "cote": "r",
+      "t": 4.85,
+      "fin": 5.85
+     },
+     {
+      "type": "hoche",
+      "t": 5.9,
+      "fin": 6.6
+     }
+    ]
+   },
+   {
+    "id": "mael",
+    "x": 400,
+    "actions": [
+     {
+      "type": "ecrire",
+      "cote": "r",
+      "objet": "tablette",
+      "t": 0.0,
+      "fin": 1.6
+     },
+     {
+      "type": "tendre",
+      "cote": "r",
+      "objet": "tablette",
+      "t": 1.65,
+      "fin": 2.85
+     },
+     {
+      "type": "hoche",
+      "t": 2.9,
+      "fin": 3.5
+     },
+     {
+      "type": "tendre",
+      "cote": "l",
+      "objet": "note",
+      "t": 3.55,
+      "fin": 4.55
+     },
+     {
+      "type": "pouce",
+      "cote": "r",
+      "t": 4.6,
+      "fin": 5.5
+     },
+     {
+      "type": "hoche",
+      "t": 5.55,
+      "fin": 6.15
+     },
+     {
+      "type": "pouce",
+      "cote": "r",
+      "t": 6.2,
+      "fin": 6.97
+     }
+    ]
+   }
+  ],
+  "duree": 4
+ },
+ {
+  "texte": "Conseil : note tes heures, dessin compris, pour connaître ton revenu par heure.",
+  "decor": "salon",
+  "expression": "neutre",
+  "mot_jaune": "heures",
+  "etiquette": "CONSEIL",
+  "element_visuel": {
+   "type": "carte_texte",
+   "titre": "632 € ÷ 60 h ≈ 10,5 € / h",
+   "surtitre": "Note toutes tes heures",
+   "indices": [
+    "Dessin",
+    "Préparation",
+    "Tatouage",
+    "Soins"
+   ],
+   "mention": "Exemple illustratif"
+  },
+  "objets_scene": [
+   {
+    "type": "chrono",
+    "x": 930,
+    "y": 1000,
+    "texte": "≈ 10,5 €",
+    "instants": [
+     0.5,
+     5.0959999999999965
+    ],
+    "largeur": 66,
+    "hauteur": 3
+   }
+  ],
+  "acteurs": [
+   {
+    "id": "mael",
+    "x": 480,
+    "echelle": 0.85,
+    "actions": [
+     {
+      "type": "ecrire",
+      "cote": "r",
+      "objet": "carnet",
+      "t": 0.0,
+      "fin": 1.4
+     },
+     {
+      "type": "montre",
+      "cote": "l",
+      "t": 1.45,
+      "fin": 2.25
+     },
+     {
+      "type": "montrer",
+      "cote": "r",
+      "objet": "telephone",
+      "t": 2.3,
+      "fin": 3.5
+     },
+     {
+      "type": "gratter",
+      "cote": "r",
+      "t": 3.55,
+      "fin": 4.55
+     },
+     {
+      "type": "hoche",
+      "t": 4.6,
+      "fin": 5.2
+     }
+    ]
+   }
+  ],
+  "duree": 4
+ },
+ {
+  "texte": "Attention : avant de tatouer, vingt et une heures de formation à l'hygiène et une déclaration à l'ARS.",
+  "texte_voix": "Attention : avant de tatouer, vingt et une heures de formation à l'hygiène et une déclaration à l'A.R.S.",
+  "decor": "bureau",
+  "expression": "neutre",
+  "mot_jaune": "formation",
+  "etiquette": "ATTENTION",
+  "element_visuel": {
+   "type": "carte_taux",
+   "titre": "Obligatoire avant de tatouer",
+   "lignes": [
+    {
+     "label": "Formation hygiène et salubrité",
+     "valeur": "21 h min. (3 jours, dont 7 h de pratique)",
+     "au_mot": "formation"
+    },
+    {
+     "label": "Déclaration préalable",
+     "valeur": "à l’ARS",
+     "au_mot": "l'ARS"
+    },
+    {
+     "label": "Au domicile du client",
+     "valeur": "interdit",
+     "au_mot": "l'ARS"
+    }
+   ],
+   "source": "Sources : ARS, Copeps, Legalplace"
+  },
+  "objets_scene": [
+   {
+    "type": "papier_tampon",
+    "x": 620,
+    "y": 1300,
+    "instants": [
+     1.6
+    ],
+    "texte": "VALIDÉ",
+    "devant": true
+   }
+  ],
+  "acteurs": [
+   {
+    "id": "agent_ars",
+    "x": 820,
+    "expression": "neutre",
+    "actions": [
+     {
+      "type": "tamponner",
+      "cote": "l",
+      "objet": "tampon",
+      "t": 0.0,
+      "fin": 1.6
+     },
+     {
+      "type": "tendre",
+      "cote": "l",
+      "objet": "diplome",
+      "texte": "Formation hygiène",
+      "t": 1.65,
+      "fin": 2.85
+     },
+     {
+      "type": "hoche",
+      "t": 2.9,
+      "fin": 3.6
+     },
+     {
+      "type": "croiser",
+      "cote": "deux",
+      "t": 3.65,
+      "fin": 5.05
+     },
+     {
+      "type": "hoche",
+      "t": 5.1,
+      "fin": 5.8
+     },
+     {
+      "type": "croiser",
+      "cote": "deux",
+      "t": 5.85,
+      "fin": 7.05
+     },
+     {
+      "type": "hoche",
+      "t": 7.1,
+      "fin": 7.8
+     },
+     {
+      "type": "croiser",
+      "cote": "deux",
+      "t": 7.85,
+      "fin": 9.05
+     }
+    ]
+   },
+   {
+    "id": "mael",
+    "x": 330,
+    "actions": [
+     {
+      "type": "hoche",
+      "t": 0.0,
+      "fin": 0.7
+     },
+     {
+      "type": "pointer",
+      "cote": "r",
+      "cible": "avant",
+      "t": 0.75,
+      "fin": 1.75
+     },
+     {
+      "type": "saisir",
+      "cote": "r",
+      "objet": "diplome",
+      "texte": "Formation hygiène",
+      "t": 1.8,
+      "fin": 3.1
+     },
+     {
+      "type": "sousBras",
+      "cote": "r",
+      "objet": "dossier",
+      "t": 3.15,
+      "fin": 4.55
+     },
+     {
+      "type": "hoche",
+      "t": 4.6,
+      "fin": 5.2
+     },
+     {
+      "type": "tendre",
+      "cote": "l",
+      "t": 5.25,
+      "fin": 6.45
+     },
+     {
+      "type": "hoche",
+      "t": 6.5,
+      "fin": 7.1
+     },
+     {
+      "type": "tendre",
+      "cote": "l",
+      "t": 7.15,
+      "fin": 8.35
+     },
+     {
+      "type": "hoche",
+      "t": 8.4,
+      "fin": 9.0
+     }
+    ]
+   }
+  ],
+  "duree": 4
+ },
+ {
+  "texte": "Règle numéro un : fixe ton prix après avoir compté loyer, cotisations et temps de dessin.",
+  "decor": "studio",
+  "expression": "neutre",
+  "mot_jaune": "prix",
+  "etiquette": "RÈGLE N°1",
+  "element_visuel": {
+   "type": "addition_pastilles",
+   "pastilles": [
+    {
+     "texte": "Loyer",
+     "au_mot": "loyer"
+    },
+    {
+     "texte": "Cotisations",
+     "au_mot": "cotisations"
+    },
+    {
+     "texte": "Dessin",
+     "au_mot": "dessin"
+    }
+   ],
+   "resultat": {
+    "texte": "= ton prix",
+    "au_mot": "dessin"
+   }
+  },
+  "acteurs": [
+   {
+    "id": "mael",
+    "x": 540,
+    "echelle": 0.85,
+    "actions": [
+     {
+      "type": "pointer",
+      "cote": "r",
+      "cible": "haut",
+      "t": 0.0,
+      "fin": 1.0
+     },
+     {
+      "type": "coller",
+      "cote": "l",
+      "objet": "postit",
+      "t": 1.05,
+      "fin": 1.95
+     },
+     {
+      "type": "compter",
+      "cote": "r",
+      "doigts": [
+       1,
+       2,
+       3
+      ],
+      "t": 2.0,
+      "fin": 3.6
+     },
+     {
+      "type": "pointer",
+      "cote": "l",
+      "cible": "haut",
+      "t": 3.65,
+      "fin": 5.05
+     },
+     {
+      "type": "hoche",
+      "t": 5.1,
+      "fin": 5.7
+     },
+     {
+      "type": "pointer",
+      "cote": "r",
+      "cible": "haut",
+      "t": 5.75,
+      "fin": 6.54
+     }
+    ]
+   }
+  ],
+  "duree": 4
+ },
+ {
+  "texte": "Tatoueur indépendant : tu te lancerais ? Dis-le en commentaire, et abonne-toi pour d'autres vrais chiffres.",
+  "decor": "shop_tatouage",
+  "expression": "content",
+  "mot_jaune": "commentaire",
+  "etiquette": "TON AVIS",
+  "element_visuel": {
+   "type": "icones_cta"
+  },
+  "acteurs": [
+   {
+    "id": "client_tattoo",
+    "x": 150,
+    "echelle": 0.6,
+    "y": 1400,
+    "expression": "content",
+    "actions": [
+     {
+      "t": 0,
+      "fin": 3.0,
+      "type": "walkTo",
+      "x": 940
+     },
+     {
+      "t": 3.05,
+      "fin": 4.2,
+      "type": "saluer",
+      "cote": "r"
+     },
+     {
+      "type": "hoche",
+      "t": 4.25,
+      "fin": 4.95
+     },
+     {
+      "type": "saluer",
+      "cote": "r",
+      "t": 5.0,
+      "fin": 6.0
+     },
+     {
+      "type": "hoche",
+      "t": 6.05,
+      "fin": 6.75
+     },
+     {
+      "type": "saluer",
+      "cote": "r",
+      "t": 6.8,
+      "fin": 7.8
+     },
+     {
+      "type": "hoche",
+      "t": 7.85,
+      "fin": 8.55
+     }
+    ]
+   },
+   {
+    "id": "cliente_tattoo",
+    "x": 960,
+    "echelle": 0.6,
+    "y": 1400,
+    "expression": "content",
+    "actions": [
+     {
+      "t": 0,
+      "fin": 1.2,
+      "type": "saluer",
+      "cote": "l"
+     },
+     {
+      "t": 1.25,
+      "fin": 4.0,
+      "type": "walkTo",
+      "x": 160
+     },
+     {
+      "type": "saluer",
+      "cote": "l",
+      "t": 4.05,
+      "fin": 5.05
+     },
+     {
+      "type": "hoche",
+      "t": 5.1,
+      "fin": 5.8
+     },
+     {
+      "type": "saluer",
+      "cote": "l",
+      "t": 5.85,
+      "fin": 6.85
+     },
+     {
+      "type": "hoche",
+      "t": 6.9,
+      "fin": 7.6
+     },
+     {
+      "type": "saluer",
+      "cote": "l",
+      "t": 7.65,
+      "fin": 8.65
+     }
+    ]
+   },
+   {
+    "id": "gerante",
+    "x": 780,
+    "echelle": 0.6,
+    "y": 1400,
+    "expression": "content",
+    "actions": [
+     {
+      "type": "saluer",
+      "cote": "r",
+      "t": 0.0,
+      "fin": 1.2
+     },
+     {
+      "type": "hoche",
+      "t": 1.25,
+      "fin": 1.95
+     },
+     {
+      "type": "pouce",
+      "cote": "r",
+      "t": 2.0,
+      "fin": 3.0
+     },
+     {
+      "type": "saluer",
+      "cote": "r",
+      "t": 3.05,
+      "fin": 4.25
+     },
+     {
+      "type": "hoche",
+      "t": 4.3,
+      "fin": 5.0
+     },
+     {
+      "type": "pouce",
+      "cote": "r",
+      "t": 5.05,
+      "fin": 6.05
+     },
+     {
+      "type": "saluer",
+      "cote": "r",
+      "t": 6.1,
+      "fin": 7.3
+     },
+     {
+      "type": "hoche",
+      "t": 7.35,
+      "fin": 8.05
+     },
+     {
+      "type": "pouce",
+      "cote": "r",
+      "t": 8.1,
+      "fin": 8.83
+     }
+    ]
+   },
+   {
+    "id": "mael",
+    "x": 420,
+    "actions": [
+     {
+      "type": "clin",
+      "t": 0.0,
+      "fin": 1.0
+     },
+     {
+      "type": "pointer",
+      "cote": "r",
+      "cible": "bas",
+      "t": 1.05,
+      "fin": 2.25
+     },
+     {
+      "type": "saut",
+      "t": 2.3,
+      "fin": 3.2
+     },
+     {
+      "type": "saluer",
+      "cote": "r",
+      "t": 3.25,
+      "fin": 4.25
+     },
+     {
+      "type": "pouce",
+      "cote": "l",
+      "t": 4.3,
+      "fin": 5.3
+     },
+     {
+      "type": "pointer",
+      "cote": "r",
+      "cible": "bas",
+      "t": 5.35,
+      "fin": 6.55
+     },
+     {
+      "type": "saut",
+      "t": 6.6,
+      "fin": 7.5
+     },
+     {
+      "type": "saluer",
+      "cote": "r",
+      "t": 7.55,
+      "fin": 8.55
+     }
+    ]
+   }
+  ],
+  "duree": 4
+ }
+]

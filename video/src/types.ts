@@ -202,6 +202,8 @@ export type TypeAction =
   | 'couper' | 'peigner' | 'appliquer' | 'coller' | 'gratter' | 'tamponner' | 'ouvrir'
   // ep13 : vise avec un appareil photo tenu devant l'œil
   | 'viser'
+  // ep14 : tatoue (machine générique)
+  | 'tatouer'
   // ep11 : cape de coupe sur une cliente assise (`couleur`), clin d'œil
   | 'cape' | 'clin'
   // ep11 : changement de pose en cours de scène (`pose`, ex. se lever : assis → debout)
@@ -217,7 +219,9 @@ export type ObjetTenuNom =
   | 'ciseaux' | 'peigne' | 'trousse' | 'agenda' | 'carnet' | 'calepin' | 'note' | 'flacon' | 'serviette' | 'miroir'
   | 'pinceau' | 'postit' | 'diplome' | 'tampon'
   // ep13
-  | 'appareil' | 'objectif' | 'bouquet' | 'album' | 'sac_photo';
+  | 'appareil' | 'objectif' | 'bouquet' | 'album' | 'sac_photo'
+  // ep14
+  | 'machine_tatouage' | 'tablette' | 'valise' | 'cle';
 
 export type ActionActeur = {
   t: number;

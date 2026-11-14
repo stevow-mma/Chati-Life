@@ -1,0 +1,1183 @@
+{
+ "mode": "piste_unique",
+ "fichier": "ep14/voix.mp3",
+ "hash": "197a526bc27af23dd72b1810beae0824e01727dad8309d028f4dd81799f1f039",
+ "duree_piste": 82.207347,
+ "derniere_parole": 82.181,
+ "fin": 85.181,
+ "scenes": [
+  {
+   "texte_lu": "Maël encaisse trois mille euros par mois en tatouant. Il lui reste environ six cent trente euros.",
+   "debut": 0,
+   "mots": [
+    {
+     "texte": "Maël",
+     "debut": 0.4,
+     "fin": 0.702
+    },
+    {
+     "texte": "encaisse",
+     "debut": 0.76,
+     "fin": 1.097
+    },
+    {
+     "texte": "trois",
+     "debut": 1.143,
+     "fin": 1.422
+    },
+    {
+     "texte": "mille",
+     "debut": 1.445,
+     "fin": 1.631
+    },
+    {
+     "texte": "euros",
+     "debut": 1.654,
+     "fin": 1.863
+    },
+    {
+     "texte": "par",
+     "debut": 1.886,
+     "fin": 2.025
+    },
+    {
+     "texte": "mois",
+     "debut": 2.083,
+     "fin": 2.258
+    },
+    {
+     "texte": "en",
+     "debut": 2.281,
+     "fin": 2.339
+    },
+    {
+     "texte": "tatouant.",
+     "debut": 2.385,
+     "fin": 2.873
+    },
+    {
+     "texte": "Il",
+     "debut": 3.082,
+     "fin": 3.175
+    },
+    {
+     "texte": "lui",
+     "debut": 3.198,
+     "fin": 3.314
+    },
+    {
+     "texte": "reste",
+     "debut": 3.361,
+     "fin": 3.558
+    },
+    {
+     "texte": "environ",
+     "debut": 3.581,
+     "fin": 3.895
+    },
+    {
+     "texte": "six",
+     "debut": 3.964,
+     "fin": 4.115
+    },
+    {
+     "texte": "cent",
+     "debut": 4.138,
+     "fin": 4.289
+    },
+    {
+     "texte": "trente",
+     "debut": 4.313,
+     "fin": 4.603
+    },
+    {
+     "texte": "euros.",
+     "debut": 4.626,
+     "fin": 4.963
+    }
+   ]
+  },
+  {
+   "texte_lu": "D'abord, le salon garde quarante pour cent : mille deux cents euros. Puis les cotisations : sept cent soixante-huit.",
+   "debut": 5.079,
+   "mots": [
+    {
+     "texte": "D'abord,",
+     "debut": 5.079,
+     "fin": 5.404
+    },
+    {
+     "texte": "le",
+     "debut": 5.427,
+     "fin": 5.485
+    },
+    {
+     "texte": "salon",
+     "debut": 5.532,
+     "fin": 5.764
+    },
+    {
+     "texte": "garde",
+     "debut": 5.822,
+     "fin": 6.112
+    },
+    {
+     "texte": "quarante",
+     "debut": 6.159,
+     "fin": 6.437
+    },
+    {
+     "texte": "pour",
+     "debut": 6.46,
+     "fin": 6.588
+    },
+    {
+     "texte": "cent",
+     "debut": 6.646,
+     "fin": 6.89
+    },
+    {
+     "texte": ":",
+     "debut": 6.96,
+     "fin": 7.006
+    },
+    {
+     "texte": "mille",
+     "debut": 7.285,
+     "fin": 7.598
+    },
+    {
+     "texte": "deux",
+     "debut": 7.633,
+     "fin": 7.749
+    },
+    {
+     "texte": "cents",
+     "debut": 7.772,
+     "fin": 7.97
+    },
+    {
+     "texte": "euros.",
+     "debut": 8.028,
+     "fin": 8.364
+    },
+    {
+     "texte": "Puis",
+     "debut": 8.875,
+     "fin": 9.084
+    },
+    {
+     "texte": "les",
+     "debut": 9.107,
+     "fin": 9.189
+    },
+    {
+     "texte": "cotisations",
+     "debut": 9.212,
+     "fin": 9.932
+    },
+    {
+     "texte": ":",
+     "debut": 9.955,
+     "fin": 9.99
+    },
+    {
+     "texte": "sept",
+     "debut": 10.141,
+     "fin": 10.338
+    },
+    {
+     "texte": "cent",
+     "debut": 10.385,
+     "fin": 10.524
+    },
+    {
+     "texte": "soixante-huit.",
+     "debut": 10.547,
+     "fin": 11.209
+    }
+   ]
+  },
+  {
+   "texte_lu": "Ensuite, trois cents d'aiguilles et d'encres, cent d'assurance et de matériel. Il reste environ six cent trente euros, avant impôt.",
+   "debut": 11.592,
+   "mots": [
+    {
+     "texte": "Ensuite,",
+     "debut": 11.592,
+     "fin": 12.172
+    },
+    {
+     "texte": "trois",
+     "debut": 12.195,
+     "fin": 12.428
+    },
+    {
+     "texte": "cents",
+     "debut": 12.451,
+     "fin": 12.613
+    },
+    {
+     "texte": "d'aiguilles",
+     "debut": 12.637,
+     "fin": 13.113
+    },
+    {
+     "texte": "et",
+     "debut": 13.147,
+     "fin": 13.24
+    },
+    {
+     "texte": "d'encres,",
+     "debut": 13.275,
+     "fin": 13.809
+    },
+    {
+     "texte": "cent",
+     "debut": 14.053,
+     "fin": 14.216
+    },
+    {
+     "texte": "d'assurance",
+     "debut": 14.239,
+     "fin": 14.912
+    },
+    {
+     "texte": "et",
+     "debut": 14.935,
+     "fin": 15.051
+    },
+    {
+     "texte": "de",
+     "debut": 15.086,
+     "fin": 15.144
+    },
+    {
+     "texte": "matériel.",
+     "debut": 15.179,
+     "fin": 15.853
+    },
+    {
+     "texte": "Il",
+     "debut": 16.131,
+     "fin": 16.271
+    },
+    {
+     "texte": "reste",
+     "debut": 16.34,
+     "fin": 16.549
+    },
+    {
+     "texte": "environ",
+     "debut": 16.572,
+     "fin": 16.956
+    },
+    {
+     "texte": "six",
+     "debut": 17.048,
+     "fin": 17.211
+    },
+    {
+     "texte": "cent",
+     "debut": 17.234,
+     "fin": 17.397
+    },
+    {
+     "texte": "trente",
+     "debut": 17.432,
+     "fin": 17.733
+    },
+    {
+     "texte": "euros,",
+     "debut": 17.78,
+     "fin": 18.198
+    },
+    {
+     "texte": "avant",
+     "debut": 18.233,
+     "fin": 18.616
+    },
+    {
+     "texte": "impôt.",
+     "debut": 18.639,
+     "fin": 19.161
+    }
+   ]
+  },
+  {
+   "texte_lu": "Mais derrière, soixante heures de travail : environ dix euros de l'heure.",
+   "debut": 19.603,
+   "mots": [
+    {
+     "texte": "Mais",
+     "debut": 19.603,
+     "fin": 19.812
+    },
+    {
+     "texte": "derrière,",
+     "debut": 19.846,
+     "fin": 20.589
+    },
+    {
+     "texte": "soixante",
+     "debut": 20.833,
+     "fin": 21.228
+    },
+    {
+     "texte": "heures",
+     "debut": 21.251,
+     "fin": 21.414
+    },
+    {
+     "texte": "de",
+     "debut": 21.437,
+     "fin": 21.507
+    },
+    {
+     "texte": "travail",
+     "debut": 21.553,
+     "fin": 21.971
+    },
+    {
+     "texte": ":",
+     "debut": 22.052,
+     "fin": 22.087
+    },
+    {
+     "texte": "environ",
+     "debut": 22.11,
+     "fin": 22.691
+    },
+    {
+     "texte": "dix",
+     "debut": 22.784,
+     "fin": 23.004
+    },
+    {
+     "texte": "euros",
+     "debut": 23.051,
+     "fin": 23.387
+    },
+    {
+     "texte": "de",
+     "debut": 23.713,
+     "fin": 23.829
+    },
+    {
+     "texte": "l'heure.",
+     "debut": 23.887,
+     "fin": 24.293
+    }
+   ]
+  },
+  {
+   "texte_lu": "Premier levier : un loyer fixe plutôt qu'un pourcentage. Six cents euros au lieu de mille deux cents.",
+   "debut": 24.804,
+   "mots": [
+    {
+     "texte": "Premier",
+     "debut": 24.804,
+     "fin": 25.141
+    },
+    {
+     "texte": "levier",
+     "debut": 25.164,
+     "fin": 25.535
+    },
+    {
+     "texte": ":",
+     "debut": 25.593,
+     "fin": 25.628
+    },
+    {
+     "texte": "un",
+     "debut": 25.698,
+     "fin": 25.802
+    },
+    {
+     "texte": "loyer",
+     "debut": 25.849,
+     "fin": 26.093
+    },
+    {
+     "texte": "fixe",
+     "debut": 26.151,
+     "fin": 26.522
+    },
+    {
+     "texte": "plutôt",
+     "debut": 26.58,
+     "fin": 26.917
+    },
+    {
+     "texte": "qu'un",
+     "debut": 26.94,
+     "fin": 27.184
+    },
+    {
+     "texte": "pourcentage.",
+     "debut": 27.242,
+     "fin": 28.055
+    },
+    {
+     "texte": "Six",
+     "debut": 28.496,
+     "fin": 28.693
+    },
+    {
+     "texte": "cents",
+     "debut": 28.716,
+     "fin": 28.983
+    },
+    {
+     "texte": "euros",
+     "debut": 29.007,
+     "fin": 29.401
+    },
+    {
+     "texte": "au",
+     "debut": 29.425,
+     "fin": 29.587
+    },
+    {
+     "texte": "lieu",
+     "debut": 29.634,
+     "fin": 29.75
+    },
+    {
+     "texte": "de",
+     "debut": 29.796,
+     "fin": 29.866
+    },
+    {
+     "texte": "mille",
+     "debut": 29.912,
+     "fin": 30.086
+    },
+    {
+     "texte": "deux",
+     "debut": 30.121,
+     "fin": 30.249
+    },
+    {
+     "texte": "cents.",
+     "debut": 30.272,
+     "fin": 30.69
+    }
+   ]
+  },
+  {
+   "texte_lu": "Deuxième levier : des flashs à prix fixe. Deux cents euros en une heure et demie : cent trente-trois euros de l'heure.",
+   "debut": 31.805,
+   "mots": [
+    {
+     "texte": "Deuxième",
+     "debut": 31.805,
+     "fin": 32.13
+    },
+    {
+     "texte": "levier",
+     "debut": 32.153,
+     "fin": 32.548
+    },
+    {
+     "texte": ":",
+     "debut": 32.629,
+     "fin": 32.664
+    },
+    {
+     "texte": "des",
+     "debut": 32.815,
+     "fin": 32.954
+    },
+    {
+     "texte": "flashs",
+     "debut": 33.012,
+     "fin": 33.395
+    },
+    {
+     "texte": "à",
+     "debut": 33.453,
+     "fin": 33.523
+    },
+    {
+     "texte": "prix",
+     "debut": 33.593,
+     "fin": 33.778
+    },
+    {
+     "texte": "fixe.",
+     "debut": 33.813,
+     "fin": 34.301
+    },
+    {
+     "texte": "Deux",
+     "debut": 34.51,
+     "fin": 34.696
+    },
+    {
+     "texte": "cents",
+     "debut": 34.719,
+     "fin": 34.916
+    },
+    {
+     "texte": "euros",
+     "debut": 34.951,
+     "fin": 35.357
+    },
+    {
+     "texte": "en",
+     "debut": 35.392,
+     "fin": 35.508
+    },
+    {
+     "texte": "une",
+     "debut": 35.566,
+     "fin": 35.671
+    },
+    {
+     "texte": "heure",
+     "debut": 35.694,
+     "fin": 35.915
+    },
+    {
+     "texte": "et",
+     "debut": 35.949,
+     "fin": 36.054
+    },
+    {
+     "texte": "demie",
+     "debut": 36.089,
+     "fin": 36.449
+    },
+    {
+     "texte": ":",
+     "debut": 36.483,
+     "fin": 36.6
+    },
+    {
+     "texte": "cent",
+     "debut": 36.809,
+     "fin": 37.006
+    },
+    {
+     "texte": "trente-trois",
+     "debut": 37.029,
+     "fin": 37.459
+    },
+    {
+     "texte": "euros",
+     "debut": 37.505,
+     "fin": 37.679
+    },
+    {
+     "texte": "de",
+     "debut": 37.714,
+     "fin": 37.772
+    },
+    {
+     "texte": "l'heure.",
+     "debut": 37.819,
+     "fin": 38.271
+    }
+   ]
+  },
+  {
+   "texte_lu": "Troisième levier : un acompte à la réservation. Vingt pour cent protègent ton créneau.",
+   "debut": 39.386,
+   "mots": [
+    {
+     "texte": "Troisième",
+     "debut": 39.386,
+     "fin": 39.769
+    },
+    {
+     "texte": "levier",
+     "debut": 39.792,
+     "fin": 40.187
+    },
+    {
+     "texte": ":",
+     "debut": 40.268,
+     "fin": 40.303
+    },
+    {
+     "texte": "un",
+     "debut": 40.338,
+     "fin": 40.466
+    },
+    {
+     "texte": "acompte",
+     "debut": 40.535,
+     "fin": 40.837
+    },
+    {
+     "texte": "à",
+     "debut": 40.86,
+     "fin": 40.884
+    },
+    {
+     "texte": "la",
+     "debut": 40.918,
+     "fin": 40.977
+    },
+    {
+     "texte": "réservation.",
+     "debut": 41.046,
+     "fin": 41.871
+    },
+    {
+     "texte": "Vingt",
+     "debut": 42.382,
+     "fin": 43.009
+    },
+    {
+     "texte": "pour",
+     "debut": 43.032,
+     "fin": 43.136
+    },
+    {
+     "texte": "cent",
+     "debut": 43.183,
+     "fin": 43.496
+    },
+    {
+     "texte": "protègent",
+     "debut": 43.531,
+     "fin": 43.914
+    },
+    {
+     "texte": "ton",
+     "debut": 43.961,
+     "fin": 44.042
+    },
+    {
+     "texte": "créneau.",
+     "debut": 44.077,
+     "fin": 44.576
+    }
+   ]
+  },
+  {
+   "texte_lu": "Quatrième levier : des guests dans d'autres villes. Les tarifs montent de vingt à cinquante pour cent.",
+   "debut": 45.18,
+   "mots": [
+    {
+     "texte": "Quatrième",
+     "debut": 45.18,
+     "fin": 45.563
+    },
+    {
+     "texte": "levier",
+     "debut": 45.586,
+     "fin": 45.899
+    },
+    {
+     "texte": ":",
+     "debut": 45.934,
+     "fin": 46.004
+    },
+    {
+     "texte": "des",
+     "debut": 46.213,
+     "fin": 46.329
+    },
+    {
+     "texte": "guests",
+     "debut": 46.364,
+     "fin": 46.666
+    },
+    {
+     "texte": "dans",
+     "debut": 46.689,
+     "fin": 46.828
+    },
+    {
+     "texte": "d'autres",
+     "debut": 46.851,
+     "fin": 47.13
+    },
+    {
+     "texte": "villes.",
+     "debut": 47.153,
+     "fin": 47.56
+    },
+    {
+     "texte": "Les",
+     "debut": 47.629,
+     "fin": 47.757
+    },
+    {
+     "texte": "tarifs",
+     "debut": 47.78,
+     "fin": 48.094
+    },
+    {
+     "texte": "montent",
+     "debut": 48.117,
+     "fin": 48.442
+    },
+    {
+     "texte": "de",
+     "debut": 48.512,
+     "fin": 48.581
+    },
+    {
+     "texte": "vingt",
+     "debut": 48.639,
+     "fin": 48.883
+    },
+    {
+     "texte": "à",
+     "debut": 49.092,
+     "fin": 49.208
+    },
+    {
+     "texte": "cinquante",
+     "debut": 49.29,
+     "fin": 49.615
+    },
+    {
+     "texte": "pour",
+     "debut": 49.638,
+     "fin": 49.754
+    },
+    {
+     "texte": "cent.",
+     "debut": 49.812,
+     "fin": 50.218
+    }
+   ]
+  },
+  {
+   "texte_lu": "Cinquième levier : facture le dessin sur mesure. Trente euros par projet, et ton temps est payé.",
+   "debut": 50.543,
+   "mots": [
+    {
+     "texte": "Cinquième",
+     "debut": 50.543,
+     "fin": 50.95
+    },
+    {
+     "texte": "levier",
+     "debut": 50.973,
+     "fin": 51.31
+    },
+    {
+     "texte": ":",
+     "debut": 51.379,
+     "fin": 51.461
+    },
+    {
+     "texte": "facture",
+     "debut": 51.739,
+     "fin": 52.18
+    },
+    {
+     "texte": "le",
+     "debut": 52.204,
+     "fin": 52.273
+    },
+    {
+     "texte": "dessin",
+     "debut": 52.32,
+     "fin": 52.598
+    },
+    {
+     "texte": "sur",
+     "debut": 52.645,
+     "fin": 52.761
+    },
+    {
+     "texte": "mesure.",
+     "debut": 52.807,
+     "fin": 53.388
+    },
+    {
+     "texte": "Trente",
+     "debut": 53.632,
+     "fin": 53.91
+    },
+    {
+     "texte": "euros",
+     "debut": 53.934,
+     "fin": 54.154
+    },
+    {
+     "texte": "par",
+     "debut": 54.177,
+     "fin": 54.305
+    },
+    {
+     "texte": "projet,",
+     "debut": 54.34,
+     "fin": 54.758
+    },
+    {
+     "texte": "et",
+     "debut": 54.781,
+     "fin": 54.886
+    },
+    {
+     "texte": "ton",
+     "debut": 54.921,
+     "fin": 55.014
+    },
+    {
+     "texte": "temps",
+     "debut": 55.06,
+     "fin": 55.188
+    },
+    {
+     "texte": "est",
+     "debut": 55.211,
+     "fin": 55.292
+    },
+    {
+     "texte": "payé.",
+     "debut": 55.408,
+     "fin": 55.896
+    }
+   ]
+  },
+  {
+   "texte_lu": "Conseil : note tes heures, dessin compris, pour connaître ton revenu par heure.",
+   "debut": 57.011,
+   "mots": [
+    {
+     "texte": "Conseil",
+     "debut": 57.011,
+     "fin": 57.44
+    },
+    {
+     "texte": ":",
+     "debut": 57.591,
+     "fin": 57.765
+    },
+    {
+     "texte": "note",
+     "debut": 57.916,
+     "fin": 58.102
+    },
+    {
+     "texte": "tes",
+     "debut": 58.125,
+     "fin": 58.264
+    },
+    {
+     "texte": "heures,",
+     "debut": 58.346,
+     "fin": 58.752
+    },
+    {
+     "texte": "dessin",
+     "debut": 59.077,
+     "fin": 59.356
+    },
+    {
+     "texte": "compris,",
+     "debut": 59.402,
+     "fin": 59.971
+    },
+    {
+     "texte": "pour",
+     "debut": 60.099,
+     "fin": 60.227
+    },
+    {
+     "texte": "connaître",
+     "debut": 60.273,
+     "fin": 60.598
+    },
+    {
+     "texte": "ton",
+     "debut": 60.644,
+     "fin": 60.749
+    },
+    {
+     "texte": "revenu",
+     "debut": 60.795,
+     "fin": 61.062
+    },
+    {
+     "texte": "par",
+     "debut": 61.109,
+     "fin": 61.237
+    },
+    {
+     "texte": "heure.",
+     "debut": 61.295,
+     "fin": 61.666
+    }
+   ]
+  },
+  {
+   "texte_lu": "Attention : avant de tatouer, vingt et une heures de formation à l'hygiène et une déclaration à l'A.R.S.",
+   "debut": 62.107,
+   "mots": [
+    {
+     "texte": "Attention",
+     "debut": 62.107,
+     "fin": 62.572
+    },
+    {
+     "texte": ":",
+     "debut": 62.665,
+     "fin": 62.792
+    },
+    {
+     "texte": "avant",
+     "debut": 63.175,
+     "fin": 63.431
+    },
+    {
+     "texte": "de",
+     "debut": 63.466,
+     "fin": 63.547
+    },
+    {
+     "texte": "tatouer,",
+     "debut": 63.617,
+     "fin": 64.197
+    },
+    {
+     "texte": "vingt",
+     "debut": 64.441,
+     "fin": 64.638
+    },
+    {
+     "texte": "et",
+     "debut": 64.685,
+     "fin": 64.731
+    },
+    {
+     "texte": "une",
+     "debut": 64.789,
+     "fin": 64.905
+    },
+    {
+     "texte": "heures",
+     "debut": 65.857,
+     "fin": 66.148
+    },
+    {
+     "texte": "de",
+     "debut": 66.171,
+     "fin": 66.24
+    },
+    {
+     "texte": "formation",
+     "debut": 66.299,
+     "fin": 66.867
+    },
+    {
+     "texte": "à",
+     "debut": 66.96,
+     "fin": 67.03
+    },
+    {
+     "texte": "l'hygiène",
+     "debut": 67.111,
+     "fin": 67.75
+    },
+    {
+     "texte": "et",
+     "debut": 67.994,
+     "fin": 68.11
+    },
+    {
+     "texte": "une",
+     "debut": 68.156,
+     "fin": 68.249
+    },
+    {
+     "texte": "déclaration",
+     "debut": 68.272,
+     "fin": 68.806
+    },
+    {
+     "texte": "à",
+     "debut": 68.864,
+     "fin": 68.888
+    },
+    {
+     "texte": "l'A.R.S.",
+     "debut": 68.922,
+     "fin": 69.7
+    }
+   ]
+  },
+  {
+   "texte_lu": "Règle numéro un : fixe ton prix après avoir compté loyer, cotisations et temps de dessin.",
+   "debut": 70.815,
+   "mots": [
+    {
+     "texte": "Règle",
+     "debut": 70.815,
+     "fin": 71.07
+    },
+    {
+     "texte": "numéro",
+     "debut": 71.117,
+     "fin": 71.453
+    },
+    {
+     "texte": "un",
+     "debut": 71.511,
+     "fin": 71.628
+    },
+    {
+     "texte": ":",
+     "debut": 71.744,
+     "fin": 71.825
+    },
+    {
+     "texte": "fixe",
+     "debut": 72.15,
+     "fin": 72.429
+    },
+    {
+     "texte": "ton",
+     "debut": 72.452,
+     "fin": 72.58
+    },
+    {
+     "texte": "prix",
+     "debut": 72.626,
+     "fin": 72.928
+    },
+    {
+     "texte": "après",
+     "debut": 72.998,
+     "fin": 73.346
+    },
+    {
+     "texte": "avoir",
+     "debut": 73.369,
+     "fin": 73.543
+    },
+    {
+     "texte": "compté",
+     "debut": 73.601,
+     "fin": 73.868
+    },
+    {
+     "texte": "loyer,",
+     "debut": 73.926,
+     "fin": 74.414
+    },
+    {
+     "texte": "cotisations",
+     "debut": 74.588,
+     "fin": 75.296
+    },
+    {
+     "texte": "et",
+     "debut": 75.366,
+     "fin": 75.471
+    },
+    {
+     "texte": "temps",
+     "debut": 75.517,
+     "fin": 75.668
+    },
+    {
+     "texte": "de",
+     "debut": 75.691,
+     "fin": 75.761
+    },
+    {
+     "texte": "dessin.",
+     "debut": 75.807,
+     "fin": 76.248
+    }
+   ]
+  },
+  {
+   "texte_lu": "Tatoueur indépendant : tu te lancerais ? Dis-le en commentaire, et abonne-toi pour d'autres vrais chiffres.",
+   "debut": 76.852,
+   "mots": [
+    {
+     "texte": "Tatoueur",
+     "debut": 76.852,
+     "fin": 77.317
+    },
+    {
+     "texte": "indépendant",
+     "debut": 77.363,
+     "fin": 77.862
+    },
+    {
+     "texte": ":",
+     "debut": 78.013,
+     "fin": 78.083
+    },
+    {
+     "texte": "tu",
+     "debut": 78.199,
+     "fin": 78.303
+    },
+    {
+     "texte": "te",
+     "debut": 78.35,
+     "fin": 78.408
+    },
+    {
+     "texte": "lancerais",
+     "debut": 78.454,
+     "fin": 78.849
+    },
+    {
+     "texte": "?",
+     "debut": 78.895,
+     "fin": 78.954
+    },
+    {
+     "texte": "Dis-le",
+     "debut": 79.07,
+     "fin": 79.313
+    },
+    {
+     "texte": "en",
+     "debut": 79.348,
+     "fin": 79.406
+    },
+    {
+     "texte": "commentaire,",
+     "debut": 79.453,
+     "fin": 80.01
+    },
+    {
+     "texte": "et",
+     "debut": 80.045,
+     "fin": 80.138
+    },
+    {
+     "texte": "abonne-toi",
+     "debut": 80.184,
+     "fin": 80.683
+    },
+    {
+     "texte": "pour",
+     "debut": 80.73,
+     "fin": 80.869
+    },
+    {
+     "texte": "d'autres",
+     "debut": 80.927,
+     "fin": 81.217
+    },
+    {
+     "texte": "vrais",
+     "debut": 81.241,
+     "fin": 81.426
+    },
+    {
+     "texte": "chiffres.",
+     "debut": 81.45,
+     "fin": 82.181
+    }
+   ]
+  }
+ ]
+}

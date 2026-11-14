@@ -1,4 +1,5 @@
 import {DecorSalleMariage} from './Ep13';
+import {DecorShopTatouage} from './Ep14';
 import {DecorVoiture} from './ObjetsSceneEp12';
 import {AbsoluteFill, interpolate, useCurrentFrame, useVideoConfig} from 'remotion';
 
@@ -953,6 +954,9 @@ export const Decor: React.FC<{nom: string; variante?: number}> = ({nom, variante
       break;
     case 'voiture':
       content = <DecorVoiture frame={frame} />;
+      break;
+    case 'shop_tatouage':
+      content = <DecorShopTatouage frame={frame} />;
       break;
     case 'salle_mariage':
       content = <DecorSalleMariage frame={frame} />;

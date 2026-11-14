@@ -450,4 +450,72 @@ export const PERSONNAGES: Record<string, Apparence> = {
     tete: {type: 'lunettes_carrees', couleur: '#343A40'},
     cardigan: {ombre: '#5E1229', dessous: '#FFFFFF'},
   },
+  /** Maël (ep14), tatoueur indépendant, 29 ans : longs cheveux bruns bouclés en chignon, grosse barbe, t-shirt blanc,
+   *  tablier noir, gants noirs, anneaux aux oreilles, avant-bras ornés de motifs géométriques génériques, pantalon noir,
+   *  chaussures montantes marron. */
+  mael: {
+    nom: 'Maël',
+    genre: 'homme',
+    teint: {peau: '#E2B48C', ombre: '#C8966C', joues: '#DE8E76'},
+    cheveux: {style: 'chignon_boucle', couleur: '#4A2E1E'},
+    tenue: {haut: '#FFFFFF', hautOmbre: '#E3E6EA', bas: '#1E1F24', chaussures: '#7A4A26', bandeChaussures: '#5A3418', tshirt: true, retroussees: true},
+    tete: null,
+    grosseBarbe: '#4A2E1E',
+    sourcils: '#3A2216',
+    boucles: '#C9CED6',
+    tablier: {couleur: '#1E1F24', poche: '#343A40'},
+    gants: '#1E1F24',
+    tatouagesBras: '#2B2D42',
+  },
+  /** Client (ep14), 25 ans : sweat vert, casquette sans logo. */
+  client_tattoo: {
+    nom: 'Client',
+    genre: 'homme',
+    teint: {peau: '#C99068', ombre: '#AD744C', joues: '#C77A62'},
+    cheveux: {style: 'court', couleur: '#1E1614'},
+    tenue: {haut: '#2D9F5A', hautOmbre: '#227A45', bas: '#3D5A80', chaussures: '#FFFFFF', bandeChaussures: '#ADB5BD', sweat: true},
+    tete: {type: 'casquette', couleur: '#343A40', couleurOmbre: '#212529'},
+  },
+  /** Cliente (ep14), 24 ans : cheveux bleus, veste en cuir. */
+  cliente_tattoo: {
+    nom: 'Cliente',
+    genre: 'femme',
+    teint: {peau: '#F3D2B8', ombre: '#DDB496', joues: '#EFA08C'},
+    cheveux: {style: 'mi_long', couleur: '#3A86FF'},
+    tenue: {haut: '#1E1F24', hautOmbre: '#121318', bas: '#495057', chaussures: '#111114', bandeChaussures: '#2A2A30'},
+    tete: null,
+    costume: {revers: '#343A40'},
+    chemiseOuverte: '#F8F9FA',
+  },
+  /** Gérante du shop (ep14), 50 ans : cheveux courts gris, blazer prune. */
+  gerante: {
+    nom: 'Gérante',
+    genre: 'femme',
+    teint: {peau: '#EAC3A0', ombre: '#D1A47F', joues: '#E39880'},
+    cheveux: {style: 'court_ondule', couleur: '#A7A9AC'},
+    tenue: {haut: '#6A2C5A', hautOmbre: '#511F44', bas: '#2B2D42', chaussures: '#2E2018', bandeChaussures: '#1E140C'},
+    tete: null,
+    costume: {revers: '#511F44'},
+    chemiseOuverte: '#FFFFFF',
+  },
+  /** Vendeur de fournitures (ep14) : blouse bleue. */
+  vendeur_fournitures: {
+    nom: 'Vendeur',
+    genre: 'homme',
+    teint: {peau: '#F1C9A5', ombre: '#D9AC86', joues: '#EB9A84'},
+    cheveux: {style: 'court_dessus', couleur: '#6B4A2F'},
+    tenue: {haut: '#3A6EA5', hautOmbre: '#2C5684', bas: '#495057', chaussures: '#343A40', bandeChaussures: '#212529', tunique: true},
+    tete: null,
+    badge: {texte: '', couleur: '#FFFFFF'},
+  },
+  /** Agent de l'ARS (ep14) : chemise bleu ciel, badge sans nom. */
+  agent_ars: {
+    nom: 'Agent',
+    genre: 'homme',
+    teint: {peau: '#8D5A3B', ombre: '#73452A', joues: '#A8614A'},
+    cheveux: {style: 'rase', couleur: '#1A1210'},
+    tenue: {haut: '#A9D6F5', hautOmbre: '#86BCE3', bas: '#2B2D42', chaussures: '#111114', bandeChaussures: '#2A2A30', chemise: true},
+    tete: {type: 'lunettes_carrees', couleur: '#343A40'},
+    badge: {texte: '', couleur: '#FFFFFF'},
+  },
 };

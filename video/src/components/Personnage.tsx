@@ -1,4 +1,5 @@
 import {Bandouliere, RobeLongue, TressesArriere, TressesAvant, VesteJean} from './Ep13';
+import {GrosseBarbe} from './Ep14';
 import {useCurrentFrame, useVideoConfig, interpolate, spring} from 'remotion';
 import type {Accessoire, Expression, ObjetMain, Pose as Posture} from '../types';
 import {
@@ -172,6 +173,12 @@ export type Apparence = {
   bandouliere?: boolean;
   /** ep13 : robe longue jusqu'au sol (couleur, ombre). */
   robe?: {couleur: string; ombre: string} | null;
+  /** ep14 : gants (couleur des mains, bras articulés). */
+  gants?: string | null;
+  /** ep14 : motifs géométriques génériques sur les avant-bras nus (couleur). */
+  tatouagesBras?: string | null;
+  /** ep14 : grosse barbe fournie (couleur). */
+  grosseBarbe?: string | null;
 };
 
 /** Durée (frames) d'un passage d'article au scanner (pose « scanne ») ; le bip du décor « caisse_tapis » suit le même cycle. */
@@ -1331,7 +1338,7 @@ export const Personnage: React.FC<{
   const bobMarche = mv?.marche != null ? -Math.abs(Math.sin(mv.marche)) * 12 : 0;
   const miroir = !!mv?.miroir;
   const brasArticuleL = brasL && angL ? (
-    <BrasArticule epaule={epL} coude={brasL[0]} main={brasL[1]} cote={-1} a={angL} manche={t.haut} peau={peau} revers={t.retroussees ? t.hautOmbre : undefined} poignet={t.sweat ? t.hautOmbre : undefined} rayures={t.mariniere} />
+    <BrasArticule epaule={epL} coude={brasL[0]} main={brasL[1]} cote={-1} a={angL} manche={t.haut} peau={peau} revers={t.retroussees ? t.hautOmbre : undefined} poignet={t.sweat ? t.hautOmbre : undefined} rayures={t.mariniere} gant={a.gants ?? undefined} tatouage={a.tatouagesBras ?? undefined} />
   ) : null;
 
   return (
@@ -1647,6 +1654,7 @@ export const Personnage: React.FC<{
           {/* Nez */}
           <path d="M 300 296 q 14 16 -2 26" fill="none" stroke={peauOmbre} strokeWidth={8} strokeLinecap="round" />
           {a.barbe ? <Barbe couleur={a.barbe} /> : null}
+          {a.grosseBarbe ? <GrosseBarbe couleur={a.grosseBarbe} /> : null}
           <Mouth expression={expression} open={open} />
           {mv?.clin ? <ClinOeil peau={peau} /> : null}
 
@@ -1670,10 +1678,10 @@ export const Personnage: React.FC<{
         {/* Bras droit (devant la tête si levé) */}
         {mv && lDevantTete ? brasArticuleL : null}
         {mv && brasR && angR ? (
-          <BrasArticule epaule={epR} coude={brasR[0]} main={brasR[1]} cote={1} a={angR} manche={t.haut} peau={peau} revers={t.retroussees ? t.hautOmbre : undefined} poignet={t.sweat ? t.hautOmbre : undefined} montre={a.montre ?? undefined} rayures={t.mariniere} />
+          <BrasArticule epaule={epR} coude={brasR[0]} main={brasR[1]} cote={1} a={angR} manche={t.haut} peau={peau} revers={t.retroussees ? t.hautOmbre : undefined} poignet={t.sweat ? t.hautOmbre : undefined} montre={a.montre ?? undefined} rayures={t.mariniere} gant={a.gants ?? undefined} tatouage={a.tatouagesBras ?? undefined} />
         ) : null}
-        {mv && brasL && mv.objets?.l ? <ObjetMainAnime nom={mv.objets.l} main={brasL[1]} peau={peau} miroir={miroir} texte={mv.texteObjet?.l} frame={frame} /> : null}
-        {mv && brasR && mv.objets?.r ? <ObjetMainAnime nom={mv.objets.r} main={brasR[1]} peau={peau} miroir={miroir} texte={mv.texteObjet?.r} frame={frame} /> : null}
+        {mv && brasL && mv.objets?.l ? <ObjetMainAnime nom={mv.objets.l} main={brasL[1]} peau={a.gants ?? peau} miroir={miroir} texte={mv.texteObjet?.l} frame={frame} /> : null}
+        {mv && brasR && mv.objets?.r ? <ObjetMainAnime nom={mv.objets.r} main={brasR[1]} peau={a.gants ?? peau} miroir={miroir} texte={mv.texteObjet?.r} frame={frame} /> : null}
         {mv ? null : (
         <Arm
           shoulder={SHOULDER_R}
