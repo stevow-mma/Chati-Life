@@ -1,0 +1,1208 @@
+{
+ "mode": "piste_unique",
+ "fichier": "ep10/voix.mp3",
+ "hash": "654f1fb232cdceb99a2b79812528f5741df87db1cf4af84375abb61779762488",
+ "duree_piste": 82.207347,
+ "derniere_parole": 82.18,
+ "fin": 85.18,
+ "scenes": [
+  {
+   "texte_lu": "Enzo gère le compte d'une jeune femme sur O.F. : cinq mille euros par mois. Il en touche mille deux cents. Mais il ne lui reste que trois cent quarante.",
+   "debut": 0,
+   "mots": [
+    {
+     "texte": "Enzo",
+     "debut": 0.4,
+     "fin": 0.76
+    },
+    {
+     "texte": "gère",
+     "debut": 0.806,
+     "fin": 0.98
+    },
+    {
+     "texte": "le",
+     "debut": 1.004,
+     "fin": 1.062
+    },
+    {
+     "texte": "compte",
+     "debut": 1.12,
+     "fin": 1.317
+    },
+    {
+     "texte": "d'une",
+     "debut": 1.352,
+     "fin": 1.538
+    },
+    {
+     "texte": "jeune",
+     "debut": 1.573,
+     "fin": 1.782
+    },
+    {
+     "texte": "femme",
+     "debut": 1.828,
+     "fin": 2.153
+    },
+    {
+     "texte": "sur",
+     "debut": 2.176,
+     "fin": 2.42
+    },
+    {
+     "texte": "O.F.",
+     "debut": 2.536,
+     "fin": 3.21
+    },
+    {
+     "texte": ":",
+     "debut": 3.233,
+     "fin": 3.291
+    },
+    {
+     "texte": "cinq",
+     "debut": 3.442,
+     "fin": 3.662
+    },
+    {
+     "texte": "mille",
+     "debut": 3.732,
+     "fin": 3.895
+    },
+    {
+     "texte": "euros",
+     "debut": 3.918,
+     "fin": 4.115
+    },
+    {
+     "texte": "par",
+     "debut": 4.138,
+     "fin": 4.266
+    },
+    {
+     "texte": "mois.",
+     "debut": 4.313,
+     "fin": 4.603
+    },
+    {
+     "texte": "Il",
+     "debut": 4.777,
+     "fin": 4.905
+    },
+    {
+     "texte": "en",
+     "debut": 4.963,
+     "fin": 5.021
+    },
+    {
+     "texte": "touche",
+     "debut": 5.09,
+     "fin": 5.439
+    },
+    {
+     "texte": "mille",
+     "debut": 5.508,
+     "fin": 5.741
+    },
+    {
+     "texte": "deux",
+     "debut": 5.787,
+     "fin": 5.926
+    },
+    {
+     "texte": "cents.",
+     "debut": 5.961,
+     "fin": 6.275
+    },
+    {
+     "texte": "Mais",
+     "debut": 6.553,
+     "fin": 6.704
+    },
+    {
+     "texte": "il",
+     "debut": 6.774,
+     "fin": 6.82
+    },
+    {
+     "texte": "ne",
+     "debut": 6.867,
+     "fin": 6.948
+    },
+    {
+     "texte": "lui",
+     "debut": 6.983,
+     "fin": 7.064
+    },
+    {
+     "texte": "reste",
+     "debut": 7.111,
+     "fin": 7.354
+    },
+    {
+     "texte": "que",
+     "debut": 7.412,
+     "fin": 7.517
+    },
+    {
+     "texte": "trois",
+     "debut": 7.563,
+     "fin": 7.842
+    },
+    {
+     "texte": "cent",
+     "debut": 7.865,
+     "fin": 8.016
+    },
+    {
+     "texte": "quarante.",
+     "debut": 8.051,
+     "fin": 8.573
+    }
+   ]
+  },
+  {
+   "texte_lu": "D'abord, O.F. garde vingt pour cent : il reste quatre mille euros. Enzo en prend trente pour cent : mille deux cents.",
+   "debut": 9.015,
+   "mots": [
+    {
+     "texte": "D'abord,",
+     "debut": 9.015,
+     "fin": 9.375
+    },
+    {
+     "texte": "O.F.",
+     "debut": 9.433,
+     "fin": 9.885
+    },
+    {
+     "texte": "garde",
+     "debut": 9.909,
+     "fin": 10.268
+    },
+    {
+     "texte": "vingt",
+     "debut": 10.315,
+     "fin": 10.524
+    },
+    {
+     "texte": "pour",
+     "debut": 10.605,
+     "fin": 10.733
+    },
+    {
+     "texte": "cent",
+     "debut": 10.803,
+     "fin": 11.035
+    },
+    {
+     "texte": ":",
+     "debut": 11.058,
+     "fin": 11.104
+    },
+    {
+     "texte": "il",
+     "debut": 11.197,
+     "fin": 11.29
+    },
+    {
+     "texte": "reste",
+     "debut": 11.348,
+     "fin": 11.604
+    },
+    {
+     "texte": "quatre",
+     "debut": 11.662,
+     "fin": 11.905
+    },
+    {
+     "texte": "mille",
+     "debut": 11.94,
+     "fin": 12.103
+    },
+    {
+     "texte": "euros.",
+     "debut": 12.126,
+     "fin": 12.474
+    },
+    {
+     "texte": "Enzo",
+     "debut": 13.078,
+     "fin": 13.612
+    },
+    {
+     "texte": "en",
+     "debut": 13.705,
+     "fin": 13.891
+    },
+    {
+     "texte": "prend",
+     "debut": 13.949,
+     "fin": 14.251
+    },
+    {
+     "texte": "trente",
+     "debut": 14.367,
+     "fin": 14.669
+    },
+    {
+     "texte": "pour",
+     "debut": 14.692,
+     "fin": 14.831
+    },
+    {
+     "texte": "cent",
+     "debut": 14.889,
+     "fin": 15.18
+    },
+    {
+     "texte": ":",
+     "debut": 15.203,
+     "fin": 15.238
+    },
+    {
+     "texte": "mille",
+     "debut": 15.33,
+     "fin": 15.563
+    },
+    {
+     "texte": "deux",
+     "debut": 15.597,
+     "fin": 15.725
+    },
+    {
+     "texte": "cents.",
+     "debut": 15.76,
+     "fin": 16.097
+    }
+   ]
+  },
+  {
+   "texte_lu": "Ensuite, quatre cents pour les chatteurs, cent cinquante d'outils, trois cent sept de cotisations. Il reste trois cent quarante euros, avant impôt.",
+   "debut": 16.341,
+   "mots": [
+    {
+     "texte": "Ensuite,",
+     "debut": 16.341,
+     "fin": 16.886
+    },
+    {
+     "texte": "quatre",
+     "debut": 17.002,
+     "fin": 17.269
+    },
+    {
+     "texte": "cents",
+     "debut": 17.316,
+     "fin": 17.722
+    },
+    {
+     "texte": "pour",
+     "debut": 17.873,
+     "fin": 18.036
+    },
+    {
+     "texte": "les",
+     "debut": 18.07,
+     "fin": 18.163
+    },
+    {
+     "texte": "chatteurs,",
+     "debut": 18.198,
+     "fin": 18.813
+    },
+    {
+     "texte": "cent",
+     "debut": 19.092,
+     "fin": 19.243
+    },
+    {
+     "texte": "cinquante",
+     "debut": 19.278,
+     "fin": 19.638
+    },
+    {
+     "texte": "d'outils,",
+     "debut": 19.661,
+     "fin": 20.195
+    },
+    {
+     "texte": "trois",
+     "debut": 20.369,
+     "fin": 20.613
+    },
+    {
+     "texte": "cent",
+     "debut": 20.636,
+     "fin": 20.787
+    },
+    {
+     "texte": "sept",
+     "debut": 20.822,
+     "fin": 21.089
+    },
+    {
+     "texte": "de",
+     "debut": 21.205,
+     "fin": 21.333
+    },
+    {
+     "texte": "cotisations.",
+     "debut": 21.391,
+     "fin": 22.134
+    },
+    {
+     "texte": "Il",
+     "debut": 22.459,
+     "fin": 22.575
+    },
+    {
+     "texte": "reste",
+     "debut": 22.668,
+     "fin": 22.889
+    },
+    {
+     "texte": "trois",
+     "debut": 22.935,
+     "fin": 23.086
+    },
+    {
+     "texte": "cent",
+     "debut": 23.109,
+     "fin": 23.237
+    },
+    {
+     "texte": "quarante",
+     "debut": 23.272,
+     "fin": 23.562
+    },
+    {
+     "texte": "euros,",
+     "debut": 23.597,
+     "fin": 23.887
+    },
+    {
+     "texte": "avant",
+     "debut": 23.922,
+     "fin": 24.177
+    },
+    {
+     "texte": "impôt.",
+     "debut": 24.212,
+     "fin": 24.607
+    }
+   ]
+  },
+  {
+   "texte_lu": "Mais Luna garde deux mille huit cents euros. Si elle part, Enzo perd tout.",
+   "debut": 25.118,
+   "mots": [
+    {
+     "texte": "Mais",
+     "debut": 25.118,
+     "fin": 25.385
+    },
+    {
+     "texte": "Luna",
+     "debut": 25.431,
+     "fin": 25.663
+    },
+    {
+     "texte": "garde",
+     "debut": 25.733,
+     "fin": 26.012
+    },
+    {
+     "texte": "deux",
+     "debut": 26.093,
+     "fin": 26.209
+    },
+    {
+     "texte": "mille",
+     "debut": 26.232,
+     "fin": 26.488
+    },
+    {
+     "texte": "huit",
+     "debut": 26.511,
+     "fin": 26.72
+    },
+    {
+     "texte": "cents",
+     "debut": 26.755,
+     "fin": 27.01
+    },
+    {
+     "texte": "euros.",
+     "debut": 27.045,
+     "fin": 27.474
+    },
+    {
+     "texte": "Si",
+     "debut": 27.799,
+     "fin": 27.927
+    },
+    {
+     "texte": "elle",
+     "debut": 27.974,
+     "fin": 28.09
+    },
+    {
+     "texte": "part,",
+     "debut": 28.125,
+     "fin": 28.519
+    },
+    {
+     "texte": "Enzo",
+     "debut": 28.589,
+     "fin": 28.937
+    },
+    {
+     "texte": "perd",
+     "debut": 28.984,
+     "fin": 29.181
+    },
+    {
+     "texte": "tout.",
+     "debut": 29.204,
+     "fin": 29.576
+    }
+   ]
+  },
+  {
+   "texte_lu": "Premier levier : un contrat écrit. Pourcentage, base brute ou nette, durée, sortie.",
+   "debut": 30.087,
+   "mots": [
+    {
+     "texte": "Premier",
+     "debut": 30.087,
+     "fin": 30.4
+    },
+    {
+     "texte": "levier",
+     "debut": 30.435,
+     "fin": 30.806
+    },
+    {
+     "texte": ":",
+     "debut": 30.923,
+     "fin": 31.015
+    },
+    {
+     "texte": "un",
+     "debut": 31.085,
+     "fin": 31.19
+    },
+    {
+     "texte": "contrat",
+     "debut": 31.248,
+     "fin": 31.631
+    },
+    {
+     "texte": "écrit.",
+     "debut": 31.689,
+     "fin": 32.188
+    },
+    {
+     "texte": "Pourcentage,",
+     "debut": 32.571,
+     "fin": 33.314
+    },
+    {
+     "texte": "base",
+     "debut": 33.337,
+     "fin": 33.581
+    },
+    {
+     "texte": "brute",
+     "debut": 33.616,
+     "fin": 33.953
+    },
+    {
+     "texte": "ou",
+     "debut": 34.022,
+     "fin": 34.115
+    },
+    {
+     "texte": "nette,",
+     "debut": 34.173,
+     "fin": 34.498
+    },
+    {
+     "texte": "durée,",
+     "debut": 34.533,
+     "fin": 35.323
+    },
+    {
+     "texte": "sortie.",
+     "debut": 35.532,
+     "fin": 36.205
+    }
+   ]
+  },
+  {
+   "texte_lu": "Deuxième levier : un taux lié au service, de vingt à quarante-cinq pour cent.",
+   "debut": 36.646,
+   "mots": [
+    {
+     "texte": "Deuxième",
+     "debut": 36.646,
+     "fin": 36.995
+    },
+    {
+     "texte": "levier",
+     "debut": 37.018,
+     "fin": 37.354
+    },
+    {
+     "texte": ":",
+     "debut": 37.471,
+     "fin": 37.587
+    },
+    {
+     "texte": "un",
+     "debut": 37.633,
+     "fin": 37.772
+    },
+    {
+     "texte": "taux",
+     "debut": 37.842,
+     "fin": 37.97
+    },
+    {
+     "texte": "lié",
+     "debut": 38.005,
+     "fin": 38.086
+    },
+    {
+     "texte": "au",
+     "debut": 38.109,
+     "fin": 38.156
+    },
+    {
+     "texte": "service,",
+     "debut": 38.214,
+     "fin": 38.748
+    },
+    {
+     "texte": "de",
+     "debut": 38.864,
+     "fin": 38.957
+    },
+    {
+     "texte": "vingt",
+     "debut": 39.003,
+     "fin": 39.2
+    },
+    {
+     "texte": "à",
+     "debut": 39.247,
+     "fin": 39.27
+    },
+    {
+     "texte": "quarante-cinq",
+     "debut": 39.317,
+     "fin": 39.769
+    },
+    {
+     "texte": "pour",
+     "debut": 39.816,
+     "fin": 39.932
+    },
+    {
+     "texte": "cent.",
+     "debut": 39.99,
+     "fin": 40.35
+    }
+   ]
+  },
+  {
+   "texte_lu": "Troisième levier : trois comptes, et Enzo passe à environ mille euros par mois.",
+   "debut": 40.861,
+   "mots": [
+    {
+     "texte": "Troisième",
+     "debut": 40.861,
+     "fin": 41.232
+    },
+    {
+     "texte": "levier",
+     "debut": 41.255,
+     "fin": 41.615
+    },
+    {
+     "texte": ":",
+     "debut": 41.697,
+     "fin": 41.813
+    },
+    {
+     "texte": "trois",
+     "debut": 41.964,
+     "fin": 42.184
+    },
+    {
+     "texte": "comptes,",
+     "debut": 42.219,
+     "fin": 42.683
+    },
+    {
+     "texte": "et",
+     "debut": 42.799,
+     "fin": 42.95
+    },
+    {
+     "texte": "Enzo",
+     "debut": 42.997,
+     "fin": 43.357
+    },
+    {
+     "texte": "passe",
+     "debut": 43.426,
+     "fin": 43.67
+    },
+    {
+     "texte": "à",
+     "debut": 43.693,
+     "fin": 43.728
+    },
+    {
+     "texte": "environ",
+     "debut": 43.821,
+     "fin": 44.216
+    },
+    {
+     "texte": "mille",
+     "debut": 44.297,
+     "fin": 44.529
+    },
+    {
+     "texte": "euros",
+     "debut": 44.552,
+     "fin": 44.738
+    },
+    {
+     "texte": "par",
+     "debut": 44.761,
+     "fin": 44.901
+    },
+    {
+     "texte": "mois.",
+     "debut": 44.947,
+     "fin": 45.342
+    }
+   ]
+  },
+  {
+   "texte_lu": "Quatrième levier : mesure ton taux de réponse et ton revenu par fan actif.",
+   "debut": 45.667,
+   "mots": [
+    {
+     "texte": "Quatrième",
+     "debut": 45.667,
+     "fin": 46.108
+    },
+    {
+     "texte": "levier",
+     "debut": 46.131,
+     "fin": 46.468
+    },
+    {
+     "texte": ":",
+     "debut": 46.526,
+     "fin": 46.642
+    },
+    {
+     "texte": "mesure",
+     "debut": 46.886,
+     "fin": 47.188
+    },
+    {
+     "texte": "ton",
+     "debut": 47.211,
+     "fin": 47.304
+    },
+    {
+     "texte": "taux",
+     "debut": 47.35,
+     "fin": 47.455
+    },
+    {
+     "texte": "de",
+     "debut": 47.478,
+     "fin": 47.536
+    },
+    {
+     "texte": "réponse",
+     "debut": 47.583,
+     "fin": 48.047
+    },
+    {
+     "texte": "et",
+     "debut": 48.105,
+     "fin": 48.21
+    },
+    {
+     "texte": "ton",
+     "debut": 48.256,
+     "fin": 48.361
+    },
+    {
+     "texte": "revenu",
+     "debut": 48.395,
+     "fin": 48.732
+    },
+    {
+     "texte": "par",
+     "debut": 48.779,
+     "fin": 48.941
+    },
+    {
+     "texte": "fan",
+     "debut": 49.022,
+     "fin": 49.185
+    },
+    {
+     "texte": "actif.",
+     "debut": 49.231,
+     "fin": 49.812
+    }
+   ]
+  },
+  {
+   "texte_lu": "Cinquième levier : plusieurs plateformes. Un compte suspendu, et tout s'arrête.",
+   "debut": 50.323,
+   "mots": [
+    {
+     "texte": "Cinquième",
+     "debut": 50.323,
+     "fin": 50.706
+    },
+    {
+     "texte": "levier",
+     "debut": 50.729,
+     "fin": 51.042
+    },
+    {
+     "texte": ":",
+     "debut": 51.101,
+     "fin": 51.147
+    },
+    {
+     "texte": "plusieurs",
+     "debut": 51.24,
+     "fin": 51.565
+    },
+    {
+     "texte": "plateformes.",
+     "debut": 51.588,
+     "fin": 52.227
+    },
+    {
+     "texte": "Un",
+     "debut": 52.505,
+     "fin": 52.656
+    },
+    {
+     "texte": "compte",
+     "debut": 52.714,
+     "fin": 52.9
+    },
+    {
+     "texte": "suspendu,",
+     "debut": 52.923,
+     "fin": 53.515
+    },
+    {
+     "texte": "et",
+     "debut": 53.55,
+     "fin": 53.666
+    },
+    {
+     "texte": "tout",
+     "debut": 53.701,
+     "fin": 53.829
+    },
+    {
+     "texte": "s'arrête.",
+     "debut": 53.852,
+     "fin": 54.386
+    }
+   ]
+  },
+  {
+   "texte_lu": "Conseil : fais valider ta catégorie, B.N.C. ou B.I.C. Ça change tes cotisations d'environ cinquante euros par mois.",
+   "debut": 54.827,
+   "mots": [
+    {
+     "texte": "Conseil",
+     "debut": 54.827,
+     "fin": 55.303
+    },
+    {
+     "texte": ":",
+     "debut": 55.419,
+     "fin": 55.477
+    },
+    {
+     "texte": "fais",
+     "debut": 55.605,
+     "fin": 55.744
+    },
+    {
+     "texte": "valider",
+     "debut": 55.768,
+     "fin": 56.128
+    },
+    {
+     "texte": "ta",
+     "debut": 56.151,
+     "fin": 56.232
+    },
+    {
+     "texte": "catégorie,",
+     "debut": 56.278,
+     "fin": 56.998
+    },
+    {
+     "texte": "B.N.C.",
+     "debut": 57.114,
+     "fin": 57.637
+    },
+    {
+     "texte": "ou",
+     "debut": 57.672,
+     "fin": 57.765
+    },
+    {
+     "texte": "B.I.C.",
+     "debut": 57.823,
+     "fin": 58.403
+    },
+    {
+     "texte": "Ça",
+     "debut": 58.554,
+     "fin": 58.705
+    },
+    {
+     "texte": "change",
+     "debut": 58.74,
+     "fin": 58.96
+    },
+    {
+     "texte": "tes",
+     "debut": 58.995,
+     "fin": 59.088
+    },
+    {
+     "texte": "cotisations",
+     "debut": 59.111,
+     "fin": 59.785
+    },
+    {
+     "texte": "d'environ",
+     "debut": 59.808,
+     "fin": 60.319
+    },
+    {
+     "texte": "cinquante",
+     "debut": 60.435,
+     "fin": 60.83
+    },
+    {
+     "texte": "euros",
+     "debut": 60.853,
+     "fin": 61.085
+    },
+    {
+     "texte": "par",
+     "debut": 61.108,
+     "fin": 61.271
+    },
+    {
+     "texte": "mois.",
+     "debut": 61.317,
+     "fin": 61.654
+    }
+   ]
+  },
+  {
+   "texte_lu": "Attention : un texte en discussion punirait l'exploitation sexuelle en ligne, jusqu'à sept ans de prison.",
+   "debut": 62.258,
+   "mots": [
+    {
+     "texte": "Attention",
+     "debut": 62.258,
+     "fin": 62.757
+    },
+    {
+     "texte": ":",
+     "debut": 62.873,
+     "fin": 62.908
+    },
+    {
+     "texte": "un",
+     "debut": 63.233,
+     "fin": 63.326
+    },
+    {
+     "texte": "texte",
+     "debut": 63.395,
+     "fin": 63.651
+    },
+    {
+     "texte": "en",
+     "debut": 63.674,
+     "fin": 63.72
+    },
+    {
+     "texte": "discussion",
+     "debut": 63.767,
+     "fin": 64.266
+    },
+    {
+     "texte": "punirait",
+     "debut": 64.324,
+     "fin": 64.789
+    },
+    {
+     "texte": "l'exploitation",
+     "debut": 64.881,
+     "fin": 65.532
+    },
+    {
+     "texte": "sexuelle",
+     "debut": 65.578,
+     "fin": 65.984
+    },
+    {
+     "texte": "en",
+     "debut": 66.008,
+     "fin": 66.054
+    },
+    {
+     "texte": "ligne,",
+     "debut": 66.101,
+     "fin": 66.53
+    },
+    {
+     "texte": "jusqu'à",
+     "debut": 66.658,
+     "fin": 66.994
+    },
+    {
+     "texte": "sept",
+     "debut": 67.053,
+     "fin": 67.238
+    },
+    {
+     "texte": "ans",
+     "debut": 67.296,
+     "fin": 67.378
+    },
+    {
+     "texte": "de",
+     "debut": 67.401,
+     "fin": 67.447
+    },
+    {
+     "texte": "prison.",
+     "debut": 67.494,
+     "fin": 67.993
+    }
+   ]
+  },
+  {
+   "texte_lu": "Règle numéro un : jamais de pression. Le compte, les revenus et le contenu restent à la jeune femme.",
+   "debut": 68.69,
+   "mots": [
+    {
+     "texte": "Règle",
+     "debut": 68.69,
+     "fin": 68.968
+    },
+    {
+     "texte": "numéro",
+     "debut": 69.003,
+     "fin": 69.328
+    },
+    {
+     "texte": "un",
+     "debut": 69.363,
+     "fin": 69.456
+    },
+    {
+     "texte": ":",
+     "debut": 69.572,
+     "fin": 69.688
+    },
+    {
+     "texte": "jamais",
+     "debut": 70.013,
+     "fin": 70.28
+    },
+    {
+     "texte": "de",
+     "debut": 70.315,
+     "fin": 70.373
+    },
+    {
+     "texte": "pression.",
+     "debut": 70.408,
+     "fin": 70.884
+    },
+    {
+     "texte": "Le",
+     "debut": 71.58,
+     "fin": 71.72
+    },
+    {
+     "texte": "compte,",
+     "debut": 71.778,
+     "fin": 72.149
+    },
+    {
+     "texte": "les",
+     "debut": 72.184,
+     "fin": 72.289
+    },
+    {
+     "texte": "revenus",
+     "debut": 72.335,
+     "fin": 72.834
+    },
+    {
+     "texte": "et",
+     "debut": 72.881,
+     "fin": 72.985
+    },
+    {
+     "texte": "le",
+     "debut": 73.02,
+     "fin": 73.078
+    },
+    {
+     "texte": "contenu",
+     "debut": 73.125,
+     "fin": 73.612
+    },
+    {
+     "texte": "restent",
+     "debut": 73.705,
+     "fin": 74.053
+    },
+    {
+     "texte": "à",
+     "debut": 74.1,
+     "fin": 74.123
+    },
+    {
+     "texte": "la",
+     "debut": 74.158,
+     "fin": 74.216
+    },
+    {
+     "texte": "jeune",
+     "debut": 74.262,
+     "fin": 74.46
+    },
+    {
+     "texte": "femme.",
+     "debut": 74.495,
+     "fin": 74.936
+    }
+   ]
+  },
+  {
+   "texte_lu": "Manager sur O.F. : métier ou piège ? Dis-le en commentaire, et abonne-toi pour d'autres vrais chiffres.",
+   "debut": 75.447,
+   "mots": [
+    {
+     "texte": "Manager",
+     "debut": 75.447,
+     "fin": 75.888
+    },
+    {
+     "texte": "sur",
+     "debut": 75.934,
+     "fin": 76.097
+    },
+    {
+     "texte": "O.F.",
+     "debut": 76.132,
+     "fin": 76.468
+    },
+    {
+     "texte": ":",
+     "debut": 76.979,
+     "fin": 77.002
+    },
+    {
+     "texte": "métier",
+     "debut": 77.072,
+     "fin": 77.525
+    },
+    {
+     "texte": "ou",
+     "debut": 77.583,
+     "fin": 77.629
+    },
+    {
+     "texte": "piège",
+     "debut": 77.664,
+     "fin": 78.047
+    },
+    {
+     "texte": "?",
+     "debut": 78.094,
+     "fin": 78.152
+    },
+    {
+     "texte": "Dis-le",
+     "debut": 78.535,
+     "fin": 78.767
+    },
+    {
+     "texte": "en",
+     "debut": 78.813,
+     "fin": 78.871
+    },
+    {
+     "texte": "commentaire,",
+     "debut": 78.93,
+     "fin": 79.673
+    },
+    {
+     "texte": "et",
+     "debut": 79.998,
+     "fin": 80.125
+    },
+    {
+     "texte": "abonne-toi",
+     "debut": 80.172,
+     "fin": 80.694
+    },
+    {
+     "texte": "pour",
+     "debut": 80.741,
+     "fin": 80.88
+    },
+    {
+     "texte": "d'autres",
+     "debut": 80.938,
+     "fin": 81.24
+    },
+    {
+     "texte": "vrais",
+     "debut": 81.263,
+     "fin": 81.449
+    },
+    {
+     "texte": "chiffres.",
+     "debut": 81.484,
+     "fin": 82.18
+    }
+   ]
+  }
+ ]
+}

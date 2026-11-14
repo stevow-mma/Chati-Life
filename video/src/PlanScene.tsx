@@ -7,6 +7,8 @@ import {Personnage, type Apparence} from './components/Personnage';
 import {PremiereImage} from './intro';
 import {FONT_TEXTE} from './fonts';
 import {Subtitle, revealFrames} from './components/Subtitle';
+import {Acteurs} from './components/Acteurs';
+import {ElementEp10, EST_EP10, Glisse} from './components/ElementsEp10';
 import type {Accessoire, Plan} from './types';
 
 export const PlanScene: React.FC<{plan: Plan; personnage: Apparence; premier?: boolean; /** personnage muet (ep05+) : bouche jamais calée sur la voix */ muet?: boolean}> = ({
@@ -98,9 +100,20 @@ export const PlanScene: React.FC<{plan: Plan; personnage: Apparence; premier?: b
   const motFrame = (m: string) => {
     if (!voix) return undefined;
     const norm = (w: string) => w.toLowerCase().replace(/[^\p{L}\p{N}'-]/gu, '');
+    if (m.includes('#')) {
+      // ep10 : « mot#2 » = 2e occurrence du mot dans le plan
+      const [mot, rang] = m.split('#');
+      const ks = motsTexte.map((w, i) => (norm(w) === norm(mot) ? i : -1)).filter((i) => i >= 0);
+      const k = ks[Number(rang) - 1];
+      return k !== undefined && motsVoix[k] ? debutF(k) : undefined;
+    }
     const k = motsTexte.findIndex((w) => norm(w) === norm(m));
     return k >= 0 && motsVoix[k] ? debutF(k) : undefined;
   };
+  // ep10 : plusieurs personnages animés par des actions (sinon : personnage seul au centre, comportement d'origine)
+  const acteurs = plan.acteurs && plan.acteurs.length ? plan.acteurs : null;
+  // léger travelling horizontal pendant le plan (ep10)
+  const travelling = acteurs ? interpolate(frame, [0, durationInFrames], [-18, 18]) * (plan.decor.length % 2 ? 1 : -1) : 0;
 
   // Objets au sol (un seul ou une liste)
   const objets = plan.accessoire_sol ? (Array.isArray(plan.accessoire_sol) ? plan.accessoire_sol : [plan.accessoire_sol]) : [];
@@ -111,14 +124,17 @@ export const PlanScene: React.FC<{plan: Plan; personnage: Apparence; premier?: b
     <PremiereImage.Provider value={premier}>
     <AbsoluteFill style={{overflow: 'hidden'}}>
       {voix?.fichier ? <Audio src={staticFile(voix.fichier)} /> : null}
-      <AbsoluteFill style={{transform: `scale(${sceneScale})`}}>
+      <AbsoluteFill style={{transform: acteurs ? `scale(${sceneScale}) translateX(${travelling}px)` : `scale(${sceneScale})`}}>
         <Decor nom={plan.decor} variante={motIndex} />
 
         {objetsDerriere.map((o) => (
           <ObjetSol key={o} nom={o} couleurVelo={personnage.velo ?? undefined} />
         ))}
 
-        {/* Personnage : centre de l'écran */}
+        {acteurs ? (
+          <Acteurs acteurs={acteurs} objets={plan.objets_scene ?? []} expressionPlan={expression} principal={personnage} muet={muet} />
+        ) : (
+        /* Personnage : centre de l'écran */
         <div
           style={{
             position: 'absolute',
@@ -130,13 +146,27 @@ export const PlanScene: React.FC<{plan: Plan; personnage: Apparence; premier?: b
         >
           <Personnage apparence={personnage} expression={expression} talking={muet ? false : talking} muet={muet} accessoire={accessoire} entree={!premier} pose={plan.pose} objetMain={plan.objet_main ?? null} />
         </div>
+        )}
 
         {objetsDevant.map((o) => (
           <ObjetSol key={o} nom={o} couleurVelo={personnage.velo ?? undefined} />
         ))}
 
         {/* Élément visuel : zone haute */}
-        {ev && ev.type !== 'mots_rotatifs' ? (
+        {ev && ev.type !== 'mots_rotatifs' && acteurs ? (
+          // ep10 : zone haute, la carte glisse depuis le côté et rebondit, sans couvrir les personnages
+          <div style={{position: 'absolute', left: 0, right: 0, top: 318, display: 'flex', justifyContent: 'center', transform: `translateX(${-travelling}px)`}}>
+            {EST_EP10.has(ev.type) ? (
+              <ElementEp10 element={ev} bascule={basculeEv} motFrame={motFrame} />
+            ) : (
+              <Glisse>
+                <div style={{width: 1080, height: 440}}>
+                  <ElementVisuelView element={ev} bascule={basculeEv} motFrame={motFrame} />
+                </div>
+              </Glisse>
+            )}
+          </div>
+        ) : ev && ev.type !== 'mots_rotatifs' ? (
           <div style={{position: 'absolute', left: 0, right: 0, top: 320, height: 440}}>
             <ElementVisuelView element={ev} bascule={basculeEv} motFrame={motFrame} />
           </div>

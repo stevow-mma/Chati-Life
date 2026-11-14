@@ -43,6 +43,8 @@ const conf = episode.voix ?? {mode: 'par_scene'};
 
 /** Texte réellement lu : champ `texte`, avec {mot} remplacé par les mots rotatifs. */
 const texteLu = (plan) => {
+  // ep10 : `texte_voix` (optionnel) = texte prononcé quand il diffère de l'affichage (sigles épelés « O.F. »).
+  if (typeof plan.texte_voix === 'string') return plan.texte_voix;
   const ev = plan.element_visuel;
   if (ev?.type === 'mots_rotatifs' && plan.texte.includes('{mot}')) {
     return plan.texte.replace('{mot}', ev.mots.map((m) => m.toLowerCase()).join('... '));

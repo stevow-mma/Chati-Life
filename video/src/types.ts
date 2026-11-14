@@ -151,7 +151,135 @@ export type ElementVisuel =
   /** Carte de quartier générique (sans logo) : trois punaises regroupées reliées par un trait court (sur `au_mot`), puce dessous. */
   | {type: 'carte_quartier'; chip?: string; au_mot?: string; mention?: string}
   /** Smartphone générique : barre de recherche, fiche d'entreprise (5 étoiles), photos avant/après stylisées (sur `au_mot`). Sans logo. */
-  | {type: 'fiche_entreprise'; recherche: string; nom: string; activite?: string; au_mot?: string; mention?: string};
+  | {type: 'fiche_entreprise'; recherche: string; nom: string; activite?: string; au_mot?: string; mention?: string}
+  // --- Épisode 10 (les cartes glissent depuis le côté et rebondissent) ---
+  /** Cartes chiffrées successives (chacune sur son `au_mot` ; « mot#2 » = 2e occurrence), pastille générique « OF ». */
+  | {type: 'cartes_successives'; cartes: {valeur: string; legende?: string; au_mot?: string; alerte?: boolean}[]; pastille?: string; mention?: string; source?: string}
+  /** Calcul en cascade : lignes qui tombent une à une (sur `au_mot`), résultat surligné. */
+  | {
+      type: 'cascade';
+      titre?: string;
+      /** Définition affichée au-dessus (ex. « Chatteur : … »). */
+      definition?: string;
+      lignes: {label: string; valeur: string; au_mot?: string; resultat?: boolean; negatif?: boolean}[];
+      petit?: string;
+      hypotheses?: string;
+      mention?: string;
+      source?: string;
+      pastille?: string;
+    }
+  /** Contrat papier à cases cochées une à une (sur `au_mot`). */
+  | {type: 'contrat_cases'; titre: string; cases: {label: string; petit?: string; au_mot?: string}[]; petit?: string; mention?: string}
+  /** Carte de taux (titre, lignes, précision), sources en bas. */
+  | {type: 'carte_taux'; titre?: string; lignes: {label: string; valeur: string; au_mot?: string}[]; petit?: string; mention?: string; source?: string}
+  /** Icônes de profils neutres, puis calcul « 3 × … = … » sur `au_mot`. */
+  | {type: 'profils_comptes'; n: number; calcul: string; resultat: string; au_mot?: string; mention?: string}
+  /** Tableau de bord : tuiles (titre, formule ou jauge). */
+  | {type: 'tableau_bord'; tuiles: {titre: string; detail: string; jauge?: number; au_mot?: string}[]; source?: string}
+  /** Écran « Compte suspendu : 0 € », puis deux plateformes génériques A et B (sur `au_mot`). */
+  | {type: 'compte_suspendu'; titre: string; valeur: string; plateformes: string[]; au_mot?: string; petit?: string}
+  /** Pastilles qui se verrouillent sur une destination (une par `au_mot`). */
+  | {type: 'verrous'; pastilles: {texte: string; au_mot?: string}[]; destination: string; mention?: string};
+
+// --- Épisode 10 : mouvement (plusieurs personnages, actions déclarées par scène) ---
+
+/** Types d'actions d'un acteur (début `t` et fin `fin` en secondes, relatifs au début de la scène). */
+export type TypeAction =
+  // déplacements
+  | 'walkIn' | 'walkOut' | 'walkTo' | 'glisse' | 'recul' | 'saut' | 'miroir'
+  // tête et corps
+  | 'hoche' | 'incline' | 'hausse' | 'expression'
+  // bras
+  | 'pointer' | 'taper' | 'compter' | 'tendre' | 'saisir' | 'serrerMain' | 'saluer' | 'croiser' | 'teteMains'
+  | 'boire' | 'montre' | 'tapeMain' | 'pouce' | 'ballants' | 'sousBras' | 'tenir' | 'ecrire' | 'tracer' | 'nuque'
+  | 'poing' | 'tapeEpaule' | 'montrer' | 'lever'
+  // objet tenu en main (sans geste particulier)
+  | 'objet';
+
+export type ObjetTenuNom =
+  | 'telephone' | 'telephone_b' | 'ordinateur' | 'contrat' | 'stylo' | 'feutre' | 'tasse' | 'billets' | 'enveloppe'
+  | 'cheque' | 'dossier' | 'pastille_compte' | 'pastille_revenus' | 'pastille_contenu' | 'pastilles' | 'pancarte'
+  | 'calculatrice' | 'sac' | 'papiers';
+
+export type ActionActeur = {
+  t: number;
+  /** Fin (s). Défaut : t + 0,6 s (geste bref) ; pour `objet` : fin de la scène. */
+  fin?: number;
+  type: TypeAction;
+  /** Bras concerné : l (à gauche de l'écran), r (à droite), deux. Défaut : r. */
+  cote?: 'l' | 'r' | 'deux';
+  /** walkIn : côté d'entrée ; walkOut : côté de sortie. */
+  from?: 'left' | 'right';
+  to?: 'left' | 'right';
+  /** walkIn (arrivée, défaut : x de l'acteur), walkTo, glisse : position visée (px, centre ; y = pieds). */
+  x?: number;
+  y?: number;
+  /** walkTo, glisse : échelle visée (avancer vers la caméra). */
+  echelle?: number;
+  /** recul : déplacement horizontal (px, défaut −80). */
+  dx?: number;
+  /** pointer : direction. */
+  cible?: 'haut' | 'cote' | 'bas' | 'avant';
+  /** compter : doigts levés successivement (ex. [2, 3]). */
+  doigts?: number[];
+  /** Objet tenu pendant le geste (ou pour `objet`). null = main vide. */
+  objet?: ObjetTenuNom | null;
+  /** Texte de l'objet (chèque, pancarte ; `\n` = retour à la ligne). */
+  texte?: string;
+  /** incline : angle (degrés). */
+  angle?: number;
+  /** expression : nouvelle expression. */
+  expression?: Expression;
+  /** miroir : nouvel état. */
+  valeur?: boolean;
+};
+
+export type Acteur = {
+  /** Clé dans src/personnages.ts. */
+  id: string;
+  /** Position de départ : centre (px) et ligne des pieds (px, défaut 1502). */
+  x: number;
+  y?: number;
+  /** Échelle (1 = taille du personnage seul à l'écran ; défaut 0.78). */
+  echelle?: number;
+  miroir?: boolean;
+  pose?: Pose;
+  /** Expression (défaut : celle du plan). */
+  expression?: Expression;
+  /** Étiquette de nom affichée à sa première apparition (ex. « Enzo, manager »). */
+  nom?: string;
+  /** Chaise de bureau à roulettes derrière lui (couleur), avec la pose `assis`. */
+  chaise?: string;
+  accessoire?: Accessoire;
+  actions?: ActionActeur[];
+};
+
+/** Objet de décor animé (coordonnées écran 1080 x 1920). */
+export type ObjetScene = {
+  type: 'bureau' | 'ordinateur' | 'poste' | 'tableau_blanc' | 'calculatrice' | 'pile_billets' | 'escalier' | 'ecran_mural' | 'pastilles_bureau';
+  x: number;
+  y: number;
+  /** Largeur (bureau, écran). */
+  largeur?: number;
+  hauteur?: number;
+  /** Apparition / disparition (s). */
+  t?: number;
+  fin?: number;
+  /** ordinateur : ouverture et fermeture (s) ; écran affiché. */
+  ouvre?: number;
+  ferme?: number;
+  ecran?: 'barres' | 'messages' | 'tableau';
+  /** tableau_blanc : tracé de la flèche (s) ; escalier : libellés des marches ; ecran_mural : variante. */
+  trace?: [number, number];
+  marches?: {label: string; petit?: string}[];
+  variante?: 'loi' | 'suspendu';
+  /** calculatrice : texte de l'écran. */
+  affiche?: string;
+  /** pastilles_bureau : instants (s) où chaque pastille est prise. */
+  prises?: number[];
+  /** Dessiné devant les personnages. */
+  devant?: boolean;
+};
 
 export type Plan = {
   texte: string;
@@ -176,6 +304,12 @@ export type Plan = {
   puis?: {expression: Expression; au_mot: string} | null;
   /** Bandeau discret en haut de l'écran rappelant les hypothèses d'un exemple chiffré. */
   hypotheses?: string | null;
+  /** ep10 : texte prononcé s'il diffère du texte affiché (sigles épelés : « O.F. » lu, « OF » affiché ; même nombre de mots). */
+  texte_voix?: string;
+  /** ep10 : personnages à l'écran avec leurs actions (remplace le personnage seul au centre). */
+  acteurs?: Acteur[];
+  /** ep10 : objets de décor animés. */
+  objets_scene?: ObjetScene[];
   /** Voix off (ajoutée depuis src/voix.json, pas dans script.json). */
   voix?: Voix | null;
 };

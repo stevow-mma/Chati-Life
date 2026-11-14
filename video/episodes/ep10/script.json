@@ -1,0 +1,1747 @@
+[
+  {
+    "texte": "Enzo gère le compte d'une jeune femme sur OF : cinq mille euros par mois. Il en touche mille deux cents. Mais il ne lui reste que trois cent quarante.",
+    "texte_voix": "Enzo gère le compte d'une jeune femme sur O.F. : cinq mille euros par mois. Il en touche mille deux cents. Mais il ne lui reste que trois cent quarante.",
+    "decor": "coworking",
+    "expression": "fier",
+    "puis": {
+      "expression": "choque",
+      "au_mot": "reste"
+    },
+    "mot_jaune": "reste",
+    "etiquette": null,
+    "element_visuel": {
+      "type": "cartes_successives",
+      "pastille": "OF",
+      "cartes": [
+        {
+          "valeur": "5 000 €",
+          "legende": "par mois",
+          "au_mot": "cinq"
+        },
+        {
+          "valeur": "1 200 €",
+          "legende": "pour Enzo",
+          "au_mot": "mille#2"
+        },
+        {
+          "valeur": "≈ 340 €",
+          "legende": "il lui reste",
+          "au_mot": "trois",
+          "alerte": true
+        }
+      ],
+      "mention": "Exemple illustratif"
+    },
+    "objets_scene": [
+      {
+        "type": "bureau",
+        "x": 400,
+        "y": 1290,
+        "largeur": 420,
+        "devant": true
+      },
+      {
+        "type": "ordinateur",
+        "x": 400,
+        "y": 1290,
+        "largeur": 200,
+        "t": 1.75,
+        "ouvre": 1.85,
+        "ecran": "barres",
+        "devant": true
+      }
+    ],
+    "acteurs": [
+      {
+        "id": "enzo",
+        "x": 400,
+        "nom": "Enzo, manager",
+        "actions": [
+          {
+            "t": 0,
+            "type": "walkIn",
+            "fin": 1.6,
+            "from": "left"
+          },
+          {
+            "t": 0,
+            "type": "objet",
+            "fin": 1.8,
+            "cote": "r",
+            "objet": "ordinateur"
+          },
+          {
+            "t": 1.5,
+            "type": "tendre",
+            "fin": 1.85,
+            "cote": "r",
+            "objet": "ordinateur"
+          },
+          {
+            "t": 2.0,
+            "type": "taper",
+            "fin": 4.1
+          },
+          {
+            "t": 4.1,
+            "type": "walkTo",
+            "fin": 4.5,
+            "x": 470
+          },
+          {
+            "t": 4.4,
+            "type": "tapeMain",
+            "fin": 5.1,
+            "cote": "r"
+          },
+          {
+            "t": 5.2,
+            "type": "taper",
+            "fin": 7.0
+          },
+          {
+            "t": 5.9,
+            "type": "hoche",
+            "fin": 6.8
+          },
+          {
+            "t": 7.25,
+            "type": "recul",
+            "fin": 7.8,
+            "dx": -90
+          },
+          {
+            "t": 7.45,
+            "type": "teteMains",
+            "fin": 9.1
+          }
+        ]
+      },
+      {
+        "id": "luna",
+        "x": 700,
+        "nom": "Luna, créatrice",
+        "expression": "content",
+        "actions": [
+          {
+            "t": 2.6,
+            "type": "walkIn",
+            "fin": 4.2,
+            "from": "right"
+          },
+          {
+            "t": 2.6,
+            "type": "objet",
+            "cote": "l",
+            "objet": "telephone"
+          },
+          {
+            "t": 4.4,
+            "type": "tapeMain",
+            "fin": 5.1,
+            "cote": "l"
+          },
+          {
+            "t": 5.1,
+            "type": "montrer",
+            "fin": 6.3,
+            "cote": "l",
+            "objet": "telephone"
+          },
+          {
+            "t": 6.3,
+            "type": "hoche",
+            "fin": 7.2
+          },
+          {
+            "t": 7.5,
+            "type": "hausse",
+            "fin": 8.4
+          },
+          {
+            "t": 8.3,
+            "type": "incline",
+            "fin": 9.1,
+            "angle": -10
+          }
+        ]
+      }
+    ],
+    "duree": 4
+  },
+  {
+    "texte": "D'abord, OF garde vingt pour cent : il reste quatre mille euros. Enzo en prend trente pour cent : mille deux cents.",
+    "texte_voix": "D'abord, O.F. garde vingt pour cent : il reste quatre mille euros. Enzo en prend trente pour cent : mille deux cents.",
+    "decor": "bureau",
+    "expression": "neutre",
+    "mot_jaune": "trente",
+    "etiquette": null,
+    "element_visuel": {
+      "type": "cascade",
+      "pastille": "OF",
+      "lignes": [
+        {
+          "label": "Revenus du compte",
+          "valeur": "5 000 €"
+        },
+        {
+          "label": "OF garde 20 %",
+          "valeur": "− 1 000 €",
+          "au_mot": "vingt",
+          "negatif": true
+        },
+        {
+          "label": "Il reste",
+          "valeur": "4 000 €",
+          "au_mot": "quatre"
+        },
+        {
+          "label": "Enzo prend 30 %",
+          "valeur": "1 200 €",
+          "au_mot": "trente",
+          "resultat": true
+        }
+      ],
+      "mention": "Exemple illustratif",
+      "source": "Source : Desirely, 2026"
+    },
+    "objets_scene": [
+      {
+        "type": "tableau_blanc",
+        "x": 290,
+        "y": 890,
+        "largeur": 380,
+        "hauteur": 270,
+        "trace": [
+          0.2,
+          1.3
+        ]
+      }
+    ],
+    "acteurs": [
+      {
+        "id": "enzo",
+        "x": 620,
+        "actions": [
+          {
+            "t": 0,
+            "type": "tracer",
+            "fin": 1.3,
+            "cote": "l",
+            "objet": "feutre"
+          },
+          {
+            "t": 1.3,
+            "type": "compter",
+            "fin": 2.4,
+            "doigts": [
+              2
+            ]
+          },
+          {
+            "t": 2.3,
+            "type": "pointer",
+            "fin": 3.6,
+            "cote": "l",
+            "cible": "cote"
+          },
+          {
+            "t": 3.6,
+            "type": "walkTo",
+            "fin": 4.3,
+            "x": 660
+          },
+          {
+            "t": 4.4,
+            "type": "compter",
+            "fin": 6.2,
+            "doigts": [
+              2,
+              3
+            ]
+          },
+          {
+            "t": 6.2,
+            "type": "pointer",
+            "fin": 7.4,
+            "cible": "haut"
+          },
+          {
+            "t": 6.4,
+            "type": "hoche",
+            "fin": 7.2
+          }
+        ]
+      },
+      {
+        "id": "luna",
+        "x": 910,
+        "y": 1215,
+        "echelle": 0.62,
+        "pose": "assis",
+        "expression": "content",
+        "actions": [
+          {
+            "t": 0,
+            "type": "objet",
+            "cote": "l",
+            "objet": "tasse"
+          },
+          {
+            "t": 0.2,
+            "type": "boire",
+            "fin": 1.4,
+            "cote": "l"
+          },
+          {
+            "t": 1.5,
+            "type": "hoche",
+            "fin": 2.3
+          },
+          {
+            "t": 2.5,
+            "type": "boire",
+            "fin": 3.6,
+            "cote": "l"
+          },
+          {
+            "t": 3.7,
+            "type": "hoche",
+            "fin": 4.5
+          },
+          {
+            "t": 4.5,
+            "type": "incline",
+            "fin": 5.8,
+            "angle": 8
+          },
+          {
+            "t": 5.8,
+            "type": "boire",
+            "fin": 6.8,
+            "cote": "l"
+          },
+          {
+            "t": 6.6,
+            "type": "hoche",
+            "fin": 7.4
+          }
+        ]
+      }
+    ],
+    "duree": 4
+  },
+  {
+    "texte": "Ensuite, quatre cents pour les chatteurs, cent cinquante d'outils, trois cent sept de cotisations. Il reste trois cent quarante euros, avant impôt.",
+    "decor": "coworking",
+    "expression": "neutre",
+    "puis": {
+      "expression": "perplexe",
+      "au_mot": "reste"
+    },
+    "mot_jaune": "chatteurs",
+    "etiquette": "EN CLAIR",
+    "element_visuel": {
+      "type": "cascade",
+      "definition": "Chatteur : personne payée pour répondre aux messages des fans",
+      "lignes": [
+        {
+          "label": "Part d'Enzo",
+          "valeur": "1 200 €"
+        },
+        {
+          "label": "Chatteurs",
+          "valeur": "− 400 €",
+          "au_mot": "chatteurs,",
+          "negatif": true
+        },
+        {
+          "label": "Outils",
+          "valeur": "− 150 €",
+          "au_mot": "cinquante",
+          "negatif": true
+        },
+        {
+          "label": "Cotisations",
+          "valeur": "− 307 €",
+          "au_mot": "sept",
+          "negatif": true
+        },
+        {
+          "label": "Il reste, avant impôt",
+          "valeur": "≈ 343 €",
+          "au_mot": "reste",
+          "resultat": true
+        }
+      ],
+      "hypotheses": "Hypothèses : chatteurs ≈ 10 % du net (fourchette courante 5 à 15 %),\noutils 150 €, micro-BNC 25,6 %",
+      "mention": "Exemple illustratif"
+    },
+    "objets_scene": [
+      {
+        "type": "poste",
+        "x": 250,
+        "y": 1330,
+        "largeur": 300,
+        "devant": true
+      },
+      {
+        "type": "poste",
+        "x": 590,
+        "y": 1330,
+        "largeur": 300,
+        "devant": true
+      }
+    ],
+    "acteurs": [
+      {
+        "id": "chatteur_a",
+        "x": 190,
+        "y": 1400,
+        "echelle": 0.58,
+        "pose": "assis",
+        "chaise": "#495057",
+        "expression": "neutre",
+        "actions": [
+          {
+            "t": 0,
+            "type": "taper",
+            "fin": 8.8
+          },
+          {
+            "t": 3.0,
+            "type": "hoche",
+            "fin": 3.8
+          },
+          {
+            "t": 5.6,
+            "type": "incline",
+            "fin": 6.6,
+            "angle": 8
+          }
+        ]
+      },
+      {
+        "id": "chatteur_b",
+        "x": 530,
+        "y": 1400,
+        "echelle": 0.58,
+        "pose": "assis",
+        "chaise": "#495057",
+        "expression": "content",
+        "actions": [
+          {
+            "t": 0,
+            "type": "taper",
+            "fin": 8.8
+          },
+          {
+            "t": 2.0,
+            "type": "saisir",
+            "fin": 2.9,
+            "cote": "r",
+            "objet": "enveloppe"
+          },
+          {
+            "t": 3.0,
+            "type": "hoche",
+            "fin": 3.7
+          },
+          {
+            "t": 6.2,
+            "type": "incline",
+            "fin": 7.2,
+            "angle": -8
+          }
+        ]
+      },
+      {
+        "id": "enzo",
+        "x": 900,
+        "echelle": 0.7,
+        "actions": [
+          {
+            "t": 0,
+            "type": "objet",
+            "fin": 2.6,
+            "cote": "l",
+            "objet": "enveloppe"
+          },
+          {
+            "t": 0.1,
+            "type": "walkTo",
+            "fin": 1.5,
+            "x": 760
+          },
+          {
+            "t": 1.5,
+            "type": "tendre",
+            "fin": 2.6,
+            "cote": "l",
+            "objet": "enveloppe"
+          },
+          {
+            "t": 2.7,
+            "type": "tapeEpaule",
+            "fin": 3.3,
+            "cote": "l"
+          },
+          {
+            "t": 3.4,
+            "type": "walkTo",
+            "fin": 4.6,
+            "x": 900
+          },
+          {
+            "t": 4.6,
+            "type": "tenir",
+            "fin": 8.8,
+            "cote": "r",
+            "objet": "calculatrice"
+          },
+          {
+            "t": 6.2,
+            "type": "nuque",
+            "fin": 7.6,
+            "cote": "l"
+          },
+          {
+            "t": 7.6,
+            "type": "incline",
+            "fin": 8.8,
+            "angle": -10
+          }
+        ]
+      }
+    ],
+    "duree": 4
+  },
+  {
+    "texte": "Mais Luna garde deux mille huit cents euros. Si elle part, Enzo perd tout.",
+    "decor": "studio",
+    "expression": "neutre",
+    "mot_jaune": "garde",
+    "etiquette": "MAIS",
+    "element_visuel": {
+      "type": "cascade",
+      "lignes": [
+        {
+          "label": "Net après OF",
+          "valeur": "4 000 €"
+        },
+        {
+          "label": "Part d'Enzo",
+          "valeur": "− 1 200 €",
+          "au_mot": "garde",
+          "negatif": true
+        },
+        {
+          "label": "Luna garde",
+          "valeur": "2 800 €",
+          "au_mot": "huit",
+          "resultat": true
+        }
+      ],
+      "petit": "avant ses propres cotisations et impôts",
+      "mention": "Exemple illustratif"
+    },
+    "objets_scene": [
+      {
+        "type": "bureau",
+        "x": 300,
+        "y": 1330,
+        "largeur": 320,
+        "devant": true
+      },
+      {
+        "type": "ordinateur",
+        "x": 300,
+        "y": 1330,
+        "largeur": 170,
+        "ferme": 1.2,
+        "ecran": "barres",
+        "devant": true
+      }
+    ],
+    "acteurs": [
+      {
+        "id": "enzo",
+        "x": 300,
+        "y": 1440,
+        "echelle": 0.64,
+        "actions": [
+          {
+            "t": 0,
+            "type": "taper",
+            "fin": 1.0
+          },
+          {
+            "t": 1.0,
+            "type": "tenir",
+            "fin": 1.5
+          },
+          {
+            "t": 1.6,
+            "type": "nuque",
+            "fin": 2.9,
+            "cote": "l"
+          },
+          {
+            "t": 3.0,
+            "type": "ballants",
+            "fin": 5.0
+          },
+          {
+            "t": 3.2,
+            "type": "incline",
+            "fin": 5.0,
+            "angle": 12
+          }
+        ]
+      },
+      {
+        "id": "luna",
+        "x": 640,
+        "y": 1440,
+        "echelle": 0.68,
+        "expression": "neutre",
+        "actions": [
+          {
+            "t": 0,
+            "type": "objet",
+            "fin": 2.4,
+            "cote": "r",
+            "objet": "cheque",
+            "texte": "2 800 €"
+          },
+          {
+            "t": 0,
+            "type": "tenir",
+            "fin": 2.4,
+            "cote": "r",
+            "objet": "cheque",
+            "texte": "2 800 €"
+          },
+          {
+            "t": 0,
+            "type": "walkTo",
+            "fin": 1.4,
+            "y": 1560,
+            "echelle": 0.84
+          },
+          {
+            "t": 1.5,
+            "type": "hoche",
+            "fin": 2.3
+          },
+          {
+            "t": 2.4,
+            "type": "saisir",
+            "fin": 3.0,
+            "cote": "r",
+            "objet": "sac"
+          },
+          {
+            "t": 2.9,
+            "type": "objet",
+            "cote": "r",
+            "objet": "sac"
+          },
+          {
+            "t": 3.0,
+            "type": "walkOut",
+            "fin": 4.6,
+            "to": "right"
+          }
+        ]
+      }
+    ],
+    "duree": 4
+  },
+  {
+    "texte": "Premier levier : un contrat écrit. Pourcentage, base brute ou nette, durée, sortie.",
+    "decor": "bureau",
+    "expression": "fier",
+    "mot_jaune": "écrit",
+    "etiquette": "LEVIER N°1",
+    "element_visuel": {
+      "type": "contrat_cases",
+      "titre": "Contrat écrit",
+      "cases": [
+        {
+          "label": "Pourcentage",
+          "au_mot": "Pourcentage,"
+        },
+        {
+          "label": "Base",
+          "petit": "brute OF ou nette après 20 %",
+          "au_mot": "base"
+        },
+        {
+          "label": "Durée",
+          "au_mot": "durée,"
+        },
+        {
+          "label": "Sortie",
+          "au_mot": "sortie."
+        }
+      ],
+      "petit": "Tu factures seulement ta commission"
+    },
+    "objets_scene": [
+      {
+        "type": "bureau",
+        "x": 550,
+        "y": 1310,
+        "largeur": 440,
+        "devant": true
+      }
+    ],
+    "acteurs": [
+      {
+        "id": "enzo",
+        "x": 300,
+        "actions": [
+          {
+            "t": 0.1,
+            "type": "tendre",
+            "fin": 1.3,
+            "cote": "r",
+            "objet": "contrat"
+          },
+          {
+            "t": 1.5,
+            "type": "pointer",
+            "fin": 2.5,
+            "cible": "avant"
+          },
+          {
+            "t": 2.5,
+            "type": "hoche",
+            "fin": 3.3
+          },
+          {
+            "t": 3.3,
+            "type": "croiser",
+            "fin": 4.2
+          },
+          {
+            "t": 4.3,
+            "type": "ecrire",
+            "fin": 5.1,
+            "objet": "stylo"
+          },
+          {
+            "t": 5.1,
+            "type": "walkTo",
+            "fin": 5.5,
+            "x": 340
+          },
+          {
+            "t": 5.5,
+            "type": "serrerMain",
+            "fin": 6.6,
+            "cote": "r"
+          }
+        ]
+      },
+      {
+        "id": "luna",
+        "x": 800,
+        "expression": "content",
+        "actions": [
+          {
+            "t": 0,
+            "type": "hoche",
+            "fin": 0.8
+          },
+          {
+            "t": 1.1,
+            "type": "saisir",
+            "fin": 2.1,
+            "cote": "r",
+            "objet": "contrat"
+          },
+          {
+            "t": 2.1,
+            "type": "tenir",
+            "fin": 5.2,
+            "cote": "r",
+            "objet": "contrat"
+          },
+          {
+            "t": 2.3,
+            "type": "ecrire",
+            "fin": 5.2,
+            "cote": "l",
+            "objet": "stylo"
+          },
+          {
+            "t": 5.1,
+            "type": "walkTo",
+            "fin": 5.5,
+            "x": 740
+          },
+          {
+            "t": 5.5,
+            "type": "serrerMain",
+            "fin": 6.6,
+            "cote": "l"
+          }
+        ]
+      }
+    ],
+    "duree": 4
+  },
+  {
+    "texte": "Deuxième levier : un taux lié au service, de vingt à quarante-cinq pour cent.",
+    "decor": "salon",
+    "expression": "content",
+    "mot_jaune": "service",
+    "etiquette": "LEVIER N°2",
+    "element_visuel": {
+      "type": "carte_taux",
+      "titre": "Taux lié au service",
+      "lignes": [
+        {
+          "label": "Chat seul",
+          "valeur": "20 à 30 %"
+        },
+        {
+          "label": "Avec marketing",
+          "valeur": "30 à 45 %",
+          "au_mot": "vingt"
+        },
+        {
+          "label": "Relevé par la presse",
+          "valeur": "jusqu'à 50 %",
+          "au_mot": "quarante-cinq"
+        }
+      ],
+      "source": "Sources : Desirely, 2026 (source commerciale) ; Slate"
+    },
+    "objets_scene": [
+      {
+        "type": "escalier",
+        "x": 380,
+        "y": 1500,
+        "largeur": 220,
+        "hauteur": 110,
+        "marches": [
+          {
+            "label": "Chat seul",
+            "petit": "20 à 30 %"
+          },
+          {
+            "label": "+ marketing",
+            "petit": "30 à 45 %"
+          },
+          {
+            "label": "presse",
+            "petit": "≤ 50 %"
+          }
+        ]
+      }
+    ],
+    "acteurs": [
+      {
+        "id": "enzo",
+        "x": 300,
+        "echelle": 0.6,
+        "actions": [
+          {
+            "t": 0.2,
+            "type": "walkTo",
+            "fin": 0.9,
+            "x": 490,
+            "y": 1390
+          },
+          {
+            "t": 0.9,
+            "type": "pointer",
+            "fin": 1.6,
+            "cible": "bas"
+          },
+          {
+            "t": 1.6,
+            "type": "walkTo",
+            "fin": 2.3,
+            "x": 710,
+            "y": 1280
+          },
+          {
+            "t": 2.3,
+            "type": "pointer",
+            "fin": 2.9,
+            "cible": "bas"
+          },
+          {
+            "t": 2.9,
+            "type": "walkTo",
+            "fin": 3.5,
+            "x": 930,
+            "y": 1170
+          },
+          {
+            "t": 3.5,
+            "type": "pointer",
+            "fin": 4.25,
+            "cible": "haut"
+          }
+        ]
+      },
+      {
+        "id": "luna",
+        "x": 160,
+        "echelle": 0.7,
+        "expression": "content",
+        "actions": [
+          {
+            "t": 0.3,
+            "type": "pouce",
+            "fin": 1.9,
+            "cote": "r"
+          },
+          {
+            "t": 1.9,
+            "type": "hoche",
+            "fin": 2.8
+          },
+          {
+            "t": 2.8,
+            "type": "pouce",
+            "fin": 4.25,
+            "cote": "r"
+          },
+          {
+            "t": 3.2,
+            "type": "incline",
+            "fin": 4.25,
+            "angle": -8
+          }
+        ]
+      }
+    ],
+    "duree": 4
+  },
+  {
+    "texte": "Troisième levier : trois comptes, et Enzo passe à environ mille euros par mois.",
+    "decor": "coworking",
+    "expression": "content",
+    "mot_jaune": "mille",
+    "etiquette": "LEVIER N°3",
+    "element_visuel": {
+      "type": "profils_comptes",
+      "n": 3,
+      "calcul": "3 × ≈ 343 € =",
+      "resultat": "≈ 1 030 €",
+      "au_mot": "mille",
+      "mention": "Hypothèse : 3 comptes identiques à 5 000 €, mêmes charges. Peu de comptes atteignent ce niveau"
+    },
+    "objets_scene": [
+      {
+        "type": "poste",
+        "x": 230,
+        "y": 1330,
+        "largeur": 250,
+        "devant": true
+      },
+      {
+        "type": "poste",
+        "x": 530,
+        "y": 1330,
+        "largeur": 250,
+        "devant": true
+      },
+      {
+        "type": "poste",
+        "x": 830,
+        "y": 1330,
+        "largeur": 250,
+        "devant": true
+      },
+      {
+        "type": "pile_billets",
+        "x": 1000,
+        "y": 1500,
+        "t": 0.3,
+        "fin": 4.4,
+        "devant": true
+      }
+    ],
+    "acteurs": [
+      {
+        "id": "enzo",
+        "x": 170,
+        "y": 1400,
+        "echelle": 0.6,
+        "pose": "assis",
+        "chaise": "#E76F51",
+        "actions": [
+          {
+            "t": 0,
+            "type": "taper",
+            "fin": 1.1
+          },
+          {
+            "t": 1.1,
+            "type": "glisse",
+            "fin": 1.7,
+            "x": 470
+          },
+          {
+            "t": 1.7,
+            "type": "taper",
+            "fin": 2.7
+          },
+          {
+            "t": 2.7,
+            "type": "glisse",
+            "fin": 3.3,
+            "x": 770
+          },
+          {
+            "t": 3.3,
+            "type": "taper",
+            "fin": 4.1
+          },
+          {
+            "t": 4.1,
+            "type": "montre",
+            "fin": 4.85,
+            "cote": "r"
+          }
+        ]
+      }
+    ],
+    "duree": 4
+  },
+  {
+    "texte": "Quatrième levier : mesure ton taux de réponse et ton revenu par fan actif.",
+    "decor": "bureau",
+    "expression": "neutre",
+    "mot_jaune": "mesure",
+    "etiquette": "LEVIER N°4",
+    "element_visuel": {
+      "type": "tableau_bord",
+      "tuiles": [
+        {
+          "titre": "Taux de réponse",
+          "detail": "messages traités\nen moins de 15 min",
+          "jauge": 85,
+          "au_mot": "réponse"
+        },
+        {
+          "titre": "Revenu par fan actif",
+          "detail": "chiffre d'affaires\n÷ fans actifs",
+          "au_mot": "revenu"
+        }
+      ],
+      "source": "Source : Desirely, 2026"
+    },
+    "acteurs": [
+      {
+        "id": "enzo",
+        "x": 380,
+        "actions": [
+          {
+            "t": 0,
+            "type": "incline",
+            "fin": 4.7,
+            "angle": -6
+          },
+          {
+            "t": 0.1,
+            "type": "pointer",
+            "fin": 1.2,
+            "cote": "l",
+            "cible": "haut"
+          },
+          {
+            "t": 1.3,
+            "type": "pointer",
+            "fin": 1.8,
+            "cote": "l",
+            "cible": "avant"
+          },
+          {
+            "t": 1.9,
+            "type": "pointer",
+            "fin": 2.5,
+            "cote": "l",
+            "cible": "avant"
+          },
+          {
+            "t": 2.8,
+            "type": "saisir",
+            "fin": 3.6,
+            "cote": "r",
+            "objet": "tasse"
+          },
+          {
+            "t": 3.6,
+            "type": "objet",
+            "cote": "r",
+            "objet": "tasse"
+          },
+          {
+            "t": 3.8,
+            "type": "boire",
+            "fin": 4.7,
+            "cote": "r"
+          }
+        ]
+      },
+      {
+        "id": "luna",
+        "x": 800,
+        "expression": "content",
+        "actions": [
+          {
+            "t": 0.1,
+            "type": "walkIn",
+            "fin": 1.6,
+            "from": "right"
+          },
+          {
+            "t": 0,
+            "type": "objet",
+            "fin": 2.9,
+            "cote": "l",
+            "objet": "tasse"
+          },
+          {
+            "t": 1.6,
+            "type": "tendre",
+            "fin": 2.95,
+            "cote": "l",
+            "objet": "tasse"
+          },
+          {
+            "t": 3.0,
+            "type": "hoche",
+            "fin": 3.8
+          },
+          {
+            "t": 3.8,
+            "type": "pouce",
+            "fin": 4.7,
+            "cote": "r"
+          }
+        ]
+      }
+    ],
+    "duree": 4
+  },
+  {
+    "texte": "Cinquième levier : plusieurs plateformes. Un compte suspendu, et tout s'arrête.",
+    "decor": "studio",
+    "expression": "perplexe",
+    "puis": {
+      "expression": "content",
+      "au_mot": "tout"
+    },
+    "mot_jaune": "suspendu",
+    "etiquette": "LEVIER N°5",
+    "element_visuel": {
+      "type": "compte_suspendu",
+      "titre": "Compte suspendu",
+      "valeur": "0 €",
+      "plateformes": [
+        "A",
+        "B"
+      ],
+      "au_mot": "tout",
+      "petit": "Plateformes génériques A et B"
+    },
+    "acteurs": [
+      {
+        "id": "enzo",
+        "x": 400,
+        "actions": [
+          {
+            "t": 0,
+            "type": "teteMains",
+            "fin": 1.9
+          },
+          {
+            "t": 0.3,
+            "type": "recul",
+            "fin": 0.8,
+            "dx": -70
+          },
+          {
+            "t": 2.0,
+            "type": "hoche",
+            "fin": 2.8
+          },
+          {
+            "t": 2.8,
+            "type": "incline",
+            "fin": 3.4,
+            "angle": -8
+          },
+          {
+            "t": 3.4,
+            "type": "tapeEpaule",
+            "fin": 4.5,
+            "cote": "r"
+          }
+        ]
+      },
+      {
+        "id": "luna",
+        "x": 780,
+        "expression": "content",
+        "actions": [
+          {
+            "t": 0,
+            "type": "objet",
+            "cote": "l",
+            "objet": "telephone"
+          },
+          {
+            "t": 0,
+            "type": "incline",
+            "fin": 1.4,
+            "angle": 8
+          },
+          {
+            "t": 1.4,
+            "type": "walkTo",
+            "fin": 2.0,
+            "x": 700
+          },
+          {
+            "t": 2.0,
+            "type": "montrer",
+            "fin": 3.4,
+            "cote": "l",
+            "objet": "telephone"
+          },
+          {
+            "t": 3.4,
+            "type": "hoche",
+            "fin": 4.5
+          }
+        ]
+      }
+    ],
+    "duree": 4
+  },
+  {
+    "texte": "Conseil : fais valider ta catégorie, BNC ou BIC. Ça change tes cotisations d'environ cinquante euros par mois.",
+    "texte_voix": "Conseil : fais valider ta catégorie, B.N.C. ou B.I.C. Ça change tes cotisations d'environ cinquante euros par mois.",
+    "decor": "bureau",
+    "expression": "neutre",
+    "mot_jaune": "catégorie",
+    "etiquette": "CONSEIL",
+    "element_visuel": {
+      "type": "carte_taux",
+      "titre": "Catégorie : BNC ou BIC ?",
+      "lignes": [
+        {
+          "label": "BNC · 25,6 %",
+          "valeur": "≈ 307 €",
+          "au_mot": "BNC"
+        },
+        {
+          "label": "BIC · 21,2 %",
+          "valeur": "≈ 254 €",
+          "au_mot": "BIC."
+        },
+        {
+          "label": "Écart",
+          "valeur": "≈ 53 €/mois",
+          "au_mot": "cinquante"
+        }
+      ],
+      "petit": "Estimation : la catégorie dépend de l'activité réelle, à valider avec l'Urssaf ou un comptable",
+      "source": "Source : Finom, taux 2026"
+    },
+    "acteurs": [
+      {
+        "id": "enzo",
+        "x": 320,
+        "actions": [
+          {
+            "t": 0,
+            "type": "objet",
+            "fin": 2.6,
+            "cote": "r",
+            "objet": "papiers"
+          },
+          {
+            "t": 0.2,
+            "type": "hoche",
+            "fin": 1.0
+          },
+          {
+            "t": 1.6,
+            "type": "tendre",
+            "fin": 2.6,
+            "cote": "r",
+            "objet": "papiers"
+          },
+          {
+            "t": 2.8,
+            "type": "hoche",
+            "fin": 3.6
+          },
+          {
+            "t": 3.6,
+            "type": "incline",
+            "fin": 5.0,
+            "angle": 8
+          },
+          {
+            "t": 5.0,
+            "type": "hoche",
+            "fin": 5.8
+          },
+          {
+            "t": 5.9,
+            "type": "pouce",
+            "fin": 7.45,
+            "cote": "r"
+          }
+        ]
+      },
+      {
+        "id": "comptable",
+        "x": 780,
+        "accessoire": "cravate",
+        "expression": "neutre",
+        "actions": [
+          {
+            "t": 0,
+            "type": "walkIn",
+            "fin": 1.5,
+            "from": "right"
+          },
+          {
+            "t": 0,
+            "type": "sousBras",
+            "fin": 1.6,
+            "cote": "l",
+            "objet": "dossier"
+          },
+          {
+            "t": 1.6,
+            "type": "tenir",
+            "fin": 2.4,
+            "cote": "l",
+            "objet": "dossier"
+          },
+          {
+            "t": 2.4,
+            "type": "objet",
+            "cote": "l",
+            "objet": "calculatrice"
+          },
+          {
+            "t": 2.4,
+            "type": "tenir",
+            "fin": 7.45,
+            "cote": "l",
+            "objet": "calculatrice"
+          },
+          {
+            "t": 2.5,
+            "type": "taper",
+            "fin": 3.6,
+            "cote": "r"
+          },
+          {
+            "t": 3.7,
+            "type": "pointer",
+            "fin": 4.4,
+            "cible": "haut"
+          },
+          {
+            "t": 4.6,
+            "type": "pointer",
+            "fin": 5.3,
+            "cible": "haut"
+          },
+          {
+            "t": 5.4,
+            "type": "hoche",
+            "fin": 6.2
+          },
+          {
+            "t": 6.2,
+            "type": "pointer",
+            "fin": 7.0,
+            "cible": "haut"
+          }
+        ]
+      }
+    ],
+    "duree": 4
+  },
+  {
+    "texte": "Attention : un texte en discussion punirait l'exploitation sexuelle en ligne, jusqu'à sept ans de prison.",
+    "decor": "salon",
+    "expression": "neutre",
+    "mot_jaune": "sept",
+    "etiquette": "ATTENTION",
+    "element_visuel": {
+      "type": "carte_texte",
+      "surtitre": "Exploitation sexuelle en ligne",
+      "titre": "Jusqu'à 7 ans et 150 000 €",
+      "indices": [
+        "Texte en discussion, pas encore définitif",
+        "Adopté par le Sénat le 10/02/2026"
+      ],
+      "source": "Sources : Sénat ; franceinfo"
+    },
+    "objets_scene": [
+      {
+        "type": "ecran_mural",
+        "x": 540,
+        "y": 760,
+        "largeur": 420,
+        "hauteur": 200,
+        "variante": "loi"
+      }
+    ],
+    "acteurs": [
+      {
+        "id": "enzo",
+        "x": 360,
+        "y": 1300,
+        "echelle": 0.58,
+        "pose": "assis",
+        "actions": [
+          {
+            "t": 0.3,
+            "type": "nuque",
+            "fin": 2.0,
+            "cote": "r"
+          },
+          {
+            "t": 2.1,
+            "type": "hoche",
+            "fin": 2.9
+          },
+          {
+            "t": 2.9,
+            "type": "incline",
+            "fin": 4.4,
+            "angle": 8
+          },
+          {
+            "t": 4.4,
+            "type": "nuque",
+            "fin": 5.6,
+            "cote": "r"
+          },
+          {
+            "t": 5.6,
+            "type": "hoche",
+            "fin": 6.45
+          }
+        ]
+      },
+      {
+        "id": "luna",
+        "x": 720,
+        "y": 1300,
+        "echelle": 0.58,
+        "pose": "assis",
+        "expression": "neutre",
+        "actions": [
+          {
+            "t": 0.3,
+            "type": "croiser",
+            "fin": 2.6
+          },
+          {
+            "t": 1.0,
+            "type": "incline",
+            "fin": 2.4,
+            "angle": -8
+          },
+          {
+            "t": 2.7,
+            "type": "lever",
+            "fin": 6.45,
+            "cote": "r",
+            "objet": "pancarte",
+            "texte": "Zéro\npression"
+          },
+          {
+            "t": 4.0,
+            "type": "hoche",
+            "fin": 4.8
+          },
+          {
+            "t": 5.0,
+            "type": "incline",
+            "fin": 6.0,
+            "angle": 6
+          }
+        ]
+      }
+    ],
+    "duree": 4
+  },
+  {
+    "texte": "Règle numéro un : jamais de pression. Le compte, les revenus et le contenu restent à la jeune femme.",
+    "decor": "coworking",
+    "expression": "neutre",
+    "mot_jaune": "jeune femme",
+    "etiquette": "RÈGLE N°1",
+    "element_visuel": {
+      "type": "verrous",
+      "pastilles": [
+        {
+          "texte": "Compte",
+          "au_mot": "compte,"
+        },
+        {
+          "texte": "Revenus",
+          "au_mot": "revenus"
+        },
+        {
+          "texte": "Contenu",
+          "au_mot": "contenu"
+        }
+      ],
+      "destination": "À la créatrice",
+      "mention": "Jamais de pression"
+    },
+    "objets_scene": [
+      {
+        "type": "bureau",
+        "x": 360,
+        "y": 1300,
+        "largeur": 380,
+        "devant": true
+      },
+      {
+        "type": "pastilles_bureau",
+        "x": 360,
+        "y": 1300,
+        "prises": [
+          2.95,
+          3.5,
+          4.3
+        ],
+        "devant": true
+      }
+    ],
+    "acteurs": [
+      {
+        "id": "enzo",
+        "x": 360,
+        "actions": [
+          {
+            "t": 0,
+            "type": "hoche",
+            "fin": 0.9
+          },
+          {
+            "t": 0.9,
+            "type": "croiser",
+            "fin": 2.6
+          },
+          {
+            "t": 2.8,
+            "type": "tendre",
+            "fin": 3.4,
+            "cote": "r",
+            "objet": "pastille_compte"
+          },
+          {
+            "t": 3.45,
+            "type": "tendre",
+            "fin": 4.15,
+            "cote": "r",
+            "objet": "pastille_revenus"
+          },
+          {
+            "t": 4.2,
+            "type": "tendre",
+            "fin": 4.95,
+            "cote": "r",
+            "objet": "pastille_contenu"
+          },
+          {
+            "t": 5.0,
+            "type": "walkTo",
+            "fin": 5.4,
+            "x": 380
+          },
+          {
+            "t": 5.5,
+            "type": "serrerMain",
+            "fin": 6.8,
+            "cote": "r"
+          }
+        ]
+      },
+      {
+        "id": "luna",
+        "x": 820,
+        "expression": "content",
+        "actions": [
+          {
+            "t": 0.2,
+            "type": "hoche",
+            "fin": 1.0
+          },
+          {
+            "t": 1.0,
+            "type": "incline",
+            "fin": 2.6,
+            "angle": -8
+          },
+          {
+            "t": 2.9,
+            "type": "saisir",
+            "fin": 3.5,
+            "cote": "l"
+          },
+          {
+            "t": 3.5,
+            "type": "tenir",
+            "fin": 5.3,
+            "cote": "l",
+            "objet": "pastilles"
+          },
+          {
+            "t": 3.6,
+            "type": "hoche",
+            "fin": 4.4
+          },
+          {
+            "t": 5.3,
+            "type": "objet",
+            "cote": "r",
+            "objet": "pastilles"
+          },
+          {
+            "t": 5.5,
+            "type": "serrerMain",
+            "fin": 6.8,
+            "cote": "l"
+          }
+        ]
+      }
+    ],
+    "duree": 4
+  },
+  {
+    "texte": "Manager sur OF : métier ou piège ? Dis-le en commentaire, et abonne-toi pour d'autres vrais chiffres.",
+    "texte_voix": "Manager sur O.F. : métier ou piège ? Dis-le en commentaire, et abonne-toi pour d'autres vrais chiffres.",
+    "decor": "studio",
+    "expression": "neutre",
+    "puis": {
+      "expression": "content",
+      "au_mot": "Dis-le"
+    },
+    "mot_jaune": "commentaire",
+    "etiquette": "TON AVIS",
+    "element_visuel": {
+      "type": "icones_cta"
+    },
+    "acteurs": [
+      {
+        "id": "enzo",
+        "x": 360,
+        "actions": [
+          {
+            "t": 0.2,
+            "type": "hoche",
+            "fin": 1.2
+          },
+          {
+            "t": 1.3,
+            "type": "hausse",
+            "fin": 2.7
+          },
+          {
+            "t": 3.0,
+            "type": "pointer",
+            "fin": 5.2,
+            "cible": "bas"
+          },
+          {
+            "t": 5.3,
+            "type": "saluer",
+            "fin": 7.2
+          },
+          {
+            "t": 7.3,
+            "type": "pouce",
+            "fin": 9.75,
+            "cote": "r"
+          },
+          {
+            "t": 8.0,
+            "type": "hoche",
+            "fin": 8.8
+          }
+        ]
+      },
+      {
+        "id": "luna",
+        "x": 740,
+        "expression": "content",
+        "actions": [
+          {
+            "t": 0.3,
+            "type": "hoche",
+            "fin": 1.1
+          },
+          {
+            "t": 1.2,
+            "type": "incline",
+            "fin": 2.8,
+            "angle": -8
+          },
+          {
+            "t": 3.0,
+            "type": "pointer",
+            "fin": 5.2,
+            "cote": "l",
+            "cible": "bas"
+          },
+          {
+            "t": 5.4,
+            "type": "saut",
+            "fin": 6.4
+          },
+          {
+            "t": 5.4,
+            "type": "poing",
+            "fin": 6.6,
+            "cote": "r"
+          },
+          {
+            "t": 6.7,
+            "type": "saluer",
+            "fin": 8.2,
+            "cote": "l"
+          },
+          {
+            "t": 8.2,
+            "type": "hoche",
+            "fin": 9.0
+          },
+          {
+            "t": 9.0,
+            "type": "pointer",
+            "fin": 9.75,
+            "cote": "l",
+            "cible": "bas"
+          }
+        ]
+      }
+    ],
+    "duree": 4
+  }
+]

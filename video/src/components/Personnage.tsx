@@ -1,5 +1,23 @@
 import {useCurrentFrame, useVideoConfig, interpolate, spring} from 'remotion';
 import type {Accessoire, Expression, ObjetMain, Pose as Posture} from '../types';
+import {
+  AviateurReleve,
+  bras as brasFK,
+  BrasArticule,
+  BretellesSac,
+  Chemise,
+  Doudoune,
+  EcouteursCou,
+  GomineArriere,
+  GomineAvant,
+  Jambes,
+  LongBoucleArriere,
+  LongBoucleAvant,
+  ObjetMain as ObjetMainAnime,
+  SweatColRond,
+  type BrasAngles,
+  type Mouvement,
+} from './PersonnageExtras';
 
 /**
  * Personnage plat 2D en SVG, paramétrable (teint, cheveux, tenue, accessoire de tête, genre).
@@ -15,7 +33,7 @@ export type Apparence = {
   nom: string;
   genre: 'homme' | 'femme';
   teint: {peau: string; ombre: string; joues: string};
-  cheveux: {style: 'meches' | 'chignon_boucle' | 'court' | 'carre_frange' | 'court_dessus' | 'afro_puff' | 'ondule_meche' | 'queue_frange' | 'degrade'; couleur: string};
+  cheveux: {style: 'meches' | 'chignon_boucle' | 'court' | 'carre_frange' | 'court_dessus' | 'afro_puff' | 'ondule_meche' | 'queue_frange' | 'degrade' | 'gomine' | 'long_boucle'; couleur: string; /** ep10 : mèches (couleur) des cheveux longs bouclés. */ meches?: string};
   tenue: {
     haut: string;
     hautOmbre: string;
@@ -46,6 +64,10 @@ export type Apparence = {
     retroussees?: boolean;
     /** Traces de mousse sur la tenue (ep09, couleur). */
     mousse?: string;
+    /** Chemise (ep10) : col pointu, patte de boutonnage. */
+    chemise?: boolean;
+    /** Sweat à col rond sans capuche (ep10). */
+    sweat?: boolean;
   };
   /** Accessoire de tête : casquette (avec initiale) ou grosses lunettes rondes. */
   tete:
@@ -54,6 +76,8 @@ export type Apparence = {
     | {type: 'casque_velo'; couleur: string; couleurOmbre: string}
     /** Lunettes de protection relevées sur le front (couleur de la monture et de l'élastique). */
     | {type: 'lunettes_protection'; couleur: string; elastique: string}
+    /** ep10 : lunettes de soleil aviateur relevées dans les cheveux. */
+    | {type: 'aviateur'; monture: string; verre: string}
     | null;
   /** Barbe de trois jours (couleur). */
   barbe?: string | null;
@@ -93,6 +117,14 @@ export type Apparence = {
   sourcils?: string | null;
   /** Gants en nitrile accrochés à la ceinture, côté droit (ep09, couleur). */
   gantsCeinture?: string | null;
+  /** Doudoune sans manches ouverte devant (ep10). */
+  doudoune?: {couleur: string; ombre: string} | null;
+  /** Montre au poignet (ep10, couleur du boîtier) : visible avec les bras articulés (prop `mouvement`). */
+  montre?: string | null;
+  /** Écouteurs tour de cou (ep10), sans logo. */
+  ecouteursCou?: {couleur: string; embouts: string} | null;
+  /** Petit sac à dos : bretelles visibles (ep10). */
+  petitSac?: {couleur: string; ombre: string} | null;
 };
 
 /** Durée (frames) d'un passage d'article au scanner (pose « scanne ») ; le bip du décor « caisse_tapis » suit le même cycle. */
@@ -339,6 +371,8 @@ const Arm: React.FC<{shoulder: Pt; elbow: Pt; hand: Pt; gant: boolean; manche: s
 
 /** Cheveux derrière la tête (masse bouclée + chignon haut). */
 const CheveuxArriere: React.FC<{a: Apparence; frame: number}> = ({a, frame}) => {
+  if (a.cheveux.style === 'gomine') return <GomineArriere c={a.cheveux.couleur} />;
+  if (a.cheveux.style === 'long_boucle') return <LongBoucleArriere c={a.cheveux.couleur} meches={a.cheveux.meches ?? a.cheveux.couleur} frame={frame} />;
   if (a.tete?.type === 'casquette' && a.tete.envers) {
     // ep09 : visière de la casquette portée à l'envers, qui dépasse derrière la tête
     return (
@@ -449,6 +483,8 @@ const CheveuxArriere: React.FC<{a: Apparence; frame: number}> = ({a, frame}) => 
 /** Cheveux devant (sur le front). */
 const CheveuxAvant: React.FC<{a: Apparence}> = ({a}) => {
   const c = a.cheveux.couleur;
+  if (a.cheveux.style === 'gomine') return <GomineAvant c={c} />;
+  if (a.cheveux.style === 'long_boucle') return <LongBoucleAvant c={c} meches={a.cheveux.meches ?? c} />;
   if (a.cheveux.style === 'court') {
     // cheveux courts : pattes sur les tempes et petite frange (le dessus est sous le casque)
     return (
@@ -1083,7 +1119,10 @@ export const Personnage: React.FC<{
   /** Personnage muet (à partir de l'épisode 5) : la bouche garde la pose fixe de l'expression,
    *  jamais synchronisée sur la voix off. Défaut false : comportement des épisodes 1 à 4. */
   muet?: boolean;
-}> = ({apparence: a, expression, talking, accessoire = null, entree = true, pose: posture = 'debout', objetMain = null, muet = false}) => {
+  /** ep10 : mouvement image par image (marche, bras articulés, objets en main, tête, épaules, miroir).
+   *  Absent (épisodes 1 à 9) : rendu inchangé. */
+  mouvement?: Mouvement | null;
+}> = ({apparence: a, expression, talking, accessoire = null, entree = true, pose: posture = 'debout', objetMain = null, muet = false, mouvement: mv = null}) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
   const {peau, ombre: peauOmbre, joues} = a.teint;
@@ -1198,12 +1237,30 @@ export const Personnage: React.FC<{
   const carre = a.cheveux.style === 'carre_frange';
   const photo = posture === 'photo';
 
+  // ep10 : bras articulés (épaule + coude), haussement d'épaules, marche
+  const REPOS: BrasAngles = {epaule: 12, coude: -8};
+  const hausse = mv?.epaules ?? 0;
+  const epL: [number, number] = [SHOULDER_L[0], SHOULDER_L[1] - hausse];
+  const epR: [number, number] = [SHOULDER_R[0], SHOULDER_R[1] - hausse];
+  const angL = mv ? (mv.bras?.l ?? REPOS) : null;
+  const angR = mv ? (mv.bras?.r ?? REPOS) : null;
+  const brasL = angL ? brasFK(epL, -1, angL) : null;
+  const brasR = angR ? brasFK(epR, 1, angR) : null;
+  // une main gauche levée au niveau du visage passe devant la tête
+  const lDevantTete = !!brasL && brasL[1][1] < 400;
+  const bobMarche = mv?.marche != null ? -Math.abs(Math.sin(mv.marche)) * 12 : 0;
+  const miroir = !!mv?.miroir;
+  const brasArticuleL = brasL && angL ? (
+    <BrasArticule epaule={epL} coude={brasL[0]} main={brasL[1]} cote={-1} a={angL} manche={t.haut} peau={peau} revers={t.retroussees ? t.hautOmbre : undefined} poignet={t.sweat ? t.hautOmbre : undefined} />
+  ) : null;
+
   return (
     <svg viewBox="0 0 600 900" style={{width: '100%', height: '100%', overflow: 'visible'}}>
       {/* ombre au sol */}
       <ellipse cx={300} cy={872} rx={200 - bob * 2} ry={22} fill="rgba(0,0,0,0.25)" />
 
-      <g transform={`translate(${tremble} ${enterY + bob}) scale(1 ${squash})`} style={{transformOrigin: '300px 870px'}}>
+      <g transform={miroir ? 'translate(600 0) scale(-1 1)' : undefined}>
+      <g transform={`translate(${tremble} ${enterY + bob + bobMarche}) scale(1 ${squash})`} style={{transformOrigin: '300px 870px'}}>
         {velo ? (
           <>
             {/* traits de vitesse */}
@@ -1235,7 +1292,9 @@ export const Personnage: React.FC<{
             })}
             <VeloFace couleur={a.velo ?? '#2D6A4F'} frame={frame} />
           </>
-        ) : assis ? null : (
+        ) : assis ? null : mv ? (
+          <Jambes phase={mv.marche ?? null} bas={t.bas} jean={t.jean} chaussures={t.chaussures} bande={t.bandeChaussures} />
+        ) : (
           <>
             {/* Jambes */}
             <rect x={222} y={640} width={66} height={200} rx={26} fill={t.bas} stroke={OUT} strokeWidth={SW} />
@@ -1276,6 +1335,7 @@ export const Personnage: React.FC<{
 
         <g transform={`translate(0 ${decalHaut - pedalBob})`}>
         {a.sac ? <SacDos couleur={a.sac.couleur} ombre={a.sac.ombre} /> : null}
+        {a.petitSac ? <BretellesSac couleur={a.petitSac.couleur} ombre={a.petitSac.ombre} /> : null}
 
         {/* Torse (sweat) */}
         <path
@@ -1338,6 +1398,10 @@ export const Personnage: React.FC<{
           </g>
         ) : t.tunique ? (
           <Tunique ombre={t.hautOmbre} badge={a.badge} />
+        ) : t.chemise ? (
+          <Chemise ombre={t.hautOmbre} />
+        ) : t.sweat ? (
+          <SweatColRond ombre={t.hautOmbre} />
         ) : tshirt ? (
           <g>
             {/* T-shirt : col rond, pli léger, poche poitrine (tournevis testeur) */}
@@ -1363,6 +1427,11 @@ export const Personnage: React.FC<{
         {a.gilet ? <Gilet couleur={a.gilet.couleur} ombre={a.gilet.ombre} bandes={a.gilet.bandes} /> : null}
         {a.cordonBadge ? <CordonBadge cordon={a.cordonBadge.cordon} /> : null}
         {a.casqueCou ? <CasqueCou couleur={a.casqueCou.couleur} coussins={a.casqueCou.coussins} /> : null}
+        {a.doudoune ? <Doudoune couleur={a.doudoune.couleur} ombre={a.doudoune.ombre} /> : null}
+        {a.petitSac ? (
+          <path d="M 226 414 Q 234 520 230 610 M 374 414 Q 366 520 370 610" fill="none" stroke={a.petitSac.couleur} strokeWidth={13} strokeLinecap="round" />
+        ) : null}
+        {a.ecouteursCou ? <EcouteursCou couleur={a.ecouteursCou.couleur} embouts={a.ecouteursCou.embouts} /> : null}
         {assis ? (
           <g transform={`translate(0 ${-HAUT_ASSIS})`}>
             {/* Assis sur le trottoir : genoux relevés, tibias et baskets devant */}
@@ -1392,10 +1461,12 @@ export const Personnage: React.FC<{
 
         {/* Bras gauche */}
         {velo ? <Guidon couleur={a.velo ?? '#2D6A4F'} /> : null}
+        {mv ? (lDevantTete ? null : brasArticuleL) : (
         <Arm shoulder={SHOULDER_L} elbow={left[0]} hand={left[1]} gant={gant} manche={t.haut} peau={peau} bande={t.bandes} mancheCourte={mancheCourte} revers={t.retroussees ? t.hautOmbre : undefined} />
+        )}
 
         {/* Tête */}
-        <g transform={`rotate(${tilt} 300 400)`}>
+        <g transform={`${mv ? `translate(0 ${(mv.tete?.dy ?? 0) + hausse * 0.5}) ` : ''}rotate(${tilt + (mv?.tete?.rot ?? 0)} 300 400)`}>
           <CheveuxArriere a={a} frame={frame} />
           <rect x={268} y={370} width={64} height={56} fill={peauOmbre} stroke={OUT} strokeWidth={SW} />
           {/* Oreilles (cachées par un carré) */}
@@ -1466,19 +1537,27 @@ export const Personnage: React.FC<{
           {casque ? <CasqueVelo couleur={casque.couleur} ombre={casque.couleurOmbre} /> : null}
           {casquette && casquette.envers ? <CasquetteEnvers couleur={casquette.couleur} ombre={casquette.couleurOmbre} cheveux={a.cheveux.couleur} /> : null}
           {casquette && !casquette.envers ? <Casquette couleur={casquette.couleur} ombre={casquette.couleurOmbre} initiale={casquette.initiale} /> : null}
+          {a.tete?.type === 'aviateur' ? <AviateurReleve monture={a.tete.monture} verre={a.tete.verre} /> : null}
 
           {/* Goutte de sueur quand il/elle est choqué(e) */}
           {expression === 'choque' ? (
             <path d={`M 460 ${170 + hautTete} q 22 34 0 46 q -22 -12 0 -46 z`} fill="#8ECAE6" stroke={OUT} strokeWidth={6} />
           ) : null}
           {expression === 'perplexe' ? (
-            <text x={470} y={130 + hautTete} fontSize={90} fontFamily="Luckiest Guy" fill="#FFD60A" stroke={OUT} strokeWidth={6} paintOrder="stroke">
+            <text x={470} y={130 + hautTete} fontSize={90} fontFamily="Luckiest Guy" fill="#FFD60A" stroke={OUT} strokeWidth={6} paintOrder="stroke" transform={miroir ? 'translate(990 0) scale(-1 1)' : undefined}>
               ?
             </text>
           ) : null}
         </g>
 
         {/* Bras droit (devant la tête si levé) */}
+        {mv && lDevantTete ? brasArticuleL : null}
+        {mv && brasR && angR ? (
+          <BrasArticule epaule={epR} coude={brasR[0]} main={brasR[1]} cote={1} a={angR} manche={t.haut} peau={peau} revers={t.retroussees ? t.hautOmbre : undefined} poignet={t.sweat ? t.hautOmbre : undefined} montre={a.montre ?? undefined} />
+        ) : null}
+        {mv && brasL && mv.objets?.l ? <ObjetMainAnime nom={mv.objets.l} main={brasL[1]} peau={peau} miroir={miroir} texte={mv.texteObjet?.l} frame={frame} /> : null}
+        {mv && brasR && mv.objets?.r ? <ObjetMainAnime nom={mv.objets.r} main={brasR[1]} peau={peau} miroir={miroir} texte={mv.texteObjet?.r} frame={frame} /> : null}
+        {mv ? null : (
         <Arm
           shoulder={SHOULDER_R}
           elbow={rightG[0]}
@@ -1493,6 +1572,7 @@ export const Personnage: React.FC<{
           poing={posture === 'poing'}
           revers={t.retroussees ? t.hautOmbre : undefined}
         />
+        )}
         {posture === 'tire_cable' ? (
           // câble électrique sous gaine grise : sort du mur (à gauche), passe dans les deux mains, retombe en boucle au sol
           <g fill="none" strokeLinecap="round">
@@ -1623,6 +1703,7 @@ export const Personnage: React.FC<{
           </g>
         ) : null}
         </g>
+      </g>
       </g>
     </svg>
   );

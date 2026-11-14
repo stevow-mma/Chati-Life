@@ -6,7 +6,9 @@ export const FPS = 30;
 export const MARGE_VOIX = 0.3;
 
 /** Texte lu par la voix : {mot} remplacé par les mots rotatifs (même règle que scripts/voix.mjs). */
-export const texteLu = (plan: Pick<Plan, 'texte' | 'element_visuel'>) => {
+export const texteLu = (plan: Pick<Plan, 'texte' | 'element_visuel' | 'texte_voix'>) => {
+  // ep10 : texte prononcé distinct du texte affiché (sigles épelés pour la voix : « O.F. » lu, « OF » affiché).
+  if (typeof plan.texte_voix === 'string') return plan.texte_voix;
   const ev = plan.element_visuel;
   if (ev?.type === 'mots_rotatifs' && plan.texte.includes('{mot}')) {
     return plan.texte.replace('{mot}', ev.mots.map((m) => m.toLowerCase()).join('... '));
@@ -50,6 +52,9 @@ export const loadScript = (raw: unknown, fichier: string): Plan[] => {
       objet_main: plan.objet_main ?? null,
       puis: plan.puis ?? null,
       hypotheses: plan.hypotheses ?? null,
+      ...(plan.texte_voix !== undefined ? {texte_voix: plan.texte_voix} : {}),
+      ...(plan.acteurs !== undefined ? {acteurs: plan.acteurs} : {}),
+      ...(plan.objets_scene !== undefined ? {objets_scene: plan.objets_scene} : {}),
       voix: null,
     };
   });

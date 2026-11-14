@@ -147,4 +147,78 @@ export const PERSONNAGES: Record<string, Apparence> = {
     tete: {type: 'casquette', couleur: '#26262E', couleurOmbre: '#3C3C46', envers: true},
     gantsCeinture: '#A9DCF7',
   },
+  /** Enzo — 27 ans, manager (épisode 10). Cheveux châtain clair plaqués au gel, barbe de trois jours taillée,
+   *  aviateurs relevés dans les cheveux, chemise blanche manches retroussées sous une doudoune sans manches kaki,
+   *  jean noir, baskets blanches, montre argentée, écouteurs tour de cou. Aucun logo. */
+  enzo: {
+    nom: 'Enzo',
+    genre: 'homme',
+    teint: {peau: '#F6D5BC', ombre: '#E3B898', joues: '#EFA08A'},
+    cheveux: {style: 'gomine', couleur: '#A87C52'},
+    tenue: {
+      haut: '#FAFAFA',
+      hautOmbre: '#DDE1E6',
+      bas: '#1F1F25',
+      chaussures: '#FFFFFF',
+      bandeChaussures: '#E9ECEF',
+      chemise: true,
+      retroussees: true,
+      jean: '#4A4A55',
+    },
+    tete: {type: 'aviateur', monture: '#C9CED6', verre: '#3E4A3D'},
+    barbe: '#8A6440',
+    sourcils: '#8A6440',
+    doudoune: {couleur: '#7C8550', ombre: '#646C3E'},
+    montre: '#C9CED6',
+    ecouteursCou: {couleur: '#2B2D42', embouts: '#F8F9FA'},
+  },
+  /** Luna — 22 ans (adulte), créatrice dont Enzo gère le compte (épisode 10). Longs cheveux bouclés châtain clair à mèches
+   *  caramel, sweat oversize lilas, jean droit, baskets blanches, petit sac à dos. Tenue neutre et couvrante. */
+  luna: {
+    nom: 'Luna',
+    genre: 'femme',
+    teint: {peau: '#F7D9C4', ombre: '#E6BEA2', joues: '#F2A0A0'},
+    cheveux: {style: 'long_boucle', couleur: '#A57A55', meches: '#D9A066'},
+    tenue: {
+      haut: '#C8B6E2',
+      hautOmbre: '#AE98D0',
+      bas: '#5B7DB1',
+      chaussures: '#FFFFFF',
+      bandeChaussures: '#E9ECEF',
+      oversize: true,
+      sweat: true,
+      jean: '#93AED8',
+    },
+    tete: null,
+    sourcils: '#7A5638',
+    petitSac: {couleur: '#8E6FB8', ombre: '#7A5CA3'},
+  },
+  /** Chatteur A (épisode 10, silhouette simple, secondaire). */
+  chatteur_a: {
+    nom: 'Chatteur',
+    genre: 'homme',
+    teint: {peau: '#D9A577', ombre: '#BC8A5E', joues: '#D98A6A'},
+    cheveux: {style: 'court', couleur: '#2B2118'},
+    tenue: {haut: '#3D8B8B', hautOmbre: '#2F6F6F', bas: '#343A40', chaussures: '#F8F9FA', bandeChaussures: '#ADB5BD', sweat: true},
+    tete: null,
+  },
+  /** Chatteuse B (épisode 10, silhouette simple, secondaire). */
+  chatteur_b: {
+    nom: 'Chatteuse',
+    genre: 'femme',
+    teint: {peau: '#8D5A3B', ombre: '#6E4329', joues: '#B0605A'},
+    cheveux: {style: 'carre_frange', couleur: '#1A1412'},
+    tenue: {haut: '#E9A23B', hautOmbre: '#C9851F', bas: '#343A40', chaussures: '#F8F9FA', bandeChaussures: '#ADB5BD', sweat: true},
+    tete: null,
+  },
+  /** Comptable (épisode 10, secondaire) : cheveux gris, lunettes rondes, cravate (accessoire « cravate »), dossier sous le bras. */
+  comptable: {
+    nom: 'Comptable',
+    genre: 'homme',
+    teint: {peau: '#EFC7A6', ombre: '#D9A985', joues: '#E39A86'},
+    cheveux: {style: 'court', couleur: '#A9ADB5'},
+    tenue: {haut: '#5C677D', hautOmbre: '#4A5468', bas: '#3A4152', chaussures: '#4A3426', bandeChaussures: '#2E2018'},
+    tete: {type: 'lunettes_rondes', couleur: '#5A4632'},
+    sourcils: '#8E939C',
+  },
 };

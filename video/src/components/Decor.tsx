@@ -770,6 +770,75 @@ const Parking: React.FC<{frame: number}> = ({frame}) => {
   );
 };
 
+/** Coworking (ep10) : open space lumineux, grandes baies vitrées, bureaux partagés, plantes, suspensions. Aucun logo. */
+const Coworking: React.FC<{frame: number}> = ({frame}) => (
+  <svg viewBox={`0 0 ${W} ${H}`} width={W} height={H}>
+    <rect width={W} height={H} fill="#F7F3EA" />
+    {/* baies vitrées : ciel, immeubles au loin */}
+    <rect x={40} y={140} width={1000} height={760} rx={10} fill="#BDE7F5" stroke={OUT} strokeWidth={10} />
+    <circle cx={850} cy={300} r={70} fill="#FFF3B0" opacity={0.9} />
+    {[[90, 560, 120, 340], [230, 480, 100, 420], [350, 620, 140, 280], [520, 520, 110, 380], [650, 600, 130, 300], [800, 500, 120, 400], [930, 640, 100, 260]].map(([x, y, w, h], i) => (
+      <g key={i}>
+        <rect x={x} y={y} width={w} height={h} fill={i % 2 ? '#A9C6D9' : '#93B5CC'} />
+        {Array.from({length: 4}).map((_, k) => (
+          <rect key={k} x={x + 16} y={y + 24 + k * 50} width={w - 32} height={18} fill="white" opacity={0.45} />
+        ))}
+      </g>
+    ))}
+    {[290, 540, 790].map((x) => (
+      <rect key={x} x={x - 7} y={140} width={14} height={760} fill="#F7F3EA" stroke={OUT} strokeWidth={5} />
+    ))}
+    <rect x={40} y={500} width={1000} height={12} fill="#F7F3EA" stroke={OUT} strokeWidth={5} />
+    {/* reflets */}
+    <path d="M 100 200 l 120 120 M 130 200 l 60 60 M 600 220 l 140 140" stroke="white" strokeWidth={10} opacity={0.5} strokeLinecap="round" />
+    {/* suspensions */}
+    {[220, 540, 860].map((x, i) => (
+      <g key={x} transform={`rotate(${Math.sin(frame / 30 + i) * 1.5} ${x} 0)`}>
+        <path d={`M ${x} 0 V 150`} stroke={OUT} strokeWidth={5} />
+        <path d={`M ${x - 60} 210 Q ${x} 130 ${x + 60} 210 Z`} fill="#F4A261" stroke={OUT} strokeWidth={8} strokeLinejoin="round" />
+        <ellipse cx={x} cy={222} rx={70} ry={20} fill="#FFF3B0" opacity={0.6} />
+      </g>
+    ))}
+    {/* plante suspendue */}
+    <g transform={`rotate(${Math.sin(frame / 25) * 3} 980 0)`}>
+      <path d="M 980 0 V 110" stroke={OUT} strokeWidth={4} />
+      <path d="M 940 110 h 80 l -10 50 h -60 z" fill="#E9C46A" stroke={OUT} strokeWidth={6} />
+      {[0, 1, 2, 3].map((k) => (
+        <path key={k} d={`M ${950 + k * 20} 150 q ${k % 2 ? 20 : -20} 80 ${k % 2 ? 0 : -10} 160`} fill="none" stroke="#40916C" strokeWidth={12} strokeLinecap="round" />
+      ))}
+    </g>
+    {/* bureaux partagés au fond (écrans génériques, sans personne) */}
+    <rect x={0} y={1080} width={W} height={50} fill="#D6B98C" stroke={OUT} strokeWidth={8} />
+    {[150, 420, 690, 960].map((x, i) => (
+      <g key={x}>
+        <rect x={x - 70} y={980} width={140} height={96} rx={8} fill="#343A40" stroke={OUT} strokeWidth={6} />
+        <rect x={x - 60} y={990} width={120} height={76} rx={4} fill={i % 2 ? '#CDE7F7' : '#D8F3DC'} />
+        <rect x={x - 8} y={1076} width={16} height={8} fill="#495057" />
+        <rect x={x - 46} y={960 - (i % 2) * 6} width={0} height={0} />
+      </g>
+    ))}
+    <rect x={0} y={1130} width={W} height={200} fill="#C9A878" />
+    {/* grande plante en pot à gauche */}
+    <rect x={30} y={1280} width={130} height={170} rx={16} fill="#F1F3F5" stroke={OUT} strokeWidth={9} />
+    {[-50, -25, 0, 25, 50].map((a, i) => (
+      <ellipse key={i} cx={95} cy={1150} rx={30} ry={110} fill={i % 2 ? '#52B788' : '#2D6A4F'} stroke={OUT} strokeWidth={7}
+        transform={`rotate(${a + Math.sin(frame / 14 + i) * 3} 95 1280)`} />
+    ))}
+    {/* sol parquet clair */}
+    <rect y={SOL - 60} width={W} height={H} fill="#E3C79E" />
+    {Array.from({length: 9}).map((_, i) => (
+      <path key={i} d={`M 0 ${SOL - 60 + i * 56} H ${W}`} stroke="#CFAE7E" strokeWidth={5} />
+    ))}
+    <rect y={SOL - 72} width={W} height={18} fill="#FFFFFF" stroke={OUT} strokeWidth={6} />
+    {/* petite plante au sol à droite */}
+    <rect x={930} y={1340} width={110} height={120} rx={14} fill="#E76F51" stroke={OUT} strokeWidth={8} />
+    {[-30, 0, 30].map((a, i) => (
+      <ellipse key={i} cx={985} cy={1270} rx={24} ry={70} fill="#40916C" stroke={OUT} strokeWidth={6}
+        transform={`rotate(${a + Math.sin(frame / 12 + i) * 4} 985 1340)`} />
+    ))}
+  </svg>
+);
+
 export const Decor: React.FC<{nom: string; variante?: number}> = ({nom, variante = 0}) => {
   const frame = useCurrentFrame();
   const {durationInFrames} = useVideoConfig();
@@ -812,6 +881,9 @@ export const Decor: React.FC<{nom: string; variante?: number}> = ({nom, variante
       break;
     case 'parking':
       content = <Parking frame={frame} />;
+      break;
+    case 'coworking':
+      content = <Coworking frame={frame} />;
       break;
     default:
       content = <Uni nom={nom} />;

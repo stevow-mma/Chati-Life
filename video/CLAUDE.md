@@ -4,13 +4,48 @@ Format 1080x1920, 30 fps. `npm run render -- epNN` → `out/epNN.mp4` (voix en c
 Options Remotion après l'épisode, ex. `npm run render -- ep03 --concurrency=2` si la mémoire manque.
 
 ## Personnage muet (correction de série)
-**À partir de l'épisode 5 (ep05 à ep09, …), personnage muet, voix off indépendante ; ep01 à ep04 inchangés.**
+**À partir de l'épisode 5 (ep05 à ep10, …), personnages muets, voix off indépendante ; ep01 à ep04 inchangés.**
+L'option `muet` (`episode.json`) s'applique à TOUS les personnages de l'épisode, secondaires compris (ep10).
 - `episode.json` → `"muet": true` (ep05 et suivants) ; transmis à `<Personnage muet />` (défaut `false` = comportement
   des épisodes 1 à 4, bouche synchronisée).
 - Personnage muet : aucune animation de parole, aucun visème, aucune bulle de dialogue. Il garde le clignement,
   la respiration et les 6 expressions avec leur bouche **fixe** (sourire, grimace, bouche en « o »…).
 - L'expression change aux coupures de scène, selon l'émotion indiquée (une émotion « A puis B » écrite dans le
   script peut basculer sur un mot via `puis`, sans jamais animer la bouche).
+
+## MOUVEMENT (règle de série depuis l'épisode 10)
+Les personnages ne restent jamais statiques : **chaque scène contient au moins 2 actions visibles** (déplacement, geste,
+objet manipulé) et **aucun personnage visible ne reste sans action plus de 1,5 s**. Vérifier avec
+`node scripts/verifie-mouvement.mjs epNN` (durées des scènes lues dans `voix.json`). ep01 à ep09 n'ont aucune action :
+rendu inchangé (contrôlé au pixel près sur des images témoins).
+- Un plan déclare `acteurs` (liste) : le calque `src/components/Acteurs.tsx` remplace alors le personnage seul au centre.
+  Sans `acteurs`, comportement d'origine.
+- Acteur : `{id, x, y?, echelle?, miroir?, pose?, expression?, nom?, chaise?, accessoire?, actions}` ; `id` = clé de
+  `src/personnages.ts` ; `x` = centre (px), `y` = ligne des pieds (défaut 1502), `echelle` défaut 0.78 (deux personnages) ;
+  `nom` = étiquette de nom à la première apparition (« Enzo, manager ») ; `chaise` = chaise de bureau à roulettes (avec
+  `pose: "assis"`) ; `expression` défaut = celle du plan (avec `puis`).
+- Actions `{t, fin?, type, …}` en secondes relatives au début de la scène (`fin` défaut t + 0,6 s ; `objet` : fin de scène).
+  - Déplacements : `walkIn` (`from: left|right`, arrivée `x`), `walkOut` (`to`), `walkTo` (`x`, `y`, `echelle` : avancer
+    vers la caméra, monter un escalier), `glisse` (sans pas, ex. chaise à roulettes), `recul` (`dx`, recul de surprise),
+    `saut` (petits sauts de joie), `miroir` (`valeur`). La marche anime le rebond du corps, les jambes et les bras.
+  - Tête et corps : `hoche`, `incline` (`angle`), `hausse` (haussement d'épaules), `expression` (`expression`).
+  - Bras articulés (épaule + coude, `cote: l|r|deux`, l = bras à gauche de l'écran) : `pointer` (`cible: haut|cote|bas|avant`),
+    `taper` (clavier, deux mains), `compter` (`doigts: [2, 3]`), `tendre`, `saisir`, `serrerMain`, `saluer`, `croiser`,
+    `teteMains`, `boire`, `montre` (regarde sa montre), `tapeMain` (tope-là), `pouce`, `ballants`, `sousBras`, `tenir`,
+    `ecrire`, `tracer` (tableau blanc), `nuque`, `poing`, `tapeEpaule`, `montrer` (montre son téléphone), `lever` (pancarte).
+  - Objets qui suivent la main : paramètre `objet` d'un geste, ou action `objet` (`cote`, `objet`, intervalle) :
+    `telephone`, `telephone_b`, `ordinateur`, `contrat`, `papiers`, `stylo`, `feutre`, `tasse`, `billets`, `enveloppe`,
+    `cheque` (+ `texte`), `dossier`, `pastille_compte|revenus|contenu`, `pastilles`, `pancarte` (+ `texte`, `\n`),
+    `calculatrice`, `sac`.
+- Composant `Personnage` : prop optionnelle `mouvement` (marche, angles des bras, objets, tête, épaules, miroir), calculée par
+  le calque Acteurs. Absente = rendu des épisodes 1 à 9. Dessins dans `src/components/PersonnageExtras.tsx`.
+- `objets_scene` (coordonnées écran, `devant: true` = devant les personnages) : `bureau`, `ordinateur` (`ouvre`, `ferme`,
+  `ecran: barres|messages|tableau`), `poste` (bureau + écran de messages génériques sur le côté + clavier), `tableau_blanc`
+  (`trace: [début, fin]`), `calculatrice`, `pile_billets` (monte entre `t` et `fin`), `escalier` (`marches: [{label, petit}]`),
+  `ecran_mural` (`variante: loi|suspendu`), `pastilles_bureau` (`prises` : instants où chaque pastille est prise).
+- Plans avec acteurs : léger travelling horizontal pendant la scène ; la carte glisse depuis le côté et rebondit, dans la
+  zone haute (y ≈ 318 à 920), sans couvrir les personnages (têtes sous y ≈ 900 à l'échelle 0.78).
+- Personnages secondaires : même composant (muet), apparence différente, actions plus simples.
 
 ## Voix (ElevenLabs, REST direct)
 - Voix « Guillaume - Narrator », `voice_id` `ohItIVrXTBI80RrUECOD`. **Ne jamais changer de voix.**
@@ -26,6 +61,8 @@ Options Remotion après l'épisode, ex. `npm run render -- ep03 --concurrency=2`
 - **Image finale : la dernière scène reste 3 s après la dernière parole.**
 - Sous-titres mot à mot et mot jaune calés sur `alignment` (ep01 à ep04 : la bouche aussi ; ep05+ : jamais la bouche).
 - Cache : hash (texte + réglages). `scripts/voix.mjs` ne rappelle pas l'API si rien n'a changé.
+- **Sigles épelés pour la voix (depuis ep10)** : champ de plan `texte_voix` = texte prononcé (« O.F. », « B.N.C. »,
+  « B.I.C. »), `texte` = texte affiché (« OF », « BNC », « BIC », sous-titres compris). Même nombre de mots dans les deux.
 
 ## Écriture
 - **Scène 1 = hook chiffré**, aucune intro ni logo : la première image montre déjà l'action.
@@ -59,14 +96,19 @@ Options Remotion après l'épisode, ex. `npm run render -- ep03 --concurrency=2`
 - Coupures : flash blanc + zoom (sauf la toute première image).
 - Une émotion « A puis B » : `expression` = A, `puis: {expression: B, au_mot: "mot"}` (bascule quand la voix
   prononce ce mot).
-- Durée visée : 70 à 80 s (le texte imposé et la vitesse 1.0 peuvent donner un peu plus : ep09 ≈ 84 s) ; toujours vérifier au ffprobe que le mp4 dépasse 62 s.
+- Durée visée : 70 à 80 s (le texte imposé et la vitesse 1.0 peuvent donner un peu plus : ep09 ≈ 84 s, ep10 ≈ 85 s) ; toujours vérifier au ffprobe que le mp4 dépasse 62 s.
 - Mot jaune : il est comparé au mot affiché débarrassé de sa ponctuation ; pour un mot élidé, écrire la forme
   affichée (`"l'employeur"`, pas `"employeur"`). Si le mot revient plusieurs fois, `mot_jaune_rang` (1 = première
   occurrence) n'en colore qu'une (sinon toutes).
 - Chiffre + unité dans un titre de carte : espaces insécables (`1\u00a0897\u00a0€`) pour éviter un « % » orphelin.
 
 ## Sujets sensibles (depuis ep08 : revenus de créatrice sur plateforme d'abonnement)
-- **Ne nommer aucune plateforme précise** : écrire « plateforme » / « plateforme d'abonnement », dans le texte lu comme
+- **Exception ep10 (demandée)** : « OF » peut être écrit dans les sous-titres, cartes et étiquettes (prononcé « O.F. »).
+  **Jamais le vrai logo** : seulement la pastille générique `PastilleOF` (carré arrondi jaune de la série, lettres « OF » en
+  texte simple, police de la série) ; aucun autre logo de marque réel ; autres plateformes = « A » et « B » génériques.
+  Écrans de téléphone : icônes neutres et bulles de message génériques uniquement. Tous les personnages sont adultes,
+  entièrement habillés, gestes banals (téléphone, café, contrat, stylo, geste de la main).
+- **Ne nommer aucune plateforme précise** (sauf l'exception ci-dessus) : écrire « plateforme » / « plateforme d'abonnement », dans le texte lu comme
   sur les cartes (les sources peuvent citer un média ou un site de statistiques, jamais la plateforme).
 - **Aucun visuel suggestif** : jamais d'écran, d'image ou de pose suggestive ; l'épisode parle de finances, pas du
   contenu vendu. On montre seulement le matériel (smartphone sur trépied, ring light, ordinateur portable avec
@@ -96,6 +138,15 @@ Options Remotion après l'épisode, ex. `npm run render -- ep03 --concurrency=2`
   l'envers sans logo (`tete: casquette` + `envers: true`), combinaison de travail turquoise (`tenue.combinaison`, bas = haut)
   aux manches retroussées (`tenue.retroussees`) avec traces de mousse (`tenue.mousse`), gants en nitrile bleu clair
   accrochés à la ceinture (`gantsCeinture`), baskets blanches.
+
+- ep10 Enzo (muet), manager, 27 ans : peau claire, cheveux châtain clair plaqués en arrière au gel (`gomine`), barbe de trois
+  jours taillée, aviateurs relevés dans les cheveux (`tete: aviateur`), chemise blanche (`tenue.chemise`) manches retroussées
+  sous une doudoune sans manches kaki (`doudoune`), jean noir, baskets blanches, montre argentée (`montre`, visible avec les
+  bras articulés), écouteurs tour de cou (`ecouteursCou`) ; ordinateur portable et deux smartphones (objets tenus).
+- ep10 secondaires : Luna, 22 ans (`luna` : longs cheveux bouclés châtain clair à mèches caramel `long_boucle` + `meches`,
+  sweat oversize lilas `tenue.sweat`, jean droit, baskets blanches, petit sac à dos `petitSac`) ; deux chatteurs
+  (`chatteur_a`, `chatteur_b`, silhouettes simples assises) ; un comptable (`comptable` : cheveux gris, lunettes rondes,
+  `accessoire: "cravate"`, dossier sous le bras).
 
 ## Éléments visuels réutilisables (en plus de ceux du README)
 - `carte_texte` (titre, surtitre, indices, petit, illustration `enveloppe_batiment` | `appli_cintre`, mention, source).
@@ -147,6 +198,16 @@ Options Remotion après l'épisode, ex. `npm run render -- ep03 --concurrency=2`
 - Éléments ep09 : `carte_quartier` (carte de quartier générique, 3 punaises regroupées, trait court sur `au_mot`, `chip`),
   `fiche_entreprise` (smartphone générique : `recherche` tapée, fiche `nom`/`activite` avec 5 étoiles, photos avant/après
   sur `au_mot`, `mention`).
+
+- Décor `coworking` (ep10) : open space lumineux, grandes baies vitrées sur la ville, suspensions, bureaux partagés au fond
+  (écrans génériques), plantes (grande plante en pot, plante suspendue), parquet clair.
+- Étiquettes déjà disponibles : `LEVIER N°1` à `N°5` (fond vert, texte blanc, bandes noires), `CONSEIL` / `ATTENTION`
+  (jaune à bandes noires), `MAIS`, `RÈGLE N°1`, `EN CLAIR`, `TON AVIS`.
+- Éléments ep10 (`src/components/ElementsEp10.tsx`, glissent et rebondissent) : `cartes_successives` (cartes chiffrées une
+  par `au_mot`, `alerte`, `pastille: "OF"`), `cascade` (lignes qui tombent une à une, `resultat`, `negatif`, `definition`,
+  `hypotheses`, `petit`), `contrat_cases` (cases cochées sur `au_mot`), `carte_taux`, `profils_comptes`, `tableau_bord`
+  (tuiles, `jauge`), `compte_suspendu` (puis plateformes génériques A/B sur `au_mot`), `verrous` (pastilles verrouillées sur
+  une destination). `au_mot: "mille#2"` = 2e occurrence du mot dans le plan.
 
 ## Fichiers
 - `episodes/epNN/{episode,script}.json` (à la main), `voix.json` + `voix-brute.*` (générés).
