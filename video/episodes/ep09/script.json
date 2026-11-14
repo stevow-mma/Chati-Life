@@ -1,0 +1,265 @@
+[
+  {
+    "texte": "Théo investit quatre cent cinquante euros dans du matériel de nettoyage auto. Il peut le rembourser en neuf voitures.",
+    "decor": "parking",
+    "expression": "fier",
+    "mot_jaune": "neuf",
+    "etiquette": null,
+    "pose": "deballe",
+    "accessoire_sol": [
+      "berline",
+      "kit_nettoyage"
+    ],
+    "element_visuel": {
+      "type": "carte_texte",
+      "titre": "Kit de départ ≈ 450 €",
+      "petit": "aspirateur eau/poussière, microfibres, brosses, produits",
+      "mention": "Hypothèse : matériel d'entrée de gamme ou d'occasion. Exemple illustratif"
+    },
+    "duree": 4
+  },
+  {
+    "texte": "Voici le calcul, et cinq leviers pour gagner plus.",
+    "decor": "parking",
+    "expression": "fier",
+    "mot_jaune": "cinq",
+    "etiquette": null,
+    "pose": "retrousse",
+    "accessoire_sol": [
+      "berline"
+    ],
+    "element_visuel": {
+      "type": "carte_texte",
+      "titre": "Le calcul + 5 leviers"
+    },
+    "duree": 4
+  },
+  {
+    "texte": "Un nettoyage complet se facture souvent entre soixante et cent vingt euros. Théo choisit quatre-vingt-cinq euros.",
+    "decor": "parking",
+    "expression": "content",
+    "mot_jaune": "quatre-vingt-cinq",
+    "etiquette": null,
+    "accessoire_sol": [
+      "berline",
+      "kit_nettoyage"
+    ],
+    "element_visuel": {
+      "type": "face_a_face",
+      "gauche": {
+        "label": "Nettoyage complet",
+        "valeur": "60 à 120 €",
+        "petit": "intérieur + extérieur"
+      },
+      "droite": {
+        "label": "Théo",
+        "valeur": "85 €",
+        "petit": "par voiture"
+      },
+      "symbole": "→",
+      "positif": true,
+      "au_mot": "Théo",
+      "source": "Sources : guides de la profession ; Abby"
+    },
+    "duree": 4
+  },
+  {
+    "texte": "Moins treize euros de produits et de carburant, moins dix-huit euros de cotisations.",
+    "decor": "parking",
+    "expression": "neutre",
+    "mot_jaune": "dix-huit",
+    "etiquette": "EN CLAIR",
+    "accessoire_sol": [
+      "berline"
+    ],
+    "element_visuel": {
+      "type": "calcul_lignes",
+      "ecart": 0.9,
+      "lignes": [
+        {
+          "label": "Prix facturé",
+          "valeur": "85 €"
+        },
+        {
+          "label": "Produits, carburant (hypothèse)",
+          "valeur": "−13 €"
+        },
+        {
+          "label": "Cotisations 21,2 % du CA",
+          "valeur": "−18 €"
+        }
+      ],
+      "source": "Sources : Urssaf ; service-public.fr"
+    },
+    "duree": 4
+  },
+  {
+    "texte": "Il lui reste environ cinquante-quatre euros pour deux heures trente de travail, trajet compris.",
+    "decor": "parking",
+    "expression": "content",
+    "mot_jaune": "cinquante-quatre",
+    "etiquette": null,
+    "accessoire_sol": [
+      "berline",
+      "kit_nettoyage"
+    ],
+    "element_visuel": {
+      "type": "carte_chiffre",
+      "valeur": "≈ 54 € par voiture",
+      "petit": "≈ 21 € / heure. Hypothèse : 2 h de nettoyage + 30 min de trajet et de préparation",
+      "mention": "Estimation. Exemple illustratif"
+    },
+    "duree": 4
+  },
+  {
+    "texte": "Premier levier : l'ACRE, qui ramène ses cotisations de vingt et un virgule deux à quinze virgule neuf pour cent.",
+    "decor": "chambre",
+    "expression": "content",
+    "mot_jaune": "l'ACRE",
+    "etiquette": "LEVIER N°1",
+    "pose": "tape",
+    "accessoire_sol": [
+      "bureau_ordinateur"
+    ],
+    "element_visuel": {
+      "type": "carte_texte",
+      "surtitre": "ACRE : −25 % de cotisations (créations depuis le 1er juillet 2026)",
+      "titre": "21,2 % → 15,9 %",
+      "petit": "À demander dans les 60 jours après la création. Réservée à certains profils (ex. jeunes de 18 à 25 ans). Vérifier sur urssaf.fr",
+      "source": "Sources : Urssaf ; décret n°2026-69"
+    },
+    "duree": 4
+  },
+  {
+    "texte": "Deuxième levier : les options. Le shampouinage des sièges se facture souvent cinquante à cent euros de plus.",
+    "decor": "parking",
+    "expression": "content",
+    "mot_jaune": "options",
+    "etiquette": "LEVIER N°2",
+    "pose": "extracteur",
+    "accessoire_sol": [
+      "siege_auto"
+    ],
+    "element_visuel": {
+      "type": "carte_chiffre",
+      "valeur": "+50 à +100 €",
+      "legende": "Option shampouinage sièges",
+      "source": "Source : guides de la profession"
+    },
+    "duree": 4
+  },
+  {
+    "texte": "Troisième levier : les professionnels. Garages, VTC et entreprises avec flotte reviennent régulièrement.",
+    "decor": "bureau",
+    "expression": "fier",
+    "mot_jaune": "professionnels",
+    "etiquette": "LEVIER N°3",
+    "pose": "serre_main",
+    "accessoire_sol": [
+      "silhouette_responsable"
+    ],
+    "element_visuel": {
+      "type": "carte_texte",
+      "titre": "Clients réguliers",
+      "indices": [
+        "Garages",
+        "VTC",
+        "Entreprises avec flotte"
+      ],
+      "source": "Source : guides de la profession"
+    },
+    "duree": 4
+  },
+  {
+    "texte": "Quatrième levier : regrouper les rendez-vous dans le même quartier, pour perdre moins de temps sur la route.",
+    "decor": "rue",
+    "expression": "content",
+    "mot_jaune": "regrouper",
+    "etiquette": "LEVIER N°4",
+    "accessoire_sol": [
+      "citadine"
+    ],
+    "element_visuel": {
+      "type": "carte_quartier",
+      "chip": "moins de trajet = plus de voitures par jour",
+      "au_mot": "quartier"
+    },
+    "duree": 4
+  },
+  {
+    "texte": "Cinquième levier : une fiche Google avec des photos avant-après, pour capter les recherches de lavage à domicile.",
+    "decor": "chambre",
+    "expression": "content",
+    "mot_jaune": "photos",
+    "etiquette": "LEVIER N°5",
+    "pose": "pouce",
+    "element_visuel": {
+      "type": "fiche_entreprise",
+      "recherche": "lavage auto à domicile",
+      "nom": "Théo · Nettoyage auto",
+      "activite": "Nettoyage auto à domicile",
+      "au_mot": "photos",
+      "mention": "Exemple illustratif"
+    },
+    "duree": 4
+  },
+  {
+    "texte": "Conseil : prends une assurance responsabilité civile pro, entre onze et quatre-vingts euros par mois.",
+    "decor": "bureau",
+    "expression": "neutre",
+    "mot_jaune": "assurance",
+    "etiquette": "CONSEIL",
+    "element_visuel": {
+      "type": "carte_chiffre",
+      "valeur": "≈ 11 à ≈ 80 €/mois",
+      "legende": "Assurance RC Pro, selon les garanties",
+      "petit": "Elle couvre les dommages causés à la voiture d'un client",
+      "source": "Sources : comparateurs d'assurance ; Abby. Estimation"
+    },
+    "duree": 4
+  },
+  {
+    "texte": "Attention à l'eau : laver sur la voie publique est interdit, jusqu'à quatre cent cinquante euros d'amende.",
+    "decor": "rue",
+    "expression": "neutre",
+    "mot_jaune": "interdit",
+    "etiquette": "ATTENTION",
+    "pose": "pulverise",
+    "accessoire_sol": [
+      "berline_rue"
+    ],
+    "element_visuel": {
+      "type": "carte_texte",
+      "surtitre": "Lavage sur la voie publique interdit :",
+      "titre": "jusqu'à 450 € d'amende",
+      "petit": "Privilégie le sans-eau ou la vapeur. Vérifie les règles de ta commune",
+      "source": "Source : règlement sanitaire départemental"
+    },
+    "duree": 4
+  },
+  {
+    "texte": "Règle numéro un : ton prix doit payer aussi ton trajet.",
+    "decor": "studio",
+    "expression": "fier",
+    "mot_jaune": "trajet",
+    "etiquette": "RÈGLE N°1",
+    "pose": "poing",
+    "element_visuel": {
+      "type": "carte_texte",
+      "titre": "Ton prix doit payer aussi ton trajet."
+    },
+    "duree": 4
+  },
+  {
+    "texte": "Et toi, tu te lancerais avec quatre cent cinquante euros de matériel ? Dis-le en commentaire, abonne-toi pour d'autres vrais chiffres.",
+    "decor": "studio",
+    "expression": "content",
+    "mot_jaune": "commentaire",
+    "etiquette": "TON AVIS",
+    "pose": "pointe_bas",
+    "element_visuel": {
+      "type": "icones_cta"
+    },
+    "duree": 4
+  }
+]

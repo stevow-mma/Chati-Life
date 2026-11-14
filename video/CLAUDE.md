@@ -4,7 +4,7 @@ Format 1080x1920, 30 fps. `npm run render -- epNN` → `out/epNN.mp4` (voix en c
 Options Remotion après l'épisode, ex. `npm run render -- ep03 --concurrency=2` si la mémoire manque.
 
 ## Personnage muet (correction de série)
-**À partir de l'épisode 5 (ep05, ep06, ep07, ep08, …), personnage muet, voix off indépendante ; ep01 à ep04 inchangés.**
+**À partir de l'épisode 5 (ep05 à ep09, …), personnage muet, voix off indépendante ; ep01 à ep04 inchangés.**
 - `episode.json` → `"muet": true` (ep05 et suivants) ; transmis à `<Personnage muet />` (défaut `false` = comportement
   des épisodes 1 à 4, bouche synchronisée).
 - Personnage muet : aucune animation de parole, aucun visème, aucune bulle de dialogue. Il garde le clignement,
@@ -35,7 +35,7 @@ Options Remotion après l'épisode, ex. `npm run render -- ep03 --concurrency=2`
   (clignement, respiration, 6 expressions : neutre, content, fier, reveur, perplexe, choque ; bouche fixe dès ep05).
 - Correspondance émotion → expression : dépité/agacé/méfiant/soupir/inquiet/curieux/étonné → `perplexe` ;
   choqué/effrayé/alarmé/surpris → `choque` ; concentré/lucide/résigné/posé → `neutre` ;
-  fier/confiant/sûr de soi/déterminé → `fier` ; content/satisfait/complice → `content` ; réfléchi → `neutre`.
+  fier/confiant/sûr de soi/déterminé → `fier` ; content/satisfait/complice/enthousiaste → `content` ; réfléchi/sérieux → `neutre`.
 - **Chiffres écrits en lettres dans le texte lu** (le champ `texte` = ce qui est prononcé, mot pour mot) ;
   les cartes affichent les chiffres en symboles.
 - **Sources sur les cartes** (`source`: « Source : … »).
@@ -43,7 +43,10 @@ Options Remotion après l'épisode, ex. `npm run render -- ep03 --concurrency=2`
   `mention` (« Exemple illustratif : estimations ») et le signe « ≈ » ; les chiffres officiels portent leur source.
 - **Exemples signalés** (`mention` : « Exemple illustratif », « Estimation »…). Les hypothèses d'un exemple
   restent visibles à l'écran : champ de plan `hypotheses` (bandeau discret en haut, `\n` = retour à la ligne).
-- Aucun logo ni couleur de marque réelle (plateformes, applis, enseignes).
+- Aucun logo ni couleur de marque réelle (plateformes, applis, enseignes, constructeurs automobiles).
+- **Aucun logo existant sur les cartes ou les écrans** (depuis ep09) : pas de logo de moteur de recherche, de service de
+  cartes, d'assureur, de banque, de réseau social… Même si le texte lu nomme un service (« fiche Google »), l'écran montre
+  une interface générique (`fiche_entreprise`, `carte_quartier`). Voitures : silhouettes génériques, sans logo ni plaque lisible.
 - Étiquettes : `MAIS` rouge ; `ATTENTION`, `PIÈGE N°1/2/3`, `CONSEIL` jaunes à bandes noires ;
   **`LEVIER N°1` à `LEVIER N°5` fond vert, texte blanc, bandes noires** (même style que PIÈGE, depuis ep07 ; N°4 et N°5
   depuis ep08) ;
@@ -51,10 +54,12 @@ Options Remotion après l'épisode, ex. `npm run render -- ep03 --concurrency=2`
   `src/components/Etiquette.tsx` (`COULEURS`, et `RAYEES` si elle est à bandes).
 - Ton : depuis ep07, privilégier les stratégies concrètes et les conseils utiles (moins d'avertissements) ;
   le personnage peut finir content et plein d'énergie. ep08 : même ton, **une seule étiquette ATTENTION** dans l'épisode.
+  ep09 : ton optimiste (le calcul d'abord, puis cinq leviers concrets), **un seul ATTENTION et un seul CONSEIL**.
+- Hypothèses et estimations : les marquer « Hypothèse » ou « Estimation » sur la carte (`mention`, `petit` ou `source`).
 - Coupures : flash blanc + zoom (sauf la toute première image).
 - Une émotion « A puis B » : `expression` = A, `puis: {expression: B, au_mot: "mot"}` (bascule quand la voix
   prononce ce mot).
-- Durée visée : 70 à 80 s ; toujours vérifier au ffprobe que le mp4 dépasse 62 s.
+- Durée visée : 70 à 80 s (le texte imposé et la vitesse 1.0 peuvent donner un peu plus : ep09 ≈ 84 s) ; toujours vérifier au ffprobe que le mp4 dépasse 62 s.
 - Mot jaune : il est comparé au mot affiché débarrassé de sa ponctuation ; pour un mot élidé, écrire la forme
   affichée (`"l'employeur"`, pas `"employeur"`). Si le mot revient plusieurs fois, `mot_jaune_rang` (1 = première
   occurrence) n'en colore qu'une (sinon toutes).
@@ -87,6 +92,10 @@ Options Remotion après l'épisode, ex. `npm run render -- ep03 --concurrency=2`
   plus foncés `sourcils`), petites boucles d'oreilles en perles (`perles`), pull oversize bleu ciel en maille
   (`tenue.oversize` + `tenue.pull`), jean droit bleu délavé (`tenue.jean` = couleur des surpiqûres), baskets blanches,
   casque audio générique autour du cou (`casqueCou`).
+- ep09 Théo (muet) : peau mate, rasé de près, cheveux noirs courts en dégradé (`degrade`) sous une casquette noire portée à
+  l'envers sans logo (`tete: casquette` + `envers: true`), combinaison de travail turquoise (`tenue.combinaison`, bas = haut)
+  aux manches retroussées (`tenue.retroussees`) avec traces de mousse (`tenue.mousse`), gants en nitrile bleu clair
+  accrochés à la ceinture (`gantsCeinture`), baskets blanches.
 
 ## Éléments visuels réutilisables (en plus de ceux du README)
 - `carte_texte` (titre, surtitre, indices, petit, illustration `enveloppe_batiment` | `appli_cintre`, mention, source).
@@ -125,6 +134,19 @@ Options Remotion après l'épisode, ex. `npm run render -- ep03 --concurrency=2`
   comparer, colonnes bleues), `abonnements_calendrier` (`pastilles: [{texte, au_mot}]`, 12 mois cochés un à un, `titre`
   sur `au_mot`), `enveloppes` (`gauche`, `droite` sur `au_mot`, `texte`, `mention`), `contrat_ordinateur` (`titre`,
   ligne `surligne` surlignée sur `au_mot`, `petit`, `source`).
+- Décor `parking` (ep09) : parking couvert d'immeuble résidentiel (plafond béton, néons, gaines, mur à bande bleue,
+  piliers numérotés B2/B3 à bandes jaune et noir, places tracées au sol, flèche, panneau « SORTIE », deux voitures garées
+  de face, génériques, plaques vierges).
+- Objets au sol ep09 : `berline` (berline générique de profil, derrière à gauche), `berline_rue` (berline blanche, à droite,
+  tournée vers le personnage), `citadine` (citadine orange, derrière à gauche), `kit_nettoyage` (devant à droite :
+  aspirateur eau/poussière, seau mousseux, microfibres, pulvérisateur), `siege_auto` (à droite : portière ouverte et
+  banquette dont les taches s'effacent ; à combiner avec la pose `extracteur`).
+- Poses ep09 : `deballe` (microfibre pliée tenue à deux mains), `retrousse` (retrousse sa manche), `tape` (mains sur le clavier
+  de `bureau_ordinateur`), `extracteur` (suceur d'extracteur sur `siege_auto`), `serre_main` (serre la main de
+  `silhouette_responsable`), `pulverise` (pulvérisateur « SANS EAU » vers la droite + microfibre).
+- Éléments ep09 : `carte_quartier` (carte de quartier générique, 3 punaises regroupées, trait court sur `au_mot`, `chip`),
+  `fiche_entreprise` (smartphone générique : `recherche` tapée, fiche `nom`/`activite` avec 5 étoiles, photos avant/après
+  sur `au_mot`, `mention`).
 
 ## Fichiers
 - `episodes/epNN/{episode,script}.json` (à la main), `voix.json` + `voix-brute.*` (générés).

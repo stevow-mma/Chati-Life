@@ -128,4 +128,23 @@ export const PERSONNAGES: Record<string, Apparence> = {
     sourcils: '#9E8C68',
     casqueCou: {couleur: '#E9ECEF', coussins: '#495057'},
   },
+  /** Théo — 21 ans, nettoyeur auto indépendant (épisode 9). Casquette noire sans logo ; aucun logo ni couleur de marque. */
+  theo: {
+    nom: 'Théo',
+    genre: 'homme',
+    teint: {peau: '#BC8659', ombre: '#9E6B42', joues: '#D27F62'},
+    cheveux: {style: 'degrade', couleur: '#141418'},
+    tenue: {
+      haut: '#17B3AA',
+      hautOmbre: '#11918A',
+      bas: '#17B3AA',
+      chaussures: '#FFFFFF',
+      bandeChaussures: '#DEE2E6',
+      combinaison: true,
+      retroussees: true,
+      mousse: '#FFFFFF',
+    },
+    tete: {type: 'casquette', couleur: '#26262E', couleurOmbre: '#3C3C46', envers: true},
+    gantsCeinture: '#A9DCF7',
+  },
 };

@@ -1,8 +1,8 @@
 export type Expression = 'neutre' | 'fier' | 'reveur' | 'perplexe' | 'choque' | 'content';
 
-export type Pose = 'debout' | 'velo' | 'assis' | 'pointe_bas' | 'photo' | 'tire_cable' | 'scanne' | 'regarde_telephone' | 'pousse' | 'pouce' | 'poing';
+export type Pose = 'debout' | 'velo' | 'assis' | 'pointe_bas' | 'photo' | 'tire_cable' | 'scanne' | 'regarde_telephone' | 'pousse' | 'pouce' | 'poing' | 'deballe' | 'retrousse' | 'tape' | 'extracteur' | 'serre_main' | 'pulverise';
 
-export type AccessoireSol = 'velo' | 'sablier' | 'pile_vetements' | 'veste_cintre' | 'portant_jeans' | 'camionnette' | 'perceuse' | 'caisse_tapis' | 'billets_pieces' | 'chariot_cartons' | 'silhouette_responsable' | 'trepied_ring_light' | 'bureau_ordinateur';
+export type AccessoireSol = 'velo' | 'sablier' | 'pile_vetements' | 'veste_cintre' | 'portant_jeans' | 'camionnette' | 'perceuse' | 'caisse_tapis' | 'billets_pieces' | 'chariot_cartons' | 'silhouette_responsable' | 'trepied_ring_light' | 'bureau_ordinateur' | 'berline' | 'berline_rue' | 'citadine' | 'kit_nettoyage' | 'siege_auto';
 
 /** Objet porté à la main (ep04). */
 export type ObjetMain = 'tote_jeans' | 'devis';
@@ -146,7 +146,12 @@ export type ElementVisuel =
   /** Deux enveloppes (la droite sur `au_mot`), phrase dessous. */
   | {type: 'enveloppes'; gauche: string; droite: string; au_mot?: string; texte?: string; mention?: string; source?: string}
   /** Ordinateur portable générique affichant un contrat ; une ligne surlignée sur `au_mot`. */
-  | {type: 'contrat_ordinateur'; titre: string; surligne: string; au_mot?: string; petit?: string; source?: string};
+  | {type: 'contrat_ordinateur'; titre: string; surligne: string; au_mot?: string; petit?: string; source?: string}
+  // --- Épisode 9 ---
+  /** Carte de quartier générique (sans logo) : trois punaises regroupées reliées par un trait court (sur `au_mot`), puce dessous. */
+  | {type: 'carte_quartier'; chip?: string; au_mot?: string; mention?: string}
+  /** Smartphone générique : barre de recherche, fiche d'entreprise (5 étoiles), photos avant/après stylisées (sur `au_mot`). Sans logo. */
+  | {type: 'fiche_entreprise'; recherche: string; nom: string; activite?: string; au_mot?: string; mention?: string};
 
 export type Plan = {
   texte: string;

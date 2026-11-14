@@ -688,6 +688,88 @@ const Entrepot: React.FC<{frame: number}> = ({frame}) => {
   );
 };
 
+/** Parking couvert d'immeuble résidentiel (ep09) : plafond béton avec néons et gaines, mur peint à bande colorée,
+ *  piliers numérotés, places tracées au sol, flèche de sens de circulation, voitures garées génériques
+ *  (silhouettes de face sans logo, plaques vierges illisibles). */
+const Parking: React.FC<{frame: number}> = ({frame}) => {
+  const HORIZON = 1180;
+  const voitureFace = (cx: number, w: number, couleur: string, k: number) => {
+    const h = w * 0.62;
+    const y0 = HORIZON - h + 6;
+    return (
+      <g key={k}>
+        <ellipse cx={cx} cy={HORIZON + 8} rx={w * 0.55} ry={10} fill="rgba(0,0,0,0.25)" />
+        {/* toit et pare-brise */}
+        <path d={`M ${cx - w * 0.36} ${y0 + h * 0.42} L ${cx - w * 0.27} ${y0 + 4} H ${cx + w * 0.27} L ${cx + w * 0.36} ${y0 + h * 0.42} Z`} fill={couleur} stroke={OUT} strokeWidth={6} strokeLinejoin="round" />
+        <path d={`M ${cx - w * 0.3} ${y0 + h * 0.38} L ${cx - w * 0.23} ${y0 + 14} H ${cx + w * 0.23} L ${cx + w * 0.3} ${y0 + h * 0.38} Z`} fill="#9DB4C0" stroke={OUT} strokeWidth={4} />
+        {/* capot, phares, plaque vierge */}
+        <rect x={cx - w / 2} y={y0 + h * 0.4} width={w} height={h * 0.46} rx={16} fill={couleur} stroke={OUT} strokeWidth={6} />
+        <rect x={cx - w * 0.44} y={y0 + h * 0.5} width={w * 0.18} height={h * 0.1} rx={6} fill="#FFF3B0" stroke={OUT} strokeWidth={4} />
+        <rect x={cx + w * 0.26} y={y0 + h * 0.5} width={w * 0.18} height={h * 0.1} rx={6} fill="#FFF3B0" stroke={OUT} strokeWidth={4} />
+        <rect x={cx - w * 0.16} y={y0 + h * 0.66} width={w * 0.32} height={h * 0.1} rx={3} fill="#F8F9FA" stroke={OUT} strokeWidth={3} />
+        <rect x={cx - w * 0.46} y={y0 + h * 0.84} width={w * 0.14} height={h * 0.16} rx={5} fill="#212529" />
+        <rect x={cx + w * 0.32} y={y0 + h * 0.84} width={w * 0.14} height={h * 0.16} rx={5} fill="#212529" />
+      </g>
+    );
+  };
+  const pilier = (x: number, w: number, num: string) => (
+    <g key={num}>
+      <rect x={x} y={180} width={w} height={HORIZON - 180 + 300} fill="#C9C5BC" stroke={OUT} strokeWidth={8} />
+      <rect x={x + w - 26} y={180} width={18} height={HORIZON + 120} fill="#B5B0A6" />
+      <rect x={x} y={760} width={w} height={150} fill="#2A9D8F" stroke={OUT} strokeWidth={6} />
+      <text x={x + w / 2} y={862} textAnchor="middle" fontFamily="Luckiest Guy" fontSize={78} fill="white">{num}</text>
+      {/* bandes de protection en bas du pilier */}
+      {Array.from({length: 4}).map((_, k) => (
+        <rect key={k} x={x} y={HORIZON + 160 + k * 36} width={w} height={18} fill={k % 2 ? '#FFD60A' : OUT} />
+      ))}
+    </g>
+  );
+  return (
+    <svg viewBox={`0 0 ${W} ${H}`} width={W} height={H}>
+      {/* mur du fond : béton clair, bande colorée en bas */}
+      <rect width={W} height={HORIZON} fill="#D9D4CA" />
+      <rect y={HORIZON - 260} width={W} height={260} fill="#8ECAE6" />
+      <path d={`M 0 ${HORIZON - 260} H ${W}`} stroke={OUT} strokeWidth={6} />
+      {/* plafond : dalle béton, poutres, gaines, néons */}
+      <rect width={W} height={180} fill="#A8A398" />
+      {[0, 360, 720].map((x) => (
+        <rect key={x} x={x} y={150} width={W / 3} height={50} fill="#9A958A" stroke={OUT} strokeWidth={5} />
+      ))}
+      <path d="M 0 236 H 1080" stroke="#7D8590" strokeWidth={22} />
+      <path d="M 0 268 H 1080" stroke="#C0392B" strokeWidth={12} opacity={0.7} />
+      {[150, 690].map((x, i) => {
+        const halo = 0.2 + Math.sin(frame / 8 + i) * 0.03;
+        return (
+          <g key={x}>
+            <ellipse cx={x + 120} cy={330} rx={240} ry={80} fill="#FFFDE7" opacity={halo} />
+            <rect x={x} y={300} width={240} height={24} rx={12} fill="#FFFDE7" stroke={OUT} strokeWidth={6} />
+          </g>
+        );
+      })}
+      {/* panneau générique de sortie */}
+      <rect x={420} y={420} width={240} height={80} rx={12} fill="#1F9D55" stroke={OUT} strokeWidth={7} />
+      <text x={540} y={478} textAnchor="middle" fontFamily="Luckiest Guy" fontSize={44} fill="white">SORTIE →</text>
+      {/* voitures garées au fond (génériques, de face) */}
+      {voitureFace(330, 230, '#E76F51', 0)}
+      {voitureFace(760, 250, '#F8F9FA', 1)}
+      {/* sol : enrobé gris, places tracées en perspective, flèche */}
+      <rect y={HORIZON} width={W} height={H - HORIZON} fill="#7A7F87" />
+      <path d={`M 0 ${HORIZON} H ${W}`} stroke={OUT} strokeWidth={8} />
+      {[-300, 60, 420, 780, 1140, 1500].map((x, i) => (
+        <path key={i} d={`M ${540 + (x - 540) * 0.35} ${HORIZON} L ${x} ${H}`} stroke="#F8F9FA" strokeWidth={12} opacity={0.85} />
+      ))}
+      <path d={`M 0 ${HORIZON + 140} H ${W}`} stroke="#F8F9FA" strokeWidth={10} opacity={0.6} />
+      <path d={`M 470 ${H - 160} L 540 ${H - 260} L 610 ${H - 160} H 570 V ${H - 60} H 510 V ${H - 160} Z`} fill="#F8F9FA" opacity={0.75} />
+      {[[160, 1600], [900, 1720], [700, 1560]].map(([x, y], i) => (
+        <ellipse key={i} cx={x} cy={y} rx={70} ry={12} fill="#6C717A" />
+      ))}
+      {/* piliers numérotés */}
+      {pilier(-40, 150, 'B2')}
+      {pilier(970, 150, 'B3')}
+    </svg>
+  );
+};
+
 export const Decor: React.FC<{nom: string; variante?: number}> = ({nom, variante = 0}) => {
   const frame = useCurrentFrame();
   const {durationInFrames} = useVideoConfig();
@@ -727,6 +809,9 @@ export const Decor: React.FC<{nom: string; variante?: number}> = ({nom, variante
       break;
     case 'entrepot':
       content = <Entrepot frame={frame} />;
+      break;
+    case 'parking':
+      content = <Parking frame={frame} />;
       break;
     default:
       content = <Uni nom={nom} />;

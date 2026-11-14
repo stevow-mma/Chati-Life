@@ -445,6 +445,140 @@ export const BureauOrdinateur: React.FC = () => {
   );
 };
 
+/** Berline générique vue de profil (ep09) : silhouette sans logo, sans plaque, sans calandre de marque. */
+export const Berline: React.FC<{couleur?: string; inverse?: boolean}> = ({couleur = '#5B7DB1', inverse = false}) => {
+  const frame = useCurrentFrame();
+  const reflet = 0.35 + Math.sin(frame / 14) * 0.08;
+  const roue = (cx: number) => (
+    <g key={cx}>
+      <circle cx={cx} cy={282} r={54} fill="#212529" stroke={OUT} strokeWidth={9} />
+      <circle cx={cx} cy={282} r={28} fill="#ADB5BD" stroke={OUT} strokeWidth={6} />
+      <circle cx={cx} cy={282} r={8} fill="#6C757D" />
+    </g>
+  );
+  return (
+    <svg viewBox="0 0 760 360" width="100%" height="100%" style={{overflow: 'visible'}}>
+      <ellipse cx={380} cy={340} rx={360} ry={14} fill="rgba(0,0,0,0.22)" />
+      <g transform={inverse ? 'translate(760 0) scale(-1 1)' : undefined}>
+        {/* caisse */}
+        <path d="M 30 282 Q 18 282 18 262 V 214 Q 20 180 60 172 L 196 158 L 270 92 Q 290 76 330 74 H 470 Q 506 74 532 96 L 606 160 L 700 176 Q 740 184 742 220 V 262 Q 742 282 722 282 Z" fill={couleur} stroke={OUT} strokeWidth={10} strokeLinejoin="round" />
+        {/* vitres */}
+        <path d="M 222 160 L 284 104 Q 296 94 324 94 H 384 V 160 Z" fill="#BDE0FE" stroke={OUT} strokeWidth={7} strokeLinejoin="round" />
+        <path d="M 404 160 V 94 H 466 Q 494 94 512 110 L 566 160 Z" fill="#BDE0FE" stroke={OUT} strokeWidth={7} strokeLinejoin="round" />
+        <path d="M 250 150 L 300 106" stroke="white" strokeWidth={8} strokeLinecap="round" opacity={reflet + 0.3} />
+        {/* portes, poignées, bas de caisse, rétroviseur */}
+        <path d="M 394 164 V 270 M 236 172 Q 232 230 246 270 M 570 166 Q 580 230 566 270" fill="none" stroke={OUT} strokeWidth={5} opacity={0.55} />
+        <rect x={326} y={186} width={40} height={10} rx={5} fill="#E9ECEF" stroke={OUT} strokeWidth={4} />
+        <rect x={500} y={186} width={40} height={10} rx={5} fill="#E9ECEF" stroke={OUT} strokeWidth={4} />
+        <path d="M 60 252 H 700" stroke="rgba(0,0,0,0.18)" strokeWidth={14} />
+        <path d="M 120 200 Q 380 186 680 204" stroke="white" strokeWidth={6} opacity={reflet} fill="none" />
+        <path d="M 572 150 l 30 -6 l 6 18 l -30 4 Z" fill={couleur} stroke={OUT} strokeWidth={5} strokeLinejoin="round" />
+        {/* phares et feux (génériques) */}
+        <path d="M 708 200 Q 734 202 738 222 L 712 222 Z" fill="#FFF3B0" stroke={OUT} strokeWidth={5} strokeLinejoin="round" />
+        <rect x={18} y={196} width={22} height={28} rx={6} fill="#E63946" stroke={OUT} strokeWidth={5} />
+        {roue(170)}
+        {roue(596)}
+      </g>
+    </svg>
+  );
+};
+
+/** Citadine générique vue de profil (ep09) : petite trois-portes à hayon, sans logo ni plaque. */
+export const Citadine: React.FC = () => {
+  const roue = (cx: number) => (
+    <g key={cx}>
+      <circle cx={cx} cy={262} r={46} fill="#212529" stroke={OUT} strokeWidth={8} />
+      <circle cx={cx} cy={262} r={22} fill="#ADB5BD" stroke={OUT} strokeWidth={5} />
+    </g>
+  );
+  return (
+    <svg viewBox="0 0 560 340" width="100%" height="100%" style={{overflow: 'visible'}}>
+      <ellipse cx={280} cy={318} rx={260} ry={12} fill="rgba(0,0,0,0.22)" />
+      <path d="M 34 262 Q 20 262 20 244 V 120 Q 22 84 60 80 L 300 74 Q 340 74 372 104 L 440 160 L 506 172 Q 538 180 540 210 V 244 Q 540 262 522 262 Z" fill="#F4A261" stroke={OUT} strokeWidth={9} strokeLinejoin="round" />
+      <path d="M 50 156 V 102 Q 52 94 64 94 H 190 V 156 Z" fill="#BDE0FE" stroke={OUT} strokeWidth={6} strokeLinejoin="round" />
+      <path d="M 210 156 V 94 H 296 Q 326 94 350 116 L 400 156 Z" fill="#BDE0FE" stroke={OUT} strokeWidth={6} strokeLinejoin="round" />
+      <path d="M 200 160 V 252" stroke={OUT} strokeWidth={5} opacity={0.5} />
+      <rect x={250} y={176} width={36} height={9} rx={4} fill="#FFF1E6" stroke={OUT} strokeWidth={4} />
+      <path d="M 510 190 Q 534 192 538 210 L 512 210 Z" fill="#FFF3B0" stroke={OUT} strokeWidth={5} />
+      <rect x={20} y={150} width={18} height={30} rx={5} fill="#E63946" stroke={OUT} strokeWidth={4} />
+      {roue(120)}
+      {roue(440)}
+    </svg>
+  );
+};
+
+/** Matériel de nettoyage auto (ep09) : aspirateur eau/poussière avec tuyau, seau mousseux et brosse,
+ *  pile de microfibres, pulvérisateur. Générique, sans marque. */
+export const KitNettoyage: React.FC = () => {
+  const frame = useCurrentFrame();
+  const bulle = (k: number) => Math.sin(frame / 8 + k) * 3;
+  return (
+    <svg viewBox="0 0 380 280" width="100%" height="100%" style={{overflow: 'visible'}}>
+      <ellipse cx={190} cy={270} rx={180} ry={10} fill="rgba(0,0,0,0.2)" />
+      {/* aspirateur eau/poussière : cuve, tête moteur, roulettes, tuyau annelé */}
+      <path d="M 150 118 Q 220 60 196 20" fill="none" stroke={OUT} strokeWidth={22} strokeLinecap="round" />
+      <path d="M 150 118 Q 220 60 196 20" fill="none" stroke="#5C677D" strokeWidth={12} strokeLinecap="round" strokeDasharray="10 5" />
+      <path d="M 26 120 H 154 L 146 246 Q 90 258 34 246 Z" fill="#E9C46A" stroke={OUT} strokeWidth={7} strokeLinejoin="round" />
+      <path d="M 30 172 H 150" stroke="#C9A43E" strokeWidth={6} />
+      <path d="M 18 120 Q 18 84 90 82 Q 162 84 162 120 Z" fill="#495057" stroke={OUT} strokeWidth={7} strokeLinejoin="round" />
+      <rect x={70} y={70} width={40} height={16} rx={7} fill="#343A40" stroke={OUT} strokeWidth={5} />
+      {[46, 134].map((x) => (
+        <circle key={x} cx={x} cy={252} r={11} fill="#343A40" stroke={OUT} strokeWidth={4} />
+      ))}
+      {/* seau + mousse + brosse */}
+      <path d="M 178 150 H 268 L 258 258 H 188 Z" fill="#4EA8DE" stroke={OUT} strokeWidth={7} strokeLinejoin="round" />
+      <path d="M 180 160 Q 223 110 266 160" fill="none" stroke="#6C757D" strokeWidth={5} />
+      <rect x={232} y={84} width={14} height={70} rx={5} fill="#BC8A5F" stroke={OUT} strokeWidth={4} transform="rotate(14 239 120)" />
+      <g fill="white" stroke="#BFD7E0" strokeWidth={2}>
+        {[188, 206, 224, 242, 258].map((x, k) => (
+          <circle key={x} cx={x} cy={150 + bulle(k)} r={12 + (k % 2) * 4} />
+        ))}
+      </g>
+      {/* pile de microfibres */}
+      {['#06D6A0', '#FFD60A', '#4EA8DE', '#FF8FA3'].map((c, k) => (
+        <rect key={c} x={274} y={238 - k * 18} width={96} height={20} rx={7} fill={c} stroke={OUT} strokeWidth={5} />
+      ))}
+      {/* pulvérisateur */}
+      <rect x={300} y={118} width={44} height={66} rx={10} fill="#E9F5FB" stroke={OUT} strokeWidth={5} />
+      <rect x={302} y={140} width={40} height={20} fill="#06D6A0" />
+      <path d="M 310 118 v -22 h 42 l 6 10 h -20 v 12 Z" fill="#343A40" stroke={OUT} strokeWidth={4} strokeLinejoin="round" />
+    </svg>
+  );
+};
+
+/** Intérieur de voiture vu par la portière ouverte (ep09) : banquette avec taches, bande propre et humide là où passe l'extracteur. */
+export const SiegeAuto: React.FC = () => {
+  const frame = useCurrentFrame();
+  const propre = Math.min(1, frame / 120);
+  return (
+    <svg viewBox="0 0 340 440" width="100%" height="100%" style={{overflow: 'visible'}}>
+      <ellipse cx={170} cy={430} rx={170} ry={10} fill="rgba(0,0,0,0.2)" />
+      {/* encadrement de portière (carrosserie) */}
+      <path d="M 0 40 Q 10 10 60 8 H 330 V 420 H 0 Z" fill="#5B7DB1" stroke={OUT} strokeWidth={9} strokeLinejoin="round" />
+      <path d="M 26 56 Q 34 34 70 32 H 312 V 396 H 26 Z" fill="#2B2D42" stroke={OUT} strokeWidth={6} />
+      {/* dossier + appui-tête */}
+      <rect x={210} y={70} width={64} height={46} rx={18} fill="#6C757D" stroke={OUT} strokeWidth={6} />
+      <path d="M 190 300 L 206 128 Q 210 110 236 110 H 262 Q 290 110 292 132 L 300 300 Z" fill="#868E96" stroke={OUT} strokeWidth={7} strokeLinejoin="round" />
+      <path d="M 220 140 V 290 M 266 140 V 290" stroke="#6C757D" strokeWidth={5} />
+      {/* assise */}
+      <rect x={34} y={286} width={276} height={62} rx={18} fill="#868E96" stroke={OUT} strokeWidth={7} />
+      {/* taches qui disparaissent peu à peu */}
+      <g fill="#8D6E4C" opacity={0.75 * (1 - propre * 0.85)}>
+        <ellipse cx={90} cy={312} rx={26} ry={10} />
+        <ellipse cx={168} cy={324} rx={18} ry={8} />
+        <ellipse cx={244} cy={200} rx={14} ry={22} />
+      </g>
+      {/* bande propre, légèrement humide */}
+      <rect x={70} y={292} width={110} height={50} rx={12} fill="#ADB5BD" opacity={0.5 + propre * 0.3} />
+      {/* étincelles de propre */}
+      {[0, 1].map((k) => {
+        const p = ((frame + k * 20) % 40) / 40;
+        return <path key={k} d={`M ${110 + k * 60} ${270 - p * 20} l 5 12 l 12 4 l -12 4 l -5 12 l -5 -12 l -12 -4 l 12 -4 Z`} fill="white" opacity={1 - p} />;
+      })}
+    </svg>
+  );
+};
+
 export const OBJETS_SOL: Record<AccessoireSol, {left: number; top: number; width: number; height: number; devant: boolean}> = {
   velo: {left: 0, top: 1160, width: 520, height: 340, devant: false},
   sablier: {left: 800, top: 1270, width: 180, height: 234, devant: true},
@@ -459,6 +593,12 @@ export const OBJETS_SOL: Record<AccessoireSol, {left: number; top: number; width
   silhouette_responsable: {left: 800, top: 880, width: 270, height: 576, devant: false},
   trepied_ring_light: {left: 0, top: 760, width: 300, height: 740, devant: false},
   bureau_ordinateur: {left: 730, top: 1080, width: 360, height: 420, devant: true},
+  // ep09
+  berline: {left: -230, top: 1124, width: 760, height: 360, devant: false},
+  berline_rue: {left: 560, top: 1134, width: 760, height: 360, devant: false},
+  citadine: {left: -150, top: 1170, width: 560, height: 340, devant: false},
+  kit_nettoyage: {left: 706, top: 1236, width: 360, height: 266, devant: true},
+  siege_auto: {left: 760, top: 1050, width: 340, height: 440, devant: false},
 };
 
 const OBJET_COMPOSANT: Partial<Record<AccessoireSol, React.FC>> = {
@@ -474,13 +614,17 @@ const OBJET_COMPOSANT: Partial<Record<AccessoireSol, React.FC>> = {
   silhouette_responsable: SilhouetteResponsable,
   trepied_ring_light: TrepiedRingLight,
   bureau_ordinateur: BureauOrdinateur,
+  berline: Berline,
+  citadine: Citadine,
+  kit_nettoyage: KitNettoyage,
+  siege_auto: SiegeAuto,
 };
 
 export const ObjetSol: React.FC<{nom: AccessoireSol; couleurVelo?: string}> = ({nom, couleurVelo}) => {
   const pos = OBJETS_SOL[nom];
   return (
     <div style={{position: 'absolute', left: pos.left, top: pos.top, width: pos.width, height: pos.height}}>
-      {nom === 'velo' ? <VeloProfil couleur={couleurVelo} /> : (() => {
+      {nom === 'velo' ? <VeloProfil couleur={couleurVelo} /> : nom === 'berline_rue' ? <Berline couleur="#E9ECEF" inverse /> : (() => {
         const C = OBJET_COMPOSANT[nom] ?? Sablier;
         return <C />;
       })()}

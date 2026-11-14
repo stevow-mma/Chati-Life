@@ -2151,6 +2151,142 @@ const ContratOrdinateur: React.FC<{titre: string; surligne: string; petit?: stri
   );
 };
 
+/** Carte de quartier générique (ep09), sans logo ni nom de service : rues, îlots, parc ; trois punaises regroupées
+ *  qui tombent une à une puis un trait court les relie (sur `au_mot`) ; puce dessous. */
+const CarteQuartier: React.FC<{chip?: string; mention?: string; bascule?: number}> = ({chip, mention, bascule}) => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  const premier = usePremiereImage();
+  const b = useBascule(bascule, 0.5);
+  const pins: [number, number][] = [[250, 150], [318, 196], [292, 118]];
+  const chute = (k: number) => (premier ? 1 : spring({frame: frame - 6 - k * 8, fps, config: {damping: 10, stiffness: 220}}));
+  const trait = interpolate(frame, [b, b + 14], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+  const popChip = spring({frame: frame - b - 10, fps, config: {damping: 10, stiffness: 240}});
+  const chemin = `M ${pins[0][0]} ${pins[0][1]} L ${pins[2][0]} ${pins[2][1]} L ${pins[1][0]} ${pins[1][1]}`;
+  return (
+    <Card rotate={-1.5}>
+      <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+        <svg width={600} height={300} viewBox="0 0 600 300" style={{borderRadius: 22, border: `6px solid ${OUT}`, background: '#F1EBDD'}}>
+          {/* îlots d'immeubles */}
+          {Array.from({length: 4}).map((_, r) =>
+            Array.from({length: 6}).map((__, c) => (
+              <rect key={`${r}-${c}`} x={14 + c * 100} y={12 + r * 74} width={80} height={54} rx={8} fill={(r + c) % 5 === 2 ? '#B7E4C7' : '#E2DCCD'} />
+            )),
+          )}
+          {/* rues principales */}
+          <path d="M 0 140 Q 300 120 600 160" stroke="white" strokeWidth={18} fill="none" />
+          <path d="M 200 0 Q 230 150 190 300" stroke="white" strokeWidth={14} fill="none" />
+          <path d="M 420 0 Q 400 160 450 300" stroke="white" strokeWidth={14} fill="none" />
+          <path d="M 520 300 Q 560 220 600 210" stroke="#A9D6E5" strokeWidth={22} fill="none" />
+          {/* zone du quartier */}
+          <circle cx={286} cy={156} r={86} fill="#06D6A0" opacity={0.16} stroke="#1F9D55" strokeWidth={4} strokeDasharray="10 8" />
+          {/* trait court entre les punaises */}
+          <path d={chemin} stroke="#1F9D55" strokeWidth={9} fill="none" strokeLinecap="round" strokeLinejoin="round" pathLength={1} strokeDasharray={`${trait} 1`} />
+          {pins.map(([x, y], k) => {
+            const c = chute(k);
+            return (
+              <g key={k} transform={`translate(${x} ${y - (1 - c) * 120})`} opacity={Math.min(1, c * 2)}>
+                <path d="M 0 0 Q -24 -26 -24 -44 A 24 24 0 1 1 24 -44 Q 24 -26 0 0 Z" fill="#E63946" stroke={OUT} strokeWidth={5} />
+                <circle cx={0} cy={-44} r={9} fill="white" />
+              </g>
+            );
+          })}
+        </svg>
+        {chip ? (
+          <div style={{marginTop: 18, transform: `scale(${popChip})`, background: '#FFD60A', border: `6px solid ${OUT}`, borderRadius: 999, padding: '12px 28px 4px', fontFamily: FONT_TITRE, fontSize: 40, color: OUT, whiteSpace: 'nowrap'}}>
+            {chip}
+          </div>
+        ) : null}
+        {mention ? <Mention>{mention}</Mention> : null}
+      </div>
+    </Card>
+  );
+};
+
+/** Voiture stylisée pour les photos avant/après (ep09). */
+const PhotoVoiture: React.FC<{propre: boolean; frame: number}> = ({propre, frame}) => (
+  <svg width={150} height={104} viewBox="0 0 150 104">
+    <rect width={150} height={104} fill={propre ? '#CDEFFF' : '#D8CBB4'} />
+    <path d="M 12 74 V 58 Q 14 48 28 46 L 46 30 Q 52 24 64 24 H 92 Q 102 24 110 32 L 124 46 Q 140 48 140 62 V 74 Z" fill={propre ? '#5B7DB1' : '#7D7466'} stroke={OUT} strokeWidth={4} strokeLinejoin="round" />
+    <path d="M 52 44 L 62 32 H 76 V 44 Z M 82 44 V 32 H 96 L 108 44 Z" fill={propre ? '#E7F5FF' : '#A39A8A'} stroke={OUT} strokeWidth={3} />
+    <circle cx={42} cy={76} r={12} fill="#212529" stroke={OUT} strokeWidth={3} />
+    <circle cx={112} cy={76} r={12} fill="#212529" stroke={OUT} strokeWidth={3} />
+    {propre ? (
+      [0, 1, 2].map((k) => {
+        const p = ((frame + k * 9) % 27) / 27;
+        return <path key={k} d={`M ${30 + k * 44} ${20 + (k % 2) * 10} l 4 9 l 9 3 l -9 3 l -4 9 l -4 -9 l -9 -3 l 9 -3 Z`} fill="white" stroke="#FFD60A" strokeWidth={1.5} opacity={1 - p} transform={`scale(1)`} />;
+      })
+    ) : (
+      <g fill="#5E5446" opacity={0.7}>
+        <circle cx={40} cy={58} r={5} />
+        <circle cx={70} cy={64} r={7} />
+        <circle cx={104} cy={56} r={4} />
+        <path d="M 14 86 Q 75 96 140 86" stroke="#5E5446" strokeWidth={6} fill="none" />
+      </g>
+    )}
+  </svg>
+);
+
+/** Smartphone générique (ep09) : barre de recherche, fiche d'entreprise avec 5 étoiles et deux photos avant/après
+ *  stylisées (sur `au_mot`). Aucun logo de moteur de recherche ni de service de cartes. */
+const FicheEntreprise: React.FC<{recherche: string; nom: string; activite?: string; mention?: string; bascule?: number}> = ({recherche, nom, activite, mention, bascule}) => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  const pop = usePop();
+  const b = useBascule(bascule, 0.4);
+  const n = Math.min(recherche.length, Math.max(0, Math.floor((frame - 4) / 1.4)));
+  const popPhotos = spring({frame: frame - b, fps, config: {damping: 10, stiffness: 230}});
+  const popEtoiles = spring({frame: frame - 24, fps, config: {damping: 10, stiffness: 230}});
+  return (
+    <div style={{display: 'flex', alignItems: 'center', gap: 26, transform: `translateY(30px) scale(${pop * 0.86})`}}>
+      <div style={{transform: 'rotate(-3deg)'}}>
+        <Telephone w={420} h={520}>
+          <div style={{background: '#F8F9FA', width: '100%', height: '100%', padding: '16px 14px', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', gap: 12}}>
+            {/* barre de recherche générique */}
+            <div style={{display: 'flex', alignItems: 'center', gap: 10, background: 'white', border: `4px solid ${OUT}`, borderRadius: 999, padding: '8px 14px'}}>
+              <svg width={26} height={26} viewBox="0 0 26 26">
+                <circle cx={11} cy={11} r={7} fill="none" stroke={OUT} strokeWidth={3.5} />
+                <path d="M 16 16 L 23 23" stroke={OUT} strokeWidth={4} strokeLinecap="round" />
+              </svg>
+              <div style={{fontFamily: FONT_TEXTE, fontSize: 26, color: OUT, whiteSpace: 'nowrap', overflow: 'hidden'}}>
+                {recherche.slice(0, n)}
+                {n < recherche.length && frame % 16 < 8 ? '|' : ''}
+              </div>
+            </div>
+            {/* fiche d'entreprise */}
+            <div style={{background: 'white', border: `4px solid ${OUT}`, borderRadius: 18, padding: '12px 14px', display: 'flex', flexDirection: 'column', gap: 6}}>
+              <div style={{fontFamily: FONT_TITRE, fontSize: 32, color: OUT, lineHeight: 1.1, paddingTop: 4}}>{nom}</div>
+              <div style={{display: 'flex', alignItems: 'center', gap: 8, transform: `scale(${popEtoiles})`, transformOrigin: 'left center'}}>
+                <span style={{fontFamily: FONT_TITRE, fontSize: 28, color: OUT, paddingTop: 4}}>5,0</span>
+                <Etoiles note={5} />
+              </div>
+              {activite ? <div style={{fontFamily: FONT_TEXTE, fontSize: 22, color: '#495057'}}>{activite}</div> : null}
+              <div style={{display: 'flex', gap: 10, marginTop: 6, transform: `scale(${popPhotos})`}}>
+                {[false, true].map((propre) => (
+                  <div key={String(propre)} style={{border: `4px solid ${OUT}`, borderRadius: 12, overflow: 'hidden', position: 'relative', width: 150, height: 104}}>
+                    <PhotoVoiture propre={propre} frame={frame} />
+                    <div style={{position: 'absolute', left: 6, top: 6, background: propre ? '#06D6A0' : '#E63946', color: propre ? OUT : 'white', fontFamily: FONT_TITRE, fontSize: 18, borderRadius: 8, padding: '4px 8px 0'}}>
+                      {propre ? 'APRÈS' : 'AVANT'}
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div style={{display: 'flex', gap: 8, marginTop: 6}}>
+                {['Appeler', 'Itinéraire', 'Site'].map((t) => (
+                  <div key={t} style={{flex: 1, textAlign: 'center', fontFamily: FONT_TEXTE, fontSize: 18, border: `3px solid ${OUT}`, borderRadius: 999, padding: '4px 0', background: '#E7F5FF', color: OUT}}>{t}</div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </Telephone>
+      </div>
+      {mention ? (
+        <div style={{background: 'rgba(255,255,255,0.92)', border: `5px solid ${OUT}`, borderRadius: 16, padding: '6px 16px', fontFamily: FONT_TEXTE, fontSize: 30, color: '#495057', maxWidth: 260}}>{mention}</div>
+      ) : null}
+    </div>
+  );
+};
+
 export const ElementVisuelView: React.FC<{
   element: ElementVisuel;
   /** frame du mot `au_mot` dans le plan */
@@ -2316,6 +2452,12 @@ export const ElementVisuelView: React.FC<{
       break;
     case 'contrat_ordinateur':
       inner = <ContratOrdinateur titre={element.titre} surligne={element.surligne} petit={element.petit} source={element.source} bascule={bascule} />;
+      break;
+    case 'carte_quartier':
+      inner = <CarteQuartier chip={element.chip} mention={element.mention} bascule={bascule} />;
+      break;
+    case 'fiche_entreprise':
+      inner = <FicheEntreprise recherche={element.recherche} nom={element.nom} activite={element.activite} mention={element.mention} bascule={bascule} />;
       break;
     default:
       inner = null;
