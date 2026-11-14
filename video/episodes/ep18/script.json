@@ -27,6 +27,7 @@
    ],
    "mention": "Exemple illustratif"
   },
+  "duree": 8.051,
   "acteurs": [
    {
     "id": "nolan_casque",
@@ -131,6 +132,7 @@
    "mention": "Hypothèse : vues et abonnés d'un mois type",
    "source": "Sources : Go-Viral, Ibrahim Kamara, Formalive"
   },
+  "duree": 6.931,
   "acteurs": [
    {
     "id": "nolan",
@@ -248,6 +250,7 @@
    "mention": "Exemple illustratif",
    "source": "Sources : Legalplace, LS Compta"
   },
+  "duree": 7.361,
   "acteurs": [
    {
     "id": "comptable",
@@ -431,6 +434,7 @@
    "mention": "Hypothèse : 3 h de live et 2 h de clips par jour, 5 montages de 5 h",
    "source": "≈ 3 € par heure : estimation"
   },
+  "duree": 5.921,
   "acteurs": [
    {
     "id": "nolan",
@@ -520,6 +524,7 @@
    "mention": "Exemple illustratif",
    "source": "Sources : Formalive, CreatorsJet"
   },
+  "duree": 6.919,
   "acteurs": [
    {
     "id": "spectatrice",
@@ -685,6 +690,7 @@
    ],
    "mention": "Exemple illustratif ; + 200 € = Hypothèse"
   },
+  "duree": 6.305,
   "acteurs": [
    {
     "id": "nolan",
@@ -782,6 +788,7 @@
    "mention": "Hypothèse. À signaler comme publicité",
    "source": "Source : Go-Viral"
   },
+  "duree": 5.979,
   "acteurs": [
    {
     "id": "resp_marque",
@@ -902,6 +909,7 @@
    "mention": "Estimation",
    "source": "Sources : Digitiz, Ibrahim Kamara"
   },
+  "duree": 5.515,
   "acteurs": [
    {
     "id": "nolan",
@@ -1000,6 +1008,7 @@
    "mention": "Sous conditions : micro-entreprise créée depuis le 1er juillet 2026",
    "source": "Source : Legalplace"
   },
+  "duree": 5.55,
   "acteurs": [
    {
     "id": "conseillere",
@@ -1132,6 +1141,7 @@
    "petit": "Garde ce qui rapporte le plus d'euros par heure",
    "mention": "Exemple illustratif"
   },
+  "duree": 4.272,
   "acteurs": [
    {
     "id": "nolan",
@@ -1216,6 +1226,7 @@
    "petit": "Retrait possible à tout moment ; politique pensée pour un usage non commercial",
    "source": "Source : Rockstar Support"
   },
+  "duree": 6.536,
   "acteurs": [
    {
     "id": "moderateur",
@@ -1353,6 +1364,7 @@
    },
    "mention": "Exemple illustratif"
   },
+  "duree": 4.25,
   "acteurs": [
    {
     "id": "nolan",
@@ -1398,6 +1410,7 @@
   "element_visuel": {
    "type": "icones_cta"
   },
+  "duree": 9.501,
   "acteurs": [
    {
     "id": "spectatrice",

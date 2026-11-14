@@ -253,6 +253,7 @@ for i, p in enumerate(S):
     D = durees.get(i, 6.0)
     if i == len(S) - 1: D += EXTRA_FIN
     q = {k: v for k, v in p.items() if not k.startswith('_') and k != 'objets_scene'}
+    q['duree'] = round(D, 3)
     q['acteurs'] = p['_acteurs'](D)
     q['objets_scene'] = p['objets_scene'](D)
     for o in q['objets_scene']:
