@@ -10,10 +10,14 @@ const COULEURS: Record<string, {bg: string; fg: string}> = {
   POURQUOI: {bg: '#F77F00', fg: 'white'},
   SUITE: {bg: '#7B2CBF', fg: 'white'},
   'TON AVIS': {bg: '#4361EE', fg: 'white'},
+  // ep07 : leviers, fond vert à bandes noires (même style que PIÈGE)
+  'LEVIER N°1': {bg: '#1F9D55', fg: 'white'},
+  'LEVIER N°2': {bg: '#1F9D55', fg: 'white'},
+  'LEVIER N°3': {bg: '#1F9D55', fg: 'white'},
 };
 
 /** Étiquettes jaunes à bandes noires (même style que ATTENTION). */
-const RAYEES = new Set(['ATTENTION', 'PIÈGE N°1', 'PIÈGE N°2', 'PIÈGE N°3', 'CONSEIL']);
+const RAYEES = new Set(['ATTENTION', 'PIÈGE N°1', 'PIÈGE N°2', 'PIÈGE N°3', 'CONSEIL', 'LEVIER N°1', 'LEVIER N°2', 'LEVIER N°3']);
 
 /** Étiquette de pivot qui "claque" en haut de l'écran. */
 export const Etiquette: React.FC<{texte: string}> = ({texte}) => {

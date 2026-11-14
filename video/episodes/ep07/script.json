@@ -1,0 +1,269 @@
+[
+  {
+    "texte": "Au SMIC, Mehdi peut gagner environ trois cents euros de plus par mois. Légalement.",
+    "decor": "entrepot",
+    "expression": "perplexe",
+    "mot_jaune": "Légalement",
+    "etiquette": null,
+    "pose": "pousse",
+    "accessoire_sol": "chariot_cartons",
+    "element_visuel": {
+      "type": "puce",
+      "texte": "≈ +300 € / mois ?",
+      "mention": "Exemple illustratif"
+    },
+    "duree": 4
+  },
+  {
+    "texte": "Premier levier : les heures supplémentaires, payées au moins vingt-cinq pour cent de plus.",
+    "decor": "entrepot",
+    "expression": "fier",
+    "mot_jaune": "vingt-cinq",
+    "etiquette": "LEVIER N°1",
+    "element_visuel": {
+      "type": "calcul_lignes",
+      "lignes": [
+        {
+          "label": "De la 36e à la 43e heure",
+          "valeur": "+25 %"
+        },
+        {
+          "label": "Ensuite (dès la 44e)",
+          "valeur": "+50 %"
+        }
+      ],
+      "ecart": 0.9,
+      "source": "Sources : Code du travail ; service-public.fr"
+    },
+    "duree": 4
+  },
+  {
+    "texte": "Elles sont aussi exonérées d'impôt jusqu'à sept mille cinq cents euros par an.",
+    "decor": "entrepot",
+    "expression": "content",
+    "mot_jaune": "exonérées",
+    "etiquette": null,
+    "element_visuel": {
+      "type": "carte_texte",
+      "surtitre": "Exonération d'impôt :",
+      "titre": "jusqu'à 7 500 € nets imposables / an",
+      "petit": "Cotisations salariales réduites jusqu'à 11,31 %",
+      "source": "Sources : CGI art. 81 quater ; CSS art. L241-17"
+    },
+    "duree": 4
+  },
+  {
+    "texte": "Une heure normale : environ neuf euros soixante-dix net. Une heure supplémentaire : environ quatorze.",
+    "decor": "entrepot",
+    "expression": "choque",
+    "mot_jaune": "quatorze",
+    "etiquette": "EN CLAIR",
+    "element_visuel": {
+      "type": "face_a_face",
+      "gauche": {
+        "label": "Heure normale",
+        "valeur": "≈ 9,70 €",
+        "petit": "net"
+      },
+      "droite": {
+        "label": "Heure sup",
+        "valeur": "≈ 13,90 €",
+        "petit": "net (+43 %)"
+      },
+      "symbole": "→",
+      "positif": true,
+      "au_mot": "supplémentaire",
+      "mention": "Exemple illustratif : SMIC 12,31 €/h brut, avant impôt. Estimation"
+    },
+    "duree": 4
+  },
+  {
+    "texte": "Conseil : dis à ton responsable que tu es partant pour les heures.",
+    "decor": "entrepot",
+    "expression": "fier",
+    "mot_jaune": "partant",
+    "etiquette": "CONSEIL",
+    "pose": "pouce",
+    "accessoire_sol": "silhouette_responsable",
+    "element_visuel": {
+      "type": "carte_texte",
+      "titre": "L'employeur propose ou accepte les heures"
+    },
+    "duree": 4
+  },
+  {
+    "texte": "Deuxième levier : la prime d'activité, une aide de la CAF pour les salaires modestes.",
+    "decor": "salon",
+    "expression": "perplexe",
+    "mot_jaune": "CAF",
+    "etiquette": "LEVIER N°2",
+    "element_visuel": {
+      "type": "carte_texte",
+      "surtitre": "Prime d'activité :",
+      "titre": "versée chaque mois par la CAF aux travailleurs aux revenus modestes",
+      "source": "Sources : caf.fr ; service-public.fr"
+    },
+    "duree": 4
+  },
+  {
+    "texte": "Seul au SMIC, souvent entre cent cinquante et deux cent cinquante euros par mois.",
+    "decor": "salon",
+    "expression": "content",
+    "mot_jaune": "souvent",
+    "etiquette": null,
+    "element_visuel": {
+      "type": "carte_chiffre",
+      "valeur": "≈ 150 à 250 € / mois",
+      "legende": "personne seule, au SMIC, selon le logement",
+      "source": "Estimations de simulateurs, à vérifier sur caf.fr. Pas une promesse"
+    },
+    "duree": 4
+  },
+  {
+    "texte": "Selon la Drees, un foyer éligible sur deux ne la touchait pas fin deux mille vingt et un.",
+    "decor": "salon",
+    "expression": "choque",
+    "mot_jaune": "deux",
+    "mot_jaune_rang": 1,
+    "etiquette": null,
+    "element_visuel": {
+      "type": "carte_chiffre",
+      "valeur": "1 foyer éligible sur 2",
+      "legende": "ne la percevait pas (fin 2021)",
+      "petit": "≈ 3,4 millions de foyers",
+      "source": "Source : Drees, Études et Résultats n°1379, juillet 2026"
+    },
+    "duree": 4
+  },
+  {
+    "texte": "Mehdi fait la simulation gratuite sur le site de la CAF. Quelques minutes, aucun engagement.",
+    "decor": "salon",
+    "expression": "content",
+    "mot_jaune": "gratuite",
+    "etiquette": "CONSEIL",
+    "pose": "regarde_telephone",
+    "element_visuel": {
+      "type": "telephone_simulation",
+      "titre": "Simulation",
+      "resultat": "≈ 200 €",
+      "resultat_petit": "par mois · Exemple illustratif, estimation",
+      "puce": "caf.fr ou\nmesdroitssociaux.gouv.fr",
+      "au_mot": "Quelques"
+    },
+    "duree": 4
+  },
+  {
+    "texte": "Troisième levier : la prime de partage de la valeur, exonérée de cotisations jusqu'à trois mille euros.",
+    "decor": "bureau",
+    "expression": "fier",
+    "mot_jaune": "trois",
+    "etiquette": "LEVIER N°3",
+    "element_visuel": {
+      "type": "carte_texte",
+      "surtitre": "Prime de partage de la valeur :",
+      "titre": "exonérée de cotisations jusqu'à 3 000 € / an",
+      "petit": "(6 000 € avec intéressement ou participation)",
+      "source": "Sources : economie.gouv.fr ; URSSAF"
+    },
+    "duree": 4
+  },
+  {
+    "texte": "Facultative pour l'employeur, mais ça se demande, surtout à l'entretien annuel.",
+    "decor": "bureau",
+    "expression": "fier",
+    "mot_jaune": "demande",
+    "etiquette": "EN CLAIR",
+    "pose": "pouce",
+    "accessoire_sol": "silhouette_responsable",
+    "element_visuel": {
+      "type": "tampon",
+      "texte": "FACULTATIVE",
+      "petit": "… mais ça se demande !"
+    },
+    "duree": 4
+  },
+  {
+    "texte": "Au total : quatre heures sup par semaine plus la prime, environ trois cents euros par mois.",
+    "decor": "studio",
+    "expression": "content",
+    "mot_jaune": "total",
+    "etiquette": null,
+    "element_visuel": {
+      "type": "calcul_lignes",
+      "ecart": 0.8,
+      "lignes": [
+        {
+          "label": "4 h sup / semaine",
+          "valeur": "≈ +240 € net"
+        },
+        {
+          "label": "Baisse de la prime due à ce revenu en plus",
+          "valeur": "≈ −100 €"
+        },
+        {
+          "label": "Prime d'activité",
+          "valeur": "≈ +150 à +250 €"
+        },
+        {
+          "label": "Total",
+          "valeur": "≈ +300 € / mois"
+        }
+      ],
+      "mention": "Exemple illustratif, personne seule au SMIC. Estimation prudente, pas une promesse"
+    },
+    "duree": 4
+  },
+  {
+    "texte": "Conseil : refais ta simulation quand ton revenu change. La prime baisse un peu, ton total monte.",
+    "decor": "salon",
+    "expression": "neutre",
+    "mot_jaune": "simulation",
+    "etiquette": "CONSEIL",
+    "element_visuel": {
+      "type": "chaine_fleches",
+      "etapes": [
+        {
+          "label": "Revenu",
+          "sens": "haut"
+        },
+        {
+          "label": "Prime",
+          "sens": "bas",
+          "petit": "un peu"
+        },
+        {
+          "label": "Total",
+          "sens": "haut",
+          "petit": "en général"
+        }
+      ],
+      "mention": "À vérifier sur le simulateur CAF"
+    },
+    "duree": 4
+  },
+  {
+    "texte": "Règle numéro un : un droit que tu ne demandes pas, personne ne te le verse.",
+    "decor": "studio",
+    "expression": "fier",
+    "mot_jaune": "demandes",
+    "etiquette": "RÈGLE N°1",
+    "pose": "poing",
+    "element_visuel": {
+      "type": "carte_texte",
+      "titre": "Un droit que tu ne demandes pas, personne ne te le verse."
+    },
+    "duree": 4
+  },
+  {
+    "texte": "Et toi, tu as déjà demandé ta prime d'activité ? Dis-le en commentaire, abonne-toi pour d'autres vrais chiffres.",
+    "decor": "studio",
+    "expression": "content",
+    "mot_jaune": "commentaire",
+    "etiquette": "TON AVIS",
+    "pose": "pointe_bas",
+    "element_visuel": {
+      "type": "icones_cta"
+    },
+    "duree": 4
+  }
+]

@@ -323,6 +323,72 @@ export const BilletsPieces: React.FC = () => {
   );
 };
 
+/** Chariot plateau chargé de cartons vierges (ep07), poignée à gauche : le personnage (pose « pousse ») la tient. */
+export const ChariotCartons: React.FC = () => {
+  const frame = useCurrentFrame();
+  const roule = (frame * 6) % 360;
+  const va = Math.sin(frame / 8) * 6;
+  const carton = (x: number, y: number, w: number, h: number, k: number) => (
+    <g key={k}>
+      <rect x={x} y={y} width={w} height={h} rx={4} fill={k % 2 ? '#C8955C' : '#D4A373'} stroke={OUT} strokeWidth={6} />
+      <rect x={x + w / 2 - 9} y={y} width={18} height={h} fill="#E9C99A" opacity={0.9} />
+      <path d={`M ${x + 12} ${y + h - 18} h 34`} stroke="#9C6B3C" strokeWidth={4} strokeLinecap="round" />
+    </g>
+  );
+  return (
+    <svg viewBox="0 0 400 500" width="100%" height="100%" style={{overflow: 'visible'}}>
+      <g transform={`translate(${va} 0)`}>
+        <ellipse cx={220} cy={492} rx={190} ry={10} fill="rgba(0,0,0,0.22)" />
+        {/* cartons empilés */}
+        {carton(120, 330, 250, 110, 0)}
+        {carton(140, 236, 200, 94, 1)}
+        {carton(170, 160, 140, 76, 2)}
+        {/* plateau */}
+        <rect x={34} y={438} width={358} height={24} rx={6} fill="#495057" stroke={OUT} strokeWidth={6} />
+        {/* roues */}
+        {[86, 344].map((cx) => (
+          <g key={cx}>
+            <circle cx={cx} cy={476} r={20} fill="#212529" stroke={OUT} strokeWidth={5} />
+            <path d={`M ${cx - 12} 476 H ${cx + 12}`} stroke="#ADB5BD" strokeWidth={4} transform={`rotate(${roule} ${cx} 476)`} />
+          </g>
+        ))}
+        {/* poignée */}
+        <path d="M 46 450 V 254 H 0" fill="none" stroke={OUT} strokeWidth={22} strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M 46 450 V 254 H 0" fill="none" stroke="#868E96" strokeWidth={11} strokeLinecap="round" strokeLinejoin="round" />
+      </g>
+    </svg>
+  );
+};
+
+/** Silhouette générique d'un responsable (ep07) : sans visage, tient une tablette. */
+export const SilhouetteResponsable: React.FC = () => {
+  const frame = useCurrentFrame();
+  const bob = Math.sin(frame / 9) * 3;
+  const C = '#3D4A5C';
+  const C2 = '#2E3949';
+  return (
+    <svg viewBox="0 0 300 640" width="100%" height="100%" style={{overflow: 'visible'}}>
+      <ellipse cx={150} cy={628} rx={120} ry={12} fill="rgba(0,0,0,0.22)" />
+      <g transform={`translate(0 ${bob})`}>
+        {/* jambes */}
+        <rect x={98} y={400} width={46} height={220} rx={18} fill={C2} stroke={OUT} strokeWidth={6} />
+        <rect x={156} y={400} width={46} height={220} rx={18} fill={C2} stroke={OUT} strokeWidth={6} />
+        {/* buste */}
+        <path d="M 70 230 Q 72 170 130 164 H 170 Q 228 170 230 230 L 236 420 Q 150 436 64 420 Z" fill={C} stroke={OUT} strokeWidth={7} strokeLinejoin="round" />
+        {/* bras + tablette */}
+        <path d="M 78 210 Q 40 300 96 340" fill="none" stroke={OUT} strokeWidth={40} strokeLinecap="round" />
+        <path d="M 78 210 Q 40 300 96 340" fill="none" stroke={C} strokeWidth={28} strokeLinecap="round" />
+        <path d="M 222 210 Q 258 300 200 330" fill="none" stroke={OUT} strokeWidth={40} strokeLinecap="round" />
+        <path d="M 222 210 Q 258 300 200 330" fill="none" stroke={C} strokeWidth={28} strokeLinecap="round" />
+        <rect x={100} y={276} width={96} height={72} rx={8} fill="#E9ECEF" stroke={OUT} strokeWidth={6} transform="rotate(-8 148 312)" />
+        {/* cou + tête (sans visage) */}
+        <rect x={132} y={140} width={36} height={32} fill={C2} stroke={OUT} strokeWidth={6} />
+        <circle cx={150} cy={96} r={62} fill={C} stroke={OUT} strokeWidth={7} />
+      </g>
+    </svg>
+  );
+};
+
 export const OBJETS_SOL: Record<AccessoireSol, {left: number; top: number; width: number; height: number; devant: boolean}> = {
   velo: {left: 0, top: 1160, width: 520, height: 340, devant: false},
   sablier: {left: 800, top: 1270, width: 180, height: 234, devant: true},
@@ -333,6 +399,8 @@ export const OBJETS_SOL: Record<AccessoireSol, {left: number; top: number; width
   perceuse: {left: 800, top: 1320, width: 220, height: 175, devant: true},
   caisse_tapis: {left: 0, top: 1262, width: 1080, height: 300, devant: true},
   billets_pieces: {left: 790, top: 1290, width: 260, height: 220, devant: true},
+  chariot_cartons: {left: 680, top: 1004, width: 400, height: 500, devant: true},
+  silhouette_responsable: {left: 800, top: 880, width: 270, height: 576, devant: false},
 };
 
 const OBJET_COMPOSANT: Partial<Record<AccessoireSol, React.FC>> = {
@@ -344,6 +412,8 @@ const OBJET_COMPOSANT: Partial<Record<AccessoireSol, React.FC>> = {
   perceuse: Perceuse,
   caisse_tapis: CaisseTapis,
   billets_pieces: BilletsPieces,
+  chariot_cartons: ChariotCartons,
+  silhouette_responsable: SilhouetteResponsable,
 };
 
 export const ObjetSol: React.FC<{nom: AccessoireSol; couleurVelo?: string}> = ({nom, couleurVelo}) => {

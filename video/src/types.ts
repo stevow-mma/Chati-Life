@@ -1,8 +1,8 @@
 export type Expression = 'neutre' | 'fier' | 'reveur' | 'perplexe' | 'choque' | 'content';
 
-export type Pose = 'debout' | 'velo' | 'assis' | 'pointe_bas' | 'photo' | 'tire_cable' | 'scanne' | 'regarde_telephone';
+export type Pose = 'debout' | 'velo' | 'assis' | 'pointe_bas' | 'photo' | 'tire_cable' | 'scanne' | 'regarde_telephone' | 'pousse' | 'pouce' | 'poing';
 
-export type AccessoireSol = 'velo' | 'sablier' | 'pile_vetements' | 'veste_cintre' | 'portant_jeans' | 'camionnette' | 'perceuse' | 'caisse_tapis' | 'billets_pieces';
+export type AccessoireSol = 'velo' | 'sablier' | 'pile_vetements' | 'veste_cintre' | 'portant_jeans' | 'camionnette' | 'perceuse' | 'caisse_tapis' | 'billets_pieces' | 'chariot_cartons' | 'silhouette_responsable';
 
 /** Objet porté à la main (ep04). */
 export type ObjetMain = 'tote_jeans' | 'devis';
@@ -20,7 +20,7 @@ export type ElementVisuel =
       accessoires?: Accessoire[];
     }
   | {type: 'compteur_vues'; valeur: number; legende?: string}
-  | {type: 'carte_chiffre'; valeur: string; legende?: string; source?: string; /** ep06 : mention discrète (ex. « Exemple illustratif : estimations »). */ mention?: string}
+  | {type: 'carte_chiffre'; valeur: string; legende?: string; source?: string; /** ep06 : mention discrète (ex. « Exemple illustratif : estimations »). */ mention?: string; /** ep07 : précision en petit sous la légende. */ petit?: string}
   | {type: 'icone'; nom: 'question' | 'billets' | 'billets_fondent' | 'velo_livraison'}
   /** Carte « avant → après » : l'ancien chiffre barré, le nouveau en gros. */
   | {type: 'carte_evolution'; avant: string; apres: string; legende?: string; mention?: string; source?: string}
@@ -94,6 +94,10 @@ export type ElementVisuel =
       au_mot?: string;
       mention?: string;
       source?: string;
+      /** ep07 : symbole entre les colonnes (défaut « ≠ »). */
+      symbole?: string;
+      /** ep07 : colonne droite en vert (bonne nouvelle) au lieu du rouge. */
+      positif?: boolean;
     }
   /** Montant qui passe de `avant` à `apres`, avec une pastille d'écart qui claque sur `au_mot`. */
   | {type: 'carte_hausse'; surtitre?: string; avant: string; avant_legende?: string; apres: string; apres_legende?: string; ecart: string; au_mot?: string; mention?: string; source?: string}
@@ -124,7 +128,16 @@ export type ElementVisuel =
       au_mot?: string;
       mention?: string;
       source?: string;
-    };
+    }
+  // --- Épisode 7 ---
+  /** Petite puce (pastille) de texte, mention en petit dessous. */
+  | {type: 'puce'; texte: string; mention?: string}
+  /** Tampon qui claque (ex. « FACULTATIVE »), précision en petit dessous. */
+  | {type: 'tampon'; texte: string; petit?: string; couleur?: string}
+  /** Smartphone générique : écran « Simulation », barre de progression puis résultat (sur `au_mot` ou à 55 %). */
+  | {type: 'telephone_simulation'; titre: string; resultat: string; resultat_petit?: string; puce?: string; au_mot?: string; mention?: string}
+  /** Enchaînement vertical d'effets : chaque étape avec une flèche qui monte ou descend. */
+  | {type: 'chaine_fleches'; etapes: {label: string; sens: 'haut' | 'bas'; petit?: string}[]; mention?: string; source?: string};
 
 export type Plan = {
   texte: string;
@@ -133,6 +146,8 @@ export type Plan = {
   element_visuel: ElementVisuel | null;
   /** Mot (ou groupe de mots) affiché en jaune. "{mot}" = le mot rotatif. */
   mot_jaune: string | null;
+  /** ep07 : si le mot jaune apparaît plusieurs fois, seule cette occurrence (1 = la première) est en jaune. */
+  mot_jaune_rang?: number | null;
   /** Étiquette de pivot : "MAIS", "ATTENTION", … */
   etiquette: string | null;
   /** Durée du plan en secondes. */

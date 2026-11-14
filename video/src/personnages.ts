@@ -87,4 +87,24 @@ export const PERSONNAGES: Record<string, Apparence> = {
     badge: {texte: 'AWA', couleur: '#7B1E3A'},
     ceinturePochette: {couleur: '#2B2B33', ombre: '#16161B'},
   },
+  /** Mehdi — 27 ans, préparateur de commandes en entrepôt (épisode 7). Aucun logo ni couleur de marque. */
+  mehdi: {
+    nom: 'Mehdi',
+    genre: 'homme',
+    teint: {peau: '#C8916A', ombre: '#A8744F', joues: '#D47F68'},
+    cheveux: {style: 'ondule_meche', couleur: '#3A2316'},
+    tenue: {
+      haut: '#9AA0A8',
+      hautOmbre: '#7E848C',
+      bas: '#1A1A1F',
+      chaussures: '#FFFFFF',
+      bandeChaussures: '#DEE2E6',
+      tshirt: true,
+      chine: '#C3C8CE',
+    },
+    tete: null,
+    gilet: {couleur: '#C6F432', ombre: '#9CC51E', bandes: '#A3AAB3'},
+    cordonBadge: {cordon: '#2B3A55'},
+    douchette: {couleur: '#495057', ombre: '#343A40'},
+  },
 };

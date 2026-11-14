@@ -15,7 +15,7 @@ export type Apparence = {
   nom: string;
   genre: 'homme' | 'femme';
   teint: {peau: string; ombre: string; joues: string};
-  cheveux: {style: 'meches' | 'chignon_boucle' | 'court' | 'carre_frange' | 'court_dessus' | 'afro_puff'; couleur: string};
+  cheveux: {style: 'meches' | 'chignon_boucle' | 'court' | 'carre_frange' | 'court_dessus' | 'afro_puff' | 'ondule_meche'; couleur: string};
   tenue: {
     haut: string;
     hautOmbre: string;
@@ -34,6 +34,8 @@ export type Apparence = {
     poches?: string;
     /** Tunique de travail (ep06) : col en V, boutons-pression, manches courtes, bas évasé sous la ceinture. */
     tunique?: boolean;
+    /** T-shirt chiné (ep07) : couleur des petites mouchetures. */
+    chine?: string;
   };
   /** Accessoire de tête : casquette (avec initiale) ou grosses lunettes rondes. */
   tete:
@@ -67,6 +69,12 @@ export type Apparence = {
   badge?: {texte: string; couleur?: string} | null;
   /** Ceinture avec petite pochette zippée devant (ep06). */
   ceinturePochette?: {couleur: string; ombre: string} | null;
+  /** Gilet de sécurité sans manches, ouvert devant, à bandes réfléchissantes (ep07). */
+  gilet?: {couleur: string; ombre: string; bandes: string} | null;
+  /** Badge vierge (sans logo) porté sur un cordon autour du cou (ep07). */
+  cordonBadge?: {cordon: string} | null;
+  /** Petite douchette de scan générique accrochée à la ceinture (ep07). */
+  douchette?: {couleur: string; ombre: string} | null;
 };
 
 /** Durée (frames) d'un passage d'article au scanner (pose « scanne ») ; le bip du décor « caisse_tapis » suit le même cycle. */
@@ -231,7 +239,7 @@ const demiCourbe = (S: Pt, E: Pt, H: Pt, t: number) => {
   return `M ${S[0]} ${S[1]} Q ${c[0]} ${c[1]} ${fin[0]} ${fin[1]}`;
 };
 
-const Arm: React.FC<{shoulder: Pt; elbow: Pt; hand: Pt; gant: boolean; manche: string; peau: string; bande?: string; doigt?: boolean; mancheCourte?: boolean}> = ({
+const Arm: React.FC<{shoulder: Pt; elbow: Pt; hand: Pt; gant: boolean; manche: string; peau: string; bande?: string; doigt?: boolean; mancheCourte?: boolean; /** ep07 : pouce levé */ pouce?: boolean; /** ep07 : poing serré */ poing?: boolean}> = ({
   shoulder,
   elbow,
   hand,
@@ -241,6 +249,8 @@ const Arm: React.FC<{shoulder: Pt; elbow: Pt; hand: Pt; gant: boolean; manche: s
   bande,
   doigt = false,
   mancheCourte = false,
+  pouce = false,
+  poing = false,
 }) => (
   <g>
     <path
@@ -289,6 +299,14 @@ const Arm: React.FC<{shoulder: Pt; elbow: Pt; hand: Pt; gant: boolean; manche: s
     ) : (
       <circle cx={hand[0]} cy={hand[1]} r={30} fill={peau} stroke={OUT} strokeWidth={SW} />
     )}
+    {pouce ? (
+      // pouce levé au-dessus du poing
+      <rect x={hand[0] - 12} y={hand[1] - 72} width={26} height={56} rx={13} fill={peau} stroke={OUT} strokeWidth={SW - 2} />
+    ) : null}
+    {pouce || poing ? (
+      // plis des doigts repliés
+      <path d={`M ${hand[0] - 18} ${hand[1] - 6} h 34 M ${hand[0] - 18} ${hand[1] + 8} h 34`} stroke={OUT} strokeWidth={4} strokeLinecap="round" opacity={0.55} />
+    ) : null}
   </g>
 );
 
@@ -400,6 +418,38 @@ const CheveuxAvant: React.FC<{a: Apparence}> = ({a}) => {
         {/* pattes */}
         <path d="M 156 238 Q 154 270 166 292 L 176 292 Q 170 262 176 236 Z" fill={c} stroke={OUT} strokeWidth={5} strokeLinejoin="round" />
         <path d="M 444 238 Q 446 270 434 292 L 424 292 Q 430 262 424 236 Z" fill={c} stroke={OUT} strokeWidth={5} strokeLinejoin="round" />
+      </g>
+    );
+  }
+  if (a.cheveux.style === 'ondule_meche') {
+    // ep07 : dessus ondulé assez court, mèche relevée vers l'avant ; côtés en dégradé (très courts, s'estompent vers l'oreille)
+    return (
+      <g>
+        <defs>
+          <linearGradient id="fondu-cotes" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stopColor={c} stopOpacity={0.95} />
+            <stop offset="1" stopColor={c} stopOpacity={0.12} />
+          </linearGradient>
+        </defs>
+        <path d="M 152 276 Q 146 200 190 164 L 204 206 Q 180 232 178 276 Z" fill="url(#fondu-cotes)" />
+        <path d="M 448 276 Q 454 200 410 164 L 396 206 Q 420 232 422 276 Z" fill="url(#fondu-cotes)" />
+        {/* dessus */}
+        <path
+          d="M 180 214 Q 164 152 212 124 Q 254 104 302 104 Q 352 104 392 122 Q 438 148 422 214 Q 408 192 388 198 Q 370 180 348 192 Q 326 176 302 190 Q 280 176 258 192 Q 236 180 216 200 Q 196 200 180 214 Z"
+          fill={c}
+          stroke={OUT}
+          strokeWidth={SW}
+          strokeLinejoin="round"
+        />
+        {/* mèche relevée vers l'avant */}
+        <path
+          d="M 226 140 Q 232 86 300 72 Q 360 62 388 92 Q 396 104 384 114 Q 368 98 340 104 Q 344 120 326 128 Q 318 108 290 112 Q 262 118 256 146 Q 236 154 226 140 Z"
+          fill={c}
+          stroke={OUT}
+          strokeWidth={7}
+          strokeLinejoin="round"
+        />
+        <path d="M 252 116 q 30 -30 76 -30 M 300 150 q 20 -14 44 -6 M 360 150 q 16 -10 32 0" fill="none" stroke="rgba(255,255,255,0.3)" strokeWidth={6} strokeLinecap="round" />
       </g>
     );
   }
@@ -771,6 +821,73 @@ const ToteJeans: React.FC<{main: Pt}> = ({main}) => {
   );
 };
 
+/** Gilet de sécurité (ep07) : deux pans ouverts devant, bandes réfléchissantes grises (épaules + taille). */
+const Gilet: React.FC<{couleur: string; ombre: string; bandes: string}> = ({couleur, ombre, bandes}) => {
+  const gauche = 'M 194 470 Q 194 418 250 412 L 266 412 Q 286 500 284 600 L 284 694 Q 236 692 186 682 Z';
+  const droite = 'M 406 470 Q 406 418 350 412 L 334 412 Q 314 500 316 600 L 316 694 Q 364 692 414 682 Z';
+  return (
+    <g>
+      <clipPath id="gilet-pans">
+        <path d={gauche} />
+        <path d={droite} />
+      </clipPath>
+      {[gauche, droite].map((d, i) => (
+        <path key={i} d={d} fill={couleur} stroke={OUT} strokeWidth={SW} strokeLinejoin="round" />
+      ))}
+      <g clipPath="url(#gilet-pans)">
+        {/* bandes horizontales à la taille */}
+        {[566, 622].map((y) => (
+          <g key={y}>
+            <rect x={180} y={y} width={240} height={30} fill={bandes} />
+            <rect x={180} y={y + 12} width={240} height={6} fill="white" opacity={0.75} />
+          </g>
+        ))}
+        {/* bandes verticales sur les épaules */}
+        {[226, 374].map((x) => (
+          <g key={x}>
+            <rect x={x - 14} y={405} width={28} height={161} fill={bandes} />
+            <rect x={x - 3} y={405} width={6} height={161} fill="white" opacity={0.75} />
+          </g>
+        ))}
+        {/* ombre sous les bras */}
+        <path d="M 186 470 Q 200 560 196 690 L 186 690 Z M 414 470 Q 400 560 404 690 L 414 690 Z" fill={ombre} />
+      </g>
+      {[gauche, droite].map((d, i) => (
+        <path key={i} d={d} fill="none" stroke={OUT} strokeWidth={SW} strokeLinejoin="round" />
+      ))}
+      {/* fermeture : petits scratchs */}
+      <rect x={270} y={640} width={16} height={26} rx={4} fill={ombre} stroke={OUT} strokeWidth={4} />
+      <rect x={314} y={640} width={16} height={26} rx={4} fill={ombre} stroke={OUT} strokeWidth={4} />
+    </g>
+  );
+};
+
+/** Badge vierge sur cordon (ep07), sans logo. */
+const CordonBadge: React.FC<{cordon: string}> = ({cordon}) => (
+  <g>
+    <path d="M 270 416 Q 276 480 296 540 M 330 416 Q 324 480 304 540" fill="none" stroke={OUT} strokeWidth={14} strokeLinecap="round" />
+    <path d="M 270 416 Q 276 480 296 540 M 330 416 Q 324 480 304 540" fill="none" stroke={cordon} strokeWidth={7} strokeLinecap="round" />
+    <rect x={292} y={532} width={16} height={18} rx={4} fill="#ADB5BD" stroke={OUT} strokeWidth={4} />
+    <g transform="rotate(3 300 590)">
+      <rect x={266} y={546} width={68} height={88} rx={9} fill="white" stroke={OUT} strokeWidth={6} />
+      <rect x={278} y={562} width={44} height={34} rx={5} fill="#DEE2E6" />
+      <rect x={278} y={606} width={44} height={7} rx={3} fill="#CED4DA" />
+      <rect x={278} y={618} width={30} height={7} rx={3} fill="#CED4DA" />
+    </g>
+  </g>
+);
+
+/** Douchette de scan générique accrochée à la ceinture, côté droit (ep07). */
+const Douchette: React.FC<{couleur: string; ombre: string}> = ({couleur, ombre}) => (
+  <g transform="rotate(-12 420 720)">
+    <rect x={394} y={688} width={40} height={20} rx={5} fill="#2B2B33" stroke={OUT} strokeWidth={5} />
+    <path d="M 398 700 H 466 Q 478 700 478 712 V 724 Q 478 734 466 734 H 436 L 430 776 Q 428 786 418 786 H 410 Q 400 786 402 776 L 408 734 H 398 Z" fill={couleur} stroke={OUT} strokeWidth={6} strokeLinejoin="round" />
+    <rect x={470} y={704} width={10} height={26} rx={3} fill="#E63946" stroke={OUT} strokeWidth={3} />
+    <path d="M 412 740 L 408 770" stroke={ombre} strokeWidth={8} strokeLinecap="round" />
+    <path d="M 410 742 h 16 v 10 h -16 z" fill={ombre} />
+  </g>
+);
+
 export const Personnage: React.FC<{
   apparence: Apparence;
   expression: Expression;
@@ -843,6 +960,17 @@ export const Personnage: React.FC<{
     left = [[150, 560], [196, 622]];
   } else if (posture === 'regarde_telephone') {
     right = [[480, 520], [410, 340]];
+  } else if (posture === 'pousse') {
+    // ep07 : pousse un chariot (poignée à sa gauche à l'écran, côté droit) avec les deux mains, petit va-et-vient
+    const va = Math.sin(frame / 8) * 6;
+    left = [[250, 590], [470 + va, 612]];
+    right = [[480, 560], [548 + va, 598]];
+  } else if (posture === 'pouce') {
+    // ep07 : pouce levé, bras droit plié devant
+    right = [[500, 560], [478, 448]];
+  } else if (posture === 'poing') {
+    // ep07 : poing serré levé près de l'épaule
+    right = [[520, 540], [452, 420]];
   }
   // Pédalage : manivelle qui tourne (2 tours / s environ)
   const ang = (frame / fps) * Math.PI * 3.4;
@@ -984,6 +1112,16 @@ export const Personnage: React.FC<{
             <path d="M 270 414 L 284 490 M 330 414 L 316 490" stroke="white" strokeWidth={7} strokeLinecap="round" />
           </>
         )}
+        {t.chine ? (
+          // T-shirt chiné : petites mouchetures (visibles entre les pans du gilet)
+          <g fill={t.chine} opacity={0.8}>
+            {Array.from({length: 22}).map((_, k) => (
+              <rect key={k} x={262 + ((k * 37) % 76)} y={430 + ((k * 53) % 250)} width={7} height={3} rx={1.5} />
+            ))}
+          </g>
+        ) : null}
+        {a.gilet ? <Gilet couleur={a.gilet.couleur} ombre={a.gilet.ombre} bandes={a.gilet.bandes} /> : null}
+        {a.cordonBadge ? <CordonBadge cordon={a.cordonBadge.cordon} /> : null}
         {assis ? (
           <g transform={`translate(0 ${-HAUT_ASSIS})`}>
             {/* Assis sur le trottoir : genoux relevés, tibias et baskets devant */}
@@ -1007,6 +1145,7 @@ export const Personnage: React.FC<{
 
         {a.ceintureOutils && !assis && !velo ? <CeintureOutils couleur={a.ceintureOutils.couleur} ombre={a.ceintureOutils.ombre} /> : null}
         {a.ceinturePochette && !assis && !velo ? <CeinturePochette couleur={a.ceinturePochette.couleur} ombre={a.ceinturePochette.ombre} /> : null}
+        {a.douchette && !assis && !velo ? <Douchette couleur={a.douchette.couleur} ombre={a.douchette.ombre} /> : null}
 
         {/* Bras gauche */}
         {velo ? <Guidon couleur={a.velo ?? '#2D6A4F'} /> : null}
@@ -1095,6 +1234,8 @@ export const Personnage: React.FC<{
           bande={t.bandes}
           doigt={posture === 'pointe_bas'}
           mancheCourte={mancheCourte}
+          pouce={posture === 'pouce'}
+          poing={posture === 'poing'}
         />
         {posture === 'tire_cable' ? (
           // câble électrique sous gaine grise : sort du mur (à gauche), passe dans les deux mains, retombe en boucle au sol

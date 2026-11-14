@@ -172,6 +172,7 @@ export const PlanScene: React.FC<{plan: Plan; personnage: Apparence; premier?: b
         revealDuration={reveal}
         punchFrom={isRotating ? motStart : null}
         starts={starts}
+        rangJaune={plan.mot_jaune_rang ?? null}
       />
 
       <AbsoluteFill style={{backgroundColor: 'white', opacity: flash, pointerEvents: 'none'}} />

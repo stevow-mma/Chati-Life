@@ -42,6 +42,7 @@ export const loadScript = (raw: unknown, fichier: string): Plan[] => {
       expression: plan.expression ?? 'neutre',
       element_visuel: plan.element_visuel ?? null,
       mot_jaune: plan.mot_jaune ?? null,
+      mot_jaune_rang: plan.mot_jaune_rang ?? null,
       etiquette: plan.etiquette ?? null,
       duree: plan.duree,
       pose: plan.pose ?? 'debout',

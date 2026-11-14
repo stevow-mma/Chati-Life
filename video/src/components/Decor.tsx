@@ -563,6 +563,131 @@ const Chantier: React.FC<{frame: number}> = ({frame}) => {
   );
 };
 
+/** Entrepôt (ep07) : rayonnages métalliques et cartons vierges, sol béton, transpalette jaune, quai de chargement, néons. Aucun logo. */
+const Entrepot: React.FC<{frame: number}> = ({frame}) => {
+  const HORIZON = 1240;
+  const carton = (x: number, y: number, w: number, h: number, k: number) => (
+    <g key={`${x}-${y}`}>
+      <rect x={x} y={y} width={w} height={h} rx={3} fill={k % 3 === 0 ? '#C8955C' : k % 3 === 1 ? '#D4A373' : '#BC8A5F'} stroke={OUT} strokeWidth={5} />
+      <rect x={x + w / 2 - 7} y={y} width={14} height={h} fill="#E9C99A" opacity={0.85} />
+    </g>
+  );
+  // rayonnage : montants bleu acier, lisses orange, 4 niveaux de cartons
+  const rayonnage = (x0: number, largeur: number, cote: number) => {
+    const niveaux = [380, 620, 860, 1100];
+    return (
+      <g>
+        {niveaux.map((y, n) => (
+          <g key={y}>
+            {Array.from({length: 3}).map((_, k) => {
+              const w = 70 + ((k * 29 + n * 17) % 30);
+              const h = 120 + ((k * 41 + n * 23) % 70);
+              const x = x0 + 26 + k * ((largeur - 52) / 3);
+              return carton(x, y + 220 - h, w, h, k + n);
+            })}
+            <rect x={x0} y={y + 220} width={largeur} height={26} fill="#F77F00" stroke={OUT} strokeWidth={6} />
+          </g>
+        ))}
+        {[x0, x0 + largeur - 26].map((x) => (
+          <g key={x}>
+            <rect x={x} y={300} width={26} height={1160} fill="#3E6A99" stroke={OUT} strokeWidth={6} />
+            {Array.from({length: 22}).map((_, k) => (
+              <rect key={k} x={x + 9} y={320 + k * 52} width={8} height={14} rx={2} fill="#22405F" />
+            ))}
+          </g>
+        ))}
+        {/* croisillons */}
+        <path d={`M ${cote < 0 ? x0 + largeur - 13 : x0 + 13} 1340 l ${cote * -60} -100`} stroke="#3E6A99" strokeWidth={10} />
+      </g>
+    );
+  };
+  return (
+    <svg viewBox={`0 0 ${W} ${H}`} width={W} height={H}>
+      {/* mur du fond (bardage métallique) */}
+      <rect width={W} height={HORIZON} fill="#6C7A89" />
+      {Array.from({length: 28}).map((_, i) => (
+        <rect key={i} x={i * 40} y={0} width={6} height={HORIZON} fill="#5E6B79" />
+      ))}
+      {/* charpente + néons */}
+      <rect y={0} width={W} height={60} fill="#4A5563" />
+      {[90, 230].map((y, r) => (
+        <path key={y} d={`M 0 ${y} H ${W}`} stroke="#3A4452" strokeWidth={16} />
+      ))}
+      {[[150, 120], [600, 120], [380, 260], [840, 260]].map(([x, y], i) => {
+        const halo = 0.18 + Math.sin(frame / 7 + i) * 0.03;
+        return (
+          <g key={i}>
+            <path d={`M ${x + 30} ${y - 30} V ${y} M ${x + 230} ${y - 30} V ${y}`} stroke={OUT} strokeWidth={5} />
+            <ellipse cx={x + 130} cy={y + 60} rx={240} ry={90} fill="#F8F9FA" opacity={halo} />
+            <rect x={x} y={y} width={260} height={26} rx={13} fill="#F8F9FA" stroke={OUT} strokeWidth={6} />
+            <rect x={x + 14} y={y + 7} width={232} height={8} rx={4} fill="white" />
+          </g>
+        );
+      })}
+      {/* quai de chargement au fond : porte sectionnelle à moitié levée, lumière du jour, butoirs */}
+      <g>
+        <rect x={350} y={660} width={380} height={HORIZON - 660} fill="#3A4452" stroke={OUT} strokeWidth={10} />
+        <rect x={370} y={860} width={340} height={HORIZON - 870} fill="#BDE0FE" />
+        <rect x={370} y={1060} width={340} height={HORIZON - 1070} fill="#A3B18A" />
+        {/* remorque de camion générique (blanche, sans marque) */}
+        <rect x={410} y={900} width={260} height={230} rx={8} fill="#F1F3F5" stroke={OUT} strokeWidth={6} />
+        <path d="M 540 900 V 1130" stroke="#CED4DA" strokeWidth={6} />
+        {/* porte relevée */}
+        <rect x={370} y={680} width={340} height={180} fill="#ADB5BD" stroke={OUT} strokeWidth={6} />
+        {[716, 752, 788, 824].map((y) => (
+          <path key={y} d={`M 370 ${y} H 710`} stroke="#868E96" strokeWidth={5} />
+        ))}
+        {/* bandes jaune et noir sur les côtés */}
+        {[350, 714].map((x) => (
+          <g key={x}>
+            <rect x={x} y={660} width={16} height={HORIZON - 660} fill="#FFD60A" />
+            {Array.from({length: 12}).map((_, k) => (
+              <rect key={k} x={x} y={672 + k * 48} width={16} height={22} fill={OUT} />
+            ))}
+          </g>
+        ))}
+        {/* petit panneau numéro de quai */}
+        <rect x={500} y={598} width={80} height={50} rx={8} fill="#FFD60A" stroke={OUT} strokeWidth={6} />
+        <text x={540} y={638} textAnchor="middle" fontFamily="Luckiest Guy" fontSize={38} fill={OUT}>
+          4
+        </text>
+      </g>
+      {/* sol béton + marquage jaune */}
+      <rect y={HORIZON} width={W} height={H - HORIZON} fill="#B5AFA4" />
+      <path d={`M 0 ${HORIZON} H ${W}`} stroke={OUT} strokeWidth={8} />
+      {[[120, 1330], [700, 1400], [300, 1600], [860, 1700], [520, 1820]].map(([x, y], i) => (
+        <ellipse key={i} cx={x} cy={y} rx={60 + (i % 2) * 30} ry={10} fill="#A39D92" />
+      ))}
+      <path d={`M 330 ${HORIZON} L 140 ${H}`} stroke="#FFD60A" strokeWidth={18} />
+      <path d={`M 750 ${HORIZON} L 940 ${H}`} stroke="#FFD60A" strokeWidth={18} />
+      {/* rayonnages gauche et droite */}
+      {rayonnage(-20, 330, 1)}
+      {rayonnage(770, 330, -1)}
+      {/* transpalette jaune (fourches + timon) avec une palette de cartons, à gauche */}
+      <g>
+        <rect x={40} y={1280} width={250} height={26} fill="#D4A373" stroke={OUT} strokeWidth={6} />
+        {carton(56, 1170, 110, 110, 0)}
+        {carton(170, 1190, 104, 90, 1)}
+        <rect x={30} y={1306} width={290} height={28} rx={6} fill="#FFC300" stroke={OUT} strokeWidth={6} />
+        <rect x={286} y={1236} width={60} height={98} rx={10} fill="#FFC300" stroke={OUT} strokeWidth={6} />
+        <path d="M 316 1240 L 378 1086" stroke={OUT} strokeWidth={20} strokeLinecap="round" />
+        <path d="M 316 1240 L 378 1086" stroke="#FFC300" strokeWidth={10} strokeLinecap="round" />
+        <path d="M 356 1084 H 404" stroke={OUT} strokeWidth={18} strokeLinecap="round" />
+        <path d="M 356 1084 H 404" stroke="#343A40" strokeWidth={9} strokeLinecap="round" />
+        {[60, 280, 316].map((x) => (
+          <circle key={x} cx={x} cy={1342} r={13} fill="#343A40" stroke={OUT} strokeWidth={5} />
+        ))}
+      </g>
+      {/* poussière dans la lumière des néons */}
+      {Array.from({length: 12}).map((_, i) => {
+        const x = (i * 181) % W;
+        const y = 200 + (((i * 197) + frame * (1 + (i % 3))) % 900);
+        return <circle key={i} cx={x} cy={y} r={2 + (i % 3)} fill="white" opacity={0.4} />;
+      })}
+    </svg>
+  );
+};
+
 export const Decor: React.FC<{nom: string; variante?: number}> = ({nom, variante = 0}) => {
   const frame = useCurrentFrame();
   const {durationInFrames} = useVideoConfig();
@@ -599,6 +724,9 @@ export const Decor: React.FC<{nom: string; variante?: number}> = ({nom, variante
       break;
     case 'banque':
       content = <Banque frame={frame} />;
+      break;
+    case 'entrepot':
+      content = <Entrepot frame={frame} />;
       break;
     default:
       content = <Uni nom={nom} />;

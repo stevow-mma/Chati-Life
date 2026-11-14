@@ -4,7 +4,7 @@ Format 1080x1920, 30 fps. `npm run render -- epNN` → `out/epNN.mp4` (voix en c
 Options Remotion après l'épisode, ex. `npm run render -- ep03 --concurrency=2` si la mémoire manque.
 
 ## Personnage muet (correction de série)
-**À partir de l'épisode 5 (ep05, ep06, …), personnage muet, voix off indépendante ; ep01 à ep04 inchangés.**
+**À partir de l'épisode 5 (ep05, ep06, ep07, …), personnage muet, voix off indépendante ; ep01 à ep04 inchangés.**
 - `episode.json` → `"muet": true` (ep05 et suivants) ; transmis à `<Personnage muet />` (défaut `false` = comportement
   des épisodes 1 à 4, bouche synchronisée).
 - Personnage muet : aucune animation de parole, aucun visème, aucune bulle de dialogue. Il garde le clignement,
@@ -35,7 +35,7 @@ Options Remotion après l'épisode, ex. `npm run render -- ep03 --concurrency=2`
   (clignement, respiration, 6 expressions : neutre, content, fier, reveur, perplexe, choque ; bouche fixe dès ep05).
 - Correspondance émotion → expression : dépité/agacé/méfiant/soupir/inquiet/curieux/étonné → `perplexe` ;
   choqué/effrayé/alarmé/surpris → `choque` ; concentré/lucide/résigné/posé → `neutre` ;
-  fier/confiant/sûr de soi → `fier` ; content/satisfait/complice → `content`.
+  fier/confiant/sûr de soi/déterminé → `fier` ; content/satisfait/complice → `content` ; réfléchi → `neutre`.
 - **Chiffres écrits en lettres dans le texte lu** (le champ `texte` = ce qui est prononcé, mot pour mot) ;
   les cartes affichent les chiffres en symboles.
 - **Sources sur les cartes** (`source`: « Source : … »).
@@ -45,13 +45,18 @@ Options Remotion après l'épisode, ex. `npm run render -- ep03 --concurrency=2`
   restent visibles à l'écran : champ de plan `hypotheses` (bandeau discret en haut, `\n` = retour à la ligne).
 - Aucun logo ni couleur de marque réelle (plateformes, applis, enseignes).
 - Étiquettes : `MAIS` rouge ; `ATTENTION`, `PIÈGE N°1/2/3`, `CONSEIL` jaunes à bandes noires ;
-  `EN CLAIR`, `TON AVIS`, etc. en aplat coloré.
+  **`LEVIER N°1/2/3` fond vert, texte blanc, bandes noires** (même style que PIÈGE, depuis ep07) ;
+  `RÈGLE N°1`, `EN CLAIR`, `POURQUOI`, `TON AVIS`, etc. en aplat coloré. Nouvelle étiquette : l'ajouter dans
+  `src/components/Etiquette.tsx` (`COULEURS`, et `RAYEES` si elle est à bandes).
+- Ton : depuis ep07, privilégier les stratégies concrètes et les conseils utiles (moins d'avertissements) ;
+  le personnage peut finir content et plein d'énergie.
 - Coupures : flash blanc + zoom (sauf la toute première image).
 - Une émotion « A puis B » : `expression` = A, `puis: {expression: B, au_mot: "mot"}` (bascule quand la voix
   prononce ce mot).
 - Durée visée : 70 à 80 s ; toujours vérifier au ffprobe que le mp4 dépasse 62 s.
 - Mot jaune : il est comparé au mot affiché débarrassé de sa ponctuation ; pour un mot élidé, écrire la forme
-  affichée (`"l'employeur"`, pas `"employeur"`).
+  affichée (`"l'employeur"`, pas `"employeur"`). Si le mot revient plusieurs fois, `mot_jaune_rang` (1 = première
+  occurrence) n'en colore qu'une (sinon toutes).
 - Chiffre + unité dans un titre de carte : espaces insécables (`1\u00a0897\u00a0€`) pour éviter un « % » orphelin.
 
 ## Personnages déjà utilisés (ne pas refaire un look proche)
@@ -66,6 +71,10 @@ Options Remotion après l'épisode, ex. `npm run render -- ep03 --concurrency=2`
 - ep06 Awa (muette) : peau brun foncé, afro puff haut (`afro_puff`) tenu par un bandeau violet (`bandeau`), clous d'oreilles
   dorés (`clous`), tunique de caisse bordeaux manches courtes (`tenue.tunique`) avec badge prénom (`badge`), pantalon noir,
   ceinture-pochette (`ceinturePochette`).
+- ep07 Mehdi (muet) : peau brun clair, cheveux brun foncé ondulés, mèche relevée, côtés en dégradé (`ondule_meche`),
+  pas de barbe, T-shirt gris chiné (`tenue.tshirt` + `tenue.chine`), gilet de sécurité vert fluo à bandes grises
+  (`gilet`), badge vierge sur cordon (`cordonBadge`), douchette de scan générique à la ceinture (`douchette`),
+  pantalon de travail noir, baskets blanches.
 
 ## Éléments visuels réutilisables (en plus de ceux du README)
 - `carte_texte` (titre, surtitre, indices, petit, illustration `enveloppe_batiment` | `appli_cintre`, mention, source).
@@ -88,6 +97,15 @@ Options Remotion après l'épisode, ex. `npm run render -- ep03 --concurrency=2`
   sur `au_mot`), `fiche_paie` (lignes `cle/label/valeur` ; `allumer: [{cle, au_mot}]` une à une, `surligne`, `gros_plan`
   avec montant qui clignote), `barre_empilee` (`animation`: `decoupe` | `empile` | `hachure`, segments
   `{label, montant, couleur, hachure?, texte?}`) ; `carte_chiffre.mention`.
+- Décor `entrepot` (ep07) : rayonnages métalliques et cartons vierges, sol béton à marquage jaune, transpalette jaune
+  (à gauche), quai de chargement au fond (porte relevée, remorque blanche sans marque), néons.
+- Objets au sol ep07 : `chariot_cartons` (devant, à droite ; à combiner avec la pose `pousse`),
+  `silhouette_responsable` (silhouette sans visage à droite, avec tablette : responsable ou manager).
+- Poses ep07 : `pousse` (pousse le chariot), `pouce` (pouce levé), `poing` (poing serré levé).
+- Éléments ep07 : `puce` (pastille + `mention`), `tampon` (ex. « FACULTATIVE », `petit` dessous),
+  `telephone_simulation` (smartphone générique : barre de progression puis résultat sur `au_mot` ; `puce` à côté,
+  `\n` = retour à la ligne), `chaine_fleches` (étapes verticales `{label, sens: haut|bas, petit?}`) ;
+  `face_a_face.symbole` (défaut « ≠ ») et `face_a_face.positif` (colonne droite verte) ; `carte_chiffre.petit`.
 
 ## Fichiers
 - `episodes/epNN/{episode,script}.json` (à la main), `voix.json` + `voix-brute.*` (générés).

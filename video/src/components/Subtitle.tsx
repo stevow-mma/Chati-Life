@@ -23,12 +23,17 @@ export const Subtitle: React.FC<{
   punchFrom: number | null;
   /** Frame d'apparition de chaque mot (calée sur la voix). Prioritaire sur revealDuration. */
   starts?: number[] | null;
-}> = ({texte, motJaune, revealDuration, punchFrom, starts}) => {
+  /** ep07 : seule la n-ième occurrence (1 = la première) du mot jaune est en jaune. Défaut : toutes. */
+  rangJaune?: number | null;
+}> = ({texte, motJaune, revealDuration, punchFrom, starts, rangJaune = null}) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
 
   const words = texte.split(/\s+/).filter(Boolean);
   const yellow = new Set((motJaune ?? '').split(/\s+/).map(normalize).filter(Boolean));
+  // indices des mots jaunes (toutes les occurrences, ou seulement la n-ième si rangJaune)
+  const indicesJaunes = words.map((w, i) => (yellow.has(normalize(w)) ? i : -1)).filter((i) => i >= 0);
+  const jaunes = new Set(rangJaune ? indicesJaunes.slice(rangJaune - 1, rangJaune) : indicesJaunes);
   const perWord = revealDuration / Math.max(words.length, 1);
   const fontSize = words.length > 10 ? 78 : 92;
 
@@ -54,7 +59,7 @@ export const Subtitle: React.FC<{
     >
       {words.map((w, i) => {
         const start = starts?.[i] ?? (revealDuration <= 1 ? 0 : Math.round(i * perWord));
-        const isYellow = yellow.has(normalize(w));
+        const isYellow = jaunes.has(i);
         const pop = spring({
           frame: frame - (isYellow && punchFrom !== null ? punchFrom : start),
           fps,
