@@ -1582,7 +1582,8 @@ const FaceAFace: React.FC<{
   bascule?: number;
   symbole?: string;
   positif?: boolean;
-}> = ({gauche, droite, mention, source, bascule, symbole = '≠', positif = false}) => {
+  neutre?: boolean;
+}> = ({gauche, droite, mention, source, bascule, symbole = '≠', positif = false, neutre = false}) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
   const b = useBascule(bascule, 0.6);
@@ -1598,9 +1599,9 @@ const FaceAFace: React.FC<{
   return (
     <Card rotate={-1.5}>
       <div style={{display: 'flex', alignItems: 'center', gap: 14, paddingTop: 4}}>
-        {colonne(gauche, '#D8F3DC', '#2D6A4F', 1, wobble * 0.5)}
-        <div style={{fontFamily: FONT_TITRE, fontSize: 70, color: positif ? '#2D6A4F' : '#E63946', paddingTop: 14, opacity: Math.min(1, pop * 2)}}>{symbole}</div>
-        {positif ? colonne(droite, '#FFF3B0', '#2D6A4F', pop, -wobble * 0.5) : colonne(droite, '#FFE5E9', '#E63946', pop, -wobble * 0.5)}
+        {neutre ? colonne(gauche, '#DCEEFB', '#1D4E89', 1, wobble * 0.5) : colonne(gauche, '#D8F3DC', '#2D6A4F', 1, wobble * 0.5)}
+        <div style={{fontFamily: FONT_TITRE, fontSize: 70, color: neutre ? '#1D4E89' : positif ? '#2D6A4F' : '#E63946', paddingTop: 14, opacity: Math.min(1, pop * 2)}}>{symbole}</div>
+        {neutre ? colonne(droite, '#DCEEFB', '#1D4E89', pop, -wobble * 0.5) : positif ? colonne(droite, '#FFF3B0', '#2D6A4F', pop, -wobble * 0.5) : colonne(droite, '#FFE5E9', '#E63946', pop, -wobble * 0.5)}
       </div>
       {mention ? <Mention>{mention}</Mention> : null}
       {source ? <Mention>{source}</Mention> : null}
@@ -1829,9 +1830,12 @@ const BarreEmpilee: React.FC<{
 // Épisode 7 (entrepôt) : puce, tampon, téléphone de simulation, chaîne de flèches.
 
 /** Petite pastille de texte qui rebondit, mention en petit dessous. */
-const Puce: React.FC<{texte: string; mention?: string}> = ({texte, mention}) => {
+const Puce: React.FC<{texte: string; mention?: string; suite?: string; bascule?: number}> = ({texte, mention, suite, bascule}) => {
   const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
   const pop = usePop();
+  const b = useBascule(bascule, 0.55);
+  const popSuite = suite ? spring({frame: frame - b, fps, config: {damping: 10, stiffness: 240}}) : 0;
   const flotte = Math.sin(frame / 9) * 6;
   return (
     <div style={{transform: `translateY(${flotte}px) scale(${pop}) rotate(-3deg)`, display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
@@ -1850,6 +1854,26 @@ const Puce: React.FC<{texte: string; mention?: string}> = ({texte, mention}) => 
       >
         {texte}
       </div>
+      {suite && frame >= b ? (
+        // ep08 : seconde puce (blanche, texte rouge) qui claque sous la première
+        <div
+          style={{
+            marginTop: 22,
+            transform: `scale(${popSuite}) rotate(2deg)`,
+            background: 'white',
+            border: `9px solid ${OUT}`,
+            borderRadius: 999,
+            boxShadow: '0 14px 0 rgba(0,0,0,0.3)',
+            padding: '22px 46px 4px',
+            fontFamily: FONT_TITRE,
+            fontSize: 76,
+            color: '#E63946',
+            whiteSpace: 'nowrap',
+          }}
+        >
+          {suite}
+        </div>
+      ) : null}
       {mention ? (
         <div style={{marginTop: 14, background: 'rgba(255,255,255,0.92)', border: `5px solid ${OUT}`, borderRadius: 16, padding: '4px 18px', fontFamily: FONT_TEXTE, fontSize: 32, color: '#495057'}}>
           {mention}
@@ -2003,6 +2027,130 @@ const ChaineFleches: React.FC<{etapes: {label: string; sens: 'haut' | 'bas'; pet
   );
 };
 
+
+// ---------------------------------------------------------------------------
+// Épisode 8 (créatrice de contenu) : abonnements + calendrier, enveloppes, contrat sur ordinateur.
+
+/** Pastilles 3 / 6 / 12 mois (chacune sur son mot), calendrier de 12 mois coché un à un, titre sur `au_mot`. */
+const AbonnementsCalendrier: React.FC<{pastilles: {texte: string; au_mot?: string}[]; titre?: string; mention?: string; bascule?: number; motFrame?: (m: string) => number | undefined}> = ({
+  pastilles,
+  titre,
+  mention,
+  bascule,
+  motFrame,
+}) => {
+  const frame = useCurrentFrame();
+  const {fps, durationInFrames} = useVideoConfig();
+  const b = useBascule(bascule, 0.75);
+  const popTitre = spring({frame: frame - b, fps, config: {damping: 11, stiffness: 220}});
+  const coche = (k: number) => 8 + k * Math.max(3, Math.round((durationInFrames * 0.8) / 12));
+  return (
+    <Card rotate={-1.5}>
+      <div style={{width: 820, display: 'flex', flexDirection: 'column', alignItems: 'center', paddingTop: 6}}>
+        <div style={{display: 'flex', gap: 20}}>
+          {pastilles.map((p, i) => {
+            const d = (p.au_mot ? motFrame?.(p.au_mot) : undefined) ?? 6 + i * 12;
+            const pop = spring({frame: frame - d, fps, config: {damping: 10, stiffness: 240}});
+            return (
+              <div key={i} style={{transform: `scale(${pop})`, fontFamily: FONT_TITRE, fontSize: 58, color: 'white', background: '#1F9D55', border: `6px solid ${OUT}`, borderRadius: 24, padding: '14px 26px 2px', whiteSpace: 'nowrap'}}>
+                {p.texte}
+              </div>
+            );
+          })}
+        </div>
+        <div style={{display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: 12, marginTop: 22}}>
+          {Array.from({length: 12}).map((_, k) => {
+            const ok = frame >= coche(k);
+            const p = spring({frame: frame - coche(k), fps, config: {damping: 9, stiffness: 300}});
+            return (
+              <div key={k} style={{width: 96, height: 76, border: `5px solid ${OUT}`, borderRadius: 12, background: '#F8F9FA', position: 'relative', overflow: 'hidden'}}>
+                <div style={{height: 18, background: '#76B4DE', borderBottom: `4px solid ${OUT}`}} />
+                {ok ? (
+                  <svg viewBox="0 0 40 30" style={{position: 'absolute', left: 22, top: 22, width: 52, height: 40, transform: `scale(${p})`}}>
+                    <path d="M 6 16 L 16 25 L 35 5" fill="none" stroke="#1F9D55" strokeWidth={7} strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                ) : null}
+              </div>
+            );
+          })}
+        </div>
+        {titre && frame >= b ? (
+          <div style={{transform: `scale(${popTitre})`, fontFamily: FONT_TITRE, fontSize: 64, color: OUT, marginTop: 18, lineHeight: 1.1}}>{titre}</div>
+        ) : null}
+      </div>
+      {mention ? <Mention>{mention}</Mention> : null}
+    </Card>
+  );
+};
+
+const EnveloppeDessin: React.FC<{label: string; couleur: string; pop: number; rot: number; frame: number; pieces?: boolean}> = ({label, couleur, pop, rot, frame, pieces = false}) => (
+  <div style={{transform: `scale(${pop}) rotate(${rot}deg)`, display: 'flex', flexDirection: 'column', alignItems: 'center', width: 360}}>
+    <svg viewBox="0 0 260 190" width={300} height={220} style={{overflow: 'visible'}}>
+      {pieces
+        ? [0, 1, 2].map((k) => {
+            const y = ((frame * 3 + k * 40) % 120) - 70;
+            return <circle key={k} cx={100 + k * 30} cy={y} r={16} fill="#FFD60A" stroke={OUT} strokeWidth={5} opacity={y < 30 ? 1 : 0} />;
+          })
+        : null}
+      <rect x={10} y={40} width={240} height={140} rx={14} fill={couleur} stroke={OUT} strokeWidth={8} />
+      <path d="M 10 54 L 130 120 L 250 54" fill="none" stroke={OUT} strokeWidth={8} strokeLinejoin="round" />
+      <path d="M 10 176 L 100 106 M 250 176 L 160 106" stroke={OUT} strokeWidth={6} opacity={0.5} />
+    </svg>
+    <div style={{fontFamily: FONT_TITRE, fontSize: 48, color: OUT, marginTop: 6, whiteSpace: 'nowrap'}}>{label}</div>
+  </div>
+);
+
+/** Deux enveloppes : la gauche d'abord, la droite (avec pièces qui tombent) sur `au_mot` ; phrase dessous. */
+const Enveloppes: React.FC<{gauche: string; droite: string; texte?: string; mention?: string; source?: string; bascule?: number}> = ({gauche, droite, texte, mention, source, bascule}) => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  const b = useBascule(bascule, 0.45);
+  const popG = usePop(6);
+  const popD = spring({frame: frame - b, fps, config: {damping: 10, stiffness: 230}});
+  const popT = spring({frame: frame - b - 12, fps, config: {damping: 12, stiffness: 200}});
+  return (
+    <Card rotate={-1.5}>
+      <div style={{display: 'flex', gap: 30, justifyContent: 'center', paddingTop: 6}}>
+        <EnveloppeDessin label={gauche} couleur="#9DD0F2" pop={popG} rot={-3} frame={frame} />
+        <EnveloppeDessin label={droite} couleur="#B7E4C7" pop={popD} rot={3} frame={frame} pieces={frame >= b} />
+      </div>
+      {texte ? <div style={{fontFamily: FONT_TITRE, fontSize: 46, color: OUT, maxWidth: 820, lineHeight: 1.15, marginTop: 14, opacity: Math.min(1, popT * 1.5)}}>{texte}</div> : null}
+      {mention ? <Mention>{mention}</Mention> : null}
+      {source ? <Mention>{source}</Mention> : null}
+    </Card>
+  );
+};
+
+/** Ordinateur portable générique (sans logo) affichant un contrat : lignes grises, une ligne surlignée sur `au_mot`. */
+const ContratOrdinateur: React.FC<{titre: string; surligne: string; petit?: string; source?: string; bascule?: number}> = ({titre, surligne, petit, source, bascule}) => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  const b = useBascule(bascule, 0.6);
+  const s = interpolate(frame, [b, b + fps * 0.5], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+  const pulse = frame >= b + fps * 0.5 ? 1 + Math.sin((frame - b) / 4) * 0.025 : 1;
+  const ligne = (w: number, k: number) => <div key={k} style={{height: 16, width: w, background: '#DEE2E6', borderRadius: 8, marginTop: 14}} />;
+  return (
+    <Card rotate={-1.5}>
+      <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', width: 820}}>
+        <div style={{width: 700, background: '#2B2D42', border: `8px solid ${OUT}`, borderRadius: 22, padding: 18}}>
+          <div style={{background: '#FFFFFF', borderRadius: 10, padding: '18px 30px 24px', textAlign: 'left'}}>
+            <div style={{fontFamily: FONT_TITRE, fontSize: 40, color: OUT, paddingTop: 6}}>{titre}</div>
+            {[560, 600, 480].map(ligne)}
+            <div style={{position: 'relative', marginTop: 16, display: 'inline-block', transform: `scale(${pulse})`, transformOrigin: 'left center'}}>
+              <div style={{position: 'absolute', left: -8, top: 0, bottom: 0, width: `calc(${s * 100}% + 16px)`, background: '#FFD60A', borderRadius: 8}} />
+              <div style={{position: 'relative', fontFamily: FONT_TITRE, fontSize: 48, color: '#E63946', paddingTop: 8, whiteSpace: 'nowrap'}}>{surligne}</div>
+            </div>
+            {[580, 420].map(ligne)}
+          </div>
+        </div>
+        <div style={{width: 820, height: 30, background: '#CED4DA', border: `7px solid ${OUT}`, borderRadius: '0 0 30px 30px', marginTop: -4}} />
+        {petit ? <div style={{fontFamily: FONT_TITRE, fontSize: 46, color: '#1F9D55', marginTop: 14}}>{petit}</div> : null}
+      </div>
+      {source ? <Mention>{source}</Mention> : null}
+    </Card>
+  );
+};
+
 export const ElementVisuelView: React.FC<{
   element: ElementVisuel;
   /** frame du mot `au_mot` dans le plan */
@@ -2104,7 +2252,7 @@ export const ElementVisuelView: React.FC<{
       inner = <JaugePlafond titre={element.titre} plafond={element.plafond} valeur={element.valeur} label_valeur={element.label_valeur} petit={element.petit} source={element.source} />;
       break;
     case 'face_a_face':
-      inner = <FaceAFace gauche={element.gauche} droite={element.droite} mention={element.mention} source={element.source} bascule={bascule} symbole={element.symbole} positif={element.positif} />;
+      inner = <FaceAFace gauche={element.gauche} droite={element.droite} mention={element.mention} source={element.source} bascule={bascule} symbole={element.symbole} positif={element.positif} neutre={element.neutre} />;
       break;
     case 'carte_hausse':
       inner = (
@@ -2140,7 +2288,7 @@ export const ElementVisuelView: React.FC<{
       );
       break;
     case 'puce':
-      inner = <Puce texte={element.texte} mention={element.mention} />;
+      inner = <Puce texte={element.texte} mention={element.mention} suite={element.suite} bascule={bascule} />;
       break;
     case 'tampon':
       inner = <Tampon texte={element.texte} petit={element.petit} couleur={element.couleur} />;
@@ -2159,6 +2307,15 @@ export const ElementVisuelView: React.FC<{
       break;
     case 'chaine_fleches':
       inner = <ChaineFleches etapes={element.etapes} mention={element.mention} source={element.source} />;
+      break;
+    case 'abonnements_calendrier':
+      inner = <AbonnementsCalendrier pastilles={element.pastilles} titre={element.titre} mention={element.mention} bascule={bascule} motFrame={motFrame} />;
+      break;
+    case 'enveloppes':
+      inner = <Enveloppes gauche={element.gauche} droite={element.droite} texte={element.texte} mention={element.mention} source={element.source} bascule={bascule} />;
+      break;
+    case 'contrat_ordinateur':
+      inner = <ContratOrdinateur titre={element.titre} surligne={element.surligne} petit={element.petit} source={element.source} bascule={bascule} />;
       break;
     default:
       inner = null;

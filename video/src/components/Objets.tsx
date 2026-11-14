@@ -389,6 +389,62 @@ export const SilhouetteResponsable: React.FC = () => {
   );
 };
 
+
+/** Trépied avec smartphone générique au centre d'une ring light (ep08). Sans logo. */
+export const TrepiedRingLight: React.FC = () => {
+  const frame = useCurrentFrame();
+  const lueur = 0.35 + Math.sin(frame / 10) * 0.08;
+  return (
+    <svg viewBox="0 0 300 740" width="100%" height="100%" style={{overflow: 'visible'}}>
+      <ellipse cx={150} cy={728} rx={130} ry={12} fill="rgba(0,0,0,0.22)" />
+      {/* pieds du trépied */}
+      <path d="M 150 300 L 40 724 M 150 300 L 260 724 M 150 300 L 150 724" stroke={OUT} strokeWidth={18} strokeLinecap="round" />
+      <path d="M 150 300 L 40 724 M 150 300 L 260 724 M 150 300 L 150 724" stroke="#495057" strokeWidth={8} strokeLinecap="round" />
+      <rect x={136} y={240} width={28} height={110} rx={8} fill="#343A40" stroke={OUT} strokeWidth={6} />
+      {/* halo */}
+      <circle cx={150} cy={140} r={150} fill="#FFF6D6" opacity={lueur} />
+      {/* anneau lumineux */}
+      <circle cx={150} cy={140} r={112} fill="none" stroke={OUT} strokeWidth={46} />
+      <circle cx={150} cy={140} r={112} fill="none" stroke="#FFFBEA" strokeWidth={32} />
+      <circle cx={150} cy={140} r={112} fill="none" stroke="#FFE8A3" strokeWidth={6} strokeDasharray="4 10" />
+      {/* smartphone (dos visible, sans logo) */}
+      <rect x={122} y={86} width={56} height={104} rx={10} fill="#2B2D42" stroke={OUT} strokeWidth={6} />
+      <circle cx={138} cy={102} r={7} fill="#6C757D" stroke={OUT} strokeWidth={3} />
+      <rect x={140} y={186} width={20} height={56} fill="#343A40" stroke={OUT} strokeWidth={5} />
+    </svg>
+  );
+};
+
+/** Petit bureau avec ordinateur portable générique : graphique en barres et chiffres (ep08). Sans logo. */
+export const BureauOrdinateur: React.FC = () => {
+  const frame = useCurrentFrame();
+  const barres = [40, 62, 54, 80, 96];
+  return (
+    <svg viewBox="0 0 380 420" width="100%" height="100%" style={{overflow: 'visible'}}>
+      <ellipse cx={200} cy={412} rx={170} ry={10} fill="rgba(0,0,0,0.2)" />
+      {/* bureau */}
+      <rect x={40} y={190} width={22} height={220} fill="#8D6A4A" stroke={OUT} strokeWidth={6} />
+      <rect x={330} y={190} width={22} height={220} fill="#8D6A4A" stroke={OUT} strokeWidth={6} />
+      <rect x={10} y={170} width={370} height={34} rx={8} fill="#C79A6B" stroke={OUT} strokeWidth={7} />
+      {/* écran de l'ordinateur */}
+      <g transform="rotate(-4 200 110)">
+        <rect x={84} y={20} width={232} height={150} rx={12} fill="#2B2D42" stroke={OUT} strokeWidth={7} />
+        <rect x={96} y={32} width={208} height={124} rx={6} fill="#F8F9FA" />
+        <rect x={106} y={40} width={90} height={12} rx={6} fill="#ADB5BD" />
+        <text x={292} y={54} textAnchor="end" fontFamily="Luckiest Guy" fontSize={20} fill="#1F9D55">+ €</text>
+        {barres.map((h, i) => {
+          const hh = h * (1 + Math.sin(frame / 9 + i) * 0.04);
+          return <rect key={i} x={116 + i * 36} y={148 - hh} width={24} height={hh} rx={4} fill={i === barres.length - 1 ? '#1F9D55' : '#76B4DE'} stroke={OUT} strokeWidth={3} />;
+        })}
+      </g>
+      {/* clavier */}
+      <path d="M 70 172 L 330 172 L 346 184 L 54 184 Z" fill="#CED4DA" stroke={OUT} strokeWidth={6} strokeLinejoin="round" />
+      {/* tasse */}
+      <rect x={20} y={130} width={40} height={42} rx={8} fill="#FF8FA3" stroke={OUT} strokeWidth={6} />
+    </svg>
+  );
+};
+
 export const OBJETS_SOL: Record<AccessoireSol, {left: number; top: number; width: number; height: number; devant: boolean}> = {
   velo: {left: 0, top: 1160, width: 520, height: 340, devant: false},
   sablier: {left: 800, top: 1270, width: 180, height: 234, devant: true},
@@ -401,6 +457,8 @@ export const OBJETS_SOL: Record<AccessoireSol, {left: number; top: number; width
   billets_pieces: {left: 790, top: 1290, width: 260, height: 220, devant: true},
   chariot_cartons: {left: 680, top: 1004, width: 400, height: 500, devant: true},
   silhouette_responsable: {left: 800, top: 880, width: 270, height: 576, devant: false},
+  trepied_ring_light: {left: 0, top: 760, width: 300, height: 740, devant: false},
+  bureau_ordinateur: {left: 730, top: 1080, width: 360, height: 420, devant: true},
 };
 
 const OBJET_COMPOSANT: Partial<Record<AccessoireSol, React.FC>> = {
@@ -414,6 +472,8 @@ const OBJET_COMPOSANT: Partial<Record<AccessoireSol, React.FC>> = {
   billets_pieces: BilletsPieces,
   chariot_cartons: ChariotCartons,
   silhouette_responsable: SilhouetteResponsable,
+  trepied_ring_light: TrepiedRingLight,
+  bureau_ordinateur: BureauOrdinateur,
 };
 
 export const ObjetSol: React.FC<{nom: AccessoireSol; couleurVelo?: string}> = ({nom, couleurVelo}) => {

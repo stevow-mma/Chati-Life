@@ -107,4 +107,25 @@ export const PERSONNAGES: Record<string, Apparence> = {
     cordonBadge: {cordon: '#2B3A55'},
     douchette: {couleur: '#495057', ombre: '#343A40'},
   },
+  /** Jade — 25 ans, créatrice de contenu indépendante (épisode 8). Tenue couverte et neutre ; aucun logo ni couleur de marque. */
+  jade: {
+    nom: 'Jade',
+    genre: 'femme',
+    teint: {peau: '#F9DDCB', ombre: '#EBC1A6', joues: '#F2A19A'},
+    cheveux: {style: 'queue_frange', couleur: '#CDBF9E'},
+    tenue: {
+      haut: '#9DD0F2',
+      hautOmbre: '#76B4DE',
+      bas: '#7FA3C8',
+      chaussures: '#FFFFFF',
+      bandeChaussures: '#E9ECEF',
+      oversize: true,
+      pull: true,
+      jean: '#D9C27A',
+    },
+    tete: null,
+    perles: '#FBF6EC',
+    sourcils: '#9E8C68',
+    casqueCou: {couleur: '#E9ECEF', coussins: '#495057'},
+  },
 };

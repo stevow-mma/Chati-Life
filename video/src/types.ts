@@ -2,7 +2,7 @@ export type Expression = 'neutre' | 'fier' | 'reveur' | 'perplexe' | 'choque' | 
 
 export type Pose = 'debout' | 'velo' | 'assis' | 'pointe_bas' | 'photo' | 'tire_cable' | 'scanne' | 'regarde_telephone' | 'pousse' | 'pouce' | 'poing';
 
-export type AccessoireSol = 'velo' | 'sablier' | 'pile_vetements' | 'veste_cintre' | 'portant_jeans' | 'camionnette' | 'perceuse' | 'caisse_tapis' | 'billets_pieces' | 'chariot_cartons' | 'silhouette_responsable';
+export type AccessoireSol = 'velo' | 'sablier' | 'pile_vetements' | 'veste_cintre' | 'portant_jeans' | 'camionnette' | 'perceuse' | 'caisse_tapis' | 'billets_pieces' | 'chariot_cartons' | 'silhouette_responsable' | 'trepied_ring_light' | 'bureau_ordinateur';
 
 /** Objet porté à la main (ep04). */
 export type ObjetMain = 'tote_jeans' | 'devis';
@@ -98,6 +98,8 @@ export type ElementVisuel =
       symbole?: string;
       /** ep07 : colonne droite en vert (bonne nouvelle) au lieu du rouge. */
       positif?: boolean;
+      /** ep08 : deux options à comparer (deux colonnes bleues, ni bonne ni mauvaise). */
+      neutre?: boolean;
     }
   /** Montant qui passe de `avant` à `apres`, avec une pastille d'écart qui claque sur `au_mot`. */
   | {type: 'carte_hausse'; surtitre?: string; avant: string; avant_legende?: string; apres: string; apres_legende?: string; ecart: string; au_mot?: string; mention?: string; source?: string}
@@ -131,13 +133,20 @@ export type ElementVisuel =
     }
   // --- Épisode 7 ---
   /** Petite puce (pastille) de texte, mention en petit dessous. */
-  | {type: 'puce'; texte: string; mention?: string}
+  | {type: 'puce'; texte: string; mention?: string; /** ep08 : seconde puce qui apparaît dessous quand la voix dit `au_mot`. */ suite?: string; au_mot?: string}
   /** Tampon qui claque (ex. « FACULTATIVE »), précision en petit dessous. */
   | {type: 'tampon'; texte: string; petit?: string; couleur?: string}
   /** Smartphone générique : écran « Simulation », barre de progression puis résultat (sur `au_mot` ou à 55 %). */
   | {type: 'telephone_simulation'; titre: string; resultat: string; resultat_petit?: string; puce?: string; au_mot?: string; mention?: string}
   /** Enchaînement vertical d'effets : chaque étape avec une flèche qui monte ou descend. */
-  | {type: 'chaine_fleches'; etapes: {label: string; sens: 'haut' | 'bas'; petit?: string}[]; mention?: string; source?: string};
+  | {type: 'chaine_fleches'; etapes: {label: string; sens: 'haut' | 'bas'; petit?: string}[]; mention?: string; source?: string}
+  // --- Épisode 8 ---
+  /** Pastilles de durées d'abonnement (chacune sur son `au_mot`) + calendrier de 12 mois coché un à un + titre. */
+  | {type: 'abonnements_calendrier'; pastilles: {texte: string; au_mot?: string}[]; titre?: string; au_mot?: string; mention?: string}
+  /** Deux enveloppes (la droite sur `au_mot`), phrase dessous. */
+  | {type: 'enveloppes'; gauche: string; droite: string; au_mot?: string; texte?: string; mention?: string; source?: string}
+  /** Ordinateur portable générique affichant un contrat ; une ligne surlignée sur `au_mot`. */
+  | {type: 'contrat_ordinateur'; titre: string; surligne: string; au_mot?: string; petit?: string; source?: string};
 
 export type Plan = {
   texte: string;

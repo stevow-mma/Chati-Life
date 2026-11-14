@@ -4,7 +4,7 @@ Format 1080x1920, 30 fps. `npm run render -- epNN` → `out/epNN.mp4` (voix en c
 Options Remotion après l'épisode, ex. `npm run render -- ep03 --concurrency=2` si la mémoire manque.
 
 ## Personnage muet (correction de série)
-**À partir de l'épisode 5 (ep05, ep06, ep07, …), personnage muet, voix off indépendante ; ep01 à ep04 inchangés.**
+**À partir de l'épisode 5 (ep05, ep06, ep07, ep08, …), personnage muet, voix off indépendante ; ep01 à ep04 inchangés.**
 - `episode.json` → `"muet": true` (ep05 et suivants) ; transmis à `<Personnage muet />` (défaut `false` = comportement
   des épisodes 1 à 4, bouche synchronisée).
 - Personnage muet : aucune animation de parole, aucun visème, aucune bulle de dialogue. Il garde le clignement,
@@ -45,11 +45,12 @@ Options Remotion après l'épisode, ex. `npm run render -- ep03 --concurrency=2`
   restent visibles à l'écran : champ de plan `hypotheses` (bandeau discret en haut, `\n` = retour à la ligne).
 - Aucun logo ni couleur de marque réelle (plateformes, applis, enseignes).
 - Étiquettes : `MAIS` rouge ; `ATTENTION`, `PIÈGE N°1/2/3`, `CONSEIL` jaunes à bandes noires ;
-  **`LEVIER N°1/2/3` fond vert, texte blanc, bandes noires** (même style que PIÈGE, depuis ep07) ;
+  **`LEVIER N°1` à `LEVIER N°5` fond vert, texte blanc, bandes noires** (même style que PIÈGE, depuis ep07 ; N°4 et N°5
+  depuis ep08) ;
   `RÈGLE N°1`, `EN CLAIR`, `POURQUOI`, `TON AVIS`, etc. en aplat coloré. Nouvelle étiquette : l'ajouter dans
   `src/components/Etiquette.tsx` (`COULEURS`, et `RAYEES` si elle est à bandes).
 - Ton : depuis ep07, privilégier les stratégies concrètes et les conseils utiles (moins d'avertissements) ;
-  le personnage peut finir content et plein d'énergie.
+  le personnage peut finir content et plein d'énergie. ep08 : même ton, **une seule étiquette ATTENTION** dans l'épisode.
 - Coupures : flash blanc + zoom (sauf la toute première image).
 - Une émotion « A puis B » : `expression` = A, `puis: {expression: B, au_mot: "mot"}` (bascule quand la voix
   prononce ce mot).
@@ -58,6 +59,13 @@ Options Remotion après l'épisode, ex. `npm run render -- ep03 --concurrency=2`
   affichée (`"l'employeur"`, pas `"employeur"`). Si le mot revient plusieurs fois, `mot_jaune_rang` (1 = première
   occurrence) n'en colore qu'une (sinon toutes).
 - Chiffre + unité dans un titre de carte : espaces insécables (`1\u00a0897\u00a0€`) pour éviter un « % » orphelin.
+
+## Sujets sensibles (depuis ep08 : revenus de créatrice sur plateforme d'abonnement)
+- **Ne nommer aucune plateforme précise** : écrire « plateforme » / « plateforme d'abonnement », dans le texte lu comme
+  sur les cartes (les sources peuvent citer un média ou un site de statistiques, jamais la plateforme).
+- **Aucun visuel suggestif** : jamais d'écran, d'image ou de pose suggestive ; l'épisode parle de finances, pas du
+  contenu vendu. On montre seulement le matériel (smartphone sur trépied, ring light, ordinateur portable avec
+  graphiques ou chiffres) et des cartes de chiffres. Tenue du personnage neutre et entièrement couverte.
 
 ## Personnages déjà utilisés (ne pas refaire un look proche)
 - ep01 Max : casquette rouge, sweat turquoise, mèches châtain.
@@ -75,6 +83,10 @@ Options Remotion après l'épisode, ex. `npm run render -- ep03 --concurrency=2`
   pas de barbe, T-shirt gris chiné (`tenue.tshirt` + `tenue.chine`), gilet de sécurité vert fluo à bandes grises
   (`gilet`), badge vierge sur cordon (`cordonBadge`), douchette de scan générique à la ceinture (`douchette`),
   pantalon de travail noir, baskets blanches.
+- ep08 Jade (muette) : peau claire, cheveux blond cendré en queue-de-cheval haute avec frange (`queue_frange`, sourcils
+  plus foncés `sourcils`), petites boucles d'oreilles en perles (`perles`), pull oversize bleu ciel en maille
+  (`tenue.oversize` + `tenue.pull`), jean droit bleu délavé (`tenue.jean` = couleur des surpiqûres), baskets blanches,
+  casque audio générique autour du cou (`casqueCou`).
 
 ## Éléments visuels réutilisables (en plus de ceux du README)
 - `carte_texte` (titre, surtitre, indices, petit, illustration `enveloppe_batiment` | `appli_cintre`, mention, source).
@@ -106,6 +118,13 @@ Options Remotion après l'épisode, ex. `npm run render -- ep03 --concurrency=2`
   `telephone_simulation` (smartphone générique : barre de progression puis résultat sur `au_mot` ; `puce` à côté,
   `\n` = retour à la ligne), `chaine_fleches` (étapes verticales `{label, sens: haut|bas, petit?}`) ;
   `face_a_face.symbole` (défaut « ≠ ») et `face_a_face.positif` (colonne droite verte) ; `carte_chiffre.petit`.
+- Objets au sol ep08 : `trepied_ring_light` (à gauche : trépied, smartphone générique dans une ring light),
+  `bureau_ordinateur` (devant, à droite : petit bureau, ordinateur portable avec graphique en barres) ; ensemble =
+  coin bureau de créatrice, à combiner avec le décor `chambre`.
+- Éléments ep08 : `puce.suite` + `au_mot` (seconde puce qui claque dessous), `face_a_face.neutre` (deux options à
+  comparer, colonnes bleues), `abonnements_calendrier` (`pastilles: [{texte, au_mot}]`, 12 mois cochés un à un, `titre`
+  sur `au_mot`), `enveloppes` (`gauche`, `droite` sur `au_mot`, `texte`, `mention`), `contrat_ordinateur` (`titre`,
+  ligne `surligne` surlignée sur `au_mot`, `petit`, `source`).
 
 ## Fichiers
 - `episodes/epNN/{episode,script}.json` (à la main), `voix.json` + `voix-brute.*` (générés).

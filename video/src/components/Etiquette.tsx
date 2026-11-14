@@ -14,10 +14,13 @@ const COULEURS: Record<string, {bg: string; fg: string}> = {
   'LEVIER N°1': {bg: '#1F9D55', fg: 'white'},
   'LEVIER N°2': {bg: '#1F9D55', fg: 'white'},
   'LEVIER N°3': {bg: '#1F9D55', fg: 'white'},
+  // ep08 : leviers 4 et 5
+  'LEVIER N°4': {bg: '#1F9D55', fg: 'white'},
+  'LEVIER N°5': {bg: '#1F9D55', fg: 'white'},
 };
 
 /** Étiquettes jaunes à bandes noires (même style que ATTENTION). */
-const RAYEES = new Set(['ATTENTION', 'PIÈGE N°1', 'PIÈGE N°2', 'PIÈGE N°3', 'CONSEIL', 'LEVIER N°1', 'LEVIER N°2', 'LEVIER N°3']);
+const RAYEES = new Set(['ATTENTION', 'PIÈGE N°1', 'PIÈGE N°2', 'PIÈGE N°3', 'CONSEIL', 'LEVIER N°1', 'LEVIER N°2', 'LEVIER N°3', 'LEVIER N°4', 'LEVIER N°5']);
 
 /** Étiquette de pivot qui "claque" en haut de l'écran. */
 export const Etiquette: React.FC<{texte: string}> = ({texte}) => {

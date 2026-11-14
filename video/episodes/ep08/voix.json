@@ -1,0 +1,1194 @@
+{
+ "mode": "piste_unique",
+ "fichier": "ep08/voix.mp3",
+ "hash": "d4dda951795dffce3b438f7dcd5c8f384b7fe708738a7358edbe268caec41e00",
+ "duree_piste": 80.53551,
+ "derniere_parole": 80.508,
+ "fin": 83.508,
+ "scenes": [
+  {
+   "texte_lu": "Les fans de Jade lui versent deux mille cinq cents euros par mois. Il lui en reste environ mille cent soixante.",
+   "debut": 0,
+   "mots": [
+    {
+     "texte": "Les",
+     "debut": 0.4,
+     "fin": 0.563
+    },
+    {
+     "texte": "fans",
+     "debut": 0.597,
+     "fin": 0.806
+    },
+    {
+     "texte": "de",
+     "debut": 0.83,
+     "fin": 0.911
+    },
+    {
+     "texte": "Jade",
+     "debut": 0.98,
+     "fin": 1.236
+    },
+    {
+     "texte": "lui",
+     "debut": 1.271,
+     "fin": 1.375
+    },
+    {
+     "texte": "versent",
+     "debut": 1.422,
+     "fin": 1.944
+    },
+    {
+     "texte": "deux",
+     "debut": 2.327,
+     "fin": 2.513
+    },
+    {
+     "texte": "mille",
+     "debut": 2.548,
+     "fin": 2.792
+    },
+    {
+     "texte": "cinq",
+     "debut": 2.838,
+     "fin": 3.024
+    },
+    {
+     "texte": "cents",
+     "debut": 3.094,
+     "fin": 3.326
+    },
+    {
+     "texte": "euros",
+     "debut": 3.372,
+     "fin": 3.662
+    },
+    {
+     "texte": "par",
+     "debut": 3.686,
+     "fin": 3.825
+    },
+    {
+     "texte": "mois.",
+     "debut": 3.871,
+     "fin": 4.22
+    },
+    {
+     "texte": "Il",
+     "debut": 4.731,
+     "fin": 4.881
+    },
+    {
+     "texte": "lui",
+     "debut": 4.905,
+     "fin": 5.021
+    },
+    {
+     "texte": "en",
+     "debut": 5.056,
+     "fin": 5.102
+    },
+    {
+     "texte": "reste",
+     "debut": 5.148,
+     "fin": 5.369
+    },
+    {
+     "texte": "environ",
+     "debut": 5.392,
+     "fin": 5.775
+    },
+    {
+     "texte": "mille",
+     "debut": 5.845,
+     "fin": 6.054
+    },
+    {
+     "texte": "cent",
+     "debut": 6.089,
+     "fin": 6.24
+    },
+    {
+     "texte": "soixante.",
+     "debut": 6.263,
+     "fin": 6.948
+    }
+   ]
+  },
+  {
+   "texte_lu": "Voici comment en garder plus.",
+   "debut": 7.099,
+   "mots": [
+    {
+     "texte": "Voici",
+     "debut": 7.099,
+     "fin": 7.343
+    },
+    {
+     "texte": "comment",
+     "debut": 7.389,
+     "fin": 7.633
+    },
+    {
+     "texte": "en",
+     "debut": 7.679,
+     "fin": 7.749
+    },
+    {
+     "texte": "garder",
+     "debut": 7.807,
+     "fin": 8.074
+    },
+    {
+     "texte": "plus.",
+     "debut": 8.109,
+     "fin": 8.655
+    }
+   ]
+  },
+  {
+   "texte_lu": "D'abord, la plateforme garde vingt pour cent : il reste deux mille euros.",
+   "debut": 8.724,
+   "mots": [
+    {
+     "texte": "D'abord,",
+     "debut": 8.724,
+     "fin": 9.258
+    },
+    {
+     "texte": "la",
+     "debut": 9.502,
+     "fin": 9.572
+    },
+    {
+     "texte": "plateforme",
+     "debut": 9.618,
+     "fin": 10.013
+    },
+    {
+     "texte": "garde",
+     "debut": 10.036,
+     "fin": 10.28
+    },
+    {
+     "texte": "vingt",
+     "debut": 10.338,
+     "fin": 10.489
+    },
+    {
+     "texte": "pour",
+     "debut": 10.512,
+     "fin": 10.64
+    },
+    {
+     "texte": "cent",
+     "debut": 10.698,
+     "fin": 10.884
+    },
+    {
+     "texte": ":",
+     "debut": 11,
+     "fin": 11.058
+    },
+    {
+     "texte": "il",
+     "debut": 11.337,
+     "fin": 11.429
+    },
+    {
+     "texte": "reste",
+     "debut": 11.499,
+     "fin": 11.789
+    },
+    {
+     "texte": "deux",
+     "debut": 11.847,
+     "fin": 11.964
+    },
+    {
+     "texte": "mille",
+     "debut": 11.987,
+     "fin": 12.161
+    },
+    {
+     "texte": "euros.",
+     "debut": 12.184,
+     "fin": 12.614
+    }
+   ]
+  },
+  {
+   "texte_lu": "Ensuite, ses cotisations de micro-entrepreneuse : vingt-cinq virgule six pour cent, soit six cent quarante euros.",
+   "debut": 13.217,
+   "mots": [
+    {
+     "texte": "Ensuite,",
+     "debut": 13.217,
+     "fin": 13.856
+    },
+    {
+     "texte": "ses",
+     "debut": 13.891,
+     "fin": 14.018
+    },
+    {
+     "texte": "cotisations",
+     "debut": 14.053,
+     "fin": 14.726
+    },
+    {
+     "texte": "de",
+     "debut": 14.75,
+     "fin": 14.831
+    },
+    {
+     "texte": "micro-entrepreneuse",
+     "debut": 14.889,
+     "fin": 15.992
+    },
+    {
+     "texte": ":",
+     "debut": 16.108,
+     "fin": 16.143
+    },
+    {
+     "texte": "vingt-cinq",
+     "debut": 16.526,
+     "fin": 17.188
+    },
+    {
+     "texte": "virgule",
+     "debut": 17.432,
+     "fin": 18.117
+    },
+    {
+     "texte": "six",
+     "debut": 19.069,
+     "fin": 19.359
+    },
+    {
+     "texte": "pour",
+     "debut": 19.417,
+     "fin": 19.556
+    },
+    {
+     "texte": "cent,",
+     "debut": 19.626,
+     "fin": 20.032
+    },
+    {
+     "texte": "soit",
+     "debut": 20.276,
+     "fin": 20.566
+    },
+    {
+     "texte": "six",
+     "debut": 20.624,
+     "fin": 20.81
+    },
+    {
+     "texte": "cent",
+     "debut": 20.833,
+     "fin": 20.996
+    },
+    {
+     "texte": "quarante",
+     "debut": 21.031,
+     "fin": 21.379
+    },
+    {
+     "texte": "euros.",
+     "debut": 21.402,
+     "fin": 21.797
+    }
+   ]
+  },
+  {
+   "texte_lu": "Avec deux cents euros de matériel et d'outils, il reste environ mille cent soixante euros, avant impôt.",
+   "debut": 22.308,
+   "mots": [
+    {
+     "texte": "Avec",
+     "debut": 22.308,
+     "fin": 22.586
+    },
+    {
+     "texte": "deux",
+     "debut": 22.656,
+     "fin": 22.772
+    },
+    {
+     "texte": "cents",
+     "debut": 22.807,
+     "fin": 23.016
+    },
+    {
+     "texte": "euros",
+     "debut": 23.074,
+     "fin": 23.283
+    },
+    {
+     "texte": "de",
+     "debut": 23.318,
+     "fin": 23.376
+    },
+    {
+     "texte": "matériel",
+     "debut": 23.422,
+     "fin": 23.933
+    },
+    {
+     "texte": "et",
+     "debut": 23.991,
+     "fin": 24.038
+    },
+    {
+     "texte": "d'outils,",
+     "debut": 24.072,
+     "fin": 24.618
+    },
+    {
+     "texte": "il",
+     "debut": 24.897,
+     "fin": 25.013
+    },
+    {
+     "texte": "reste",
+     "debut": 25.083,
+     "fin": 25.292
+    },
+    {
+     "texte": "environ",
+     "debut": 25.315,
+     "fin": 25.698
+    },
+    {
+     "texte": "mille",
+     "debut": 25.779,
+     "fin": 26.081
+    },
+    {
+     "texte": "cent",
+     "debut": 26.139,
+     "fin": 26.336
+    },
+    {
+     "texte": "soixante",
+     "debut": 26.371,
+     "fin": 26.801
+    },
+    {
+     "texte": "euros,",
+     "debut": 26.824,
+     "fin": 27.184
+    },
+    {
+     "texte": "avant",
+     "debut": 27.3,
+     "fin": 27.695
+    },
+    {
+     "texte": "impôt.",
+     "debut": 27.73,
+     "fin": 28.252
+    }
+   ]
+  },
+  {
+   "texte_lu": "En clair, Jade est un exemple haut : en moyenne, les créateurs reçoivent bien moins.",
+   "debut": 28.693,
+   "mots": [
+    {
+     "texte": "En",
+     "debut": 28.693,
+     "fin": 28.856
+    },
+    {
+     "texte": "clair,",
+     "debut": 28.902,
+     "fin": 29.134
+    },
+    {
+     "texte": "Jade",
+     "debut": 29.158,
+     "fin": 29.506
+    },
+    {
+     "texte": "est",
+     "debut": 29.576,
+     "fin": 29.703
+    },
+    {
+     "texte": "un",
+     "debut": 29.819,
+     "fin": 29.889
+    },
+    {
+     "texte": "exemple",
+     "debut": 29.959,
+     "fin": 30.469
+    },
+    {
+     "texte": "haut",
+     "debut": 30.551,
+     "fin": 30.76
+    },
+    {
+     "texte": ":",
+     "debut": 30.783,
+     "fin": 30.829
+    },
+    {
+     "texte": "en",
+     "debut": 30.876,
+     "fin": 31.027
+    },
+    {
+     "texte": "moyenne,",
+     "debut": 31.073,
+     "fin": 31.63
+    },
+    {
+     "texte": "les",
+     "debut": 31.712,
+     "fin": 31.828
+    },
+    {
+     "texte": "créateurs",
+     "debut": 31.851,
+     "fin": 32.304
+    },
+    {
+     "texte": "reçoivent",
+     "debut": 32.327,
+     "fin": 32.768
+    },
+    {
+     "texte": "bien",
+     "debut": 32.791,
+     "fin": 32.977
+    },
+    {
+     "texte": "moins.",
+     "debut": 33,
+     "fin": 33.337
+    }
+   ]
+  },
+  {
+   "texte_lu": "Premier levier : proposer des abonnements de trois, six ou douze mois, pour un revenu plus régulier.",
+   "debut": 33.941,
+   "mots": [
+    {
+     "texte": "Premier",
+     "debut": 33.941,
+     "fin": 34.266
+    },
+    {
+     "texte": "levier",
+     "debut": 34.289,
+     "fin": 34.649
+    },
+    {
+     "texte": ":",
+     "debut": 34.719,
+     "fin": 34.835
+    },
+    {
+     "texte": "proposer",
+     "debut": 34.951,
+     "fin": 35.357
+    },
+    {
+     "texte": "des",
+     "debut": 35.381,
+     "fin": 35.485
+    },
+    {
+     "texte": "abonnements",
+     "debut": 35.543,
+     "fin": 35.903
+    },
+    {
+     "texte": "de",
+     "debut": 35.926,
+     "fin": 36.007
+    },
+    {
+     "texte": "trois,",
+     "debut": 36.054,
+     "fin": 36.449
+    },
+    {
+     "texte": "six",
+     "debut": 36.658,
+     "fin": 36.925
+    },
+    {
+     "texte": "ou",
+     "debut": 37.018,
+     "fin": 37.099
+    },
+    {
+     "texte": "douze",
+     "debut": 37.145,
+     "fin": 37.343
+    },
+    {
+     "texte": "mois,",
+     "debut": 37.377,
+     "fin": 37.679
+    },
+    {
+     "texte": "pour",
+     "debut": 37.923,
+     "fin": 38.074
+    },
+    {
+     "texte": "un",
+     "debut": 38.132,
+     "fin": 38.19
+    },
+    {
+     "texte": "revenu",
+     "debut": 38.237,
+     "fin": 38.538
+    },
+    {
+     "texte": "plus",
+     "debut": 38.573,
+     "fin": 38.724
+    },
+    {
+     "texte": "régulier.",
+     "debut": 38.759,
+     "fin": 39.293
+    }
+   ]
+  },
+  {
+   "texte_lu": "Deuxième levier : un compte séparé, et environ un tiers de chaque versement mis de côté pour les cotisations et l'impôt.",
+   "debut": 40.106,
+   "mots": [
+    {
+     "texte": "Deuxième",
+     "debut": 40.106,
+     "fin": 40.419
+    },
+    {
+     "texte": "levier",
+     "debut": 40.442,
+     "fin": 40.802
+    },
+    {
+     "texte": ":",
+     "debut": 40.826,
+     "fin": 40.872
+    },
+    {
+     "texte": "un",
+     "debut": 40.93,
+     "fin": 41.046
+    },
+    {
+     "texte": "compte",
+     "debut": 41.104,
+     "fin": 41.29
+    },
+    {
+     "texte": "séparé,",
+     "debut": 41.313,
+     "fin": 41.801
+    },
+    {
+     "texte": "et",
+     "debut": 41.836,
+     "fin": 41.975
+    },
+    {
+     "texte": "environ",
+     "debut": 42.033,
+     "fin": 42.381
+    },
+    {
+     "texte": "un",
+     "debut": 42.451,
+     "fin": 42.567
+    },
+    {
+     "texte": "tiers",
+     "debut": 42.614,
+     "fin": 42.857
+    },
+    {
+     "texte": "de",
+     "debut": 42.881,
+     "fin": 42.95
+    },
+    {
+     "texte": "chaque",
+     "debut": 42.985,
+     "fin": 43.182
+    },
+    {
+     "texte": "versement",
+     "debut": 43.205,
+     "fin": 43.763
+    },
+    {
+     "texte": "mis",
+     "debut": 43.937,
+     "fin": 44.134
+    },
+    {
+     "texte": "de",
+     "debut": 44.157,
+     "fin": 44.215
+    },
+    {
+     "texte": "côté",
+     "debut": 44.262,
+     "fin": 44.54
+    },
+    {
+     "texte": "pour",
+     "debut": 44.598,
+     "fin": 44.726
+    },
+    {
+     "texte": "les",
+     "debut": 44.761,
+     "fin": 44.842
+    },
+    {
+     "texte": "cotisations",
+     "debut": 44.865,
+     "fin": 45.632
+    },
+    {
+     "texte": "et",
+     "debut": 46.015,
+     "fin": 46.166
+    },
+    {
+     "texte": "l'impôt.",
+     "debut": 46.212,
+     "fin": 46.746
+    }
+   ]
+  },
+  {
+   "texte_lu": "Troisième levier : comparer l'abattement de trente-quatre pour cent et le versement libératoire, selon ton foyer.",
+   "debut": 47.35,
+   "mots": [
+    {
+     "texte": "Troisième",
+     "debut": 47.35,
+     "fin": 47.745
+    },
+    {
+     "texte": "levier",
+     "debut": 47.768,
+     "fin": 48.116
+    },
+    {
+     "texte": ":",
+     "debut": 48.232,
+     "fin": 48.29
+    },
+    {
+     "texte": "comparer",
+     "debut": 48.383,
+     "fin": 48.755
+    },
+    {
+     "texte": "l'abattement",
+     "debut": 48.79,
+     "fin": 49.312
+    },
+    {
+     "texte": "de",
+     "debut": 49.347,
+     "fin": 49.463
+    },
+    {
+     "texte": "trente-quatre",
+     "debut": 49.509,
+     "fin": 50.055
+    },
+    {
+     "texte": "pour",
+     "debut": 50.102,
+     "fin": 50.253
+    },
+    {
+     "texte": "cent",
+     "debut": 50.311,
+     "fin": 50.578
+    },
+    {
+     "texte": "et",
+     "debut": 50.636,
+     "fin": 50.752
+    },
+    {
+     "texte": "le",
+     "debut": 50.798,
+     "fin": 50.856
+    },
+    {
+     "texte": "versement",
+     "debut": 50.891,
+     "fin": 51.297
+    },
+    {
+     "texte": "libératoire,",
+     "debut": 51.321,
+     "fin": 52.122
+    },
+    {
+     "texte": "selon",
+     "debut": 52.296,
+     "fin": 52.505
+    },
+    {
+     "texte": "ton",
+     "debut": 52.54,
+     "fin": 52.644
+    },
+    {
+     "texte": "foyer.",
+     "debut": 52.691,
+     "fin": 53.097
+    }
+   ]
+  },
+  {
+   "texte_lu": "Quatrième levier : surveiller trente-sept mille cinq cents euros de chiffre d'affaires. Au-delà, la TVA entre en jeu.",
+   "debut": 53.701,
+   "mots": [
+    {
+     "texte": "Quatrième",
+     "debut": 53.701,
+     "fin": 54.095
+    },
+    {
+     "texte": "levier",
+     "debut": 54.119,
+     "fin": 54.467
+    },
+    {
+     "texte": ":",
+     "debut": 54.583,
+     "fin": 54.629
+    },
+    {
+     "texte": "surveiller",
+     "debut": 54.873,
+     "fin": 55.303
+    },
+    {
+     "texte": "trente-sept",
+     "debut": 55.349,
+     "fin": 55.79
+    },
+    {
+     "texte": "mille",
+     "debut": 55.883,
+     "fin": 56.127
+    },
+    {
+     "texte": "cinq",
+     "debut": 56.162,
+     "fin": 56.371
+    },
+    {
+     "texte": "cents",
+     "debut": 56.417,
+     "fin": 56.615
+    },
+    {
+     "texte": "euros",
+     "debut": 56.673,
+     "fin": 57.01
+    },
+    {
+     "texte": "de",
+     "debut": 57.044,
+     "fin": 57.126
+    },
+    {
+     "texte": "chiffre",
+     "debut": 57.161,
+     "fin": 57.439
+    },
+    {
+     "texte": "d'affaires.",
+     "debut": 57.474,
+     "fin": 57.996
+    },
+    {
+     "texte": "Au-delà,",
+     "debut": 58.38,
+     "fin": 58.89
+    },
+    {
+     "texte": "la",
+     "debut": 58.914,
+     "fin": 58.995
+    },
+    {
+     "texte": "TVA",
+     "debut": 59.053,
+     "fin": 59.471
+    },
+    {
+     "texte": "entre",
+     "debut": 59.529,
+     "fin": 59.819
+    },
+    {
+     "texte": "en",
+     "debut": 59.842,
+     "fin": 59.889
+    },
+    {
+     "texte": "jeu.",
+     "debut": 59.935,
+     "fin": 60.214
+    }
+   ]
+  },
+  {
+   "texte_lu": "Cinquième levier : demande à l'Urssaf ou à un comptable si tu déclares avant ou après commission.",
+   "debut": 60.597,
+   "mots": [
+    {
+     "texte": "Cinquième",
+     "debut": 60.597,
+     "fin": 60.98
+    },
+    {
+     "texte": "levier",
+     "debut": 61.003,
+     "fin": 61.34
+    },
+    {
+     "texte": ":",
+     "debut": 61.387,
+     "fin": 61.433
+    },
+    {
+     "texte": "demande",
+     "debut": 61.549,
+     "fin": 61.897
+    },
+    {
+     "texte": "à",
+     "debut": 61.921,
+     "fin": 61.944
+    },
+    {
+     "texte": "l'Urssaf",
+     "debut": 61.99,
+     "fin": 62.478
+    },
+    {
+     "texte": "ou",
+     "debut": 62.594,
+     "fin": 62.733
+    },
+    {
+     "texte": "à",
+     "debut": 62.803,
+     "fin": 62.826
+    },
+    {
+     "texte": "un",
+     "debut": 62.849,
+     "fin": 62.931
+    },
+    {
+     "texte": "comptable",
+     "debut": 62.989,
+     "fin": 63.465
+    },
+    {
+     "texte": "si",
+     "debut": 63.511,
+     "fin": 63.616
+    },
+    {
+     "texte": "tu",
+     "debut": 63.651,
+     "fin": 63.767
+    },
+    {
+     "texte": "déclares",
+     "debut": 63.813,
+     "fin": 64.219
+    },
+    {
+     "texte": "avant",
+     "debut": 64.254,
+     "fin": 64.603
+    },
+    {
+     "texte": "ou",
+     "debut": 64.637,
+     "fin": 64.707
+    },
+    {
+     "texte": "après",
+     "debut": 64.753,
+     "fin": 64.962
+    },
+    {
+     "texte": "commission.",
+     "debut": 64.986,
+     "fin": 65.496
+    }
+   ]
+  },
+  {
+   "texte_lu": "Attention aux managers : certains prennent jusqu'à la moitié de tes gains.",
+   "debut": 65.88,
+   "mots": [
+    {
+     "texte": "Attention",
+     "debut": 65.88,
+     "fin": 66.321
+    },
+    {
+     "texte": "aux",
+     "debut": 66.356,
+     "fin": 66.425
+    },
+    {
+     "texte": "managers",
+     "debut": 66.449,
+     "fin": 66.959
+    },
+    {
+     "texte": ":",
+     "debut": 66.994,
+     "fin": 67.064
+    },
+    {
+     "texte": "certains",
+     "debut": 67.447,
+     "fin": 67.737
+    },
+    {
+     "texte": "prennent",
+     "debut": 67.76,
+     "fin": 68.097
+    },
+    {
+     "texte": "jusqu'à",
+     "debut": 68.306,
+     "fin": 68.608
+    },
+    {
+     "texte": "la",
+     "debut": 68.631,
+     "fin": 68.689
+    },
+    {
+     "texte": "moitié",
+     "debut": 68.747,
+     "fin": 69.038
+    },
+    {
+     "texte": "de",
+     "debut": 69.084,
+     "fin": 69.154
+    },
+    {
+     "texte": "tes",
+     "debut": 69.2,
+     "fin": 69.305
+    },
+    {
+     "texte": "gains.",
+     "debut": 69.328,
+     "fin": 69.641
+    }
+   ]
+  },
+  {
+   "texte_lu": "Règle numéro un : le chiffre d'affaires n'est pas ton salaire.",
+   "debut": 70.025,
+   "mots": [
+    {
+     "texte": "Règle",
+     "debut": 70.025,
+     "fin": 70.28
+    },
+    {
+     "texte": "numéro",
+     "debut": 70.315,
+     "fin": 70.64
+    },
+    {
+     "texte": "un",
+     "debut": 70.675,
+     "fin": 70.756
+    },
+    {
+     "texte": ":",
+     "debut": 70.884,
+     "fin": 70.942
+    },
+    {
+     "texte": "le",
+     "debut": 71.267,
+     "fin": 71.36
+    },
+    {
+     "texte": "chiffre",
+     "debut": 71.395,
+     "fin": 71.673
+    },
+    {
+     "texte": "d'affaires",
+     "debut": 71.708,
+     "fin": 72.312
+    },
+    {
+     "texte": "n'est",
+     "debut": 72.486,
+     "fin": 72.66
+    },
+    {
+     "texte": "pas",
+     "debut": 72.683,
+     "fin": 72.799
+    },
+    {
+     "texte": "ton",
+     "debut": 72.823,
+     "fin": 72.939
+    },
+    {
+     "texte": "salaire.",
+     "debut": 72.974,
+     "fin": 73.484
+    }
+   ]
+  },
+  {
+   "texte_lu": "Et toi, tu connais ta vraie marge sur tes revenus en ligne ? Dis-le en commentaire, abonne-toi pour d'autres vrais chiffres.",
+   "debut": 73.867,
+   "mots": [
+    {
+     "texte": "Et",
+     "debut": 73.867,
+     "fin": 73.984
+    },
+    {
+     "texte": "toi,",
+     "debut": 74.018,
+     "fin": 74.355
+    },
+    {
+     "texte": "tu",
+     "debut": 74.599,
+     "fin": 74.715
+    },
+    {
+     "texte": "connais",
+     "debut": 74.761,
+     "fin": 74.97
+    },
+    {
+     "texte": "ta",
+     "debut": 74.994,
+     "fin": 75.063
+    },
+    {
+     "texte": "vraie",
+     "debut": 75.121,
+     "fin": 75.33
+    },
+    {
+     "texte": "marge",
+     "debut": 75.354,
+     "fin": 75.632
+    },
+    {
+     "texte": "sur",
+     "debut": 75.667,
+     "fin": 75.783
+    },
+    {
+     "texte": "tes",
+     "debut": 75.818,
+     "fin": 75.922
+    },
+    {
+     "texte": "revenus",
+     "debut": 75.957,
+     "fin": 76.236
+    },
+    {
+     "texte": "en",
+     "debut": 76.259,
+     "fin": 76.317
+    },
+    {
+     "texte": "ligne",
+     "debut": 76.34,
+     "fin": 76.642
+    },
+    {
+     "texte": "?",
+     "debut": 76.677,
+     "fin": 76.724
+    },
+    {
+     "texte": "Dis-le",
+     "debut": 77.234,
+     "fin": 77.49
+    },
+    {
+     "texte": "en",
+     "debut": 77.548,
+     "fin": 77.606
+    },
+    {
+     "texte": "commentaire,",
+     "debut": 77.652,
+     "fin": 78.361
+    },
+    {
+     "texte": "abonne-toi",
+     "debut": 78.477,
+     "fin": 79.092
+    },
+    {
+     "texte": "pour",
+     "debut": 79.138,
+     "fin": 79.278
+    },
+    {
+     "texte": "d'autres",
+     "debut": 79.336,
+     "fin": 79.614
+    },
+    {
+     "texte": "vrais",
+     "debut": 79.638,
+     "fin": 79.812
+    },
+    {
+     "texte": "chiffres.",
+     "debut": 79.835,
+     "fin": 80.508
+    }
+   ]
+  }
+ ]
+}

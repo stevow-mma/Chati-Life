@@ -15,7 +15,7 @@ export type Apparence = {
   nom: string;
   genre: 'homme' | 'femme';
   teint: {peau: string; ombre: string; joues: string};
-  cheveux: {style: 'meches' | 'chignon_boucle' | 'court' | 'carre_frange' | 'court_dessus' | 'afro_puff' | 'ondule_meche'; couleur: string};
+  cheveux: {style: 'meches' | 'chignon_boucle' | 'court' | 'carre_frange' | 'court_dessus' | 'afro_puff' | 'ondule_meche' | 'queue_frange'; couleur: string};
   tenue: {
     haut: string;
     hautOmbre: string;
@@ -36,6 +36,10 @@ export type Apparence = {
     tunique?: boolean;
     /** T-shirt chiné (ep07) : couleur des petites mouchetures. */
     chine?: string;
+    /** Pull en maille (ep08) : col rond côtelé, bas côtelé, côtes verticales légères. */
+    pull?: boolean;
+    /** Jean (ep08) : couleur des surpiqûres et des reflets délavés. */
+    jean?: string;
   };
   /** Accessoire de tête : casquette (avec initiale) ou grosses lunettes rondes. */
   tete:
@@ -75,6 +79,12 @@ export type Apparence = {
   cordonBadge?: {cordon: string} | null;
   /** Petite douchette de scan générique accrochée à la ceinture (ep07). */
   douchette?: {couleur: string; ombre: string} | null;
+  /** Petites boucles d'oreilles en perles (couleur nacrée) (ep08). */
+  perles?: string | null;
+  /** Casque audio générique, sans logo, posé autour du cou (ep08). */
+  casqueCou?: {couleur: string; coussins: string} | null;
+  /** Couleur des sourcils si différente des cheveux (ep08 : blond cendré trop pâle sur peau claire). */
+  sourcils?: string | null;
 };
 
 /** Durée (frames) d'un passage d'article au scanner (pose « scanne ») ; le bip du décor « caisse_tapis » suit le même cycle. */
@@ -348,6 +358,29 @@ const CheveuxArriere: React.FC<{a: Apparence; frame: number}> = ({a, frame}) => 
       </g>
     );
   }
+  if (a.cheveux.style === 'queue_frange') {
+    // ep08 : queue-de-cheval haute qui part du sommet et retombe derrière la tête (à droite), balancement léger
+    const c = a.cheveux.couleur;
+    const sway = Math.sin(frame / 11) * 4;
+    return (
+      <g>
+        <path d="M 150 262 Q 140 112 300 104 Q 460 112 450 262 Z" fill={c} stroke={OUT} strokeWidth={SW} strokeLinejoin="round" />
+        <g transform={`rotate(${sway} 330 96)`}>
+          <path
+            d="M 318 96 Q 430 34 486 126 Q 524 214 492 330 Q 480 374 452 400 Q 470 320 452 236 Q 432 156 344 124 Z"
+            fill={c}
+            stroke={OUT}
+            strokeWidth={SW}
+            strokeLinejoin="round"
+          />
+          <path d="M 372 84 Q 452 90 474 170 M 404 120 Q 470 170 466 300" fill="none" stroke="rgba(255,255,255,0.3)" strokeWidth={7} strokeLinecap="round" />
+          <path d="M 420 200 Q 444 260 440 330" fill="none" stroke="rgba(0,0,0,0.12)" strokeWidth={6} strokeLinecap="round" />
+          {/* chouchou */}
+          <ellipse cx={330} cy={100} rx={30} ry={22} fill={a.tenue.hautOmbre} stroke={OUT} strokeWidth={7} transform="rotate(-30 330 100)" />
+        </g>
+      </g>
+    );
+  }
   if (a.cheveux.style !== 'chignon_boucle') return null;
   const c = a.cheveux.couleur;
   // boucles autour du crâne, des tempes jusqu'au dessus de la tête
@@ -450,6 +483,24 @@ const CheveuxAvant: React.FC<{a: Apparence}> = ({a}) => {
           strokeLinejoin="round"
         />
         <path d="M 252 116 q 30 -30 76 -30 M 300 150 q 20 -14 44 -6 M 360 150 q 16 -10 32 0" fill="none" stroke="rgba(255,255,255,0.3)" strokeWidth={6} strokeLinecap="round" />
+      </g>
+    );
+  }
+  if (a.cheveux.style === 'queue_frange') {
+    // ep08 : cheveux tirés vers la queue-de-cheval, frange effilée sur le front, oreilles dégagées
+    return (
+      <g>
+        <path
+          d="M 152 272 Q 140 116 300 108 Q 460 116 448 272 Q 440 230 420 210 L 404 198 L 384 186 L 364 196 L 344 182 L 322 194 L 300 180 L 278 194 L 256 182 L 236 196 L 214 188 L 196 204 Q 164 228 152 272 Z"
+          fill={c}
+          stroke={OUT}
+          strokeWidth={SW}
+          strokeLinejoin="round"
+        />
+        {/* mèches de la frange et reflets */}
+        <path d="M 236 190 L 244 156 M 300 176 L 302 140 M 364 190 L 356 154 M 270 186 L 276 160 M 334 186 L 330 158" stroke="rgba(0,0,0,0.13)" strokeWidth={5} strokeLinecap="round" />
+        <path d="M 196 150 Q 250 122 330 122" fill="none" stroke="rgba(255,255,255,0.35)" strokeWidth={10} strokeLinecap="round" />
+        <path d="M 168 232 Q 160 252 160 276" fill="none" stroke="rgba(255,255,255,0.25)" strokeWidth={7} strokeLinecap="round" />
       </g>
     );
   }
@@ -888,6 +939,24 @@ const Douchette: React.FC<{couleur: string; ombre: string}> = ({couleur, ombre})
   </g>
 );
 
+/** Casque audio générique (sans logo) posé autour du cou (ep08) : arceau derrière la nuque, écouteurs sur les clavicules. */
+const CasqueCou: React.FC<{couleur: string; coussins: string}> = ({couleur, coussins}) => (
+  <g>
+    <path d="M 226 420 Q 300 470 374 420" fill="none" stroke={OUT} strokeWidth={22} strokeLinecap="round" />
+    <path d="M 226 420 Q 300 470 374 420" fill="none" stroke={couleur} strokeWidth={11} strokeLinecap="round" />
+    {[
+      [230, 452, -18],
+      [370, 452, 18],
+    ].map(([x, y, r]) => (
+      <g key={x} transform={`rotate(${r} ${x} ${y})`}>
+        <rect x={x - 32} y={y - 38} width={64} height={76} rx={28} fill={coussins} stroke={OUT} strokeWidth={7} />
+        <rect x={x - 22} y={y - 28} width={44} height={56} rx={20} fill={couleur} stroke={OUT} strokeWidth={5} />
+        <path d={`M ${x - 10} ${y - 16} q -6 16 0 30`} fill="none" stroke="white" strokeWidth={4} opacity={0.6} strokeLinecap="round" />
+      </g>
+    ))}
+  </g>
+);
+
 export const Personnage: React.FC<{
   apparence: Apparence;
   expression: Expression;
@@ -1042,6 +1111,20 @@ export const Personnage: React.FC<{
                 ))}
               </g>
             ) : null}
+            {t.jean ? (
+              // ep08 : jean droit délavé : surpiqûres latérales, reflets plus clairs sur les cuisses, ourlet
+              <g>
+                {[226, 374].map((x) => (
+                  <path key={x} d={`M ${x} 700 V 828`} stroke={t.jean} strokeWidth={4} strokeDasharray="10 7" />
+                ))}
+                {[240, 330].map((x) => (
+                  <rect key={x} x={x} y={704} width={30} height={90} rx={15} fill="white" opacity={0.18} />
+                ))}
+                {[222, 312].map((x) => (
+                  <path key={x} d={`M ${x + 4} 812 H ${x + 62}`} stroke={t.jean} strokeWidth={4} strokeDasharray="8 6" />
+                ))}
+              </g>
+            ) : null}
             {/* Baskets */}
             <path d="M 196 836 q 0 -34 40 -34 h 46 q 14 0 14 20 v 26 h -100 z" fill={t.chaussures} stroke={OUT} strokeWidth={SW} strokeLinejoin="round" />
             <path d="M 404 836 q 0 -34 -40 -34 h -46 q -14 0 -14 20 v 26 h 100 z" fill={t.chaussures} stroke={OUT} strokeWidth={SW} strokeLinejoin="round" />
@@ -1096,6 +1179,20 @@ export const Personnage: React.FC<{
             {/* bord-côte en bas */}
             <path d="M 176 680 Q 300 702 424 680" fill="none" stroke={t.hautOmbre} strokeWidth={12} />
           </g>
+        ) : t.pull ? (
+          <g>
+            {/* ep08 : pull en maille oversize : côtes verticales, col rond côtelé, bas côtelé */}
+            <g stroke={t.hautOmbre} strokeWidth={5} strokeLinecap="round" opacity={0.7}>
+              {[232, 266, 300, 334, 368].map((x) => (
+                <path key={x} d={`M ${x} 470 Q ${x + (x - 300) * 0.06} 580 ${x + (x - 300) * 0.1} 670`} fill="none" />
+              ))}
+            </g>
+            <path d="M 176 688 Q 300 712 424 688 L 428 694 Q 300 716 172 694 Z" fill={t.hautOmbre} />
+            <path d="M 178 676 Q 300 700 422 676" fill="none" stroke={OUT} strokeWidth={5} opacity={0.6} />
+            <path d="M 244 412 Q 300 462 356 412" fill="none" stroke={OUT} strokeWidth={30} strokeLinecap="round" />
+            <path d="M 244 412 Q 300 462 356 412" fill="none" stroke={t.hautOmbre} strokeWidth={18} strokeLinecap="round" />
+            <path d="M 260 424 L 262 436 M 280 434 L 281 446 M 300 438 L 300 450 M 320 434 L 319 446 M 340 424 L 338 436" stroke={t.haut} strokeWidth={3} strokeLinecap="round" />
+          </g>
         ) : t.tunique ? (
           <Tunique ombre={t.hautOmbre} badge={a.badge} />
         ) : tshirt ? (
@@ -1122,6 +1219,7 @@ export const Personnage: React.FC<{
         ) : null}
         {a.gilet ? <Gilet couleur={a.gilet.couleur} ombre={a.gilet.ombre} bandes={a.gilet.bandes} /> : null}
         {a.cordonBadge ? <CordonBadge cordon={a.cordonBadge.cordon} /> : null}
+        {a.casqueCou ? <CasqueCou couleur={a.casqueCou.couleur} coussins={a.casqueCou.coussins} /> : null}
         {assis ? (
           <g transform={`translate(0 ${-HAUT_ASSIS})`}>
             {/* Assis sur le trottoir : genoux relevés, tibias et baskets devant */}
@@ -1172,6 +1270,17 @@ export const Personnage: React.FC<{
               ))}
             </>
           ) : null}
+          {a.perles && !carre ? (
+            <>
+              {[150, 450].map((x) => (
+                <g key={x}>
+                  <path d={`M ${x} 312 V 320`} stroke={OUT} strokeWidth={4} />
+                  <circle cx={x} cy={330} r={11} fill={a.perles!} stroke={OUT} strokeWidth={4} />
+                  <circle cx={x - 4} cy={326} r={3.5} fill="white" />
+                </g>
+              ))}
+            </>
+          ) : null}
           {a.boucles && !carre ? (
             <>
               <circle cx={150} cy={336} r={18} fill="none" stroke={OUT} strokeWidth={12} />
@@ -1201,7 +1310,7 @@ export const Personnage: React.FC<{
           <Eyes expression={expression} blink={blink} frame={frame} cils={femme} />
           {lunettes ? <Lunettes couleur={lunettes.couleur} /> : null}
           <g transform={lunettes ? 'translate(0 -14)' : undefined}>
-            <Brows expression={expression} couleur={a.cheveux.couleur} fines={femme} />
+            <Brows expression={expression} couleur={a.sourcils ?? a.cheveux.couleur} fines={femme} />
           </g>
           {/* Nez */}
           <path d="M 300 296 q 14 16 -2 26" fill="none" stroke={peauOmbre} strokeWidth={8} strokeLinecap="round" />

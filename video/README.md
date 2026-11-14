@@ -11,6 +11,8 @@ npm run render -- ep03    # épisode 3 → out/ep03.mp4
 npm run render -- ep04    # épisode 4 → out/ep04.mp4
 npm run render -- ep05    # épisode 5 → out/ep05.mp4 (personnage muet)
 npm run render -- ep06    # épisode 6 → out/ep06.mp4 (Awa, caissière, muette)
+npm run render -- ep07    # épisode 7 → out/ep07.mp4 (Mehdi, préparateur de commandes, muet)
+npm run render -- ep08    # épisode 8 → out/ep08.mp4 (Jade, créatrice de contenu, muette)
 ```
 
 ## Épisodes

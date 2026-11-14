@@ -1,0 +1,295 @@
+[
+  {
+    "texte": "Les fans de Jade lui versent deux mille cinq cents euros par mois. Il lui en reste environ mille cent soixante.",
+    "decor": "chambre",
+    "expression": "perplexe",
+    "mot_jaune": "reste",
+    "etiquette": null,
+    "accessoire_sol": [
+      "trepied_ring_light",
+      "bureau_ordinateur"
+    ],
+    "element_visuel": {
+      "type": "puce",
+      "texte": "+2 500 € / mois",
+      "suite": "il reste ≈ 1 160 € ?",
+      "au_mot": "reste",
+      "mention": "Exemple illustratif"
+    },
+    "duree": 4
+  },
+  {
+    "texte": "Voici comment en garder plus.",
+    "decor": "chambre",
+    "expression": "fier",
+    "mot_jaune": "plus",
+    "etiquette": null,
+    "accessoire_sol": [
+      "trepied_ring_light",
+      "bureau_ordinateur"
+    ],
+    "pose": "poing",
+    "element_visuel": {
+      "type": "carte_texte",
+      "titre": "Comment en garder plus ?"
+    },
+    "duree": 4
+  },
+  {
+    "texte": "D'abord, la plateforme garde vingt pour cent : il reste deux mille euros.",
+    "decor": "chambre",
+    "expression": "neutre",
+    "mot_jaune": "vingt",
+    "etiquette": null,
+    "accessoire_sol": [
+      "trepied_ring_light",
+      "bureau_ordinateur"
+    ],
+    "element_visuel": {
+      "type": "calcul_lignes",
+      "ecart": 0.8,
+      "lignes": [
+        {
+          "label": "Versé par les fans",
+          "valeur": "2 500 €"
+        },
+        {
+          "label": "− 20 % de commission",
+          "valeur": "−500 €"
+        },
+        {
+          "label": "Il reste",
+          "valeur": "2 000 €"
+        }
+      ],
+      "source": "Source : commission annoncée par les plateformes d'abonnement (≈ 20 %)"
+    },
+    "duree": 4
+  },
+  {
+    "texte": "Ensuite, ses cotisations de micro-entrepreneuse : vingt-cinq virgule six pour cent, soit six cent quarante euros.",
+    "decor": "chambre",
+    "expression": "neutre",
+    "mot_jaune": "six",
+    "mot_jaune_rang": 2,
+    "etiquette": "EN CLAIR",
+    "accessoire_sol": [
+      "trepied_ring_light",
+      "bureau_ordinateur"
+    ],
+    "element_visuel": {
+      "type": "carte_texte",
+      "surtitre": "Cotisations micro-BNC 2026 :",
+      "titre": "25,6 % × 2 500 € = 640 €",
+      "petit": "Calcul prudent, sur le montant avant commission. Elles financent santé et retraite",
+      "source": "Sources : Bpifrance Création ; Urssaf"
+    },
+    "duree": 4
+  },
+  {
+    "texte": "Avec deux cents euros de matériel et d'outils, il reste environ mille cent soixante euros, avant impôt.",
+    "decor": "chambre",
+    "expression": "perplexe",
+    "mot_jaune": "mille",
+    "etiquette": null,
+    "accessoire_sol": [
+      "trepied_ring_light",
+      "bureau_ordinateur"
+    ],
+    "element_visuel": {
+      "type": "calcul_lignes",
+      "ecart": 0.7,
+      "lignes": [
+        {
+          "label": "Après commission",
+          "valeur": "2 000 €"
+        },
+        {
+          "label": "Cotisations",
+          "valeur": "−640 €"
+        },
+        {
+          "label": "Frais (hypothèse)",
+          "valeur": "−200 €"
+        },
+        {
+          "label": "Reste / mois",
+          "valeur": "≈ 1 160 €"
+        }
+      ],
+      "mention": "soit ≈ 13 900 € / an, avant impôt",
+      "source": "Exemple illustratif. Estimation"
+    },
+    "duree": 4
+  },
+  {
+    "texte": "En clair, Jade est un exemple haut : en moyenne, les créateurs reçoivent bien moins.",
+    "decor": "salon",
+    "expression": "neutre",
+    "mot_jaune": "moyenne",
+    "etiquette": "EN CLAIR",
+    "element_visuel": {
+      "type": "carte_chiffre",
+      "valeur": "≈ 1 300 $ / an",
+      "legende": "paiement annuel moyen par créateur (2023)",
+      "source": "Source : Variety (2025), via synthèse de statistiques voxbooster.com"
+    },
+    "duree": 4
+  },
+  {
+    "texte": "Premier levier : proposer des abonnements de trois, six ou douze mois, pour un revenu plus régulier.",
+    "decor": "chambre",
+    "expression": "fier",
+    "mot_jaune": "régulier",
+    "etiquette": "LEVIER N°1",
+    "accessoire_sol": [
+      "trepied_ring_light",
+      "bureau_ordinateur"
+    ],
+    "element_visuel": {
+      "type": "abonnements_calendrier",
+      "pastilles": [
+        {
+          "texte": "3 mois",
+          "au_mot": "trois"
+        },
+        {
+          "texte": "6 mois",
+          "au_mot": "six"
+        },
+        {
+          "texte": "12 mois",
+          "au_mot": "douze"
+        }
+      ],
+      "titre": "= revenu plus prévisible",
+      "au_mot": "revenu"
+    },
+    "duree": 4
+  },
+  {
+    "texte": "Deuxième levier : un compte séparé, et environ un tiers de chaque versement mis de côté pour les cotisations et l'impôt.",
+    "decor": "banque",
+    "expression": "content",
+    "mot_jaune": "séparé",
+    "etiquette": "LEVIER N°2",
+    "element_visuel": {
+      "type": "enveloppes",
+      "gauche": "Compte pro",
+      "droite": "Mis de côté ≈ ⅓",
+      "au_mot": "tiers",
+      "texte": "Cotisations ≈ 32 % de ce que tu reçois, + impôt selon ton foyer",
+      "mention": "Estimation"
+    },
+    "duree": 4
+  },
+  {
+    "texte": "Troisième levier : comparer l'abattement de trente-quatre pour cent et le versement libératoire, selon ton foyer.",
+    "decor": "bureau",
+    "expression": "neutre",
+    "mot_jaune": "comparer",
+    "etiquette": "LEVIER N°3",
+    "element_visuel": {
+      "type": "face_a_face",
+      "gauche": {
+        "label": "Abattement",
+        "valeur": "34 %",
+        "petit": "(minimum 305 €)"
+      },
+      "droite": {
+        "label": "Versement libératoire",
+        "valeur": "2,2 %",
+        "petit": "du CA"
+      },
+      "symbole": "ou",
+      "neutre": true,
+      "au_mot": "versement",
+      "mention": "Le meilleur choix dépend du foyer fiscal",
+      "source": "Source : economie.gouv.fr"
+    },
+    "duree": 4
+  },
+  {
+    "texte": "Quatrième levier : surveiller trente-sept mille cinq cents euros de chiffre d'affaires. Au-delà, la TVA entre en jeu.",
+    "decor": "bureau",
+    "expression": "fier",
+    "mot_jaune": "trente-sept",
+    "etiquette": "LEVIER N°4",
+    "element_visuel": {
+      "type": "jauge_plafond",
+      "titre": "Franchise de TVA : 37 500 €",
+      "plafond": 37500,
+      "valeur": 30000,
+      "label_valeur": "Jade : 30 000 € / an",
+      "petit": "(seuil majoré 41 250 €)",
+      "source": "Source : justice.fr"
+    },
+    "duree": 4
+  },
+  {
+    "texte": "Cinquième levier : demande à l'Urssaf ou à un comptable si tu déclares avant ou après commission.",
+    "decor": "bureau",
+    "expression": "perplexe",
+    "mot_jaune": "demande",
+    "etiquette": "LEVIER N°5",
+    "element_visuel": {
+      "type": "face_a_face",
+      "gauche": {
+        "label": "Avant commission",
+        "valeur": "640 €",
+        "petit": "de cotisations sur 2 500 €"
+      },
+      "droite": {
+        "label": "Après commission",
+        "valeur": "512 €",
+        "petit": "de cotisations sur 2 000 €"
+      },
+      "symbole": "ou",
+      "neutre": true,
+      "au_mot": "après",
+      "mention": "Selon le contrat de la plateforme. À confirmer"
+    },
+    "duree": 4
+  },
+  {
+    "texte": "Attention aux managers : certains prennent jusqu'à la moitié de tes gains.",
+    "decor": "salon",
+    "expression": "perplexe",
+    "mot_jaune": "moitié",
+    "etiquette": "ATTENTION",
+    "element_visuel": {
+      "type": "contrat_ordinateur",
+      "titre": "Contrat de gestion",
+      "surligne": "jusqu'à 50 % de tes gains",
+      "au_mot": "moitié",
+      "petit": "Lis le contrat avant de signer",
+      "source": "Source : Slate, enquête BBC"
+    },
+    "duree": 4
+  },
+  {
+    "texte": "Règle numéro un : le chiffre d'affaires n'est pas ton salaire.",
+    "decor": "studio",
+    "expression": "fier",
+    "mot_jaune": "salaire",
+    "etiquette": "RÈGLE N°1",
+    "pose": "poing",
+    "element_visuel": {
+      "type": "carte_texte",
+      "titre": "Le chiffre d'affaires n'est pas ton salaire."
+    },
+    "duree": 4
+  },
+  {
+    "texte": "Et toi, tu connais ta vraie marge sur tes revenus en ligne ? Dis-le en commentaire, abonne-toi pour d'autres vrais chiffres.",
+    "decor": "studio",
+    "expression": "content",
+    "mot_jaune": "commentaire",
+    "etiquette": "TON AVIS",
+    "pose": "pointe_bas",
+    "element_visuel": {
+      "type": "icones_cta"
+    },
+    "duree": 4
+  }
+]

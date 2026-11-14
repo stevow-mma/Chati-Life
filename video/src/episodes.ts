@@ -24,6 +24,9 @@ import ep06Voix from '../episodes/ep06/voix.json';
 import ep07Episode from '../episodes/ep07/episode.json';
 import ep07Script from '../episodes/ep07/script.json';
 import ep07Voix from '../episodes/ep07/voix.json';
+import ep08Episode from '../episodes/ep08/episode.json';
+import ep08Script from '../episodes/ep08/script.json';
+import ep08Voix from '../episodes/ep08/voix.json';
 
 /**
  * Registre des épisodes. Nouvel épisode : créer episodes/epNN/{episode,script}.json,
@@ -37,6 +40,7 @@ const SOURCES = [
   {id: 'ep05', episode: ep05Episode, script: ep05Script, voix: ep05Voix},
   {id: 'ep06', episode: ep06Episode, script: ep06Script, voix: ep06Voix},
   {id: 'ep07', episode: ep07Episode, script: ep07Script, voix: ep07Voix},
+  {id: 'ep08', episode: ep08Episode, script: ep08Script, voix: ep08Voix},
 ];
 
 type VoixParScene = {mode: 'par_scene'; scenes: (Voix | null)[]};
