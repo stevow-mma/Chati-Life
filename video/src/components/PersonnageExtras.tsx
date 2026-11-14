@@ -1,4 +1,5 @@
 import {ObjetMainEp13} from './Ep13';
+import {ObjetMainEp17, OBJETS_EP17} from './Ep17';
 import {ObjetMainEp15} from './Ep15';
 import {Genouillere, ObjetMainEp16, OBJETS_EP16} from './Ep16';
 import {MotifsAvantBras, ObjetMainEp14} from './Ep14';
@@ -40,6 +41,8 @@ export type ObjetTenu =
   | 'chronometre' | 'bouteille' | 'haltere' | 'elastique' | 'tapis_roule'
   // ep16
   | 'cle_molette' | 'caisse_outils' | 'panier' | 'carte_paiement' | 'recu' | 'attestation' | 'pistolet'
+  // ep17
+  | 'raclette' | 'perche' | 'seau' | 'pulverisateur' | 'microfibre'
   | 'telephone'
   | 'telephone_b'
   | 'ordinateur'
@@ -1095,6 +1098,7 @@ export const ObjetMainEp11: React.FC<{nom: string; main: Pt; peau: string; miroi
         </g>
       );
     default:
+      if (OBJETS_EP17.has(nom)) return <ObjetMainEp17 nom={nom} main={main} peau={peau} frame={frame} />;
       if (OBJETS_EP16.has(nom)) return <ObjetMainEp16 nom={nom} main={main} peau={peau} frame={frame} />;
       if (['chronometre', 'bouteille', 'haltere', 'elastique', 'tapis_roule'].includes(nom)) return <ObjetMainEp15 nom={nom} main={main} peau={peau} frame={frame} />;
       if (['machine_tatouage', 'tablette', 'valise', 'cle'].includes(nom)) return <ObjetMainEp14 nom={nom} main={main} peau={peau} frame={frame} />;

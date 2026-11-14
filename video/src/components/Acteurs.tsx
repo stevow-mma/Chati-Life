@@ -48,9 +48,11 @@ const GESTES_BRAS = new Set([
   'squat', 'fente', 'etirement', 'pompe',
   // ep16
   'serrer', 'essuyer', 'porter', 'tourner',
+  // ep17
+  'raclette', 'pulveriser', 'frotter', 'perche', 'sonner', 'applaudir',
 ]);
 /** Gestes à deux bras par défaut. */
-const DEUX_BRAS = new Set(['croiser', 'teteMains', 'ballants', 'taper', 'squat', 'fente', 'etirement', 'pompe']);
+const DEUX_BRAS = new Set(['croiser', 'teteMains', 'ballants', 'taper', 'squat', 'fente', 'etirement', 'pompe', 'applaudir']);
 
 const finDe = (a: ActionActeur, dureeScene: number) => a.fin ?? (a.type === 'objet' ? dureeScene + 1 : a.t + 0.6);
 
@@ -181,6 +183,27 @@ const cibleGeste = (a: ActionActeur, u: number, duree: number, frame: number, s:
     case 'tourner':
       // tourne un robinet / une vanne : main en avant, rotation
       return {epaule: 78 + Math.sin(u * 8) * 6, coude: -40 + Math.cos(u * 8) * 14};
+    // --- ep17 ---
+    case 'raclette':
+      // raclette levée, tracé en S (courbe de Lissajous 1:2)
+      return {epaule: 128 + Math.sin(u * 3.2) * 24, coude: Math.sin(u * 6.4) * 26};
+    case 'pulveriser':
+      // pulvérisateur tendu devant, petites pressions
+      return {epaule: 96 + osc(0.2, 2), coude: -18 + (Math.sin(u * 12) > 0 ? 8 : 0)};
+    case 'frotter':
+      // microfibre : petits cercles bras tendu
+      return {epaule: 112 + Math.sin(u * 7) * 12, coude: Math.cos(u * 7) * 28};
+    case 'perche':
+      // perche télescopique levée, balayage lent
+      return {epaule: 112 + Math.sin(u * 2.6) * 12, coude: -6 + Math.sin(u * 2.6) * 10};
+    case 'sonner': {
+      // appuie sur une sonnette : bras tendu, petit coup d'index
+      const coup = Math.max(0, Math.sin(u * 9));
+      return {epaule: 88 + coup * 6, coude: -12 + coup * 10, index: true};
+    }
+    case 'applaudir':
+      // applaudit : mains devant la poitrine qui se rejoignent
+      return {epaule: 40, coude: 105 + Math.sin(u * 16) * 18};
     default:
       return REPOS;
   }

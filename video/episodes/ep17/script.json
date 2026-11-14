@@ -1,0 +1,1640 @@
+[
+ {
+  "texte": "Chloé lave des vitres et encaisse deux mille quatre cents euros par mois. Il lui reste environ mille six cent soixante euros.",
+  "decor": "maison_jardin",
+  "expression": "fier",
+  "mot_jaune": "reste",
+  "etiquette": null,
+  "element_visuel": {
+   "type": "cartes_successives",
+   "cartes": [
+    {
+     "valeur": "2 400 €",
+     "legende": "encaissés par mois",
+     "au_mot": "deux"
+    },
+    {
+     "valeur": "≈ 1 660 €",
+     "legende": "qui restent",
+     "au_mot": "reste",
+     "alerte": true
+    }
+   ],
+   "mention": "Exemple illustratif : 80 h facturées à 30 € de l'heure"
+  },
+  "acteurs": [
+   {
+    "id": "proprietaire",
+    "x": 860,
+    "expression": "content",
+    "actions": [
+     {
+      "t": 2.9,
+      "fin": 3.9,
+      "type": "walkIn",
+      "from": "right",
+      "x": 860
+     },
+     {
+      "t": 4.0,
+      "fin": 4.8,
+      "type": "tendre",
+      "cote": "l",
+      "objet": "billets"
+     },
+     {
+      "t": 4.9,
+      "fin": 5.5,
+      "type": "hoche"
+     },
+     {
+      "t": 5.7,
+      "fin": 6.7,
+      "type": "saluer",
+      "cote": "l"
+     }
+    ]
+   },
+   {
+    "id": "chloe_vitres",
+    "x": 400,
+    "nom": "Chloé, laveuse de vitres",
+    "actions": [
+     {
+      "t": 0,
+      "fin": 2.5,
+      "type": "raclette",
+      "objet": "raclette"
+     },
+     {
+      "t": 2.55,
+      "fin": 3.3,
+      "type": "tendre",
+      "objet": "seau"
+     },
+     {
+      "t": 3.35,
+      "fin": 4.1,
+      "type": "walkTo",
+      "x": 560
+     },
+     {
+      "t": 4.15,
+      "fin": 4.9,
+      "type": "saisir",
+      "objet": "billets"
+     },
+     {
+      "t": 4.9,
+      "fin": 6.762,
+      "type": "objet",
+      "objet": "billets"
+     },
+     {
+      "t": 4.95,
+      "fin": 5.6,
+      "type": "compter",
+      "cote": "l",
+      "doigts": [
+       1,
+       2,
+       3
+      ]
+     },
+     {
+      "t": 5.1,
+      "fin": 5.5,
+      "type": "recul",
+      "dx": -40
+     },
+     {
+      "t": 5.6,
+      "fin": 6.1,
+      "type": "incline",
+      "angle": 8
+     },
+     {
+      "t": 6.1,
+      "fin": 6.762,
+      "type": "hausse"
+     }
+    ]
+   }
+  ],
+  "objets_scene": [
+   {
+    "type": "baie_vitree",
+    "x": 450,
+    "y": 1410,
+    "largeur": 560,
+    "hauteur": 540,
+    "instants": [
+     0,
+     2.5
+    ]
+   },
+   {
+    "type": "seau_sol",
+    "x": 760,
+    "y": 1500,
+    "t": 0,
+    "fin": 2.5
+   },
+   {
+    "type": "gouttes",
+    "x": 560,
+    "y": 1180,
+    "largeur": -260,
+    "instants": [
+     2.7
+    ]
+   }
+  ],
+  "duree": 6.762,
+  "puis": {
+   "expression": "choque",
+   "au_mot": "mille#2"
+  }
+ },
+ {
+  "texte": "D'abord, les cotisations : cinq cent neuf euros. Puis les trajets : cent cinquante.",
+  "decor": "rue",
+  "expression": "neutre",
+  "mot_jaune": "cotisations",
+  "etiquette": "EN CLAIR",
+  "element_visuel": {
+   "type": "cascade",
+   "titre": "Ce qui part chaque mois",
+   "definition": "Micro-entreprise : les cotisations sont un pourcentage de ce que tu encaisses, avant toute dépense",
+   "lignes": [
+    {
+     "label": "Encaissé",
+     "valeur": "2 400 €"
+    },
+    {
+     "label": "Cotisations (21,2 %)",
+     "valeur": "− 509 €",
+     "au_mot": "cinq",
+     "negatif": true
+    },
+    {
+     "label": "Trajets et carburant",
+     "valeur": "− 150 €",
+     "au_mot": "cinquante",
+     "negatif": true
+    }
+   ],
+   "hypotheses": "Hypothèse : trajets et carburant 150 € par mois",
+   "source": "Sources : Legalplace, Copeps"
+  },
+  "acteurs": [
+   {
+    "id": "chloe_vitres",
+    "x": 380,
+    "actions": [
+     {
+      "t": 0,
+      "fin": 1.5,
+      "type": "walkIn",
+      "from": "left",
+      "x": 380
+     },
+     {
+      "t": 0,
+      "fin": 1.9,
+      "type": "objet",
+      "objet": "seau"
+     },
+     {
+      "t": 0,
+      "fin": 2.9,
+      "type": "objet",
+      "cote": "l",
+      "objet": "perche"
+     },
+     {
+      "t": 1.6,
+      "fin": 2.2,
+      "type": "ouvrir"
+     },
+     {
+      "t": 2.25,
+      "fin": 2.9,
+      "type": "tendre",
+      "objet": "seau"
+     },
+     {
+      "t": 2.95,
+      "fin": 3.6,
+      "type": "tendre",
+      "cote": "l",
+      "objet": "perche"
+     },
+     {
+      "t": 3.65,
+      "fin": 4.2,
+      "type": "tamponner"
+     },
+     {
+      "t": 4.25,
+      "fin": 5.573,
+      "type": "walkOut",
+      "to": "right"
+     }
+    ]
+   }
+  ],
+  "objets_scene": [
+   {
+    "type": "voiture",
+    "x": 700,
+    "y": 1500,
+    "ouvre": 1.8,
+    "couleur": "#8ECAE6"
+   },
+   {
+    "type": "pile_descend",
+    "x": 120,
+    "y": 1490,
+    "instants": [
+     1.87,
+     4.38
+    ]
+   }
+  ],
+  "duree": 5.573
+ },
+ {
+  "texte": "Ensuite, quatre-vingts pour le matériel, les produits et l'assurance. Il reste environ mille six cent soixante euros, avant impôt.",
+  "decor": "parking",
+  "expression": "perplexe",
+  "mot_jaune": "l'assurance",
+  "etiquette": null,
+  "element_visuel": {
+   "type": "cascade",
+   "titre": "Après les dépenses",
+   "lignes": [
+    {
+     "label": "Encaissé",
+     "valeur": "2 400 €"
+    },
+    {
+     "label": "Cotisations",
+     "valeur": "− 509 €",
+     "negatif": true
+    },
+    {
+     "label": "Trajets",
+     "valeur": "− 150 €",
+     "negatif": true
+    },
+    {
+     "label": "Matériel, produits, assurance",
+     "valeur": "− 80 €",
+     "au_mot": "matériel",
+     "negatif": true
+    },
+    {
+     "label": "Reste avant impôt",
+     "valeur": "≈ 1 661 €",
+     "au_mot": "reste",
+     "resultat": true
+    }
+   ],
+   "hypotheses": "Hypothèses : kit de 400 € amorti sur 2 ans ≈ 17 €/mois, produits ≈ 43 €, assurance R.C. Pro ≈ 20 €",
+   "petit": "Kit de départ : de 20 à 700 € selon l'équipement (prix constatés en ligne)",
+   "mention": "Exemple illustratif"
+  },
+  "acteurs": [
+   {
+    "id": "chloe_vitres",
+    "x": 660,
+    "actions": [
+     {
+      "t": 0,
+      "fin": 0.9,
+      "type": "tendre",
+      "cote": "l",
+      "objet": "perche"
+     },
+     {
+      "t": 1.0,
+      "fin": 1.7,
+      "type": "tendre",
+      "cote": "l",
+      "objet": "raclette"
+     },
+     {
+      "t": 1.8,
+      "fin": 2.4,
+      "type": "ouvrir",
+      "cote": "l"
+     },
+     {
+      "t": 2.5,
+      "fin": 3.3,
+      "type": "tendre",
+      "cote": "l",
+      "objet": "attestation"
+     },
+     {
+      "t": 3.4,
+      "fin": 4.0,
+      "type": "saisir",
+      "objet": "billets"
+     },
+     {
+      "t": 4.0,
+      "fin": 7.372,
+      "type": "objet",
+      "objet": "billets"
+     },
+     {
+      "t": 4.1,
+      "fin": 5.2,
+      "type": "compter",
+      "cote": "l",
+      "doigts": [
+       1,
+       2,
+       3
+      ]
+     },
+     {
+      "t": 5.3,
+      "fin": 6.0,
+      "type": "hausse"
+     },
+     {
+      "t": 6.1,
+      "fin": 7.372,
+      "type": "nuque",
+      "cote": "l"
+     }
+    ]
+   }
+  ],
+  "objets_scene": [
+   {
+    "type": "voiture",
+    "x": 330,
+    "y": 1500,
+    "ouvre": 0,
+    "ouvre_porte": 1.9,
+    "couleur": "#8ECAE6"
+   }
+  ],
+  "duree": 7.372
+ },
+ {
+  "texte": "Mais sur cent vingt heures, quatre-vingts seulement sont payées : environ quatorze euros de l'heure.",
+  "decor": "bureau",
+  "expression": "perplexe",
+  "mot_jaune": "payées",
+  "etiquette": "MAIS",
+  "element_visuel": {
+   "type": "barres_comparees",
+   "titre": "1 660 € ÷ 120 h ≈ 14 € par heure",
+   "barres": [
+    {
+     "label": "Séances payées",
+     "valeur": 80,
+     "texte": "80 h",
+     "au_mot": "seulement"
+    },
+    {
+     "label": "Total : 80 h payées + 25 h trajets + 15 h devis, matériel, admin",
+     "valeur": 120,
+     "texte": "120 h",
+     "au_mot": "cent"
+    }
+   ],
+   "mention": "Hypothèse : 25 h de trajets, 15 h de devis et d'administratif",
+   "source": "≈ 14 € par heure : estimation"
+  },
+  "acteurs": [
+   {
+    "id": "chloe_vitres",
+    "x": 480,
+    "pose": "assis",
+    "chaise": "#343A40",
+    "actions": [
+     {
+      "t": 0,
+      "fin": 0.8,
+      "type": "tendre",
+      "objet": "papiers"
+     },
+     {
+      "t": 0.9,
+      "fin": 1.6,
+      "type": "tendre",
+      "objet": "papiers"
+     },
+     {
+      "t": 1.7,
+      "fin": 2.4,
+      "type": "pointer",
+      "cote": "l",
+      "cible": "cote"
+     },
+     {
+      "t": 1.7,
+      "fin": 2.4,
+      "type": "incline",
+      "angle": -12
+     },
+     {
+      "t": 2.5,
+      "fin": 3.8,
+      "type": "ecrire",
+      "objet": "stylo"
+     },
+     {
+      "t": 2.5,
+      "fin": 3.8,
+      "type": "objet",
+      "cote": "l",
+      "objet": "agenda"
+     },
+     {
+      "t": 3.9,
+      "fin": 4.8,
+      "type": "nuque"
+     },
+     {
+      "t": 4.9,
+      "fin": 6.026,
+      "type": "teteMains"
+     }
+    ]
+   }
+  ],
+  "objets_scene": [
+   {
+    "type": "bureau",
+    "x": 480,
+    "y": 1290
+   },
+   {
+    "type": "pile_papiers",
+    "x": 690,
+    "y": 1200,
+    "t": 0
+   },
+   {
+    "type": "chrono",
+    "x": 120,
+    "y": 1000,
+    "instants": [
+     0,
+     6.026
+    ],
+    "hauteur": 3,
+    "texte": "120 h"
+   }
+  ],
+  "duree": 6.026
+ },
+ {
+  "texte": "Premier levier : des abonnements pour les commerçants. Dix vitrines à cinquante euros : cinq cents euros chaque mois.",
+  "decor": "magasin",
+  "expression": "content",
+  "mot_jaune": "abonnements",
+  "etiquette": "LEVIER N°1",
+  "element_visuel": {
+   "type": "carte_taux",
+   "titre": "10 vitrines × 50 € = 500 € par mois",
+   "lignes": [
+    {
+     "label": "10 vitrines × 50 €",
+     "valeur": "500 €/mois",
+     "au_mot": "dix"
+    },
+    {
+     "label": "Revenu qui revient",
+     "valeur": "chaque mois",
+     "au_mot": "chaque"
+    }
+   ],
+   "petit": "Vitrine de 15 m² : 40 à 60 €, mensuel ou bimensuel",
+   "mention": "Exemple illustratif",
+   "source": "Sources : Abby, Superindep"
+  },
+  "acteurs": [
+   {
+    "id": "commercante",
+    "x": 850,
+    "expression": "content",
+    "actions": [
+     {
+      "t": 2.5,
+      "fin": 3.5,
+      "type": "walkIn",
+      "from": "right",
+      "x": 850
+     },
+     {
+      "t": 3.6,
+      "fin": 4.4,
+      "type": "serrerMain",
+      "cote": "l"
+     },
+     {
+      "t": 4.5,
+      "fin": 5.6,
+      "type": "ecrire",
+      "cote": "l",
+      "objet": "stylo"
+     },
+     {
+      "t": 5.7,
+      "fin": 6.4,
+      "type": "pouce",
+      "cote": "l"
+     },
+     {
+      "t": 6.5,
+      "fin": 7.163,
+      "type": "hoche"
+     }
+    ]
+   },
+   {
+    "id": "chloe_vitres",
+    "x": 330,
+    "actions": [
+     {
+      "t": 0,
+      "fin": 2.2,
+      "type": "raclette",
+      "objet": "raclette"
+     },
+     {
+      "t": 2.25,
+      "fin": 3.5,
+      "type": "walkTo",
+      "x": 560
+     },
+     {
+      "t": 3.6,
+      "fin": 4.4,
+      "type": "serrerMain"
+     },
+     {
+      "t": 4.5,
+      "fin": 5.6,
+      "type": "tendre",
+      "objet": "contrat"
+     },
+     {
+      "t": 5.7,
+      "fin": 6.4,
+      "type": "saut"
+     },
+     {
+      "t": 6.45,
+      "fin": 7.163,
+      "type": "poing",
+      "cote": "l"
+     }
+    ]
+   }
+  ],
+  "objets_scene": [
+   {
+    "type": "baie_vitree",
+    "x": 330,
+    "y": 1420,
+    "largeur": 420,
+    "hauteur": 500,
+    "texte": "simple",
+    "instants": [
+     0,
+     2.2
+    ]
+   },
+   {
+    "type": "baie_vitree",
+    "x": 800,
+    "y": 1420,
+    "largeur": 380,
+    "hauteur": 500,
+    "texte": "simple",
+    "instants": [
+     2.6,
+     3.4
+    ]
+   },
+   {
+    "type": "pile_papiers",
+    "x": 110,
+    "y": 1500,
+    "t": 4.6,
+    "hauteur": 10
+   }
+  ],
+  "duree": 7.163
+ },
+ {
+  "texte": "Deuxième levier : le crédit d'impôt de cinquante pour cent. Pour tes clients, quatre-vingt-dix euros reviennent à quarante-cinq.",
+  "decor": "salon",
+  "expression": "content",
+  "mot_jaune": "crédit",
+  "etiquette": "LEVIER N°2",
+  "element_visuel": {
+   "type": "carte_taux",
+   "titre": "Crédit d'impôt de 50 %",
+   "lignes": [
+    {
+     "label": "Prix du passage",
+     "valeur": "90 €",
+     "au_mot": "quatre-vingt-dix"
+    },
+    {
+     "label": "Coût réel pour ton client",
+     "valeur": "45 €",
+     "au_mot": "reviennent"
+    }
+   ],
+   "petit": "Exemple illustratif : 20 clients × 4 passages × 90 € = 7 200 € par an ≈ 600 € par mois",
+   "mention": "Sous conditions : activité à déclarer en services à la personne",
+   "source": "Sources : Legalplace, Abby"
+  },
+  "acteurs": [
+   {
+    "id": "cliente_gilet",
+    "x": 250,
+    "expression": "content",
+    "actions": [
+     {
+      "t": 0.5,
+      "fin": 1.3,
+      "type": "saisir",
+      "objet": "cheque",
+      "texte": "Facture\n−50 %"
+     },
+     {
+      "t": 1.4,
+      "fin": 2.6,
+      "type": "ecrire",
+      "objet": "stylo"
+     },
+     {
+      "t": 1.4,
+      "fin": 2.6,
+      "type": "objet",
+      "cote": "l",
+      "objet": "cheque",
+      "texte": "Facture\n−50 %"
+     },
+     {
+      "t": 2.8,
+      "fin": 3.6,
+      "type": "pouce"
+     },
+     {
+      "t": 3.8,
+      "fin": 4.4,
+      "type": "hoche"
+     },
+     {
+      "t": 4.6,
+      "fin": 5.6,
+      "type": "applaudir"
+     },
+     {
+      "t": 5.7,
+      "fin": 6.2,
+      "type": "hoche"
+     },
+     {
+      "t": 6.3,
+      "fin": 7.094,
+      "type": "applaudir"
+     }
+    ]
+   },
+   {
+    "id": "chloe_vitres",
+    "x": 520,
+    "actions": [
+     {
+      "t": 0,
+      "fin": 1.3,
+      "type": "tendre",
+      "cote": "l",
+      "objet": "cheque",
+      "texte": "Facture\n−50 %"
+     },
+     {
+      "t": 1.4,
+      "fin": 2.0,
+      "type": "hoche"
+     },
+     {
+      "t": 2.1,
+      "fin": 2.8,
+      "type": "pouce",
+      "cote": "l"
+     },
+     {
+      "t": 2.9,
+      "fin": 3.4,
+      "type": "walkTo",
+      "x": 600
+     },
+     {
+      "t": 3.4,
+      "fin": 5.8,
+      "type": "raclette",
+      "objet": "raclette"
+     },
+     {
+      "t": 5.9,
+      "fin": 7.094,
+      "type": "pouce"
+     }
+    ]
+   }
+  ],
+  "objets_scene": [
+   {
+    "type": "baie_vitree",
+    "x": 760,
+    "y": 1400,
+    "largeur": 420,
+    "hauteur": 560,
+    "instants": [
+     3.4,
+     5.8
+    ]
+   }
+  ],
+  "duree": 7.094
+ },
+ {
+  "texte": "Troisième levier : un minimum de facturation de cinquante euros. Dix petits passages : deux cents euros de plus.",
+  "decor": "rue",
+  "expression": "fier",
+  "mot_jaune": "minimum",
+  "etiquette": "LEVIER N°3",
+  "element_visuel": {
+   "type": "carte_taux",
+   "titre": "Minimum de facturation : 50 à 80 € par passage",
+   "lignes": [
+    {
+     "label": "Petit passage",
+     "valeur": "30 € → 50 €",
+     "au_mot": "minimum"
+    },
+    {
+     "label": "10 petits passages",
+     "valeur": "+ 200 € par mois",
+     "au_mot": "deux"
+    }
+   ],
+   "mention": "Exemple illustratif",
+   "source": "Source : Abby"
+  },
+  "acteurs": [
+   {
+    "id": "proprietaire",
+    "x": 870,
+    "apparition": 3.6,
+    "expression": "neutre",
+    "actions": [
+     {
+      "t": 3.6,
+      "fin": 4.5,
+      "type": "saisir",
+      "cote": "l"
+     },
+     {
+      "t": 4.6,
+      "fin": 5.2,
+      "type": "hoche"
+     },
+     {
+      "t": 5.3,
+      "fin": 6.13,
+      "type": "pouce",
+      "cote": "l"
+     }
+    ]
+   },
+   {
+    "id": "chloe_vitres",
+    "x": 330,
+    "actions": [
+     {
+      "t": 0.1,
+      "fin": 1.5,
+      "type": "walkTo",
+      "x": 580
+     },
+     {
+      "t": 0,
+      "fin": 1.6,
+      "type": "objet",
+      "objet": "seau"
+     },
+     {
+      "t": 1.65,
+      "fin": 2.3,
+      "type": "sonner"
+     },
+     {
+      "t": 2.4,
+      "fin": 3.5,
+      "type": "raclette",
+      "cote": "l",
+      "objet": "raclette"
+     },
+     {
+      "t": 3.6,
+      "fin": 4.6,
+      "type": "tendre",
+      "objet": "cheque",
+      "texte": "Minimum\n50 €"
+     },
+     {
+      "t": 4.7,
+      "fin": 5.2,
+      "type": "hoche"
+     },
+     {
+      "t": 5.3,
+      "fin": 6.13,
+      "type": "poing",
+      "cote": "l"
+     }
+    ]
+   }
+  ],
+  "objets_scene": [
+   {
+    "type": "voiture",
+    "x": 150,
+    "y": 1500,
+    "couleur": "#8ECAE6",
+    "ouvre_porte": 0
+   },
+   {
+    "type": "facade",
+    "x": 870,
+    "y": 1500,
+    "instants": [
+     1.8
+    ],
+    "ouvre": 3.5
+   },
+   {
+    "type": "baie_vitree",
+    "x": 520,
+    "y": 1140,
+    "largeur": 220,
+    "hauteur": 190,
+    "texte": "simple",
+    "instants": [
+     2.4,
+     3.5
+    ]
+   }
+  ],
+  "duree": 6.13
+ },
+ {
+  "texte": "Quatrième levier : facturer au mètre carré. Trente mètres carrés, soixante euros : une heure pour un expert, deux pour un débutant.",
+  "decor": "maison_jardin",
+  "expression": "fier",
+  "mot_jaune": "mètre",
+  "etiquette": "LEVIER N°4",
+  "element_visuel": {
+   "type": "carte_taux",
+   "titre": "30 m² × 2 € = 60 €",
+   "lignes": [
+    {
+     "label": "Chrono expert : 30 à 40 m²/h",
+     "valeur": "≈ 45 min à 1 h",
+     "au_mot": "expert"
+    },
+    {
+     "label": "Chrono débutant : 15 à 20 m²/h",
+     "valeur": "≈ 1 h 30 à 2 h",
+     "au_mot": "débutant"
+    }
+   ],
+   "mention": "Hypothèse : 2 € par m² (fourchette 1,50 à 4 €)",
+   "source": "Sources : Copeps, Abby"
+  },
+  "acteurs": [
+   {
+    "id": "proprietaire",
+    "x": 880,
+    "expression": "content",
+    "actions": [
+     {
+      "t": 0,
+      "fin": 1.2,
+      "type": "walkIn",
+      "from": "right",
+      "x": 880
+     },
+     {
+      "t": 1.3,
+      "fin": 2.6,
+      "type": "croiser"
+     },
+     {
+      "t": 2.8,
+      "fin": 3.4,
+      "type": "hoche"
+     },
+     {
+      "t": 3.6,
+      "fin": 4.4,
+      "type": "montre",
+      "cote": "l"
+     },
+     {
+      "t": 4.6,
+      "fin": 5.2,
+      "type": "hoche"
+     },
+     {
+      "t": 5.5,
+      "fin": 6.2,
+      "type": "hoche"
+     },
+     {
+      "t": 6.4,
+      "fin": 7.2,
+      "type": "pouce",
+      "cote": "l"
+     },
+     {
+      "t": 7.4,
+      "fin": 8.0,
+      "type": "hoche"
+     }
+    ]
+   },
+   {
+    "id": "chloe_vitres",
+    "x": 420,
+    "actions": [
+     {
+      "t": 0,
+      "fin": 4.2,
+      "type": "perche",
+      "objet": "perche"
+     },
+     {
+      "t": 0,
+      "fin": 1.0,
+      "type": "hoche"
+     },
+     {
+      "t": 4.3,
+      "fin": 5.3,
+      "type": "montrer",
+      "cote": "l",
+      "objet": "chronometre"
+     },
+     {
+      "t": 5.3,
+      "fin": 8.464,
+      "type": "objet",
+      "cote": "l",
+      "objet": "chronometre"
+     },
+     {
+      "t": 5.4,
+      "fin": 6.4,
+      "type": "poing"
+     },
+     {
+      "t": 6.5,
+      "fin": 7.3,
+      "type": "saut"
+     },
+     {
+      "t": 7.4,
+      "fin": 8.464,
+      "type": "pouce"
+     }
+    ]
+   }
+  ],
+  "objets_scene": [
+   {
+    "type": "baie_vitree",
+    "x": 450,
+    "y": 1410,
+    "largeur": 560,
+    "hauteur": 540,
+    "instants": [
+     0.6,
+     4.2
+    ]
+   },
+   {
+    "type": "seau_sol",
+    "x": 740,
+    "y": 1500
+   },
+   {
+    "type": "gouttes",
+    "x": 700,
+    "y": 1370,
+    "largeur": -220,
+    "instants": [
+     0.3
+    ]
+   }
+  ],
+  "duree": 8.464
+ },
+ {
+  "texte": "Cinquième levier : cibler les maisons. Jusqu'à cent soixante euros le passage, contre cent dix pour un appartement.",
+  "decor": "rue",
+  "expression": "content",
+  "mot_jaune": "maisons",
+  "etiquette": "LEVIER N°5",
+  "element_visuel": {
+   "type": "face_a_face",
+   "gauche": {
+    "label": "Maison",
+    "valeur": "100 à 160 €",
+    "petit": "par passage"
+   },
+   "droite": {
+    "label": "Appartement T3",
+    "valeur": "70 à 110 €",
+    "petit": "par passage"
+   },
+   "au_mot": "appartement",
+   "neutre": true,
+   "symbole": "vs",
+   "mention": "Exemple indicatif",
+   "source": "Source : Abby"
+  },
+  "acteurs": [
+   {
+    "id": "proprietaire",
+    "x": 880,
+    "apparition": 3.2,
+    "expression": "content",
+    "actions": [
+     {
+      "t": 3.2,
+      "fin": 4.0,
+      "type": "hoche"
+     },
+     {
+      "t": 4.1,
+      "fin": 5.2,
+      "type": "croiser"
+     },
+     {
+      "t": 5.3,
+      "fin": 6.0,
+      "type": "pouce",
+      "cote": "l"
+     },
+     {
+      "t": 6.1,
+      "fin": 6.861,
+      "type": "saluer",
+      "cote": "l"
+     }
+    ]
+   },
+   {
+    "id": "chloe_vitres",
+    "x": 200,
+    "actions": [
+     {
+      "t": 0,
+      "fin": 1.2,
+      "type": "walkIn",
+      "from": "left",
+      "x": 200
+     },
+     {
+      "t": 1.3,
+      "fin": 2.5,
+      "type": "walkTo",
+      "x": 600
+     },
+     {
+      "t": 2.55,
+      "fin": 3.1,
+      "type": "sonner"
+     },
+     {
+      "t": 3.2,
+      "fin": 4.8,
+      "type": "ecrire",
+      "objet": "stylo"
+     },
+     {
+      "t": 3.2,
+      "fin": 4.8,
+      "type": "objet",
+      "cote": "l",
+      "objet": "calepin"
+     },
+     {
+      "t": 4.9,
+      "fin": 5.7,
+      "type": "pouce"
+     },
+     {
+      "t": 5.8,
+      "fin": 6.4,
+      "type": "hoche"
+     },
+     {
+      "t": 6.4,
+      "fin": 6.861,
+      "type": "pouce",
+      "cote": "l"
+     }
+    ]
+   }
+  ],
+  "objets_scene": [
+   {
+    "type": "facade",
+    "x": 200,
+    "y": 1500,
+    "couleur": "#F7E1A1",
+    "hauteur": 880
+   },
+   {
+    "type": "facade",
+    "x": 880,
+    "y": 1500,
+    "instants": [
+     2.7
+    ],
+    "ouvre": 3.1
+   }
+  ],
+  "duree": 6.861
+ },
+ {
+  "texte": "Conseil : note chaque heure, trajets et devis compris, avant de fixer tes prix.",
+  "decor": "bureau",
+  "expression": "neutre",
+  "mot_jaune": "heure",
+  "etiquette": "CONSEIL",
+  "element_visuel": {
+   "type": "carte_taux",
+   "titre": "1 660 € ÷ 120 h ≈ 14 € par heure",
+   "lignes": [
+    {
+     "label": "Séances",
+     "valeur": "80 h",
+     "au_mot": "note"
+    },
+    {
+     "label": "Trajets",
+     "valeur": "25 h",
+     "au_mot": "trajets"
+    },
+    {
+     "label": "Devis, matériel et administratif",
+     "valeur": "15 h",
+     "au_mot": "devis"
+    }
+   ],
+   "mention": "Exemple illustratif"
+  },
+  "acteurs": [
+   {
+    "id": "chloe_vitres",
+    "x": 500,
+    "pose": "assis",
+    "chaise": "#343A40",
+    "actions": [
+     {
+      "t": 0,
+      "fin": 1.4,
+      "type": "ecrire",
+      "objet": "stylo"
+     },
+     {
+      "t": 0,
+      "fin": 1.4,
+      "type": "objet",
+      "cote": "l",
+      "objet": "carnet"
+     },
+     {
+      "t": 1.5,
+      "fin": 2.2,
+      "type": "tendre",
+      "cote": "l",
+      "objet": "chronometre"
+     },
+     {
+      "t": 2.3,
+      "fin": 3.5,
+      "type": "montrer",
+      "objet": "telephone"
+     },
+     {
+      "t": 3.6,
+      "fin": 4.4,
+      "type": "gratter"
+     },
+     {
+      "t": 4.5,
+      "fin": 5.109,
+      "type": "hoche"
+     }
+    ]
+   }
+  ],
+  "objets_scene": [
+   {
+    "type": "bureau",
+    "x": 500,
+    "y": 1290
+   },
+   {
+    "type": "chrono",
+    "x": 120,
+    "y": 1000,
+    "instants": [
+     1.5,
+     5.109
+    ],
+    "texte": "≈ 14 €/h",
+    "hauteur": 2
+   }
+  ],
+  "duree": 5.109
+ },
+ {
+  "texte": "Attention : au-delà de douze mètres, il faut une nacelle ou des cordistes. Refuse ou sous-traite.",
+  "decor": "chantier",
+  "expression": "neutre",
+  "mot_jaune": "nacelle",
+  "etiquette": "ATTENTION",
+  "element_visuel": {
+   "type": "carte_taux",
+   "titre": "Au-delà de 12 m ou accès difficile",
+   "lignes": [
+    {
+     "label": "Nacelle ou cordistes (méthode alpine)",
+     "valeur": "sur devis",
+     "au_mot": "nacelle"
+    },
+    {
+     "label": "Tarif",
+     "valeur": "très élevé",
+     "au_mot": "cordistes"
+    },
+    {
+     "label": "Assurance R.C. Pro",
+     "valeur": "obligatoire",
+     "au_mot": "refuse"
+    }
+   ],
+   "source": "Sources : Abby, Copeps"
+  },
+  "acteurs": [
+   {
+    "id": "chef_chantier",
+    "x": 600,
+    "expression": "neutre",
+    "actions": [
+     {
+      "t": 0.2,
+      "fin": 1.4,
+      "type": "pointer",
+      "cote": "l",
+      "cible": "cote"
+     },
+     {
+      "t": 1.5,
+      "fin": 2.6,
+      "type": "pointer",
+      "cote": "l",
+      "cible": "haut"
+     },
+     {
+      "t": 2.8,
+      "fin": 3.4,
+      "type": "hoche"
+     },
+     {
+      "t": 3.6,
+      "fin": 4.3,
+      "type": "hausse"
+     },
+     {
+      "t": 4.5,
+      "fin": 5.8,
+      "type": "croiser"
+     },
+     {
+      "t": 6.0,
+      "fin": 6.6,
+      "type": "hoche"
+     }
+    ]
+   },
+   {
+    "id": "chloe_vitres",
+    "x": 900,
+    "actions": [
+     {
+      "t": 0,
+      "fin": 1.0,
+      "type": "walkIn",
+      "from": "right",
+      "x": 900
+     },
+     {
+      "t": 1.1,
+      "fin": 1.9,
+      "type": "incline",
+      "angle": -10
+     },
+     {
+      "t": 2.0,
+      "fin": 3.0,
+      "type": "saluer"
+     },
+     {
+      "t": 3.1,
+      "fin": 5.5,
+      "type": "ecrire",
+      "objet": "stylo"
+     },
+     {
+      "t": 3.1,
+      "fin": 5.5,
+      "type": "objet",
+      "cote": "l",
+      "objet": "carnet"
+     },
+     {
+      "t": 5.6,
+      "fin": 6.2,
+      "type": "hoche"
+     },
+     {
+      "t": 6.3,
+      "fin": 7.047,
+      "type": "pouce"
+     }
+    ]
+   }
+  ],
+  "objets_scene": [
+   {
+    "type": "immeuble_nacelle",
+    "x": 300,
+    "y": 1500,
+    "hauteur": 740,
+    "largeur": 260,
+    "instants": [
+     0.8,
+     4.0
+    ]
+   }
+  ],
+  "duree": 7.047
+ },
+ {
+  "texte": "Règle numéro un : fixe ton prix sur tes cent vingt heures, pas sur les quatre-vingts payées.",
+  "decor": "studio",
+  "expression": "neutre",
+  "mot_jaune": "prix",
+  "etiquette": "RÈGLE N°1",
+  "element_visuel": {
+   "type": "addition_pastilles",
+   "pastilles": [
+    {
+     "texte": "Séances payées : 80 h",
+     "au_mot": "fixe"
+    },
+    {
+     "texte": "Trajets : 25 h",
+     "au_mot": "cent"
+    },
+    {
+     "texte": "Devis et administratif : 15 h",
+     "au_mot": "heures"
+    }
+   ],
+   "resultat": {
+    "texte": "120 h = ton prix",
+    "au_mot": "payées"
+   },
+   "mention": "Exemple illustratif"
+  },
+  "acteurs": [
+   {
+    "id": "chloe_vitres",
+    "x": 540,
+    "echelle": 0.85,
+    "actions": [
+     {
+      "t": 0,
+      "fin": 0.8,
+      "type": "tendre",
+      "objet": "pastilles"
+     },
+     {
+      "t": 0.9,
+      "fin": 1.6,
+      "type": "tendre",
+      "objet": "pastilles"
+     },
+     {
+      "t": 1.7,
+      "fin": 2.4,
+      "type": "tendre",
+      "objet": "pastilles"
+     },
+     {
+      "t": 2.5,
+      "fin": 3.6,
+      "type": "compter",
+      "cote": "l",
+      "doigts": [
+       1,
+       2,
+       3
+      ]
+     },
+     {
+      "t": 3.7,
+      "fin": 4.8,
+      "type": "pointer",
+      "cible": "haut"
+     },
+     {
+      "t": 4.9,
+      "fin": 5.723,
+      "type": "poing"
+     }
+    ]
+   }
+  ],
+  "objets_scene": [],
+  "duree": 5.723
+ },
+ {
+  "texte": "Laveur de vitres : tu te lancerais ? Dis-le en commentaire, et abonne-toi pour d'autres vrais chiffres.",
+  "decor": "maison_jardin",
+  "expression": "content",
+  "mot_jaune": "commentaire",
+  "etiquette": "TON AVIS",
+  "element_visuel": {
+   "type": "icones_cta"
+  },
+  "acteurs": [
+   {
+    "id": "proprietaire",
+    "x": 260,
+    "y": 1420,
+    "echelle": 0.55,
+    "expression": "content",
+    "actions": [
+     {
+      "t": 0,
+      "fin": 1.4,
+      "type": "walkIn",
+      "from": "left",
+      "x": 260
+     },
+     {
+      "t": 1.4,
+      "fin": 2.2,
+      "type": "saluer"
+     },
+     {
+      "t": 2.2,
+      "fin": 4.2,
+      "type": "walkOut",
+      "to": "right"
+     }
+    ]
+   },
+   {
+    "id": "commercante",
+    "x": 300,
+    "y": 1420,
+    "echelle": 0.55,
+    "expression": "content",
+    "actions": [
+     {
+      "t": 2.0,
+      "fin": 3.4,
+      "type": "walkIn",
+      "from": "left",
+      "x": 300
+     },
+     {
+      "t": 3.4,
+      "fin": 4.2,
+      "type": "saluer"
+     },
+     {
+      "t": 4.2,
+      "fin": 6.2,
+      "type": "walkOut",
+      "to": "right"
+     }
+    ]
+   },
+   {
+    "id": "cliente_gilet",
+    "x": 800,
+    "y": 1420,
+    "echelle": 0.55,
+    "expression": "content",
+    "actions": [
+     {
+      "t": 4.0,
+      "fin": 5.4,
+      "type": "walkIn",
+      "from": "right",
+      "x": 800
+     },
+     {
+      "t": 5.4,
+      "fin": 6.2,
+      "type": "saluer",
+      "cote": "l"
+     },
+     {
+      "t": 6.2,
+      "fin": 8.039,
+      "type": "walkOut",
+      "to": "left"
+     }
+    ]
+   },
+   {
+    "id": "chloe_vitres",
+    "x": 540,
+    "echelle": 0.82,
+    "actions": [
+     {
+      "t": 0,
+      "fin": 1.0,
+      "type": "clin"
+     },
+     {
+      "t": 0.2,
+      "fin": 1.4,
+      "type": "pointer",
+      "cible": "bas"
+     },
+     {
+      "t": 1.6,
+      "fin": 2.5,
+      "type": "saluer"
+     },
+     {
+      "t": 2.7,
+      "fin": 3.5,
+      "type": "saut"
+     },
+     {
+      "t": 3.7,
+      "fin": 4.5,
+      "type": "pouce"
+     },
+     {
+      "t": 4.7,
+      "fin": 5.7,
+      "type": "pointer",
+      "cible": "bas"
+     },
+     {
+      "t": 5.9,
+      "fin": 6.7,
+      "type": "saut"
+     },
+     {
+      "t": 6.9,
+      "fin": 8.039,
+      "type": "saluer"
+     }
+    ]
+   }
+  ],
+  "objets_scene": [],
+  "duree": 8.039
+ }
+]

@@ -645,4 +645,60 @@ export const PERSONNAGES: Record<string, Apparence> = {
     costume: {revers: '#6C757D'},
     chemiseOuverte: '#FFFFFF',
   },
+  /** Chloé (ep17), 28 ans, laveuse de vitres indépendante : carré blond cendré, bandeau bleu ciel, salopette en jean
+   *  sur t-shirt blanc, gants jaunes, tablier avec raclettes. Aucun logo. */
+  chloe_vitres: {
+    nom: 'Chloé',
+    genre: 'femme',
+    teint: {peau: '#F3CDB0', ombre: '#DDB092', joues: '#EE9C8C'},
+    cheveux: {style: 'carre_frange', couleur: '#CDBE9B'},
+    tenue: {haut: '#FFFFFF', hautOmbre: '#DEE2E6', bas: '#4A78B0', chaussures: '#F8F9FA', bandeChaussures: '#ADB5BD', tshirt: true},
+    tete: null,
+    sourcils: '#8C7B5C',
+    bandeau: '#8ECAE6',
+    salopette: {couleur: '#4A78B0', ombre: '#3A6494'},
+    gants: '#FFD60A',
+    tablierVitres: '#6C757D',
+  },
+  /** Commerçante (ep17), 45 ans : cheveux noirs mi-longs, tablier rose sur haut noir. */
+  commercante: {
+    nom: 'Commerçante',
+    genre: 'femme',
+    teint: {peau: '#D9A27E', ombre: '#BF8662', joues: '#D3836C'},
+    cheveux: {style: 'mi_long', couleur: '#141418'},
+    tenue: {haut: '#2B2D42', hautOmbre: '#1E1F2E', bas: '#3D405B', chaussures: '#111114', bandeChaussures: '#2A2A30'},
+    tete: null,
+    salopette: {couleur: '#F497B6', ombre: '#E07A9C'},
+  },
+  /** Cliente particulière (ep17), 62 ans : cheveux gris courts, gilet vert. */
+  cliente_gilet: {
+    nom: 'Cliente',
+    genre: 'femme',
+    teint: {peau: '#F1D0B8', ombre: '#D9B49A', joues: '#E9A090'},
+    cheveux: {style: 'court_ondule', couleur: '#A9ADB3'},
+    tenue: {haut: '#4F9D69', hautOmbre: '#3E7D53', bas: '#6B705C', chaussures: '#5C4033', bandeChaussures: '#3E2A20'},
+    tete: null,
+    sourcils: '#8D9196',
+    cardigan: {ombre: '#3E7D53', dessous: '#FFFFFF'},
+  },
+  /** Propriétaire de maison (ep17), 50 ans : polo bleu, lunettes. */
+  proprietaire: {
+    nom: 'Propriétaire',
+    genre: 'homme',
+    teint: {peau: '#E2B08C', ombre: '#C79470', joues: '#D98A74'},
+    cheveux: {style: 'court', couleur: '#6B5B4B'},
+    tenue: {haut: '#3A86FF', hautOmbre: '#2A6AD6', bas: '#BCA37F', chaussures: '#4A3326', bandeChaussures: '#2E1F16', tshirt: true},
+    tete: {type: 'lunettes_carrees', couleur: '#2B2D42'},
+  },
+  /** Chef de chantier (ep17) : casque blanc, gilet orange. */
+  chef_chantier: {
+    nom: 'Chef de chantier',
+    genre: 'homme',
+    teint: {peau: '#C68B65', ombre: '#A9704B', joues: '#C47A62'},
+    cheveux: {style: 'court', couleur: '#2B1D16'},
+    tenue: {haut: '#6C757D', hautOmbre: '#565E64', bas: '#343A40', chaussures: '#3A2A1E', bandeChaussures: '#22180F'},
+    tete: {type: 'casque_velo', couleur: '#F8F9FA', couleurOmbre: '#DEE2E6'},
+    barbe: '#2B1D16',
+    gilet: {couleur: '#FB8500', ombre: '#D96F00', bandes: '#E9ECEF'},
+  },
 };

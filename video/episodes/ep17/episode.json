@@ -1,0 +1,17 @@
+{
+ "titre": "Laveuse de vitres : 2 400 € encaissés, ≈ 14 € de l'heure. Le calcul et les 5 leviers de Chloé",
+ "personnage": "chloe_vitres",
+ "muet": true,
+ "voix": {
+  "mode": "piste_unique",
+  "voice_settings": {
+   "stability": 0.35,
+   "similarity_boost": 0.8,
+   "style": 0.45,
+   "use_speaker_boost": true,
+   "speed": 1.0
+  },
+  "silence_avant": 0.4,
+  "fin_apres_derniere_parole": 3
+ }
+}

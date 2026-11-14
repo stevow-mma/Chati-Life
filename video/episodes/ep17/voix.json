@@ -1,0 +1,1238 @@
+{
+ "mode": "piste_unique",
+ "fichier": "ep17/voix.mp3",
+ "hash": "34537cae28cb3981914d0e2aec0772b6c60e2539fc93e3a14f5bd529618c7d8c",
+ "duree_piste": 84.401633,
+ "derniere_parole": 84.363,
+ "fin": 87.363,
+ "scenes": [
+  {
+   "texte_lu": "Chloé lave des vitres et encaisse deux mille quatre cents euros par mois. Il lui reste environ mille six cent soixante euros.",
+   "debut": 0,
+   "mots": [
+    {
+     "texte": "Chloé",
+     "debut": 0.4,
+     "fin": 0.737
+    },
+    {
+     "texte": "lave",
+     "debut": 0.783,
+     "fin": 0.969
+    },
+    {
+     "texte": "des",
+     "debut": 0.992,
+     "fin": 1.097
+    },
+    {
+     "texte": "vitres",
+     "debut": 1.12,
+     "fin": 1.526
+    },
+    {
+     "texte": "et",
+     "debut": 1.596,
+     "fin": 1.712
+    },
+    {
+     "texte": "encaisse",
+     "debut": 1.77,
+     "fin": 2.165
+    },
+    {
+     "texte": "deux",
+     "debut": 2.211,
+     "fin": 2.327
+    },
+    {
+     "texte": "mille",
+     "debut": 2.35,
+     "fin": 2.536
+    },
+    {
+     "texte": "quatre",
+     "debut": 2.571,
+     "fin": 2.838
+    },
+    {
+     "texte": "cents",
+     "debut": 2.873,
+     "fin": 3.094
+    },
+    {
+     "texte": "euros",
+     "debut": 3.14,
+     "fin": 3.407
+    },
+    {
+     "texte": "par",
+     "debut": 3.442,
+     "fin": 3.581
+    },
+    {
+     "texte": "mois.",
+     "debut": 3.628,
+     "fin": 3.906
+    },
+    {
+     "texte": "Il",
+     "debut": 4.185,
+     "fin": 4.313
+    },
+    {
+     "texte": "lui",
+     "debut": 4.336,
+     "fin": 4.44
+    },
+    {
+     "texte": "reste",
+     "debut": 4.487,
+     "fin": 4.684
+    },
+    {
+     "texte": "environ",
+     "debut": 4.707,
+     "fin": 5.044
+    },
+    {
+     "texte": "mille",
+     "debut": 5.102,
+     "fin": 5.346
+    },
+    {
+     "texte": "six",
+     "debut": 5.392,
+     "fin": 5.59
+    },
+    {
+     "texte": "cent",
+     "debut": 5.613,
+     "fin": 5.775
+    },
+    {
+     "texte": "soixante",
+     "debut": 5.799,
+     "fin": 6.205
+    },
+    {
+     "texte": "euros.",
+     "debut": 6.228,
+     "fin": 6.553
+    }
+   ]
+  },
+  {
+   "texte_lu": "D'abord, les cotisations : cinq cent neuf euros. Puis les trajets : cent cinquante.",
+   "debut": 6.762,
+   "mots": [
+    {
+     "texte": "D'abord,",
+     "debut": 6.762,
+     "fin": 7.285
+    },
+    {
+     "texte": "les",
+     "debut": 7.668,
+     "fin": 7.761
+    },
+    {
+     "texte": "cotisations",
+     "debut": 7.784,
+     "fin": 8.469
+    },
+    {
+     "texte": ":",
+     "debut": 8.492,
+     "fin": 8.539
+    },
+    {
+     "texte": "cinq",
+     "debut": 8.631,
+     "fin": 8.817
+    },
+    {
+     "texte": "cent",
+     "debut": 8.852,
+     "fin": 8.991
+    },
+    {
+     "texte": "neuf",
+     "debut": 9.015,
+     "fin": 9.166
+    },
+    {
+     "texte": "euros.",
+     "debut": 9.224,
+     "fin": 9.549
+    },
+    {
+     "texte": "Puis",
+     "debut": 9.932,
+     "fin": 10.118
+    },
+    {
+     "texte": "les",
+     "debut": 10.141,
+     "fin": 10.222
+    },
+    {
+     "texte": "trajets",
+     "debut": 10.245,
+     "fin": 10.71
+    },
+    {
+     "texte": ":",
+     "debut": 10.744,
+     "fin": 10.826
+    },
+    {
+     "texte": "cent",
+     "debut": 10.942,
+     "fin": 11.116
+    },
+    {
+     "texte": "cinquante.",
+     "debut": 11.139,
+     "fin": 11.731
+    }
+   ]
+  },
+  {
+   "texte_lu": "Ensuite, quatre-vingts pour le matériel, les produits et l'assurance. Il reste environ mille six cent soixante euros, avant impôt.",
+   "debut": 12.335,
+   "mots": [
+    {
+     "texte": "Ensuite,",
+     "debut": 12.335,
+     "fin": 12.869
+    },
+    {
+     "texte": "quatre-vingts",
+     "debut": 12.95,
+     "fin": 13.403
+    },
+    {
+     "texte": "pour",
+     "debut": 13.438,
+     "fin": 13.554
+    },
+    {
+     "texte": "le",
+     "debut": 13.589,
+     "fin": 13.635
+    },
+    {
+     "texte": "matériel,",
+     "debut": 13.67,
+     "fin": 14.332
+    },
+    {
+     "texte": "les",
+     "debut": 14.413,
+     "fin": 14.529
+    },
+    {
+     "texte": "produits",
+     "debut": 14.564,
+     "fin": 15.087
+    },
+    {
+     "texte": "et",
+     "debut": 15.11,
+     "fin": 15.156
+    },
+    {
+     "texte": "l'assurance.",
+     "debut": 15.179,
+     "fin": 15.876
+    },
+    {
+     "texte": "Il",
+     "debut": 16.201,
+     "fin": 16.317
+    },
+    {
+     "texte": "reste",
+     "debut": 16.364,
+     "fin": 16.561
+    },
+    {
+     "texte": "environ",
+     "debut": 16.584,
+     "fin": 16.863
+    },
+    {
+     "texte": "mille",
+     "debut": 16.933,
+     "fin": 17.13
+    },
+    {
+     "texte": "six",
+     "debut": 17.165,
+     "fin": 17.374
+    },
+    {
+     "texte": "cent",
+     "debut": 17.397,
+     "fin": 17.583
+    },
+    {
+     "texte": "soixante",
+     "debut": 17.606,
+     "fin": 18.047
+    },
+    {
+     "texte": "euros,",
+     "debut": 18.07,
+     "fin": 18.395
+    },
+    {
+     "texte": "avant",
+     "debut": 18.477,
+     "fin": 18.825
+    },
+    {
+     "texte": "impôt.",
+     "debut": 18.86,
+     "fin": 19.324
+    }
+   ]
+  },
+  {
+   "texte_lu": "Mais sur cent vingt heures, quatre-vingts seulement sont payées : environ quatorze euros de l'heure.",
+   "debut": 19.707,
+   "mots": [
+    {
+     "texte": "Mais",
+     "debut": 19.707,
+     "fin": 19.916
+    },
+    {
+     "texte": "sur",
+     "debut": 19.94,
+     "fin": 20.102
+    },
+    {
+     "texte": "cent",
+     "debut": 20.149,
+     "fin": 20.299
+    },
+    {
+     "texte": "vingt",
+     "debut": 20.323,
+     "fin": 20.485
+    },
+    {
+     "texte": "heures,",
+     "debut": 20.543,
+     "fin": 20.892
+    },
+    {
+     "texte": "quatre-vingts",
+     "debut": 21.101,
+     "fin": 21.809
+    },
+    {
+     "texte": "seulement",
+     "debut": 22.018,
+     "fin": 22.32
+    },
+    {
+     "texte": "sont",
+     "debut": 22.354,
+     "fin": 22.494
+    },
+    {
+     "texte": "payées",
+     "debut": 22.517,
+     "fin": 22.9
+    },
+    {
+     "texte": ":",
+     "debut": 22.923,
+     "fin": 23.016
+    },
+    {
+     "texte": "environ",
+     "debut": 23.225,
+     "fin": 23.573
+    },
+    {
+     "texte": "quatorze",
+     "debut": 23.666,
+     "fin": 24.003
+    },
+    {
+     "texte": "euros",
+     "debut": 24.026,
+     "fin": 24.235
+    },
+    {
+     "texte": "de",
+     "debut": 24.258,
+     "fin": 24.317
+    },
+    {
+     "texte": "l'heure.",
+     "debut": 24.363,
+     "fin": 24.781
+    }
+   ]
+  },
+  {
+   "texte_lu": "Premier levier : des abonnements pour les commerçants. Dix vitrines à cinquante euros : cinq cents euros chaque mois.",
+   "debut": 25.733,
+   "mots": [
+    {
+     "texte": "Premier",
+     "debut": 25.733,
+     "fin": 26.058
+    },
+    {
+     "texte": "levier",
+     "debut": 26.081,
+     "fin": 26.441
+    },
+    {
+     "texte": ":",
+     "debut": 26.464,
+     "fin": 26.511
+    },
+    {
+     "texte": "des",
+     "debut": 26.604,
+     "fin": 26.731
+    },
+    {
+     "texte": "abonnements",
+     "debut": 26.79,
+     "fin": 27.149
+    },
+    {
+     "texte": "pour",
+     "debut": 27.173,
+     "fin": 27.277
+    },
+    {
+     "texte": "les",
+     "debut": 27.312,
+     "fin": 27.382
+    },
+    {
+     "texte": "commerçants.",
+     "debut": 27.405,
+     "fin": 28.032
+    },
+    {
+     "texte": "Dix",
+     "debut": 28.276,
+     "fin": 28.45
+    },
+    {
+     "texte": "vitrines",
+     "debut": 28.496,
+     "fin": 29.112
+    },
+    {
+     "texte": "à",
+     "debut": 29.146,
+     "fin": 29.193
+    },
+    {
+     "texte": "cinquante",
+     "debut": 29.262,
+     "fin": 29.634
+    },
+    {
+     "texte": "euros",
+     "debut": 29.657,
+     "fin": 29.924
+    },
+    {
+     "texte": ":",
+     "debut": 29.971,
+     "fin": 30.087
+    },
+    {
+     "texte": "cinq",
+     "debut": 30.261,
+     "fin": 30.47
+    },
+    {
+     "texte": "cents",
+     "debut": 30.505,
+     "fin": 30.714
+    },
+    {
+     "texte": "euros",
+     "debut": 30.76,
+     "fin": 31.132
+    },
+    {
+     "texte": "chaque",
+     "debut": 31.19,
+     "fin": 31.468
+    },
+    {
+     "texte": "mois.",
+     "debut": 31.492,
+     "fin": 31.782
+    }
+   ]
+  },
+  {
+   "texte_lu": "Deuxième levier : le crédit d'impôt de cinquante pour cent. Pour tes clients, quatre-vingt-dix euros reviennent à quarante-cinq.",
+   "debut": 32.896,
+   "mots": [
+    {
+     "texte": "Deuxième",
+     "debut": 32.896,
+     "fin": 33.245
+    },
+    {
+     "texte": "levier",
+     "debut": 33.268,
+     "fin": 33.651
+    },
+    {
+     "texte": ":",
+     "debut": 33.674,
+     "fin": 33.732
+    },
+    {
+     "texte": "le",
+     "debut": 33.825,
+     "fin": 33.918
+    },
+    {
+     "texte": "crédit",
+     "debut": 33.964,
+     "fin": 34.22
+    },
+    {
+     "texte": "d'impôt",
+     "debut": 34.243,
+     "fin": 34.499
+    },
+    {
+     "texte": "de",
+     "debut": 34.522,
+     "fin": 34.591
+    },
+    {
+     "texte": "cinquante",
+     "debut": 34.638,
+     "fin": 34.963
+    },
+    {
+     "texte": "pour",
+     "debut": 34.986,
+     "fin": 35.125
+    },
+    {
+     "texte": "cent.",
+     "debut": 35.184,
+     "fin": 35.497
+    },
+    {
+     "texte": "Pour",
+     "debut": 36.008,
+     "fin": 36.159
+    },
+    {
+     "texte": "tes",
+     "debut": 36.217,
+     "fin": 36.321
+    },
+    {
+     "texte": "clients,",
+     "debut": 36.345,
+     "fin": 36.751
+    },
+    {
+     "texte": "quatre-vingt-dix",
+     "debut": 36.786,
+     "fin": 37.61
+    },
+    {
+     "texte": "euros",
+     "debut": 37.656,
+     "fin": 38.109
+    },
+    {
+     "texte": "reviennent",
+     "debut": 38.225,
+     "fin": 38.678
+    },
+    {
+     "texte": "à",
+     "debut": 38.736,
+     "fin": 38.759
+    },
+    {
+     "texte": "quarante-cinq.",
+     "debut": 38.806,
+     "fin": 39.479
+    }
+   ]
+  },
+  {
+   "texte_lu": "Troisième levier : un minimum de facturation de cinquante euros. Dix petits passages : deux cents euros de plus.",
+   "debut": 39.99,
+   "mots": [
+    {
+     "texte": "Troisième",
+     "debut": 39.99,
+     "fin": 40.373
+    },
+    {
+     "texte": "levier",
+     "debut": 40.396,
+     "fin": 40.721
+    },
+    {
+     "texte": ":",
+     "debut": 40.779,
+     "fin": 40.803
+    },
+    {
+     "texte": "un",
+     "debut": 40.861,
+     "fin": 40.977
+    },
+    {
+     "texte": "minimum",
+     "debut": 41.011,
+     "fin": 41.348
+    },
+    {
+     "texte": "de",
+     "debut": 41.418,
+     "fin": 41.476
+    },
+    {
+     "texte": "facturation",
+     "debut": 41.534,
+     "fin": 42.068
+    },
+    {
+     "texte": "de",
+     "debut": 42.114,
+     "fin": 42.172
+    },
+    {
+     "texte": "cinquante",
+     "debut": 42.219,
+     "fin": 42.567
+    },
+    {
+     "texte": "euros.",
+     "debut": 42.59,
+     "fin": 42.892
+    },
+    {
+     "texte": "Dix",
+     "debut": 43.217,
+     "fin": 43.38
+    },
+    {
+     "texte": "petits",
+     "debut": 43.403,
+     "fin": 43.659
+    },
+    {
+     "texte": "passages",
+     "debut": 43.682,
+     "fin": 44.274
+    },
+    {
+     "texte": ":",
+     "debut": 44.297,
+     "fin": 44.332
+    },
+    {
+     "texte": "deux",
+     "debut": 44.46,
+     "fin": 44.622
+    },
+    {
+     "texte": "cents",
+     "debut": 44.657,
+     "fin": 44.878
+    },
+    {
+     "texte": "euros",
+     "debut": 44.901,
+     "fin": 45.098
+    },
+    {
+     "texte": "de",
+     "debut": 45.133,
+     "fin": 45.203
+    },
+    {
+     "texte": "plus.",
+     "debut": 45.249,
+     "fin": 45.795
+    }
+   ]
+  },
+  {
+   "texte_lu": "Quatrième levier : facturer au mètre carré. Trente mètres carrés, soixante euros : une heure pour un expert, deux pour un débutant.",
+   "debut": 46.12,
+   "mots": [
+    {
+     "texte": "Quatrième",
+     "debut": 46.12,
+     "fin": 46.573
+    },
+    {
+     "texte": "levier",
+     "debut": 46.596,
+     "fin": 46.956
+    },
+    {
+     "texte": ":",
+     "debut": 47.037,
+     "fin": 47.13
+    },
+    {
+     "texte": "facturer",
+     "debut": 47.339,
+     "fin": 47.792
+    },
+    {
+     "texte": "au",
+     "debut": 47.815,
+     "fin": 47.861
+    },
+    {
+     "texte": "mètre",
+     "debut": 47.896,
+     "fin": 48.117
+    },
+    {
+     "texte": "carré.",
+     "debut": 48.152,
+     "fin": 48.593
+    },
+    {
+     "texte": "Trente",
+     "debut": 48.802,
+     "fin": 49.08
+    },
+    {
+     "texte": "mètres",
+     "debut": 49.115,
+     "fin": 49.359
+    },
+    {
+     "texte": "carrés,",
+     "debut": 49.382,
+     "fin": 49.719
+    },
+    {
+     "texte": "soixante",
+     "debut": 49.754,
+     "fin": 50.23
+    },
+    {
+     "texte": "euros",
+     "debut": 50.253,
+     "fin": 50.532
+    },
+    {
+     "texte": ":",
+     "debut": 50.555,
+     "fin": 50.671
+    },
+    {
+     "texte": "une",
+     "debut": 50.915,
+     "fin": 51.089
+    },
+    {
+     "texte": "heure",
+     "debut": 51.112,
+     "fin": 51.252
+    },
+    {
+     "texte": "pour",
+     "debut": 51.275,
+     "fin": 51.414
+    },
+    {
+     "texte": "un",
+     "debut": 51.461,
+     "fin": 51.53
+    },
+    {
+     "texte": "expert,",
+     "debut": 51.588,
+     "fin": 52.204
+    },
+    {
+     "texte": "deux",
+     "debut": 52.413,
+     "fin": 52.564
+    },
+    {
+     "texte": "pour",
+     "debut": 52.587,
+     "fin": 52.738
+    },
+    {
+     "texte": "un",
+     "debut": 52.784,
+     "fin": 52.831
+    },
+    {
+     "texte": "débutant.",
+     "debut": 52.877,
+     "fin": 53.469
+    }
+   ]
+  },
+  {
+   "texte_lu": "Cinquième levier : cibler les maisons. Jusqu'à cent soixante euros le passage, contre cent dix pour un appartement.",
+   "debut": 54.584,
+   "mots": [
+    {
+     "texte": "Cinquième",
+     "debut": 54.584,
+     "fin": 54.979
+    },
+    {
+     "texte": "levier",
+     "debut": 55.002,
+     "fin": 55.338
+    },
+    {
+     "texte": ":",
+     "debut": 55.455,
+     "fin": 55.536
+    },
+    {
+     "texte": "cibler",
+     "debut": 55.745,
+     "fin": 56.093
+    },
+    {
+     "texte": "les",
+     "debut": 56.116,
+     "fin": 56.209
+    },
+    {
+     "texte": "maisons.",
+     "debut": 56.232,
+     "fin": 56.72
+    },
+    {
+     "texte": "Jusqu'à",
+     "debut": 57.045,
+     "fin": 57.428
+    },
+    {
+     "texte": "cent",
+     "debut": 57.475,
+     "fin": 57.626
+    },
+    {
+     "texte": "soixante",
+     "debut": 57.66,
+     "fin": 58.02
+    },
+    {
+     "texte": "euros",
+     "debut": 58.044,
+     "fin": 58.264
+    },
+    {
+     "texte": "le",
+     "debut": 58.287,
+     "fin": 58.345
+    },
+    {
+     "texte": "passage,",
+     "debut": 58.38,
+     "fin": 59.042
+    },
+    {
+     "texte": "contre",
+     "debut": 59.216,
+     "fin": 59.506
+    },
+    {
+     "texte": "cent",
+     "debut": 59.553,
+     "fin": 59.773
+    },
+    {
+     "texte": "dix",
+     "debut": 59.808,
+     "fin": 59.959
+    },
+    {
+     "texte": "pour",
+     "debut": 59.994,
+     "fin": 60.122
+    },
+    {
+     "texte": "un",
+     "debut": 60.168,
+     "fin": 60.215
+    },
+    {
+     "texte": "appartement.",
+     "debut": 60.284,
+     "fin": 61.004
+    }
+   ]
+  },
+  {
+   "texte_lu": "Conseil : note chaque heure, trajets et devis compris, avant de fixer tes prix.",
+   "debut": 61.445,
+   "mots": [
+    {
+     "texte": "Conseil",
+     "debut": 61.445,
+     "fin": 61.968
+    },
+    {
+     "texte": ":",
+     "debut": 62.095,
+     "fin": 62.165
+    },
+    {
+     "texte": "note",
+     "debut": 62.49,
+     "fin": 62.711
+    },
+    {
+     "texte": "chaque",
+     "debut": 62.734,
+     "fin": 63.013
+    },
+    {
+     "texte": "heure,",
+     "debut": 63.036,
+     "fin": 63.315
+    },
+    {
+     "texte": "trajets",
+     "debut": 63.338,
+     "fin": 63.756
+    },
+    {
+     "texte": "et",
+     "debut": 63.802,
+     "fin": 63.895
+    },
+    {
+     "texte": "devis",
+     "debut": 63.941,
+     "fin": 64.162
+    },
+    {
+     "texte": "compris,",
+     "debut": 64.185,
+     "fin": 64.615
+    },
+    {
+     "texte": "avant",
+     "debut": 64.673,
+     "fin": 64.952
+    },
+    {
+     "texte": "de",
+     "debut": 64.986,
+     "fin": 65.056
+    },
+    {
+     "texte": "fixer",
+     "debut": 65.114,
+     "fin": 65.404
+    },
+    {
+     "texte": "tes",
+     "debut": 65.439,
+     "fin": 65.543
+    },
+    {
+     "texte": "prix.",
+     "debut": 65.567,
+     "fin": 65.95
+    }
+   ]
+  },
+  {
+   "texte_lu": "Attention : au-delà de douze mètres, il faut une nacelle ou des cordistes. Refuse ou sous-traite.",
+   "debut": 66.554,
+   "mots": [
+    {
+     "texte": "Attention",
+     "debut": 66.554,
+     "fin": 67.099
+    },
+    {
+     "texte": ":",
+     "debut": 67.215,
+     "fin": 67.239
+    },
+    {
+     "texte": "au-delà",
+     "debut": 67.622,
+     "fin": 68.028
+    },
+    {
+     "texte": "de",
+     "debut": 68.074,
+     "fin": 68.156
+    },
+    {
+     "texte": "douze",
+     "debut": 68.202,
+     "fin": 68.423
+    },
+    {
+     "texte": "mètres,",
+     "debut": 68.469,
+     "fin": 68.864
+    },
+    {
+     "texte": "il",
+     "debut": 69.038,
+     "fin": 69.154
+    },
+    {
+     "texte": "faut",
+     "debut": 69.212,
+     "fin": 69.363
+    },
+    {
+     "texte": "une",
+     "debut": 69.456,
+     "fin": 69.549
+    },
+    {
+     "texte": "nacelle",
+     "debut": 69.572,
+     "fin": 70.153
+    },
+    {
+     "texte": "ou",
+     "debut": 70.211,
+     "fin": 70.327
+    },
+    {
+     "texte": "des",
+     "debut": 70.373,
+     "fin": 70.466
+    },
+    {
+     "texte": "cordistes.",
+     "debut": 70.501,
+     "fin": 71.163
+    },
+    {
+     "texte": "Refuse",
+     "debut": 71.546,
+     "fin": 72.103
+    },
+    {
+     "texte": "ou",
+     "debut": 72.173,
+     "fin": 72.289
+    },
+    {
+     "texte": "sous-traite.",
+     "debut": 72.347,
+     "fin": 72.997
+    }
+   ]
+  },
+  {
+   "texte_lu": "Règle numéro un : fixe ton prix sur tes cent vingt heures, pas sur les quatre-vingts payées.",
+   "debut": 73.601,
+   "mots": [
+    {
+     "texte": "Règle",
+     "debut": 73.601,
+     "fin": 73.891
+    },
+    {
+     "texte": "numéro",
+     "debut": 73.937,
+     "fin": 74.228
+    },
+    {
+     "texte": "un",
+     "debut": 74.309,
+     "fin": 74.425
+    },
+    {
+     "texte": ":",
+     "debut": 74.518,
+     "fin": 74.611
+    },
+    {
+     "texte": "fixe",
+     "debut": 74.82,
+     "fin": 75.11
+    },
+    {
+     "texte": "ton",
+     "debut": 75.133,
+     "fin": 75.261
+    },
+    {
+     "texte": "prix",
+     "debut": 75.307,
+     "fin": 75.586
+    },
+    {
+     "texte": "sur",
+     "debut": 75.656,
+     "fin": 75.853
+    },
+    {
+     "texte": "tes",
+     "debut": 75.923,
+     "fin": 76.039
+    },
+    {
+     "texte": "cent",
+     "debut": 76.074,
+     "fin": 76.248
+    },
+    {
+     "texte": "vingt",
+     "debut": 76.271,
+     "fin": 76.457
+    },
+    {
+     "texte": "heures,",
+     "debut": 76.526,
+     "fin": 76.805
+    },
+    {
+     "texte": "pas",
+     "debut": 76.956,
+     "fin": 77.095
+    },
+    {
+     "texte": "sur",
+     "debut": 77.119,
+     "fin": 77.246
+    },
+    {
+     "texte": "les",
+     "debut": 77.281,
+     "fin": 77.362
+    },
+    {
+     "texte": "quatre-vingts",
+     "debut": 77.386,
+     "fin": 77.955
+    },
+    {
+     "texte": "payées.",
+     "debut": 77.989,
+     "fin": 78.512
+    }
+   ]
+  },
+  {
+   "texte_lu": "Laveur de vitres : tu te lancerais ? Dis-le en commentaire, et abonne-toi pour d'autres vrais chiffres.",
+   "debut": 79.324,
+   "mots": [
+    {
+     "texte": "Laveur",
+     "debut": 79.324,
+     "fin": 79.592
+    },
+    {
+     "texte": "de",
+     "debut": 79.65,
+     "fin": 79.719
+    },
+    {
+     "texte": "vitres",
+     "debut": 79.777,
+     "fin": 80.149
+    },
+    {
+     "texte": ":",
+     "debut": 80.184,
+     "fin": 80.253
+    },
+    {
+     "texte": "tu",
+     "debut": 80.346,
+     "fin": 80.485
+    },
+    {
+     "texte": "te",
+     "debut": 80.531,
+     "fin": 80.59
+    },
+    {
+     "texte": "lancerais",
+     "debut": 80.636,
+     "fin": 81.054
+    },
+    {
+     "texte": "?",
+     "debut": 81.077,
+     "fin": 81.158
+    },
+    {
+     "texte": "Dis-le",
+     "debut": 81.251,
+     "fin": 81.484
+    },
+    {
+     "texte": "en",
+     "debut": 81.518,
+     "fin": 81.576
+    },
+    {
+     "texte": "commentaire,",
+     "debut": 81.623,
+     "fin": 82.122
+    },
+    {
+     "texte": "et",
+     "debut": 82.157,
+     "fin": 82.285
+    },
+    {
+     "texte": "abonne-toi",
+     "debut": 82.343,
+     "fin": 82.807
+    },
+    {
+     "texte": "pour",
+     "debut": 82.853,
+     "fin": 82.981
+    },
+    {
+     "texte": "d'autres",
+     "debut": 83.039,
+     "fin": 83.388
+    },
+    {
+     "texte": "vrais",
+     "debut": 83.411,
+     "fin": 83.62
+    },
+    {
+     "texte": "chiffres.",
+     "debut": 83.655,
+     "fin": 84.363
+    }
+   ]
+  }
+ ]
+}

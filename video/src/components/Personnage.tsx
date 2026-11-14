@@ -2,6 +2,7 @@ import {Bandouliere, RobeLongue, TressesArriere, TressesAvant, VesteJean} from '
 import {GrosseBarbe} from './Ep14';
 import {ChronoCou, VesteZip} from './Ep15';
 import {Salopette} from './Ep16';
+import {TablierVitres} from './Ep17';
 import {useCurrentFrame, useVideoConfig, interpolate, spring} from 'remotion';
 import type {Accessoire, Expression, ObjetMain, Pose as Posture} from '../types';
 import {
@@ -187,6 +188,8 @@ export type Apparence = {
   chronoCou?: string | null;
   /** ep16 : salopette (bavette + bretelles) sur le haut. */
   salopette?: {couleur: string; ombre: string} | null;
+  /** ep17 : tablier de taille avec raclettes dans la poche (couleur). */
+  tablierVitres?: string | null;
   /** ep16 : genouillères (couleur, jambes animées). */
   genouilleres?: string | null;
 };
@@ -706,6 +709,14 @@ const CheveuxAvant: React.FC<{a: Apparence}> = ({a}) => {
         <path d="M 156 250 Q 152 300 156 350" fill="none" stroke="rgba(255,255,255,0.18)" strokeWidth={8} strokeLinecap="round" />
         {/* mèches de la frange */}
         <path d="M 240 198 L 246 168 M 300 198 L 300 164 M 360 198 L 354 168" stroke="rgba(255,255,255,0.15)" strokeWidth={5} strokeLinecap="round" />
+        {/* ep17 : bandeau optionnel posé au-dessus de la frange */}
+        {a.bandeau ? (
+          <g>
+            <path d="M 142 236 Q 150 150 300 146 Q 450 150 458 236" fill="none" stroke={OUT} strokeWidth={44} strokeLinecap="round" />
+            <path d="M 142 236 Q 150 150 300 146 Q 450 150 458 236" fill="none" stroke={a.bandeau} strokeWidth={28} strokeLinecap="round" />
+            <path d="M 196 172 Q 250 152 312 150" fill="none" stroke="rgba(255,255,255,0.35)" strokeWidth={6} strokeLinecap="round" />
+          </g>
+        ) : null}
       </g>
     );
   }
@@ -1538,6 +1549,7 @@ export const Personnage: React.FC<{
         {a.vesteZip ? <VesteZip dessous={a.vesteZip.dessous} zip={a.vesteZip.zip} /> : null}
         {a.chronoCou ? <ChronoCou cordon={a.chronoCou} /> : null}
         {a.salopette ? <Salopette couleur={a.salopette.couleur} ombre={a.salopette.ombre} /> : null}
+        {a.tablierVitres && !assis ? <TablierVitres couleur={a.tablierVitres} /> : null}
         {a.casqueCou ? <CasqueCou couleur={a.casqueCou.couleur} coussins={a.casqueCou.coussins} /> : null}
         {a.doudoune ? <Doudoune couleur={a.doudoune.couleur} ombre={a.doudoune.ombre} /> : null}
         {a.vesteJean ? <VesteJean couleur={a.vesteJean.couleur} ombre={a.vesteJean.ombre} dessous={a.vesteJean.dessous} /> : null}

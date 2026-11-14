@@ -2,6 +2,7 @@ import {interpolate, spring, useCurrentFrame, useVideoConfig} from 'remotion';
 import {FONT_TEXTE, FONT_TITRE} from '../fonts';
 import type {ElementVisuel, ObjetScene} from '../types';
 import {Glisse} from './ElementsEp10';
+import {ObjetSceneEp17} from './Ep17';
 
 /**
  * ep16 (Karim, plombier indépendant) : ajouts optionnels, inutilisés par les épisodes précédents.
@@ -239,7 +240,7 @@ export const ObjetSceneEp16: React.FC<{o: ObjetScene; frame: number; fps: number
         </g>
       );
     default:
-      return null;
+      return <ObjetSceneEp17 o={o} frame={frame} fps={fps} />;
   }
 };
 

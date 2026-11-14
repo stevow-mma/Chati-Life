@@ -215,6 +215,8 @@ export type TypeAction =
   // ep11 : changement de pose en cours de scène (`pose`, ex. se lever : assis → debout)
   | 'pose'
   // objet tenu en main (sans geste particulier)
+  // ep17 : laveuse de vitres
+  | 'raclette' | 'pulveriser' | 'frotter' | 'perche' | 'sonner' | 'applaudir'
   | 'objet';
 
 export type ObjetTenuNom =
@@ -231,7 +233,9 @@ export type ObjetTenuNom =
   // ep15
   | 'chronometre' | 'bouteille' | 'haltere' | 'elastique' | 'tapis_roule'
   // ep16
-  | 'cle_molette' | 'caisse_outils' | 'panier' | 'carte_paiement' | 'recu' | 'attestation' | 'pistolet';
+  | 'cle_molette' | 'caisse_outils' | 'panier' | 'carte_paiement' | 'recu' | 'attestation' | 'pistolet'
+  // ep17
+  | 'raclette' | 'perche' | 'seau' | 'pulverisateur' | 'microfibre';
 
 export type ActionActeur = {
   t: number;
@@ -308,7 +312,9 @@ export type ObjetScene = {
     // ep15
     | 'tapis_sol' | 'halteres_sol' | 'canape' | 'tablette_livres' | 'compteur' | 'plan_mural'
     // ep16
-    | 'evier' | 'camion' | 'pompe' | 'chaudiere' | 'calendrier' | 'pile_papiers' | 'boite_pieces' | 'tuyaux';
+    | 'evier' | 'camion' | 'pompe' | 'chaudiere' | 'calendrier' | 'pile_papiers' | 'boite_pieces' | 'tuyaux'
+    // ep17
+    | 'baie_vitree' | 'gouttes' | 'seau_sol' | 'immeuble_nacelle';
   x: number;
   y: number;
   /** Largeur (bureau, écran). */
