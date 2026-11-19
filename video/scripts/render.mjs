@@ -17,4 +17,4 @@ if (!existsSync(join(root, 'episodes', ep, 'episode.json'))) {
 }
 const run = (cmd, args) => execFileSync(cmd, args, {cwd: root, stdio: 'inherit'});
 run('node', ['scripts/voix.mjs', ep]);
-run('npx', ['remotion', 'render', ep, `out/${ep}.mp4`]);
+run('npx', ['remotion', 'render', ep, `out/${ep}.mp4`, ...process.argv.slice(3)]);
